@@ -1,11 +1,17 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
 
 export default function TextSorter() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const handlePaste = () => {
+    textareaRef.current?.focus();
+    document.execCommand("paste");
+  };
 
   const getLines = () => input.split("\n").filter(line => line !== "");
 
@@ -24,6 +30,7 @@ export default function TextSorter() {
         <div style={{ marginBottom: "32px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "10px" }}>
             <div
+              className="tool-header-icon"
               style={{
                 width: "52px", height: "52px", borderRadius: "14px",
                 background: "linear-gradient(135deg, #8b5cf622, #8b5cf644)",
@@ -45,18 +52,25 @@ export default function TextSorter() {
         <div className="tool-section" style={{ marginBottom: "20px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
             <span className="label" style={{ margin: 0, fontWeight: 600, color: "var(--text-primary)" }}>Input Text (One item per line)</span>
-            <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => {setInput(""); setOutput("");}}>
-              Clear
-            </button>
+            <div style={{ display: "flex", gap: "8px" }}>
+              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}>📋 Paste</button>
+              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => {setInput(""); setOutput("");}}>Clear</button>
+            </div>
           </div>
           <textarea
+            ref={textareaRef}
             className="input-field"
             placeholder="Line 1&#10;Line 2&#10;Line 3..."
             style={{ width: "100%", minHeight: "150px", fontFamily: "inherit", fontSize: "15px", lineHeight: "1.8", marginBottom: "16px", padding: "16px", borderRadius: "12px", border: "1px solid var(--border)", background: "var(--bg-card)", color: "var(--text-primary)", resize: "vertical" }}
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            onPaste={(e) => {
+              e.preventDefault();
+              const text = e.clipboardData.getData("text");
+              setInput(text);
+            }}
           />
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }} className="sorter-btn-grid">
             <button style={btnStyle} onClick={sortAlphabetical}>A ➔ Z</button>
             <button style={btnStyle} onClick={sortReverse}>Z ➔ A</button>
             <button style={btnStyle} onClick={sortLength}>Sort by Length</button>

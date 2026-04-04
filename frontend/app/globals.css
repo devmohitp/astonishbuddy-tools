@@ -214,6 +214,7 @@ textarea.input-field {
 
 .range-slider {
   -webkit-appearance: none;
+  appearance: none;
   width: 100%;
   height: 6px;
   border-radius: 3px;
@@ -224,6 +225,7 @@ textarea.input-field {
 
 .range-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
+  appearance: none;
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -304,3 +306,184 @@ h3 { font-size: 1.25rem; font-weight: 600; }
   color: var(--accent-2);
   text-decoration: underline;
 }
+
+/* ===================== RESPONSIVE ===================== */
+
+/* Tablet: 768px and below */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 16px 16px 48px;
+  }
+
+  .tool-section {
+    padding: 16px;
+  }
+
+  .back-btn {
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
+
+  /* Stack any 2-column grid on tablet */
+  .responsive-2col {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Word counter stat grid: 2 columns on tablet */
+  .stat-grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Buttons - allow wrapping */
+  .btn-primary,
+  .btn-secondary {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  /* Input fields */
+  .input-field {
+    font-size: 16px; /* prevents iOS zoom on focus */
+  }
+
+  textarea.input-field {
+    font-size: 15px;
+  }
+
+  /* Code display smaller height on mobile */
+  .code-display {
+    max-height: 280px;
+    font-size: 12px;
+  }
+}
+
+/* Mobile: 480px and below */
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem !important; }
+  h2 { font-size: 1.3rem !important; }
+  h3 { font-size: 1.1rem !important; }
+
+  .page-container {
+    padding: 12px 12px 40px;
+  }
+
+  .tool-section {
+    padding: 14px 12px;
+  }
+
+  /* Full-width buttons on mobile */
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    font-size: 14px;
+    padding: 11px 16px;
+  }
+
+  /* Word counter stat grid: 2 columns on mobile */
+  .stat-grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  /* Stat badges wrap on mobile */
+  .stat-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  /* Textarea min height reduce on mobile */
+  textarea.input-field {
+    min-height: 100px !important;
+    font-size: 15px;
+  }
+
+  .code-display {
+    max-height: 220px;
+    font-size: 11px;
+    padding: 12px;
+  }
+
+  /* Tool header on mobile */
+  .tool-header-icon {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 12px !important;
+    font-size: 20px !important;
+  }
+}
+
+/* JSON Formatter: side-by-side cols → stack on tablet */
+@media (max-width: 768px) {
+  .json-formatter-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .json-formatter-grid textarea {
+    min-height: 200px !important;
+  }
+  .json-formatter-grid .code-display {
+    min-height: 200px !important;
+  }
+}
+
+/* QR Generator: side grid → stack on tablet */
+@media (max-width: 768px) {
+  .qr-generator-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .qr-preview-sticky {
+    position: static !important;
+  }
+}
+
+/* QR ECC grid: 2 col → 1 col on mobile */
+@media (max-width: 480px) {
+  .qr-ecc-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .qr-colors-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Color converter input row → stack on mobile */
+@media (max-width: 480px) {
+  .color-input-row {
+    flex-direction: column !important;
+  }
+  .color-input-row button {
+    width: 100% !important;
+  }
+}
+
+/* Text sorter action buttons → wrap nicely */
+@media (max-width: 480px) {
+  .sorter-btn-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Home page hero padding */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 48px 16px 40px !important;
+  }
+  .hero-section h1 {
+    font-size: clamp(1.8rem, 8vw, 2.8rem) !important;
+    letter-spacing: -1px !important;
+  }
+  .hero-section p {
+    font-size: 15px !important;
+  }
+  .tools-grid {
+    grid-template-columns: 1fr !important;
+    padding: 24px 16px 60px !important;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+

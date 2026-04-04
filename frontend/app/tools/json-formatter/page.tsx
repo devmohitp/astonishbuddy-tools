@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
 
@@ -43,6 +43,12 @@ export default function JSONFormatter() {
   const [spaces, setSpaces] = useState(2);
   const [output, setOutput] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const handlePaste = () => {
+    textareaRef.current?.focus();
+    document.execCommand("paste");
+  };
 
   const handleFormat = () => {
     const { result, error } = formatJSON(input, spaces);
@@ -75,6 +81,7 @@ export default function JSONFormatter() {
         <div style={{ marginBottom: "32px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "10px" }}>
             <div
+              className="tool-header-icon"
               style={{
                 width: "52px", height: "52px", borderRadius: "14px",
                 background: "linear-gradient(135deg, #06b6d422, #06b6d444)",
@@ -94,22 +101,29 @@ export default function JSONFormatter() {
           </div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }} className="json-formatter-grid">
           {/* Input */}
           <div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
               <span className="label" style={{ margin: 0 }}>Input JSON</span>
               <div style={{ display: "flex", gap: "8px" }}>
+                <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}>📋 Paste</button>
                 <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => setInput("")}>Clear</button>
                 <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => { try { setInput(JSON.stringify(JSON.parse(input))); } catch {} }}>Raw</button>
               </div>
             </div>
             <textarea
+              ref={textareaRef}
               className="input-field"
               placeholder={'{\n  "name": "example",\n  "value": 42\n}'}
               style={{ minHeight: "350px", fontFamily: "monospace", fontSize: "13px" }}
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onPaste={(e) => {
+                e.preventDefault();
+                const text = e.clipboardData.getData("text");
+                setInput(text);
+              }}
             />
           </div>
 

@@ -1,11 +1,17 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
 
 export default function Base64Converter() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const handlePaste = () => {
+    textareaRef.current?.focus();
+    document.execCommand("paste");
+  };
 
   const handleEncode = () => {
     try {
@@ -52,16 +58,23 @@ export default function Base64Converter() {
         <div className="tool-section" style={{ marginBottom: "20px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
             <span className="label" style={{ margin: 0, fontWeight: 600, color: "var(--text-primary)" }}>Input Text</span>
-            <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => {setInput(""); setOutput("");}}>
-              Clear
-            </button>
+            <div style={{ display: "flex", gap: "8px" }}>
+              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}>📋 Paste</button>
+              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => {setInput(""); setOutput("");}}>Clear</button>
+            </div>
           </div>
           <textarea
+            ref={textareaRef}
             className="input-field"
             placeholder="Type or paste text here..."
             style={{ width: "100%", minHeight: "150px", fontFamily: "inherit", fontSize: "15px", lineHeight: "1.8", marginBottom: "16px", padding: "16px", borderRadius: "12px", border: "1px solid var(--border)", background: "var(--bg-card)", color: "var(--text-primary)" }}
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            onPaste={(e) => {
+              e.preventDefault();
+              const text = e.clipboardData.getData("text");
+              setInput(text);
+            }}
           />
           <div style={{ display: "flex", gap: "12px" }}>
             <button style={{ flex: 1, padding: "12px", background: "#06b6d4", color: "#fff", border: "none", borderRadius: "8px", cursor: "pointer", fontWeight: 600 }} onClick={handleEncode}>

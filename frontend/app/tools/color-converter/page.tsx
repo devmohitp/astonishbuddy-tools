@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
 
@@ -9,6 +9,12 @@ export default function ColorConverter() {
   const [rgb, setRgb] = useState("");
   const [hsl, setHsl] = useState("");
   const [error, setError] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handlePaste = () => {
+    inputRef.current?.focus();
+    document.execCommand("paste");
+  };
 
   const hexToRgb = (hex: string) => {
     let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -78,6 +84,7 @@ export default function ColorConverter() {
         <div style={{ marginBottom: "32px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "10px" }}>
             <div
+              className="tool-header-icon"
               style={{
                 width: "52px", height: "52px", borderRadius: "14px",
                 background: "linear-gradient(135deg, #f43f5e22, #f43f5e44)",
@@ -99,18 +106,25 @@ export default function ColorConverter() {
         <div className="tool-section" style={{ marginBottom: "20px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
              <span className="label" style={{ margin: 0, fontWeight: 600, color: "var(--text-primary)" }}>Input Color (HEX, RGB, HSL, or Name)</span>
-             <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => {setInput(""); setHex(""); setRgb(""); setHsl("");}}>
-              Clear
-            </button>
+             <div style={{ display: "flex", gap: "8px" }}>
+               <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}>📋 Paste</button>
+               <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => {setInput(""); setHex(""); setRgb(""); setHsl("");}}>Clear</button>
+             </div>
           </div>
-          <div style={{ display: "flex", gap: "12px" }}>
+          <div style={{ display: "flex", gap: "12px" }} className="color-input-row">
             <input
+              ref={inputRef}
               type="text"
               placeholder="#FF5733 or rgb(255, 87, 51)"
               style={{ flex: 1, padding: "14px", borderRadius: "12px", border: "1px solid var(--border)", background: "var(--bg-card)", color: "var(--text-primary)", fontSize: "16px" }}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleConvert()}
+              onPaste={(e) => {
+                e.preventDefault();
+                const text = e.clipboardData.getData("text");
+                setInput(text);
+              }}
             />
             <button style={{ padding: "14px 24px", background: "#f43f5e", color: "#fff", border: "none", borderRadius: "8px", cursor: "pointer", fontWeight: 600, letterSpacing: "0.5px" }} onClick={handleConvert}>
               Convert

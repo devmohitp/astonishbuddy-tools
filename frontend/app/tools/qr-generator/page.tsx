@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 
 const API_BASE = "http://localhost:5000/api";
@@ -20,6 +20,12 @@ export default function QRGenerator() {
   const [qrCode, setQrCode] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const handlePaste = () => {
+    textareaRef.current?.focus();
+    document.execCommand("paste");
+  };
 
   const generate = async () => {
     if (!text.trim()) return;
@@ -64,6 +70,7 @@ export default function QRGenerator() {
         <div style={{ marginBottom: "32px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "10px" }}>
             <div
+              className="tool-header-icon"
               style={{
                 width: "52px", height: "52px", borderRadius: "14px",
                 background: "linear-gradient(135deg, #f59e0b22, #f59e0b44)",
@@ -82,20 +89,27 @@ export default function QRGenerator() {
           </div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 360px", gap: "20px", alignItems: "start" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 360px", gap: "20px", alignItems: "start" }} className="qr-generator-grid">
           {/* Settings */}
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             {/* Text Input */}
             <div className="tool-section">
               <span className="label">Text / URL</span>
               <textarea
+                ref={textareaRef}
                 className="input-field"
                 placeholder="Enter URL, text, email, phone..."
                 style={{ minHeight: "100px", fontFamily: "inherit", resize: "vertical" }}
                 value={text}
                 onChange={(e) => setText(e.target.value)}
+                onPaste={(e) => {
+                  e.preventDefault();
+                  const t = e.clipboardData.getData("text");
+                  setText(t);
+                }}
               />
               <div style={{ display: "flex", gap: "8px", marginTop: "10px", flexWrap: "wrap" }}>
+                <button className="btn-secondary" style={{ fontSize: "12px", padding: "6px 12px" }} onClick={handlePaste}>📋 Paste</button>
                 {presets.map((p) => (
                   <button
                     key={p.label}
@@ -121,7 +135,7 @@ export default function QRGenerator() {
             {/* Error Correction */}
             <div className="tool-section">
               <span className="label">Error Correction Level</span>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }} className="qr-ecc-grid">
                 {ECC_OPTIONS.map((opt) => (
                   <label
                     key={opt.value}
@@ -145,7 +159,7 @@ export default function QRGenerator() {
             {/* Colors */}
             <div className="tool-section">
               <span className="label">Colors</span>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }} className="qr-colors-grid">
                 {[
                   { label: "Dark Color", key: "dark", value: darkColor, set: setDarkColor },
                   { label: "Light Color", key: "light", value: lightColor, set: setLightColor },
@@ -179,6 +193,7 @@ export default function QRGenerator() {
 
           {/* QR Preview */}
           <div
+            className="qr-preview-sticky"
             style={{
               background: "var(--bg-card)",
               border: "1px solid var(--border)",

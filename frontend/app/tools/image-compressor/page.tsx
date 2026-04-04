@@ -119,7 +119,7 @@ export default function ImageCompressor() {
           <input
             ref={fileInputRef}
             type="file"
-            accept="image/*"
+            accept="image/jpeg,image/jpg,image/png,image/webp,image/gif,image/bmp,image/tiff"
             style={{ display: "none" }}
             onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
           />

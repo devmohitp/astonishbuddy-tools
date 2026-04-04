@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
 
@@ -19,6 +19,12 @@ const conversions = [
 
 export default function TextCaseConverter() {
   const [input, setInput] = useState("");
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const handlePaste = () => {
+    textareaRef.current?.focus();
+    document.execCommand("paste");
+  };
 
 
   const wordCount = input.trim() ? input.trim().split(/\s+/).length : 0;
@@ -59,17 +65,23 @@ export default function TextCaseConverter() {
             </div>
           </div>
           <textarea
+            ref={textareaRef}
             className="input-field"
             placeholder="Type or paste your text here..."
             style={{ minHeight: "150px", fontFamily: "inherit" }}
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            onPaste={(e) => {
+              e.preventDefault();
+              const text = e.clipboardData.getData("text");
+              setInput(text);
+            }}
           />
           <div style={{ marginTop: "10px", display: "flex", gap: "8px" }}>
             <button
               className="btn-secondary"
               style={{ fontSize: "13px", padding: "8px 14px" }}
-              onClick={() => { navigator.clipboard.readText().then(setInput); }}
+              onClick={handlePaste}
             >
               📋 Paste
             </button>
