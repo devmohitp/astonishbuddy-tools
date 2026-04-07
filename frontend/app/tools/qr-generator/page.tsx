@@ -2,7 +2,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "/api";
 
 const ECC_OPTIONS = [
   { value: "L", label: "L – Low (7%)", desc: "Best for clean environments" },
