@@ -57,7 +57,7 @@ export default function ImageCompressor() {
         method: "POST",
         body: formData,
       });
-      
+
       const contentType = res.headers.get("content-type");
       if (!res.ok) {
         if (contentType && contentType.includes("application/json")) {
@@ -262,7 +262,7 @@ export default function ImageCompressor() {
         )}
       </div>
       {loading && (
-        <div 
+        <div
           style={{
             position: "fixed", top: 0, left: 0, width: "100%", height: "100%",
             background: "rgba(0,0,0,0.8)", backdropFilter: "blur(8px)",
@@ -278,3 +278,4 @@ export default function ImageCompressor() {
     </main>
   );
 }
+
