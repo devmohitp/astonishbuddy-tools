@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '100mb',
+    },
+    // This handles the proxy/middleware limit for large uploads
+    middlewareClientMaxBodySize: 100 * 1024 * 1024, 
+  },
 };
 
 export default nextConfig;

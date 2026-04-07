@@ -26,6 +26,12 @@ export default function ImageCompressor() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFile = (file: File) => {
+    if (file.size > 100 * 1024 * 1024) {
+      setError("Photo must be under 100 MB");
+      setImage(null);
+      setPreview(null);
+      return;
+    }
     setImage(file);
     setResult(null);
     setError("");
@@ -51,9 +57,25 @@ export default function ImageCompressor() {
         method: "POST",
         body: formData,
       });
-      const data = await res.json();
-      if (!res.ok || !data.success) throw new Error(data.error || "Compression failed");
-      setResult(data);
+      
+      const contentType = res.headers.get("content-type");
+      if (!res.ok) {
+        if (contentType && contentType.includes("application/json")) {
+          const data = await res.json();
+          throw new Error(data.error || "Compression failed");
+        } else {
+          const text = await res.text();
+          throw new Error(text || `Server error (${res.status})`);
+        }
+      }
+
+      if (contentType && contentType.includes("application/json")) {
+        const data = await res.json();
+        if (!data.success) throw new Error(data.error || "Compression failed");
+        setResult(data);
+      } else {
+        throw new Error("Invalid response from server");
+      }
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Compression failed. Is the backend server running?");
     } finally {
@@ -144,7 +166,7 @@ export default function ImageCompressor() {
                 Drop your image here or click to browse
               </p>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
-                Supports JPG, PNG, WebP · Max 20MB
+                Supports JPG, PNG, WebP · Max 100MB
               </p>
             </div>
           )}
@@ -239,6 +261,20 @@ export default function ImageCompressor() {
           </div>
         )}
       </div>
+      {loading && (
+        <div 
+          style={{
+            position: "fixed", top: 0, left: 0, width: "100%", height: "100%",
+            background: "rgba(0,0,0,0.8)", backdropFilter: "blur(8px)",
+            display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+            zIndex: 1000, color: "white"
+          }}
+        >
+          <div className="loader" style={{ marginBottom: "20px" }}></div>
+          <h2 style={{ fontSize: "24px", fontWeight: 800, marginBottom: "8px" }}>Uploading & Compressing...</h2>
+          <p style={{ opacity: 0.7 }}>This may take a moment for large files</p>
+        </div>
+      )}
     </main>
   );
 }

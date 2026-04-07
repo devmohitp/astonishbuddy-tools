@@ -8,12 +8,28 @@ const app = express();
 const PORT = 5000;
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '100mb' }));
+app.use(express.urlencoded({ limit: '100mb', extended: true }));
 
-const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 20 * 1024 * 1024 } });
+const upload = multer({ 
+  storage: multer.memoryStorage(), 
+  limits: { fileSize: 100 * 1024 * 1024 } // 100 MB limit
+});
 
-// Image Compression Endpoint
-app.post('/api/compress-image', upload.single('image'), async (req, res) => {
+// Image Compression Endpoint with Error Handling Wrapper
+app.post('/api/compress-image', (req, res, next) => {
+  upload.single('image')(req, res, (err) => {
+    if (err instanceof multer.MulterError) {
+      if (err.code === 'LIMIT_FILE_SIZE') {
+        return res.status(400).json({ error: 'Photo must be under 100 MB' });
+      }
+      return res.status(400).json({ error: `Upload error: ${err.message}` });
+    } else if (err) {
+      return res.status(500).json({ error: 'Server upload error' });
+    }
+    next();
+  });
+}, async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: 'No image uploaded' });
 
@@ -42,6 +58,8 @@ app.post('/api/compress-image', upload.single('image'), async (req, res) => {
     const compressedSize = outputBuffer.length;
     const savingsPercent = (((originalSize - compressedSize) / originalSize) * 100).toFixed(1);
 
+    console.log(`Success: Compressed from ${originalSize} to ${compressedSize} bytes`);
+
     res.json({
       success: true,
       originalSize,
@@ -51,8 +69,8 @@ app.post('/api/compress-image', upload.single('image'), async (req, res) => {
       imageBase64: outputBuffer.toString('base64'),
     });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Image compression failed' });
+    console.error('Sharp Compression Error:', err);
+    res.status(500).json({ error: `Image compression failed: ${err.message}` });
   }
 });
 
