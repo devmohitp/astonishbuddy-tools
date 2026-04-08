@@ -31,9 +31,14 @@ export default function WordCounter() {
   const stats = analyze(text);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const handlePaste = () => {
-    textareaRef.current?.focus();
-    document.execCommand("paste");
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      setText((prev) => prev + text);
+      textareaRef.current?.focus();
+    } catch (err) {
+      console.error("Failed to read clipboard:", err);
+    }
   };
 
   const statItems = [
@@ -75,7 +80,7 @@ export default function WordCounter() {
         </div>
 
         {/* Stats Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px", marginBottom: "20px" }} className="stat-grid-4">
+        <div style={{ gap: "12px", marginBottom: "20px" }} className="stat-grid-4">
           {statItems.map((s) => (
             <div
               key={s.label}
@@ -113,11 +118,6 @@ export default function WordCounter() {
             style={{ minHeight: "300px", fontFamily: "inherit", fontSize: "15px", lineHeight: "1.8" }}
             value={text}
             onChange={(e) => setText(e.target.value)}
-            onPaste={(e) => {
-              e.preventDefault();
-              const t = e.clipboardData.getData("text");
-              setText(t);
-            }}
           />
         </div>
 

@@ -101,7 +101,7 @@ export default function PasswordGenerator() {
             <input type="range" min={1} max={20} value={count} onChange={(e) => setCount(Number(e.target.value))} className="range-slider" />
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }} className="responsive-2col">
             {Object.entries(CHAR_SETS).map(([key, val]) => (
               <label key={key} style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer", padding: "10px 14px", borderRadius: "10px", background: "var(--bg-secondary)", border: `1px solid ${options[key as keyof typeof options] ? "#ec489944" : "var(--border)"}`, transition: "all 0.2s" }}>
                 <input

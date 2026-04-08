@@ -1,8 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import Link from "next/link";
-
-const API_BASE = "/api";
+import imageCompression from "browser-image-compression";
 
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return bytes + " B";
@@ -18,8 +17,8 @@ export default function ImageCompressor() {
     originalSize: number;
     compressedSize: number;
     savingsPercent: string;
-    imageBase64: string;
-    outputFormat: string;
+    compressedFile: File;
+    previewUrl: string;
   } | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -50,58 +49,49 @@ export default function ImageCompressor() {
     if (!image) return;
     setLoading(true);
     setError("");
+    
+    if (result?.previewUrl) {
+      URL.revokeObjectURL(result.previewUrl);
+    }
+
     try {
-      const formData = new FormData();
-      formData.append("image", image);
-      const res = await fetch(`${API_BASE}/compress-image?quality=${quality}`, {
-        method: "POST",
-        body: formData,
+      const options = {
+        maxSizeMB: image.size / (1024 * 1024),
+        maxWidthOrHeight: 4096,
+        useWebWorker: true,
+        initialQuality: quality / 100,
+      };
+
+      const compressedFile = await imageCompression(image, options);
+      
+      const originalSize = image.size;
+      const compressedSize = compressedFile.size;
+      const savingsPercent = (((originalSize - compressedSize) / originalSize) * 100).toFixed(1);
+      
+      const previewUrl = URL.createObjectURL(compressedFile);
+
+      setResult({
+        originalSize,
+        compressedSize,
+        savingsPercent,
+        compressedFile,
+        previewUrl
       });
-
-      const contentType = res.headers.get("content-type");
-      if (!res.ok) {
-        if (contentType && contentType.includes("application/json")) {
-          const data = await res.json();
-          throw new Error(data.error || "Compression failed");
-        } else {
-          const text = await res.text();
-          throw new Error(text || `Server error (${res.status})`);
-        }
-      }
-
-      if (contentType && contentType.includes("application/json")) {
-        const data = await res.json();
-        if (!data.success) throw new Error(data.error || "Compression failed");
-        setResult(data);
-      } else {
-        throw new Error("Invalid response from server");
-      }
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : "Compression failed. Is the backend server running?");
+      setError(err instanceof Error ? err.message : "Compression failed. Please try a different image.");
     } finally {
       setLoading(false);
     }
   };
 
   const download = () => {
-    if (!result || !image) return;
-    // Convert base64 → Blob → Object URL for reliable download with correct filename
-    const originalName = image.name.replace(/\.[^.]+$/, "");
-    const mimeType = `image/${result.outputFormat}`;
-    const byteCharacters = atob(result.imageBase64);
-    const byteArray = new Uint8Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-      byteArray[i] = byteCharacters.charCodeAt(i);
-    }
-    const blob = new Blob([byteArray], { type: mimeType });
-    const objectUrl = URL.createObjectURL(blob);
+    if (!result) return;
     const link = document.createElement("a");
-    link.href = objectUrl;
-    link.download = `${originalName}.${result.outputFormat}`;
+    link.href = result.previewUrl;
+    link.download = `compressed_${image?.name || "image"}`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    URL.revokeObjectURL(objectUrl);
   };
 
   return (
@@ -228,7 +218,7 @@ export default function ImageCompressor() {
         {result && (
           <div className="glass-card animate-fade-in" style={{ padding: "24px" }}>
             <h3 style={{ marginBottom: "16px", color: "var(--text-primary)" }}>✅ Compression Result</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "12px", marginBottom: "20px" }}>
+            <div className="responsive-stats-grid" style={{ marginBottom: "20px" }}>
               {[
                 { label: "Original Size", value: formatBytes(result.originalSize), type: "info" },
                 { label: "Compressed Size", value: formatBytes(result.compressedSize), type: "success" },
@@ -248,10 +238,10 @@ export default function ImageCompressor() {
                 </div>
               ))}
             </div>
-            {result.imageBase64 && (
+            {result.previewUrl && (
               <div style={{ marginBottom: "16px" }}>
                 <img
-                  src={`data:image/${result.outputFormat};base64,${result.imageBase64}`}
+                  src={result.previewUrl}
                   alt="Compressed"
                   style={{ maxWidth: "100%", maxHeight: "250px", borderRadius: "10px", objectFit: "contain" }}
                 />
@@ -271,11 +261,10 @@ export default function ImageCompressor() {
           }}
         >
           <div className="loader" style={{ marginBottom: "20px" }}></div>
-          <h2 style={{ fontSize: "24px", fontWeight: 800, marginBottom: "8px" }}>Uploading & Compressing...</h2>
-          <p style={{ opacity: 0.7 }}>This may take a moment for large files</p>
+          <h2 style={{ fontSize: "24px", fontWeight: 800, marginBottom: "8px" }}>Compressing...</h2>
+          <p style={{ opacity: 0.7 }}>This happens locally in your browser</p>
         </div>
       )}
     </main>
   );
 }
-

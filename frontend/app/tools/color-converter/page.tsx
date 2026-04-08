@@ -11,9 +11,14 @@ export default function ColorConverter() {
   const [error, setError] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handlePaste = () => {
-    inputRef.current?.focus();
-    document.execCommand("paste");
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      setInput((prev) => prev + text);
+      inputRef.current?.focus();
+    } catch (err) {
+      console.error("Failed to read clipboard:", err);
+    }
   };
 
   const hexToRgb = (hex: string) => {
@@ -111,22 +116,18 @@ export default function ColorConverter() {
                <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => {setInput(""); setHex(""); setRgb(""); setHsl("");}}>Clear</button>
              </div>
           </div>
-          <div style={{ display: "flex", gap: "12px" }} className="color-input-row">
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }} className="color-input-row">
             <input
               ref={inputRef}
               type="text"
+              className="input-field"
               placeholder="#FF5733 or rgb(255, 87, 51)"
-              style={{ flex: 1, padding: "14px", borderRadius: "12px", border: "1px solid var(--border)", background: "var(--bg-card)", color: "var(--text-primary)", fontSize: "16px" }}
+              style={{ flex: "1 1 240px" }}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleConvert()}
-              onPaste={(e) => {
-                e.preventDefault();
-                const text = e.clipboardData.getData("text");
-                setInput(text);
-              }}
             />
-            <button style={{ padding: "14px 24px", background: "#f43f5e", color: "#fff", border: "none", borderRadius: "8px", cursor: "pointer", fontWeight: 600, letterSpacing: "0.5px" }} onClick={handleConvert}>
+            <button className="btn-primary" style={{ flex: "1 1 120px", justifyContent: "center" }} onClick={handleConvert}>
               Convert
             </button>
           </div>

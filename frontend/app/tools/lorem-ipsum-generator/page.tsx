@@ -29,13 +29,13 @@ export default function LoremIpsumGenerator() {
         <Link href="/" className="back-btn">← Back to Tools</Link>
 
         <div style={{ marginBottom: "32px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "10px" }}>
+          <div className="icon-bounce" style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "12px" }}>
             <div
               style={{
-                width: "52px", height: "52px", borderRadius: "14px",
-                background: "linear-gradient(135deg, #6366f122, #6366f144)",
-                border: "1px solid #6366f133",
-                display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px",
+                width: "56px", height: "56px", borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--accent-1), var(--accent-2))",
+                display: "flex", alignItems: "center", justifyContent: "center", fontSize: "28px",
+                boxShadow: "0 8px 20px rgba(108, 99, 255, 0.2)",
               }}
             >📝</div>
             <div>
@@ -49,37 +49,40 @@ export default function LoremIpsumGenerator() {
           </div>
         </div>
 
-        <div className="tool-section" style={{ marginBottom: "20px" }}>
-          <div style={{ display: "flex", gap: "20px", alignItems: "center", marginBottom: "20px" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px", flex: 1 }}>
-              <label style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "14px" }}>Paragraphs</label>
+        <div className="tool-section" style={{ marginBottom: "24px" }}>
+          <div style={{ display: "flex", gap: "16px", alignItems: "flex-end", flexWrap: "wrap" }}>
+            <div style={{ flex: "1 1 auto", minWidth: "150px" }}>
+              <label className="label">Paragraphs</label>
               <input
                 type="number"
                 min="1"
                 max="50"
                 value={paragraphs}
                 onChange={(e) => setParagraphs(Number(e.target.value) || 1)}
-                style={{ padding: "12px", borderRadius: "8px", border: "1px solid var(--border)", background: "var(--bg-card)", color: "var(--text-primary)", fontSize: "16px" }}
+                className="input-field"
               />
             </div>
-            <div style={{ display: "flex", alignItems: "flex-end", flex: 1 }}>
-               <button style={{ width: "100%", padding: "12px", background: "#6366f1", color: "#fff", border: "none", borderRadius: "8px", cursor: "pointer", fontWeight: 600, fontSize: "16px" }} onClick={handleGenerate}>
-                Generate Text
-              </button>
-            </div>
+            <button 
+              className="btn-primary" 
+              style={{ flex: "1 1 auto", height: "45px", justifyContent: "center" }} 
+              onClick={handleGenerate}
+            >
+              Generate Text
+            </button>
           </div>
         </div>
 
         {output && (
-          <div className="tool-section animate-fade-in" style={{ padding: "20px", background: "var(--bg-card)", borderRadius: "16px", border: "1px solid var(--border)" }}>
-             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
-              <span className="label" style={{ margin: 0, fontWeight: 600, color: "var(--text-primary)" }}>Output</span>
-              <CopyButton textToCopy={output} style={{ padding: "6px 12px", fontSize: "12px" }} />
+          <div className="tool-section animate-fade-in">
+             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+              <span className="label" style={{ margin: 0 }}>Generated Text</span>
+              <CopyButton textToCopy={output} />
             </div>
             <textarea
               readOnly
               value={output}
-              style={{ width: "100%", minHeight: "300px", fontFamily: "inherit", fontSize: "15px", lineHeight: "1.8", background: "var(--bg-primary)", border: "1px solid var(--border)", padding: "16px", borderRadius: "12px", color: "var(--text-primary)", resize: "none" }}
+              className="input-field"
+              style={{ minHeight: "350px", fontSize: "15px", lineHeight: "1.8", resize: "none" }}
             />
           </div>
         )}

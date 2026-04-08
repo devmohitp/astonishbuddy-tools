@@ -45,9 +45,14 @@ export default function JSONFormatter() {
   const [error, setError] = useState<string | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const handlePaste = () => {
-    textareaRef.current?.focus();
-    document.execCommand("paste");
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      setInput((prev) => prev + text);
+      textareaRef.current?.focus();
+    } catch (err) {
+      console.error("Failed to read clipboard:", err);
+    }
   };
 
   const handleFormat = () => {
@@ -119,11 +124,6 @@ export default function JSONFormatter() {
               style={{ minHeight: "350px", fontFamily: "monospace", fontSize: "13px" }}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              onPaste={(e) => {
-                e.preventDefault();
-                const text = e.clipboardData.getData("text");
-                setInput(text);
-              }}
             />
           </div>
 

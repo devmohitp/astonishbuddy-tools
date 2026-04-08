@@ -8,9 +8,14 @@ export default function UrlConverter() {
   const [output, setOutput] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const handlePaste = () => {
-    textareaRef.current?.focus();
-    document.execCommand("paste");
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      setInput((prev) => prev + text);
+      textareaRef.current?.focus();
+    } catch (err) {
+      console.error("Failed to read clipboard:", err);
+    }
   };
 
   const handleEncode = () => {
@@ -70,11 +75,6 @@ export default function UrlConverter() {
             style={{ width: "100%", minHeight: "150px", fontFamily: "inherit", fontSize: "15px", lineHeight: "1.8", marginBottom: "16px", padding: "16px", borderRadius: "12px", border: "1px solid var(--border)", background: "var(--bg-card)", color: "var(--text-primary)" }}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onPaste={(e) => {
-              e.preventDefault();
-              const text = e.clipboardData.getData("text");
-              setInput(text);
-            }}
           />
           <div style={{ display: "flex", gap: "12px" }}>
             <button style={{ flex: 1, padding: "12px", background: "#3b82f6", color: "#fff", border: "none", borderRadius: "8px", cursor: "pointer", fontWeight: 600 }} onClick={handleEncode}>

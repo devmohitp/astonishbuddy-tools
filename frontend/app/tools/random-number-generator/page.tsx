@@ -37,13 +37,13 @@ export default function RandomNumberGenerator() {
         <Link href="/" className="back-btn">← Back to Tools</Link>
 
         <div style={{ marginBottom: "32px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "10px" }}>
+          <div className="icon-bounce" style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "12px" }}>
             <div
               style={{
-                width: "52px", height: "52px", borderRadius: "14px",
-                background: "linear-gradient(135deg, #14b8a622, #14b8a644)",
-                border: "1px solid #14b8a633",
-                display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px",
+                width: "56px", height: "56px", borderRadius: "16px",
+                background: "linear-gradient(135deg, #14b8a6, #0d9488)",
+                display: "flex", alignItems: "center", justifyContent: "center", fontSize: "28px",
+                boxShadow: "0 8px 20px rgba(20, 184, 166, 0.2)",
               }}
             >🎲</div>
             <div>
@@ -57,52 +57,57 @@ export default function RandomNumberGenerator() {
           </div>
         </div>
 
-        <div className="tool-section" style={{ marginBottom: "20px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "20px" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <label style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "14px" }}>Minimum</label>
+        <div className="tool-section" style={{ marginBottom: "24px" }}>
+          <div style={{ 
+            display: "grid", 
+            gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", // Better for mobile
+            gap: "16px", 
+            marginBottom: "20px" 
+          }}>
+            <div>
+              <label className="label">Minimum</label>
               <input
                 type="number"
                 value={min}
                 onChange={(e) => setMin(Number(e.target.value))}
-                style={{ padding: "12px", borderRadius: "8px", border: "1px solid var(--border)", background: "var(--bg-card)", color: "var(--text-primary)", fontSize: "16px" }}
+                className="input-field"
               />
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <label style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "14px" }}>Maximum</label>
+            <div>
+              <label className="label">Maximum</label>
               <input
                 type="number"
                 value={max}
                 onChange={(e) => setMax(Number(e.target.value))}
-                style={{ padding: "12px", borderRadius: "8px", border: "1px solid var(--border)", background: "var(--bg-card)", color: "var(--text-primary)", fontSize: "16px" }}
+                className="input-field"
               />
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <label style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "14px" }}>Amount to Generate</label>
+            <div>
+              <label className="label">Amount to Generate</label>
               <input
                 type="number"
                 min="1"
                 max="10000"
                 value={count}
                 onChange={(e) => setCount(Number(e.target.value))}
-                style={{ padding: "12px", borderRadius: "8px", border: "1px solid var(--border)", background: "var(--bg-card)", color: "var(--text-primary)", fontSize: "16px" }}
+                className="input-field"
               />
             </div>
-             <div style={{ display: "flex", flexDirection: "column", gap: "8px", justifyContent: "center", paddingTop: "24px" }}>
-              <label style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer", color: "var(--text-primary)", fontWeight: 500 }}>
+             <div style={{ display: "flex", alignItems: "center", paddingTop: "24px" }}>
+              <label style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer", color: "var(--text-primary)", fontSize: "14px", fontWeight: 500 }}>
                 <input 
                   type="checkbox" 
                   checked={allowDuplicates} 
                   onChange={(e) => setAllowDuplicates(e.target.checked)}
-                  style={{ width: "18px", height: "18px" }}
+                  className="checkbox-custom"
                 />
                 Allow Duplicates
               </label>
             </div>
           </div>
           
-          <button style={{ width: "100%", padding: "14px", background: "#14b8a6", color: "#fff", border: "none", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "16px" }} onClick={handleGenerate}>
-            Generate Numbers
+          <button className="btn-primary" style={{ width: "100%", justifyContent: "center" }} onClick={handleGenerate}>
+            🎯 Generate Numbers
           </button>
         </div>
 

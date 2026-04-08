@@ -281,7 +281,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section style={{ padding: "120px 24px 80px" }}>
+      <section style={{ padding: "clamp(60px, 15vh, 120px) 20px clamp(40px, 10vh, 80px)" }}>
         <AnimatedSection>
           <div style={{ textAlign: "center", maxWidth: "900px", margin: "0 auto" }}>
             <div
@@ -318,7 +318,7 @@ export default function Home() {
 
             <p
               style={{
-                fontSize: "20px",
+                fontSize: "clamp(16px, 4vw, 20px)",
                 color: "var(--text-secondary)",
                 lineHeight: 1.8,
                 maxWidth: "650px",
@@ -342,13 +342,13 @@ export default function Home() {
       {/* Disclaimer Section */}
       <section className="snap-section">
         <AnimatedSection>
-          <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 24px" }}>
-            <div style={{ padding: "80px", background: "var(--bg-card)", borderRadius: "48px", border: "1px solid var(--border)", boxShadow: "0 60px 150px rgba(0,0,0,0.6)" }}>
-              <h2 style={{ fontSize: "48px", fontWeight: 900, color: "var(--text-primary)", marginBottom: "60px", textAlign: "center", letterSpacing: "-2px" }}>
+          <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 16px" }}>
+            <div style={{ padding: "clamp(24px, 8vw, 80px)", background: "var(--bg-card)", borderRadius: "clamp(24px, 5vw, 48px)", border: "1px solid var(--border)", boxShadow: "0 60px 150px rgba(0,0,0,0.6)" }}>
+              <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, color: "var(--text-primary)", marginBottom: "clamp(24px, 5vw, 60px)", textAlign: "center", letterSpacing: "-2px" }}>
                 Disclaimer
               </h2>
 
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "60px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "clamp(24px, 5vw, 60px)" }}>
                 <div>
                   <h3 style={{ fontSize: "24px", fontWeight: 800, color: "var(--text-primary)", marginBottom: "20px" }}>General Information</h3>
                   <p style={{ fontSize: "17px", color: "var(--text-secondary)", lineHeight: 1.8 }}>

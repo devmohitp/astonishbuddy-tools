@@ -22,9 +22,14 @@ export default function QRGenerator() {
   const [error, setError] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const handlePaste = () => {
-    textareaRef.current?.focus();
-    document.execCommand("paste");
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      setText((prev) => prev + text);
+      textareaRef.current?.focus();
+    } catch (err) {
+      console.error("Failed to read clipboard:", err);
+    }
   };
 
   const generate = async () => {
@@ -102,11 +107,6 @@ export default function QRGenerator() {
                 style={{ minHeight: "100px", fontFamily: "inherit", resize: "vertical" }}
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                onPaste={(e) => {
-                  e.preventDefault();
-                  const t = e.clipboardData.getData("text");
-                  setText(t);
-                }}
               />
               <div style={{ display: "flex", gap: "8px", marginTop: "10px", flexWrap: "wrap" }}>
                 <button className="btn-secondary" style={{ fontSize: "12px", padding: "6px 12px" }} onClick={handlePaste}>📋 Paste</button>

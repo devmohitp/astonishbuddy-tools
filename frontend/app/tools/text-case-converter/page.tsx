@@ -21,9 +21,14 @@ export default function TextCaseConverter() {
   const [input, setInput] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const handlePaste = () => {
-    textareaRef.current?.focus();
-    document.execCommand("paste");
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      setInput((prev) => prev + text);
+      textareaRef.current?.focus();
+    } catch (err) {
+      console.error("Failed to read clipboard:", err);
+    }
   };
 
 
@@ -71,11 +76,6 @@ export default function TextCaseConverter() {
             style={{ minHeight: "150px", fontFamily: "inherit" }}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onPaste={(e) => {
-              e.preventDefault();
-              const text = e.clipboardData.getData("text");
-              setInput(text);
-            }}
           />
           <div style={{ marginTop: "10px", display: "flex", gap: "8px" }}>
             <button
@@ -106,8 +106,8 @@ export default function TextCaseConverter() {
                 return (
                   <div
                     key={conv.id}
-                    className="glass-card"
-                    style={{ padding: "16px 18px", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px" }}
+                    className="glass-card flex-responsive"
+                    style={{ padding: "clamp(12px, 4vw, 18px) clamp(14px, 5vw, 20px)" }}
                   >
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ fontSize: "11px", color: "var(--text-muted)", fontWeight: 600, marginBottom: "4px", letterSpacing: "0.5px" }}>
