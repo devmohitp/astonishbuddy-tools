@@ -10,6 +10,7 @@ const toolsList = [
   { id: "json-formatter", name: "JSON Formatter", icon: "{ }", desc: "Format and validate JSON" },
   { id: "word-counter", name: "Word Counter", icon: "📊", desc: "Count words, characters" },
   { id: "qr-generator", name: "QR Code Generator", icon: "⬛", desc: "Generate custom QR codes" },
+  { id: "bulk-qrcode-generator", name: "Bulk QR Generator", icon: "🔳", desc: "Mass QR code generation" },
 ];
 
 function NavItem({ href, children, onClick, isMain = false }: { href: string, children: React.ReactNode, onClick: () => void, isMain?: boolean }) {

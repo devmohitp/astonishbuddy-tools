@@ -141,6 +141,17 @@ const tools = [
     tagColor: "rgba(244,63,94,0.15)",
     tagText: "#fb7185",
   },
+  {
+    id: "bulk-qrcode-generator",
+    name: "Bulk QR Generator",
+    description: "Effortlessly generate hundreds of QR codes in seconds. Export your results as a professional PDF report or a ZIP archive of high-res images.",
+    icon: "🔳",
+    color: "#f59e0b",
+    glow: "rgba(245, 158, 11, 0.4)",
+    tag: "Utility",
+    tagColor: "rgba(245, 158, 11, 0.15)",
+    tagText: "#fbbf24",
+  },
 ];
 
 function Card({ tool, index }: { tool: typeof tools[0]; index: number }) {
