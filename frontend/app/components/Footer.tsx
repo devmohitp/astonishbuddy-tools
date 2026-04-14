@@ -44,6 +44,7 @@ export default function Footer() {
               <li><Link href="/#all-tools" style={linkStyle} onMouseEnter={(e) => e.currentTarget.style.color = "var(--text-primary)"} onMouseLeave={(e) => e.currentTarget.style.color = "inherit"}>Tools</Link></li>
               <li><Link href="/blog" style={linkStyle} onMouseEnter={(e) => e.currentTarget.style.color = "var(--text-primary)"} onMouseLeave={(e) => e.currentTarget.style.color = "inherit"}>Blog</Link></li>
               <li><Link href="/guides" style={linkStyle} onMouseEnter={(e) => e.currentTarget.style.color = "var(--text-primary)"} onMouseLeave={(e) => e.currentTarget.style.color = "inherit"}>Guides</Link></li>
+              <li><Link href="/faq" style={linkStyle} onMouseEnter={(e) => e.currentTarget.style.color = "var(--text-primary)"} onMouseLeave={(e) => e.currentTarget.style.color = "inherit"}>FAQ</Link></li>
             </ul>
           </div>
           <div style={{ flex: "1 1 200px" }}>

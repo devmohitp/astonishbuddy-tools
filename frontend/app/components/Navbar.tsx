@@ -275,6 +275,7 @@ export default function Navbar() {
               <NavItem href="/#all-tools" onClick={() => setIsOpen(false)} isMain>Tools</NavItem>
               <NavItem href="/blog" onClick={() => setIsOpen(false)} isMain>Blog</NavItem>
               <NavItem href="/guides" onClick={() => setIsOpen(false)} isMain>Guides</NavItem>
+              <NavItem href="/faq" onClick={() => setIsOpen(false)} isMain>FAQ</NavItem>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               <div style={{ fontSize: "14px", fontWeight: 700, color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "1.5px", marginBottom: "12px" }}>Company</div>
