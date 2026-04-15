@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import imageCompression from "browser-image-compression";
+import RelatedTools from "../../components/RelatedTools";
 
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return bytes + " B";
@@ -250,6 +251,12 @@ export default function ImageCompressor() {
             <button className="btn-primary" onClick={download}>⬇️ Download Compressed Image</button>
           </div>
         )}
+        <RelatedTools tools={[
+          { href: "/tools/qr-generator", label: "QR Code Generator", icon: "📱", desc: "Generate QR codes for any URL or text" },
+          { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "🗂️", desc: "Create multiple QR codes at once" },
+          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
+          { href: "/tools/color-converter", label: "Color Converter", icon: "🎨", desc: "Convert between HEX, RGB, HSL" },
+        ]} />
       </div>
       {loading && (
         <div

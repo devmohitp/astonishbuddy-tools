@@ -2,6 +2,7 @@
 import { useState, useCallback } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
+import RelatedTools from "../../components/RelatedTools";
 
 const CHAR_SETS = {
   uppercase: { label: "Uppercase (A-Z)", chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ" },
@@ -151,6 +152,12 @@ export default function PasswordGenerator() {
             </button>
           </div>
         )}
+        <RelatedTools tools={[
+          { href: "/tools/random-number-generator", label: "Random Number Generator", icon: "🎲", desc: "Generate random numbers in any range" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
+          { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "🔄", desc: "Encode/decode Base64 strings" },
+          { href: "/tools/qr-generator", label: "QR Code Generator", icon: "📱", desc: "Generate QR codes for any URL or text" },
+        ]} />
       </div>
     </main>
   );

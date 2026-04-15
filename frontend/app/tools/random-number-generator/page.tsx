@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
+import RelatedTools from "../../components/RelatedTools";
 
 export default function RandomNumberGenerator() {
   const [min, setMin] = useState(1);
@@ -130,6 +131,12 @@ export default function RandomNumberGenerator() {
             </div>
           </div>
         )}
+        <RelatedTools tools={[
+          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
+          { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert letter casing" },
+          { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "📄", desc: "Generate placeholder text" },
+          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
+        ]} />
       </div>
     </main>
   );

@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
+import RelatedTools from "../../components/RelatedTools";
 
 export default function ColorConverter() {
   const [input, setInput] = useState("");
@@ -150,6 +151,12 @@ export default function ColorConverter() {
              </div>
           </div>
         )}
+        <RelatedTools tools={[
+          { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file sizes" },
+          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong passwords" },
+          { href: "/tools/qr-generator", label: "QR Code Generator", icon: "📱", desc: "Generate QR codes for any URL" },
+          { href: "/tools/random-number-generator", label: "Random Numbers", icon: "🎲", desc: "Generate random numbers instantly" },
+        ]} />
       </div>
     </main>
   );

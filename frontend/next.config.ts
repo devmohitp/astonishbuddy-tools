@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  trailingSlash: false, // VERY IMPORTANT
   /* config options here */
   async rewrites() {
     const backendUrl = process.env.BACKEND_URL || "http://localhost:5000";

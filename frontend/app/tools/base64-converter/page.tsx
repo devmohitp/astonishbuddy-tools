@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
+import RelatedTools from "../../components/RelatedTools";
 
 export default function Base64Converter() {
   const [input, setInput] = useState("");
@@ -99,6 +100,12 @@ export default function Base64Converter() {
             />
           </div>
         )}
+        <RelatedTools tools={[
+          { href: "/tools/url-converter", label: "URL Encoder", icon: "🔗", desc: "Encode/decode URL special characters" },
+          { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format & validate JSON" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
+          { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert text casing instantly" },
+        ]} />
       </div>
     </main>
   );

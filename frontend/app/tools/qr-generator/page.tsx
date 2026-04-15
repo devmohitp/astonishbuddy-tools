@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import Link from "next/link";
+import RelatedTools from "../../components/RelatedTools";
 
 const API_BASE = "/api";
 
@@ -224,6 +225,12 @@ export default function QRGenerator() {
           </div>
         </div>
       </div>
+        <RelatedTools tools={[
+          { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "🗂️", desc: "Generate multiple QR codes at once" },
+          { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file sizes" },
+          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
+          { href: "/tools/color-converter", label: "Color Converter", icon: "🎨", desc: "Convert between HEX, RGB, HSL" },
+        ]} />
     </main>
   );
 }

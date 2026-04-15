@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
+import RelatedTools from "../../components/RelatedTools";
 
 function formatJSON(raw: string, spaces: number): { result: string; error: string | null } {
   try {
@@ -179,6 +180,12 @@ export default function JSONFormatter() {
           <button className="btn-secondary" onClick={handleMinify}>⚡ Minify</button>
           <button className="btn-secondary" onClick={handleValidate}>✅ Validate</button>
         </div>
+        <RelatedTools tools={[
+          { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "🔄", desc: "Encode/decode Base64 strings" },
+          { href: "/tools/url-converter", label: "URL Encoder", icon: "🔗", desc: "Encode special characters in URLs" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
+          { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Transform letter casing instantly" },
+        ]} />
       </div>
     </main>
   );
