@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import imageCompression from "browser-image-compression";
 import RelatedTools from "../../components/RelatedTools";
+import ToolSEO from "../../components/ToolSEO";
 
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return bytes + " B";
@@ -50,7 +51,7 @@ export default function ImageCompressor() {
     if (!image) return;
     setLoading(true);
     setError("");
-    
+
     if (result?.previewUrl) {
       URL.revokeObjectURL(result.previewUrl);
     }
@@ -64,11 +65,11 @@ export default function ImageCompressor() {
       };
 
       const compressedFile = await imageCompression(image, options);
-      
+
       const originalSize = image.size;
       const compressedSize = compressedFile.size;
       const savingsPercent = (((originalSize - compressedSize) / originalSize) * 100).toFixed(1);
-      
+
       const previewUrl = URL.createObjectURL(compressedFile);
 
       setResult({
@@ -112,7 +113,7 @@ export default function ImageCompressor() {
             >🖼️</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Image Compressor
+                Free Image Compressor Online (Reduce Image Size Without Losing Quality)
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Reduce file size without compromising quality
@@ -251,6 +252,7 @@ export default function ImageCompressor() {
             <button className="btn-primary" onClick={download}>⬇️ Download Compressed Image</button>
           </div>
         )}
+        <ToolSEO toolId="image-compressor" />
         <RelatedTools tools={[
           { href: "/tools/qr-generator", label: "QR Code Generator", icon: "📱", desc: "Generate QR codes for any URL or text" },
           { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "🗂️", desc: "Create multiple QR codes at once" },

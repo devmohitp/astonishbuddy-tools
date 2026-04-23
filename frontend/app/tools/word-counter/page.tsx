@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import RelatedTools from "../../components/RelatedTools";
+import ToolSEO from "../../components/ToolSEO";
 
 function analyze(text: string) {
   const words = text.trim() ? text.trim().split(/\s+/).length : 0;
@@ -151,6 +152,7 @@ export default function WordCounter() {
         )}
       </div>
 
+        <ToolSEO toolId="word-counter" />
         <RelatedTools tools={[
           { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert text to UPPER, lower, Title case instantly" },
           { href: "/tools/text-sorter", label: "Text Sorter", icon: "📋", desc: "Sort and de-duplicate lines of text" },

@@ -9,6 +9,7 @@ import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import Link from "next/link";
 import RelatedTools from "../../components/RelatedTools";
+import ToolSEO from "../../components/ToolSEO";
 
 export default function BulkQRGenerator() {
     const [inputText, setInputText] = useState("https://astonishbuddy.com\nHello World\nScan Me");
@@ -481,6 +482,7 @@ export default function BulkQRGenerator() {
                 }
             `}</style>
             <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px 64px", position: "relative", zIndex: 1 }}>
+                <ToolSEO toolId="bulk-qrcode-generator" />
                 <RelatedTools tools={[
                   { href: "/tools/qr-generator", label: "QR Code Generator", icon: "📱", desc: "Single customizable QR code" },
                   { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file sizes" },

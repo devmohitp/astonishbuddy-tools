@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
 import RelatedTools from "../../components/RelatedTools";
+import ToolSEO from "../../components/ToolSEO";
 
 export default function RandomNumberGenerator() {
   const [min, setMin] = useState(1);
@@ -131,6 +132,7 @@ export default function RandomNumberGenerator() {
             </div>
           </div>
         )}
+        <ToolSEO toolId="random-number-generator" />
         <RelatedTools tools={[
           { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
           { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert letter casing" },

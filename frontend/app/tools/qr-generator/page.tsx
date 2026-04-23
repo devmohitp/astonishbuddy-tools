@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import RelatedTools from "../../components/RelatedTools";
+import ToolSEO from "../../components/ToolSEO";
 
 const API_BASE = "/api";
 
@@ -225,6 +226,7 @@ export default function QRGenerator() {
           </div>
         </div>
       </div>
+        <ToolSEO toolId="qr-generator" />
         <RelatedTools tools={[
           { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "🗂️", desc: "Generate multiple QR codes at once" },
           { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file sizes" },

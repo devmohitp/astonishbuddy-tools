@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
 import RelatedTools from "../../components/RelatedTools";
+import ToolSEO from "../../components/ToolSEO";
 
 export default function TextSorter() {
   const [input, setInput] = useState("");
@@ -144,6 +145,7 @@ export default function TextSorter() {
         <div style={{ padding: "16px", borderRadius: "12px", background: "var(--bg-secondary)", border: "1px solid var(--border)", color: "var(--text-secondary)", fontSize: "13px" }}>
           <p><strong>💡 Tip:</strong> Switch between <strong>Line Mode</strong> and <strong>Word Mode</strong> based on how your text is structured. Changes are applied instantly to the text area.</p>
         </div>
+        <ToolSEO toolId="text-sorter" />
         <RelatedTools tools={[
           { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
           { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert text to any letter case" },

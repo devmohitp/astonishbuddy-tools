@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
 import RelatedTools from "../../components/RelatedTools";
+import ToolSEO from "../../components/ToolSEO";
 
 const conversions = [
   { id: "uppercase", label: "UPPERCASE", convert: (t: string) => t.toUpperCase() },
@@ -132,6 +133,7 @@ export default function TextCaseConverter() {
             <p>Enter some text above to see all conversion formats</p>
           </div>
         )}
+        <ToolSEO toolId="text-case-converter" />
         <RelatedTools tools={[
           { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
           { href: "/tools/text-sorter", label: "Text Sorter", icon: "📋", desc: "Sort and de-duplicate lines of text" },

@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
 import RelatedTools from "../../components/RelatedTools";
+import ToolSEO from "../../components/ToolSEO";
 
 export default function ColorConverter() {
   const [input, setInput] = useState("");
@@ -151,6 +152,7 @@ export default function ColorConverter() {
              </div>
           </div>
         )}
+        <ToolSEO toolId="color-converter" />
         <RelatedTools tools={[
           { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file sizes" },
           { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong passwords" },

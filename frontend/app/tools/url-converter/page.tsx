@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
 import RelatedTools from "../../components/RelatedTools";
+import ToolSEO from "../../components/ToolSEO";
 
 export default function UrlConverter() {
   const [input, setInput] = useState("");
@@ -100,6 +101,7 @@ export default function UrlConverter() {
             />
           </div>
         )}
+        <ToolSEO toolId="url-converter" />
         <RelatedTools tools={[
           { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "🔄", desc: "Encode/decode Base64 strings" },
           { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format & validate JSON" },

@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
 import RelatedTools from "../../components/RelatedTools";
+import ToolSEO from "../../components/ToolSEO";
 
 const LOREM_IPSUMS = [
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -87,6 +88,7 @@ export default function LoremIpsumGenerator() {
             />
           </div>
         )}
+        <ToolSEO toolId="lorem-ipsum-generator" />
         <RelatedTools tools={[
           { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
           { href: "/tools/text-sorter", label: "Text Sorter", icon: "📋", desc: "Sort and de-duplicate lines" },

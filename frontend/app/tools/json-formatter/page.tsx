@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
 import RelatedTools from "../../components/RelatedTools";
+import ToolSEO from "../../components/ToolSEO";
 
 function formatJSON(raw: string, spaces: number): { result: string; error: string | null } {
   try {
@@ -180,6 +181,7 @@ export default function JSONFormatter() {
           <button className="btn-secondary" onClick={handleMinify}>⚡ Minify</button>
           <button className="btn-secondary" onClick={handleValidate}>✅ Validate</button>
         </div>
+        <ToolSEO toolId="json-formatter" />
         <RelatedTools tools={[
           { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "🔄", desc: "Encode/decode Base64 strings" },
           { href: "/tools/url-converter", label: "URL Encoder", icon: "🔗", desc: "Encode special characters in URLs" },
