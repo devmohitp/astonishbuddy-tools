@@ -72,7 +72,7 @@ export default function ColorConverter() {
       return;
     }
     setHex(parsedHex.toUpperCase());
-    
+
     const rgbStr = hexToRgb(parsedHex);
     if (rgbStr) {
       setRgb(rgbStr);
@@ -101,7 +101,7 @@ export default function ColorConverter() {
             >🎨</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Color Code Converter
+                Color Code Converter (HEX to RGB, HSL Converter Online)
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Convert colors between HEX, RGB, and HSL
@@ -112,11 +112,11 @@ export default function ColorConverter() {
 
         <div className="tool-section" style={{ marginBottom: "20px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
-             <span className="label" style={{ margin: 0, fontWeight: 600, color: "var(--text-primary)" }}>Input Color (HEX, RGB, HSL, or Name)</span>
-             <div style={{ display: "flex", gap: "8px" }}>
-               <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}>📋 Paste</button>
-               <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => {setInput(""); setHex(""); setRgb(""); setHsl("");}}>Clear</button>
-             </div>
+            <span className="label" style={{ margin: 0, fontWeight: 600, color: "var(--text-primary)" }}>Input Color (HEX, RGB, HSL, or Name)</span>
+            <div style={{ display: "flex", gap: "8px" }}>
+              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}>📋 Paste</button>
+              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => { setInput(""); setHex(""); setRgb(""); setHsl(""); }}>Clear</button>
+            </div>
           </div>
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }} className="color-input-row">
             <input
@@ -138,18 +138,18 @@ export default function ColorConverter() {
 
         {hex && (
           <div className="tool-section animate-fade-in" style={{ padding: "20px", background: "var(--bg-card)", borderRadius: "16px", border: "1px solid var(--border)" }}>
-             <div style={{ display: "flex", alignItems: "center", gap: "20px", marginBottom: "20px" }}>
-               <div style={{ width: "80px", height: "80px", borderRadius: "16px", background: hex, border: "2px solid var(--border)", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}></div>
-               <div>
-                 <h3 style={{ margin: 0, fontSize: "20px", color: "var(--text-primary)" }}>Color Preview</h3>
-               </div>
-             </div>
-             
-             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-               <ColorRow label="HEX" value={hex} />
-               <ColorRow label="RGB" value={rgb} />
-               <ColorRow label="HSL" value={hsl} />
-             </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "20px", marginBottom: "20px" }}>
+              <div style={{ width: "80px", height: "80px", borderRadius: "16px", background: hex, border: "2px solid var(--border)", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}></div>
+              <div>
+                <h3 style={{ margin: 0, fontSize: "20px", color: "var(--text-primary)" }}>Color Preview</h3>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <ColorRow label="HEX" value={hex} />
+              <ColorRow label="RGB" value={rgb} />
+              <ColorRow label="HSL" value={hsl} />
+            </div>
           </div>
         )}
         <ToolSEO toolId="color-converter" />

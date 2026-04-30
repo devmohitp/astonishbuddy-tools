@@ -152,6 +152,17 @@ const tools = [
     tagColor: "rgba(245, 158, 11, 0.15)",
     tagText: "#fbbf24",
   },
+  {
+    id: "pdf-compressor",
+    name: "PDF Compressor",
+    description: "Reduce PDF file size without uploading to any server. Fast, private, and 100% client-side compression powered by WebAssembly — completely free.",
+    icon: "📄",
+    color: "#ef4444",
+    glow: "rgba(239, 68, 68, 0.4)",
+    tag: "Media",
+    tagColor: "rgba(239,68,68,0.15)",
+    tagText: "#f87171",
+  },
 ];
 
 function Card({ tool, index }: { tool: typeof tools[0]; index: number }) {

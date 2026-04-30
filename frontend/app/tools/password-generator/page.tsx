@@ -72,7 +72,7 @@ export default function PasswordGenerator() {
             >🔐</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Password Generator
+                Free Strong Password Generator (Secure & Random Passwords Online)
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Generate strong, secure passwords instantly

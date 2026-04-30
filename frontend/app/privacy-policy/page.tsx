@@ -92,8 +92,8 @@ export default function PrivacyPolicy() {
               </p>
               <p style={{ margin: 0, display: "flex", alignItems: "center", gap: "8px" }}>
                 <span style={{ color: "var(--text-primary)", fontWeight: 500 }}>Website:</span>
-                <a href="https://astonishbuddy.com" target="_blank" rel="noopener noreferrer" className="email-link">
-                  astonishbuddy.com
+                <a href="https://www.astonishbuddy.com" target="_blank" rel="noopener noreferrer" className="email-link">
+                  www.astonishbuddy.com
                 </a>
               </p>
             </div>

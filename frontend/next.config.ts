@@ -1,8 +1,24 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  trailingSlash: false, // VERY IMPORTANT
-  /* config options here */
+  trailingSlash: false,
+
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "astonishbuddy.com",
+          },
+        ],
+        destination: "https://www.astonishbuddy.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
+
   async rewrites() {
     const backendUrl = process.env.BACKEND_URL || "http://localhost:5000";
     return [
@@ -12,12 +28,12 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
   experimental: {
     serverActions: {
-      bodySizeLimit: '100mb',
+      bodySizeLimit: "100mb",
     },
-    // This handles the proxy/middleware limit for large uploads
-    middlewareClientMaxBodySize: 100 * 1024 * 1024, 
+    middlewareClientMaxBodySize: 100 * 1024 * 1024,
   },
 };
 

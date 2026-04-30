@@ -10,10 +10,31 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Astonishbuddy",
+  metadataBase: new URL("https://www.astonishbuddy.com"),
+
+  title: {
+    default: "Astonishbuddy",
+    template: "%s | Astonishbuddy",
+  },
+
   description:
     "A collection of free online tools: image compressor, text case converter, password generator, JSON formatter, word counter, and QR code generator.",
-  keywords: "free online tools, image compressor, text converter, password generator, JSON formatter, word counter, QR code generator",
+
+  keywords:
+    "free online tools, image compressor, text converter, password generator, JSON formatter, word counter, QR code generator",
+
+  alternates: {
+    canonical: "/", // 👈 homepage canonical
+  },
+
+  openGraph: {
+    title: "Astonishbuddy",
+    description:
+      "Free online tools for image compression, text conversion, password generation and more.",
+    url: "https://www.astonishbuddy.com",
+    siteName: "Astonishbuddy",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -37,6 +58,7 @@ export default function RootLayout({
             gtag('config', 'G-E2KTZ2878L');
           `}
         </Script>
+
         {children}
       </body>
     </html>

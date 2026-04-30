@@ -99,7 +99,7 @@ export default function JSONFormatter() {
             >{"{ }"}</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                JSON Formatter
+                JSON Formatter Online (Format, Beautify & Validate JSON Free)
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Format, validate, and minify JSON data with syntax highlighting
@@ -116,7 +116,7 @@ export default function JSONFormatter() {
               <div style={{ display: "flex", gap: "8px" }}>
                 <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}>📋 Paste</button>
                 <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => setInput("")}>Clear</button>
-                <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => { try { setInput(JSON.stringify(JSON.parse(input))); } catch {} }}>Raw</button>
+                <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => { try { setInput(JSON.stringify(JSON.parse(input))); } catch { } }}>Raw</button>
               </div>
             </div>
             <textarea

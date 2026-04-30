@@ -53,7 +53,7 @@ export default function UrlConverter() {
             >🔗</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                URL Encoder / Decoder
+                URL Encoder & Decoder Online (Encode URLs Instantly)
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Encode text for use in URLs or decode URL-encoded text
@@ -67,7 +67,7 @@ export default function UrlConverter() {
             <span className="label" style={{ margin: 0, fontWeight: 600, color: "var(--text-primary)" }}>Input Text</span>
             <div style={{ display: "flex", gap: "8px" }}>
               <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}>📋 Paste</button>
-              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => {setInput(""); setOutput("");}}>Clear</button>
+              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => { setInput(""); setOutput(""); }}>Clear</button>
             </div>
           </div>
           <textarea
@@ -90,7 +90,7 @@ export default function UrlConverter() {
 
         {output && (
           <div className="tool-section animate-fade-in" style={{ padding: "20px", background: "var(--bg-card)", borderRadius: "16px", border: "1px solid var(--border)" }}>
-             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
               <span className="label" style={{ margin: 0, fontWeight: 600, color: "var(--text-primary)" }}>Output</span>
               <CopyButton textToCopy={output} style={{ padding: "6px 12px", fontSize: "12px" }} />
             </div>

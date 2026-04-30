@@ -2,85 +2,91 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://astonishbuddy.com/</loc>
+    <loc>https://www.astonishbuddy.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://astonishbuddy.com/tools/image-compressor</loc>
+    <loc>https://www.astonishbuddy.com/tools/image-compressor</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://astonishbuddy.com/tools/qr-generator</loc>
+    <loc>https://www.astonishbuddy.com/tools/qr-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://astonishbuddy.com/tools/bulk-qrcode-generator</loc>
+    <loc>https://www.astonishbuddy.com/tools/bulk-qrcode-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://astonishbuddy.com/tools/base64-converter</loc>
+    <loc>https://www.astonishbuddy.com/tools/base64-converter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://astonishbuddy.com/tools/color-converter</loc>
+    <loc>https://www.astonishbuddy.com/tools/color-converter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://astonishbuddy.com/tools/json-formatter</loc>
+    <loc>https://www.astonishbuddy.com/tools/json-formatter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://astonishbuddy.com/tools/lorem-ipsum-generator</loc>
+    <loc>https://www.astonishbuddy.com/tools/lorem-ipsum-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://astonishbuddy.com/tools/password-generator</loc>
+    <loc>https://www.astonishbuddy.com/tools/password-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://astonishbuddy.com/tools/random-number-generator</loc>
+    <loc>https://www.astonishbuddy.com/tools/random-number-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://astonishbuddy.com/tools/text-case-converter</loc>
+    <loc>https://www.astonishbuddy.com/tools/text-case-converter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://astonishbuddy.com/tools/text-sorter</loc>
+    <loc>https://www.astonishbuddy.com/tools/text-sorter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://astonishbuddy.com/tools/url-converter</loc>
+    <loc>https://www.astonishbuddy.com/tools/url-converter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://astonishbuddy.com/tools/word-counter</loc>
+    <loc>https://www.astonishbuddy.com/tools/word-counter</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.astonishbuddy.com/tools/pdf-compressor</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

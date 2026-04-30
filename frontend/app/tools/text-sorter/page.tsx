@@ -23,7 +23,7 @@ export default function TextSorter() {
 
   const transform = (fn: (items: string[]) => string[]) => {
     if (!input.trim()) return;
-    
+
     // Save original for undo if not already saved
     if (!originalInput) setOriginalInput(input);
 
@@ -71,7 +71,7 @@ export default function TextSorter() {
             >🔤</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Text Sorter
+                Text Sorter Online (Sort Text Alphabetically A-Z, Z-A)
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Sort, shuffle, and clean your text by lines or words
@@ -83,14 +83,14 @@ export default function TextSorter() {
         <div className="tool-section" style={{ marginBottom: "20px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
             <div style={{ display: "flex", gap: "8px" }}>
-              <button 
-                className={mode === "lines" ? "stat-badge info" : "stat-badge"} 
+              <button
+                className={mode === "lines" ? "stat-badge info" : "stat-badge"}
                 style={{ cursor: "pointer", border: mode === "lines" ? "1px solid var(--accent-1)" : "1px solid var(--border)" }}
                 onClick={() => setMode("lines")}
               >
                 Line Mode
               </button>
-              <button 
+              <button
                 className={mode === "words" ? "stat-badge info" : "stat-badge"}
                 style={{ cursor: "pointer", border: mode === "words" ? "1px solid var(--accent-1)" : "1px solid var(--border)" }}
                 onClick={() => setMode("words")}
@@ -126,9 +126,9 @@ export default function TextSorter() {
             <div style={{ display: "flex", gap: "12px" }}>
               <CopyButton textToCopy={input} />
               {originalInput && (
-                <button 
-                  className="btn-secondary" 
-                  style={{ background: "rgba(245, 158, 11, 0.1)", color: "#f59e0b", borderColor: "rgba(245, 158, 11, 0.2)" }} 
+                <button
+                  className="btn-secondary"
+                  style={{ background: "rgba(245, 158, 11, 0.1)", color: "#f59e0b", borderColor: "rgba(245, 158, 11, 0.2)" }}
                   onClick={handleRestore}
                 >
                   ↩️ Undo Changes

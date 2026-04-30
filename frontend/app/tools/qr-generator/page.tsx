@@ -87,7 +87,7 @@ export default function QRGenerator() {
             >⬛</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                QR Code Generator
+                Free QR Code Generator Online (Create QR Codes Instantly)
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Generate customizable QR codes for any text or URL
@@ -226,13 +226,13 @@ export default function QRGenerator() {
           </div>
         </div>
       </div>
-        <ToolSEO toolId="qr-generator" />
-        <RelatedTools tools={[
-          { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "🗂️", desc: "Generate multiple QR codes at once" },
-          { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file sizes" },
-          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
-          { href: "/tools/color-converter", label: "Color Converter", icon: "🎨", desc: "Convert between HEX, RGB, HSL" },
-        ]} />
+      <ToolSEO toolId="qr-generator" />
+      <RelatedTools tools={[
+        { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "🗂️", desc: "Generate multiple QR codes at once" },
+        { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file sizes" },
+        { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
+        { href: "/tools/color-converter", label: "Color Converter", icon: "🎨", desc: "Convert between HEX, RGB, HSL" },
+      ]} />
     </main>
   );
 }

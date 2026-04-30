@@ -50,7 +50,7 @@ export default function RandomNumberGenerator() {
             >🎲</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Random Number Generator
+                Random Number Generator (Generate Numbers Online Free)
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Generate random numbers with customizable ranges and quantities
@@ -60,11 +60,11 @@ export default function RandomNumberGenerator() {
         </div>
 
         <div className="tool-section" style={{ marginBottom: "24px" }}>
-          <div style={{ 
-            display: "grid", 
+          <div style={{
+            display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", // Better for mobile
-            gap: "16px", 
-            marginBottom: "20px" 
+            gap: "16px",
+            marginBottom: "20px"
           }}>
             <div>
               <label className="label">Minimum</label>
@@ -95,11 +95,11 @@ export default function RandomNumberGenerator() {
                 className="input-field"
               />
             </div>
-             <div style={{ display: "flex", alignItems: "center", paddingTop: "24px" }}>
+            <div style={{ display: "flex", alignItems: "center", paddingTop: "24px" }}>
               <label style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer", color: "var(--text-primary)", fontSize: "14px", fontWeight: 500 }}>
-                <input 
-                  type="checkbox" 
-                  checked={allowDuplicates} 
+                <input
+                  type="checkbox"
+                  checked={allowDuplicates}
                   onChange={(e) => setAllowDuplicates(e.target.checked)}
                   className="checkbox-custom"
                 />
@@ -107,7 +107,7 @@ export default function RandomNumberGenerator() {
               </label>
             </div>
           </div>
-          
+
           <button className="btn-primary" style={{ width: "100%", justifyContent: "center" }} onClick={handleGenerate}>
             🎯 Generate Numbers
           </button>
@@ -115,13 +115,13 @@ export default function RandomNumberGenerator() {
 
         {output.length > 0 && (
           <div className="tool-section animate-fade-in" style={{ padding: "20px", background: "var(--bg-card)", borderRadius: "16px", border: "1px solid var(--border)" }}>
-             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
               <span className="label" style={{ margin: 0, fontWeight: 600, color: "var(--text-primary)" }}>Result</span>
-               <CopyButton 
-                 textToCopy={output.join(", ")} 
-                 style={{ padding: "6px 12px", fontSize: "12px" }} 
-                 buttonText="Copy All" 
-               />
+              <CopyButton
+                textToCopy={output.join(", ")}
+                style={{ padding: "6px 12px", fontSize: "12px" }}
+                buttonText="Copy All"
+              />
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", maxHeight: "300px", overflowY: "auto", padding: "10px", background: "var(--bg-primary)", borderRadius: "8px", border: "1px solid var(--border)" }}>
               {output.map((num, i) => (

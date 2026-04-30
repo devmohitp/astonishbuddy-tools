@@ -54,7 +54,7 @@ export default function TextCaseConverter() {
             >🔤</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Text Case Converter
+                Free Text Case Converter Online (Uppercase, Lowercase, Title Case)
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Convert text to any case format instantly

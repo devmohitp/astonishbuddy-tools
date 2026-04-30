@@ -72,7 +72,7 @@ export default function WordCounter() {
             >📊</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Word Counter
+                Word Counter Online (Count Words, Characters & Sentences)
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Count words, characters, sentences, and estimate reading time
@@ -152,13 +152,13 @@ export default function WordCounter() {
         )}
       </div>
 
-        <ToolSEO toolId="word-counter" />
-        <RelatedTools tools={[
-          { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert text to UPPER, lower, Title case instantly" },
-          { href: "/tools/text-sorter", label: "Text Sorter", icon: "📋", desc: "Sort and de-duplicate lines of text" },
-          { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "📄", desc: "Generate placeholder text for designs" },
-          { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format & validate JSON with syntax highlighting" },
-        ]} />
+      <ToolSEO toolId="word-counter" />
+      <RelatedTools tools={[
+        { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert text to UPPER, lower, Title case instantly" },
+        { href: "/tools/text-sorter", label: "Text Sorter", icon: "📋", desc: "Sort and de-duplicate lines of text" },
+        { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "📄", desc: "Generate placeholder text for designs" },
+        { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format & validate JSON with syntax highlighting" },
+      ]} />
     </main>
   );
 }

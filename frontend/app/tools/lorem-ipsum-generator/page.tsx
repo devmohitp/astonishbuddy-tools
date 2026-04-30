@@ -42,7 +42,7 @@ export default function LoremIpsumGenerator() {
             >📝</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Lorem Ipsum Generator
+                Lorem Ipsum Generator (Generate Dummy Text Online Free)
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Generate dummy text for your designs and layouts
@@ -64,9 +64,9 @@ export default function LoremIpsumGenerator() {
                 className="input-field"
               />
             </div>
-            <button 
-              className="btn-primary" 
-              style={{ flex: "1 1 auto", height: "45px", justifyContent: "center" }} 
+            <button
+              className="btn-primary"
+              style={{ flex: "1 1 auto", height: "45px", justifyContent: "center" }}
               onClick={handleGenerate}
             >
               Generate Text
@@ -76,7 +76,7 @@ export default function LoremIpsumGenerator() {
 
         {output && (
           <div className="tool-section animate-fade-in">
-             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
               <span className="label" style={{ margin: 0 }}>Generated Text</span>
               <CopyButton textToCopy={output} />
             </div>

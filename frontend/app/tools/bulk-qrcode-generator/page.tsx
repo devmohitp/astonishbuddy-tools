@@ -12,7 +12,7 @@ import RelatedTools from "../../components/RelatedTools";
 import ToolSEO from "../../components/ToolSEO";
 
 export default function BulkQRGenerator() {
-    const [inputText, setInputText] = useState("https://astonishbuddy.com\nHello World\nScan Me");
+    const [inputText, setInputText] = useState("https://www.astonishbuddy.com\nHello World\nScan Me");
     const [isExportingPDF, setIsExportingPDF] = useState(false);
     const [isExportingZIP, setIsExportingZIP] = useState(false);
     const [qrLevel, setQrLevel] = useState<"L" | "M" | "Q" | "H">("M");
@@ -27,7 +27,7 @@ export default function BulkQRGenerator() {
 
     const handleClear = () => setInputText("");
     const handleLoadExample = () =>
-        setInputText("https://astonishbuddy.com\nHello World\nScan Me\nThank You!");
+        setInputText("https://www.astonishbuddy.com\nHello World\nScan Me\nThank You!");
 
     const copyToClipboard = (text: string, id: string) => {
         navigator.clipboard.writeText(text);
@@ -484,10 +484,10 @@ export default function BulkQRGenerator() {
             <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px 64px", position: "relative", zIndex: 1 }}>
                 <ToolSEO toolId="bulk-qrcode-generator" />
                 <RelatedTools tools={[
-                  { href: "/tools/qr-generator", label: "QR Code Generator", icon: "📱", desc: "Single customizable QR code" },
-                  { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file sizes" },
-                  { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
-                  { href: "/tools/color-converter", label: "Color Converter", icon: "🎨", desc: "Convert between HEX, RGB, HSL" },
+                    { href: "/tools/qr-generator", label: "QR Code Generator", icon: "📱", desc: "Single customizable QR code" },
+                    { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file sizes" },
+                    { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
+                    { href: "/tools/color-converter", label: "Color Converter", icon: "🎨", desc: "Convert between HEX, RGB, HSL" },
                 ]} />
             </div>
         </main>

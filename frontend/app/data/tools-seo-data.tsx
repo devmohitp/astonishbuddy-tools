@@ -547,5 +547,71 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
       { q: "Is my data stored?", a: "No, all generation happens in your browser session. Once you refresh or close the tab, the data is gone." }
     ],
     keywords: ["bulk qr generator", "generate multiple qr codes", "qr code batch generator", "bulk qr code to pdf"]
+  },
+  "pdf-compressor": {
+    id: "pdf-compressor",
+    name: "PDF Compressor",
+    shortIntro: "Reduce the size of your PDF files instantly with our free online PDF compressor. Our tool processes everything locally in your browser — no file is ever uploaded to any server, guaranteeing complete privacy. Whether you need to compress PDF for email, reduce PDF size for uploading, or simply save storage space, our tool delivers fast and reliable results. Supports PDFs of all types with no sign-up required. Compress PDF files online free in seconds.",
+    guideContent: (
+      <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          PDF files are the standard for sharing documents, but they can quickly grow in size, making them
+          difficult to email, upload, or store. A large PDF can be blocked by email servers, slow down
+          website performance, or simply take up too much disk space.
+        </p>
+        <p style={{ marginBottom: "16px" }}>
+          Our free PDF compressor solves this problem instantly. Unlike many online tools, our compressor
+          runs entirely in your browser using WebAssembly technology — your files are never sent to any
+          server, making it the safest option for compressing sensitive documents.
+        </p>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          How It Works
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "10px" }}>
+            <strong style={{ color: "var(--text-primary)" }}>Upload Your PDF</strong> — Drag and drop or click to select your PDF file (up to 100 MB).
+          </li>
+          <li style={{ marginBottom: "10px" }}>
+            <strong style={{ color: "var(--text-primary)" }}>Choose Compression Level</strong> — Select Low, Medium, or High based on your quality vs. size preference.
+          </li>
+          <li style={{ marginBottom: "10px" }}>
+            <strong style={{ color: "var(--text-primary)" }}>Compress Instantly</strong> — The tool processes your PDF locally using pdf-lib and object stream compression.
+          </li>
+          <li style={{ marginBottom: "10px" }}>
+            <strong style={{ color: "var(--text-primary)" }}>Download</strong> — Save the optimized PDF directly to your device.
+          </li>
+        </ol>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          When to Compress a PDF
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Before attaching to an email (most servers have a 10–25 MB limit).</li>
+          <li style={{ marginBottom: "8px" }}>Before uploading to a website or CMS portal.</li>
+          <li style={{ marginBottom: "8px" }}>To save storage space on your device or cloud.</li>
+          <li style={{ marginBottom: "8px" }}>Before sharing on messaging apps like WhatsApp.</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Why Our Tool is Unique
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong>100% Private:</strong> Files never leave your browser. Zero server uploads.</li>
+          <li style={{ marginBottom: "8px" }}><strong>No Sign-up:</strong> Completely free, no account needed.</li>
+          <li style={{ marginBottom: "8px" }}><strong>Fast Processing:</strong> Powered by high-performance WebAssembly.</li>
+          <li style={{ marginBottom: "8px" }}><strong>All PDF Types:</strong> Works with text-based, scanned, and image-heavy PDFs.</li>
+        </ul>
+      </div>
+    ),
+    faqs: [
+      { q: "Is the PDF compressor completely free?", a: "Yes, 100% free with no hidden charges, no sign-up, and no file limits per session." },
+      { q: "Is my PDF safe to compress online?", a: "Absolutely. All processing happens locally inside your browser. Your file is never uploaded to any server." },
+      { q: "Why didn't the file size reduce much?", a: "PDFs that are already optimized or contain mostly text have little room for further reduction. The tool removes redundant data, but highly efficient PDFs may not see a significant size change." },
+      { q: "Can I compress encrypted PDFs?", a: "Our tool attempts to process encrypted PDFs, but some security restrictions may prevent modification. Try removing the password first if possible." },
+      { q: "What is the maximum file size I can compress?", a: "You can compress PDF files up to 100 MB using our free online tool." }
+    ],
+    keywords: ["pdf compressor", "compress pdf online free", "reduce pdf size", "pdf file size reducer", "compress pdf without losing quality"]
   }
 };
+
