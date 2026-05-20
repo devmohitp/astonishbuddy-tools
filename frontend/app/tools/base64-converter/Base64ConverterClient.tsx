@@ -58,7 +58,7 @@ export default function Base64ConverterClient() {
                         >🔄</div>
                         <div>
                             <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                                Base64 Encoder & Decoder Online (Encode & Decode Text Easily)
+                                Base64 Encoder & Decoder Online - Encode & Decode Text Easily
                             </h1>
                             <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                                 Encode to Base64 or decode Base64 strings instantly
@@ -75,7 +75,7 @@ export default function Base64ConverterClient() {
                             <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => { setInput(""); setOutput(""); }}>Clear</button>
                         </div>
                     </div>
-                    
+
                     <textarea
                         ref={textareaRef}
                         className="input-field"
@@ -84,7 +84,7 @@ export default function Base64ConverterClient() {
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                     />
-                    
+
                     <div style={{ display: "flex", gap: "12px", marginTop: "16px", flexWrap: "wrap" }}>
                         <button className="btn-primary" style={{ flex: "1 1 auto", justifyContent: "center", padding: "12px 24px" }} onClick={handleEncode}>
                             🔒 Encode to Base64

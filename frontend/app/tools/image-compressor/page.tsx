@@ -113,7 +113,7 @@ export default function ImageCompressor() {
             >🖼️</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Free Image Compressor Online (Reduce Image Size Without Losing Quality)
+                Free Image Compressor Online - Reduce Image Size Without Losing Quality
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Reduce file size without compromising quality
