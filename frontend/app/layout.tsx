@@ -44,12 +44,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          async
+          strategy="beforeInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3280584684265213"
+          crossOrigin="anonymous"
+        />
+      </head>
+
       <body>
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-E2KTZ2878L"
           strategy="afterInteractive"
         />
+
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -58,14 +68,6 @@ export default function RootLayout({
             gtag('config', 'G-E2KTZ2878L');
           `}
         </Script>
-
-        {/* Google AdSense */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3280584684265213"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
 
         {children}
       </body>
