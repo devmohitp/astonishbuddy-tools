@@ -2,8 +2,10 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
-import RelatedTools from "../../components/RelatedTools";
-import ToolSEO from "../../components/ToolSEO";
+import dynamic from "next/dynamic";
+
+const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
+const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 
 const conversions = [
   { id: "uppercase", label: "UPPERCASE", convert: (t: string) => t.toUpperCase() },
@@ -54,7 +56,7 @@ export default function TextCaseConverter() {
             >🔤</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Free Text Case Converter Online (Uppercase, Lowercase, Title Case)
+                Free Text Case Converter Online - Uppercase, Lowercase, Title Case
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Convert text to any case format instantly

@@ -2,8 +2,10 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
-import RelatedTools from "../../components/RelatedTools";
-import ToolSEO from "../../components/ToolSEO";
+import dynamic from "next/dynamic";
+
+const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
+const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 
 export default function ColorConverter() {
   const [input, setInput] = useState("");
@@ -101,7 +103,7 @@ export default function ColorConverter() {
             >🎨</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Color Code Converter (HEX to RGB, HSL Converter Online)
+                Color Code Converter - HEX to RGB, HSL Converter Online
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Convert colors between HEX, RGB, and HSL

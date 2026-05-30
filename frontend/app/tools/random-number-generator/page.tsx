@@ -2,8 +2,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
-import RelatedTools from "../../components/RelatedTools";
-import ToolSEO from "../../components/ToolSEO";
+import dynamic from "next/dynamic";
+
+const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
+const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 
 export default function RandomNumberGenerator() {
   const [min, setMin] = useState(1);
@@ -50,7 +52,7 @@ export default function RandomNumberGenerator() {
             >🎲</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Random Number Generator (Generate Numbers Online Free)
+                Random Number Generator - Generate Numbers Online Free
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Generate random numbers with customizable ranges and quantities

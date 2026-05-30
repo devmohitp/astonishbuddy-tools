@@ -1,9 +1,10 @@
 "use client";
 import { useState, useRef } from "react";
 import Link from "next/link";
-import { PDFDocument } from "pdf-lib";
-import RelatedTools from "../../components/RelatedTools";
-import ToolSEO from "../../components/ToolSEO";
+import dynamic from "next/dynamic";
+
+const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
+const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return bytes + " B";
@@ -93,6 +94,9 @@ export default function PDFCompressor() {
       const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(arrayBuffer) });
       const pdfJsDoc = await loadingTask.promise;
       const numPages = pdfJsDoc.numPages;
+
+      // Dynamically import pdf-lib (~300KB) only when actually compressing
+      const { PDFDocument } = await import("pdf-lib");
 
       // Create a new pdf-lib document to hold compressed pages
       const newPdfDoc = await PDFDocument.create();
@@ -210,7 +214,7 @@ export default function PDFCompressor() {
                   letterSpacing: "-0.5px",
                 }}
               >
-                Free PDF Compressor Online — Reduce PDF File Size Instantly
+                Free PDF Compressor Online - Reduce PDF File Size Instantly
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Compress PDF files in your browser — no upload to servers, 100%

@@ -3,8 +3,10 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
-import RelatedTools from "../../components/RelatedTools";
-import ToolSEO from "../../components/ToolSEO";
+import dynamic from "next/dynamic";
+
+const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
+const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 
 export default function Base64ConverterClient() {
     const [input, setInput] = useState("");

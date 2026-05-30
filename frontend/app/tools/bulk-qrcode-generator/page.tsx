@@ -1,15 +1,20 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { QRCodeCanvas } from "qrcode.react";
+import dynamic from "next/dynamic";
 import { FileText, DownloadCloud, Trash2, Plus, ChevronLeft, Copy, Check, RefreshCw, LayoutGrid } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import jsPDF from "jspdf";
-import JSZip from "jszip";
-import { saveAs } from "file-saver";
 import Link from "next/link";
-import RelatedTools from "../../components/RelatedTools";
-import ToolSEO from "../../components/ToolSEO";
+
+// Dynamically import heavy/below-fold components
+const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
+const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
+
+// Dynamically import qrcode.react — it's a heavy canvas library, load only when component mounts
+const QRCodeCanvas = dynamic(
+    () => import("qrcode.react").then((mod) => ({ default: mod.QRCodeCanvas })),
+    { ssr: false, loading: () => <div style={{ width: 112, height: 112, background: "#f0f0f0", borderRadius: 8 }} /> }
+);
 
 export default function BulkQRGenerator() {
     const [inputText, setInputText] = useState("https://www.astonishbuddy.com\nHello World\nScan Me");
@@ -39,6 +44,8 @@ export default function BulkQRGenerator() {
         if (qrItems.length === 0) return;
         setIsExportingPDF(true);
         try {
+            // Dynamically import jsPDF only when needed (~200KB saved from initial bundle)
+            const { default: jsPDF } = await import("jspdf");
             const pdf = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
             const margin = 20;
             const itemSize = 55;
@@ -78,6 +85,11 @@ export default function BulkQRGenerator() {
         if (qrItems.length === 0) return;
         setIsExportingZIP(true);
         try {
+            // Dynamically import JSZip + file-saver only when needed (~90KB + ~3KB saved)
+            const [{ default: JSZip }, { saveAs }] = await Promise.all([
+                import("jszip"),
+                import("file-saver"),
+            ]);
             const zip = new JSZip();
             for (let i = 0; i < qrItems.length; i++) {
                 const canvas = document.getElementById(`qr-${i}`) as HTMLCanvasElement;
@@ -96,11 +108,13 @@ export default function BulkQRGenerator() {
         }
     };
 
-    const downloadSingleQR = (index: number, text: string) => {
+    const downloadSingleQR = async (index: number, text: string) => {
         const canvas = document.getElementById(`qr-${index}`) as HTMLCanvasElement;
         if (!canvas) return;
         const url = canvas.toDataURL("image/png");
         const safeName = text.substring(0, 15).replace(/[^a-z0-9]/gi, "_") || `qr-${index}`;
+        // Dynamically import file-saver only when needed
+        const { saveAs } = await import("file-saver");
         saveAs(url, `${safeName}.png`);
     };
 

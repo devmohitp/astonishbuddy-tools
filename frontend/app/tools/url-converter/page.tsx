@@ -2,8 +2,10 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
-import RelatedTools from "../../components/RelatedTools";
-import ToolSEO from "../../components/ToolSEO";
+import dynamic from "next/dynamic";
+
+const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
+const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 
 export default function UrlConverter() {
   const [input, setInput] = useState("");
@@ -53,7 +55,7 @@ export default function UrlConverter() {
             >🔗</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                URL Encoder & Decoder Online (Encode URLs Instantly)
+                URL Encoder & Decoder Online - Encode URLs Instantly
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Encode text for use in URLs or decode URL-encoded text

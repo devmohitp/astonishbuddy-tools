@@ -11,6 +11,14 @@ app.use(cors());
 app.use(express.json({ limit: '100mb' }));
 app.use(express.urlencoded({ limit: '100mb', extended: true }));
 
+// Redirect bare domain to www
+app.use((req, res, next) => {
+  if (req.headers.host === 'astonishbuddy.com') {
+    return res.redirect(301, 'https://www.astonishbuddy.com' + req.url);
+  }
+  next();
+});
+
 const upload = multer({ 
   storage: multer.memoryStorage(), 
   limits: { fileSize: 100 * 1024 * 1024 } // 100 MB limit

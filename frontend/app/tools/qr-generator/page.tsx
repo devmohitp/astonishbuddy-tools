@@ -1,8 +1,10 @@
 "use client";
 import { useState, useRef } from "react";
 import Link from "next/link";
-import RelatedTools from "../../components/RelatedTools";
-import ToolSEO from "../../components/ToolSEO";
+import dynamic from "next/dynamic";
+
+const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
+const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 
 const API_BASE = "/api";
 
@@ -87,7 +89,7 @@ export default function QRGenerator() {
             >⬛</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Free QR Code Generator Online (Create QR Codes Instantly)
+                Free QR Code Generator Online - Create QR Codes Instantly
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Generate customizable QR codes for any text or URL
@@ -225,7 +227,6 @@ export default function QRGenerator() {
             )}
           </div>
         </div>
-      </div>
       <ToolSEO toolId="qr-generator" />
       <RelatedTools tools={[
         { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "🗂️", desc: "Generate multiple QR codes at once" },
@@ -233,6 +234,7 @@ export default function QRGenerator() {
         { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
         { href: "/tools/color-converter", label: "Color Converter", icon: "🎨", desc: "Convert between HEX, RGB, HSL" },
       ]} />
+      </div>
     </main>
   );
 }

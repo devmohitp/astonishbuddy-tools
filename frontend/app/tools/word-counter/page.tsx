@@ -1,8 +1,10 @@
 "use client";
 import { useState, useRef } from "react";
 import Link from "next/link";
-import RelatedTools from "../../components/RelatedTools";
-import ToolSEO from "../../components/ToolSEO";
+import dynamic from "next/dynamic";
+
+const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
+const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 
 function analyze(text: string) {
   const words = text.trim() ? text.trim().split(/\s+/).length : 0;
@@ -60,7 +62,7 @@ export default function WordCounter() {
         <Link href="/" className="back-btn">← Back to Tools</Link>
 
         <div style={{ marginBottom: "32px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "10px" }}>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: "14px", marginBottom: "10px" }}>
             <div
               className="tool-header-icon"
               style={{
@@ -68,13 +70,14 @@ export default function WordCounter() {
                 background: "linear-gradient(135deg, #10b98122, #10b98144)",
                 border: "1px solid #10b98133",
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px",
+                flexShrink: 0,
               }}
             >📊</div>
-            <div>
-              <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Word Counter Online (Count Words, Characters & Sentences)
+            <div style={{ flex: 1 }}>
+              <h1 style={{ fontSize: "clamp(1.3rem, 4vw, 1.8rem)", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px", lineHeight: 1.2 }}>
+                Word Counter Online - Count Words, Characters & Sentences
               </h1>
-              <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
+              <p style={{ color: "var(--text-secondary)", fontSize: "14px", marginTop: "4px" }}>
                 Count words, characters, sentences, and estimate reading time
               </p>
             </div>
@@ -150,8 +153,6 @@ export default function WordCounter() {
             </div>
           </div>
         )}
-      </div>
-
       <ToolSEO toolId="word-counter" />
       <RelatedTools tools={[
         { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert text to UPPER, lower, Title case instantly" },
@@ -159,6 +160,7 @@ export default function WordCounter() {
         { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "📄", desc: "Generate placeholder text for designs" },
         { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format & validate JSON with syntax highlighting" },
       ]} />
+      </div>
     </main>
   );
 }

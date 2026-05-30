@@ -2,8 +2,10 @@
 import { useState, useCallback } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
-import RelatedTools from "../../components/RelatedTools";
-import ToolSEO from "../../components/ToolSEO";
+import dynamic from "next/dynamic";
+
+const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
+const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 
 const CHAR_SETS = {
   uppercase: { label: "Uppercase (A-Z)", chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ" },
@@ -61,20 +63,22 @@ export default function PasswordGenerator() {
         <Link href="/" className="back-btn">← Back to Tools</Link>
 
         <div style={{ marginBottom: "32px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "10px" }}>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: "14px", marginBottom: "10px" }}>
             <div
+              className="tool-header-icon"
               style={{
                 width: "52px", height: "52px", borderRadius: "14px",
                 background: "linear-gradient(135deg, #ec489922, #ec489944)",
                 border: "1px solid #ec489933",
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px",
+                flexShrink: 0,
               }}
             >🔐</div>
-            <div>
-              <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Free Strong Password Generator (Secure & Random Passwords Online)
+            <div style={{ flex: 1 }}>
+              <h1 style={{ fontSize: "clamp(1.3rem, 4vw, 1.8rem)", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px", lineHeight: 1.2 }}>
+                Free Strong Password Generator - Secure & Random Passwords Online
               </h1>
-              <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
+              <p style={{ color: "var(--text-secondary)", fontSize: "14px", marginTop: "4px" }}>
                 Generate strong, secure passwords instantly
               </p>
             </div>
@@ -131,9 +135,9 @@ export default function PasswordGenerator() {
               {passwords.map((pwd, idx) => {
                 const strength = getStrength(pwd);
                 return (
-                  <div key={idx} className="glass-card" style={{ padding: "14px 18px" }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                      <code style={{ flex: 1, fontSize: "15px", color: "var(--text-primary)", wordBreak: "break-all", marginRight: "12px", letterSpacing: "1px" }}>
+                  <div key={idx} className="glass-card" style={{ padding: "16px 20px" }}>
+                    <div className="flex-responsive" style={{ width: "100%", gap: "12px" }}>
+                      <code style={{ flex: 1, fontSize: "15px", color: "var(--text-primary)", wordBreak: "break-all", letterSpacing: "1px" }}>
                         {pwd}
                       </code>
                       <CopyButton textToCopy={pwd} style={{ padding: "7px 14px", fontSize: "13px", flexShrink: 0 }} />

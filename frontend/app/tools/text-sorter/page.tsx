@@ -2,8 +2,10 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
-import RelatedTools from "../../components/RelatedTools";
-import ToolSEO from "../../components/ToolSEO";
+import dynamic from "next/dynamic";
+
+const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
+const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 
 export default function TextSorter() {
   const [input, setInput] = useState("");
@@ -71,7 +73,7 @@ export default function TextSorter() {
             >🔤</div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Text Sorter Online (Sort Text Alphabetically A-Z, Z-A)
+                Text Sorter Online - Sort Text Alphabetically A-Z, Z-A
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
                 Sort, shuffle, and clean your text by lines or words

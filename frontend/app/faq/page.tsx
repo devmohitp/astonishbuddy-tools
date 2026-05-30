@@ -1,10 +1,11 @@
 "use client";
-import type { Metadata } from "next";
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Check } from "lucide-react";
-import Footer from "../components/Footer";
+import dynamic from "next/dynamic";
 import Navbar from "../components/Navbar";
+
+const Footer = dynamic(() => import("../components/Footer"));
 
 const faqCategories = [
   {

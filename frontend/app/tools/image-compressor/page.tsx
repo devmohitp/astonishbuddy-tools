@@ -2,8 +2,10 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import imageCompression from "browser-image-compression";
-import RelatedTools from "../../components/RelatedTools";
-import ToolSEO from "../../components/ToolSEO";
+import dynamic from "next/dynamic";
+
+const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
+const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return bytes + " B";
