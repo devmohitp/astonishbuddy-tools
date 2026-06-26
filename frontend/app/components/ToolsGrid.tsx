@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 
 const Magnetic = dynamic(() => import("./Magnetic"));
@@ -163,15 +162,120 @@ const tools = [
     tagColor: "rgba(239,68,68,0.15)",
     tagText: "#f87171",
   },
+  {
+    id: "image-quality-enhancer",
+    name: "Image Quality Enhancer",
+    description: "Upscale and enhance image quality instantly. Increase resolution up to 4×, boost sharpness, brightness, contrast, and saturation — all client-side, no upload needed.",
+    icon: "✨",
+    color: "#f59e0b",
+    glow: "rgba(245, 158, 11, 0.4)",
+    tag: "Media",
+    tagColor: "rgba(245,158,11,0.15)",
+    tagText: "#fbbf24",
+  },
+  {
+    id: "bulk-image-converter",
+    name: "Bulk Image Converter",
+    description: "Convert dozens of images at once between PNG, JPG, WebP and more. Resize while converting, set output quality, and download everything as a single ZIP file.",
+    icon: "🔄",
+    color: "#06b6d4",
+    glow: "rgba(6, 182, 212, 0.4)",
+    tag: "Media",
+    tagColor: "rgba(6,182,212,0.15)",
+    tagText: "#22d3ee",
+  },
+  {
+    id: "sql-formatter",
+    name: "SQL Formatter",
+    description: "Format, beautify, and minify SQL queries instantly. Supports keyword casing, clause-aware indentation, and full syntax highlighting for SELECT, JOIN, WHERE, and more.",
+    icon: "🗄️",
+    color: "#10b981",
+    glow: "rgba(16, 185, 129, 0.4)",
+    tag: "Developer",
+    tagColor: "rgba(16,185,129,0.15)",
+    tagText: "#34d399",
+  },
+  {
+    id: "uuid-generator",
+    name: "UUID Generator",
+    description: "Generate cryptographically random UUID v4s instantly. Bulk generate up to 100,000 unique IDs and download as TXT, CSV, or JSON. Multiple format options including URN and GUID braces.",
+    icon: "🔑",
+    color: "#8b5cf6",
+    glow: "rgba(139, 92, 246, 0.4)",
+    tag: "Developer",
+    tagColor: "rgba(139,92,246,0.15)",
+    tagText: "#c084fc",
+  },
+  {
+    id: "markdown-converter",
+    name: "Markdown Converter",
+    description: "Convert Markdown to HTML or HTML to Markdown instantly. Live rendered preview, full GFM support including tables, code blocks, and lists. Bidirectional with one-click copy.",
+    icon: "📝",
+    color: "#f59e0b",
+    glow: "rgba(245, 158, 11, 0.4)",
+    tag: "Developer",
+    tagColor: "rgba(245,158,11,0.15)",
+    tagText: "#fbbf24",
+  },
+  {
+    id: "diff-checker",
+    name: "Diff Checker",
+    description: "Compare two texts and instantly see added, removed, and changed lines. Word-level highlighting, side-by-side and inline views. Works with code, JSON, config files, and any plain text.",
+    icon: "🔍",
+    color: "#ec4899",
+    glow: "rgba(236, 72, 153, 0.4)",
+    tag: "Developer",
+    tagColor: "rgba(236,72,153,0.15)",
+    tagText: "#f472b6",
+  },
+  {
+    id: "jwt-decoder",
+    name: "JWT Decoder",
+    description: "Decode and inspect JWT tokens instantly. View header, payload claims, expiry time, and algorithm. Syntax-highlighted JSON with claim explanations. 100% local \u2014 nothing sent to any server.",
+    icon: "🔐",
+    color: "#6366f1",
+    glow: "rgba(99, 102, 241, 0.4)",
+    tag: "Security",
+    tagColor: "rgba(99,102,241,0.15)",
+    tagText: "#a5b4fc",
+  },
 ];
 
 function Card({ tool, index }: { tool: typeof tools[0]; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.05,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
-      viewport={{ once: true }}
+    <div
+      ref={ref}
+      id={tool.id}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0)" : "translateY(12px)",
+        transition: `opacity 0.22s ease-out ${index * 0.02}s, transform 0.22s ease-out ${index * 0.02}s`,
+        height: "100%",
+      }}
     >
       <Link
         href={`/tools/${tool.id}`}
@@ -288,7 +392,7 @@ function Card({ tool, index }: { tool: typeof tools[0]; index: number }) {
           />
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }
 
@@ -298,6 +402,28 @@ export default function ToolsGrid() {
   React.useEffect(() => {
     setMounted(true);
   }, []);
+
+  React.useEffect(() => {
+    if (mounted && typeof window !== "undefined") {
+      const lastActiveTool = sessionStorage.getItem("lastActiveTool");
+      const hash = window.location.hash ? window.location.hash.substring(1) : "";
+      const targetId = lastActiveTool || hash;
+
+      if (lastActiveTool) {
+        sessionStorage.removeItem("lastActiveTool");
+      }
+
+      if (targetId) {
+        const timer = setTimeout(() => {
+          const el = document.getElementById(targetId);
+          if (el) {
+            el.scrollIntoView({ behavior: "auto", block: "center" });
+          }
+        }, 50);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [mounted]);
 
   const visibleTools = mounted ? tools : tools.slice(0, 6);
 

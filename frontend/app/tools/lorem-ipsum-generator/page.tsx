@@ -1,4 +1,5 @@
 "use client";
+import * as Lucide from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
@@ -41,7 +42,7 @@ export default function LoremIpsumGenerator() {
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: "28px",
                 boxShadow: "0 8px 20px rgba(108, 99, 255, 0.2)",
               }}
-            >📝</div>
+            ><Lucide.FileEdit size={24} /></div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
                 Lorem Ipsum Generator - Generate Dummy Text Online Free
@@ -92,10 +93,10 @@ export default function LoremIpsumGenerator() {
         )}
         <ToolSEO toolId="lorem-ipsum-generator" />
         <RelatedTools tools={[
-          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
-          { href: "/tools/text-sorter", label: "Text Sorter", icon: "📋", desc: "Sort and de-duplicate lines" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, chars, reading time" },
+          { href: "/tools/text-sorter", label: "Text Sorter", icon: "\uD83D\uDCCB ", desc: "Sort and de-duplicate lines" },
           { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert to UPPER, lower, Title case" },
-          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
+          { href: "/tools/password-generator", label: "Password Generator", icon: "Lock", desc: "Generate strong, secure passwords" },
         ]} />
       </div>
     </main>

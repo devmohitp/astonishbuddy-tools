@@ -5,9 +5,16 @@ import { usePathname } from "next/navigation";
 
 const toolsList = [
   { id: "image-compressor", name: "Image Compressor", icon: "🖼️", desc: "Reduce image file size" },
+  { id: "image-quality-enhancer", name: "Image Quality Enhancer", icon: "✨", desc: "Upscale & enhance images" },
+  { id: "bulk-image-converter", name: "Bulk Image Converter", icon: "🔄", desc: "Convert PNG, JPG, WebP in bulk" },
   { id: "text-case-converter", name: "Text Case Converter", icon: "🔤", desc: "Convert text case" },
   { id: "password-generator", name: "Password Generator", icon: "🔐", desc: "Generate strong passwords" },
   { id: "json-formatter", name: "JSON Formatter", icon: "{ }", desc: "Format and validate JSON" },
+  { id: "sql-formatter", name: "SQL Formatter", icon: "🗄️", desc: "Format, minify & highlight SQL" },
+  { id: "uuid-generator", name: "UUID Generator", icon: "🔑", desc: "Generate UUID v4 in bulk" },
+  { id: "markdown-converter", name: "Markdown Converter", icon: "📝", desc: "Markdown ↔ HTML with live preview" },
+  { id: "diff-checker", name: "Diff Checker", icon: "🔍", desc: "Compare text and highlight changes" },
+  { id: "jwt-decoder", name: "JWT Decoder", icon: "🔐", desc: "Decode & inspect JWT tokens locally" },
   { id: "word-counter", name: "Word Counter", icon: "📊", desc: "Count words, characters" },
   { id: "qr-generator", name: "QR Code Generator", icon: "⬛", desc: "Generate custom QR codes" },
   { id: "bulk-qrcode-generator", name: "Bulk QR Generator", icon: "🔳", desc: "Mass QR code generation" },

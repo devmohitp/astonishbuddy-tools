@@ -1,4 +1,5 @@
 "use client";
+import * as Lucide from "lucide-react";
 import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
@@ -75,7 +76,7 @@ export default function JSONFormatter() {
     const { error } = formatJSON(input, 2);
     if (!error) {
       setError(null);
-      setOutput("✅ Valid JSON");
+      setOutput("\u2705 Valid JSON");
     } else {
       setError(error);
       setOutput("");
@@ -116,7 +117,7 @@ export default function JSONFormatter() {
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
               <span className="label" style={{ margin: 0 }}>Input JSON</span>
               <div style={{ display: "flex", gap: "8px" }}>
-                <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}>📋 Paste</button>
+                <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}><Lucide.Clipboard size={14} style={{ marginRight: "6px" }} />Paste</button>
                 <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => setInput("")}>Clear</button>
                 <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => { try { setInput(JSON.stringify(JSON.parse(input))); } catch { } }}>Raw</button>
               </div>
@@ -181,13 +182,13 @@ export default function JSONFormatter() {
           </div>
           <button className="btn-primary" style={{ padding: "10px 20px" }} onClick={handleFormat}>🎨 Format</button>
           <button className="btn-secondary" onClick={handleMinify}>⚡ Minify</button>
-          <button className="btn-secondary" onClick={handleValidate}>✅ Validate</button>
+          <button className="btn-secondary" onClick={handleValidate}><Lucide.CheckCircle2 size={16} style={{ marginRight: "8px", verticalAlign: "middle" }} />Validate</button>
         </div>
         <ToolSEO toolId="json-formatter" />
         <RelatedTools tools={[
-          { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "🔄", desc: "Encode/decode Base64 strings" },
-          { href: "/tools/url-converter", label: "URL Encoder", icon: "🔗", desc: "Encode special characters in URLs" },
-          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
+          { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "RefreshCw", desc: "Encode/decode Base64 strings" },
+          { href: "/tools/url-converter", label: "URL Encoder", icon: "Link", desc: "Encode special characters in URLs" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, chars, reading time" },
           { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Transform letter casing instantly" },
         ]} />
       </div>

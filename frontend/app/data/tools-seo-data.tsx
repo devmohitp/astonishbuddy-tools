@@ -1075,6 +1075,471 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
       { q: "What is the maximum file size I can compress?", a: "You can compress PDF files up to 100 MB using our free online tool." }
     ],
     keywords: ["pdf compressor", "compress pdf online", "reduce pdf size", "free pdf compressor", "compress pdf without losing quality"]
-  }
+  },
+  "image-quality-enhancer": {
+    id: "image-quality-enhancer",
+    name: "Image Quality Enhancer",
+    shortIntro: "Looking for a free image quality enhancer online? This tool lets you upscale images up to 4×, sharpen details, and adjust brightness, contrast, and saturation — all without uploading anything to a server. Enhance low-resolution photos, old pictures, or any image instantly in your browser. No login, no watermark, 100% free.",
+    guideContent: (
+      <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Whether you want to increase image resolution, make a blurry image clearer, or simply boost the colors and sharpness of any photo, this tool does it all in seconds — entirely within your browser.
+        </p>
+        <p style={{ marginBottom: "16px" }}>
+          Perfect for photographers, designers, bloggers, and anyone who needs to improve image quality online for free.
+        </p>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          How to Enhance Image Quality Online
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "10px" }}>Upload your image (JPG, PNG, WebP)</li>
+          <li style={{ marginBottom: "10px" }}>Choose an upscale factor (1× to 4×)</li>
+          <li style={{ marginBottom: "10px" }}>Adjust sharpness, brightness, contrast, and saturation</li>
+          <li style={{ marginBottom: "10px" }}>Click "Enhance Image" and download the result</li>
+        </ol>
+        <p style={{ marginBottom: "16px" }}>
+          All processing happens locally — your image never leaves your device.
+        </p>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Why Use This Image Enhancer?
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Upscale image resolution up to 4× without external AI servers</li>
+          <li style={{ marginBottom: "8px" }}>Sharpen blurry or low-quality images</li>
+          <li style={{ marginBottom: "8px" }}>Adjust brightness, contrast, and saturation</li>
+          <li style={{ marginBottom: "8px" }}>Before & after comparison built-in</li>
+          <li style={{ marginBottom: "8px" }}>100% free, no login, no watermark</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Enhancement Features Explained
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Upscale Factor:</strong> Multiplies the image resolution (1× to 4×) using high-quality interpolation</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Sharpness:</strong> Applies an unsharp mask to bring out fine details and edges</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Brightness:</strong> Lightens or darkens the overall image</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Contrast:</strong> Increases or reduces the difference between light and dark areas</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Saturation:</strong> Boosts or reduces the intensity of colors</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Use Cases
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Improving old or low-resolution photos</li>
+          <li style={{ marginBottom: "8px" }}>Sharpening images for print or large displays</li>
+          <li style={{ marginBottom: "8px" }}>Enhancing product photos for e-commerce</li>
+          <li style={{ marginBottom: "8px" }}>Preparing social media images</li>
+          <li style={{ marginBottom: "8px" }}>Restoring scanned documents or images</li>
+        </ul>
+      </div>
+    ),
+    faqs: [
+      { q: "Can this tool make blurry images clear?", a: "Our sharpness slider applies an unsharp mask which significantly reduces blur and enhances edge detail. For heavily blurred images, combining high sharpness with a 2× upscale gives the best result." },
+      { q: "Does upscaling really improve quality?", a: "Upscaling increases the pixel count using high-quality interpolation. While it won't add detail that was never there, it makes images look better at larger sizes and allows sharper rendering." },
+      { q: "Is the enhancement done on my device?", a: "Yes, 100%. All processing uses your browser's Canvas API. Your image never leaves your device." },
+      { q: "What format is the output?", a: "The enhanced image is always saved as a high-quality PNG to preserve maximum quality after enhancement." },
+      { q: "Is there a file size limit?", a: "You can upload images up to 20 MB. For very large output sizes (e.g. 4× on a large image), processing may take a few seconds." }
+    ],
+    keywords: ["image quality enhancer", "increase image resolution online", "sharpen image online free", "upscale image online", "enhance image quality free", "improve image quality online"]
+  },
+  "bulk-image-converter": {
+    id: "bulk-image-converter",
+    name: "Bulk Image Converter",
+    shortIntro: "Looking for a free bulk image converter online? This tool lets you convert multiple images at once between PNG, JPG, WebP, and more — all in your browser with no uploads. Set quality, resize images while converting, and download everything in a single ZIP file. No login, no watermark, completely free.",
+    guideContent: (
+      <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Whether you need to convert PNG to JPG, JPG to WebP, or any other combination, this bulk converter handles dozens of files simultaneously with full quality and resize control.
+        </p>
+        <p style={{ marginBottom: "16px" }}>
+          Perfect for web developers, designers, photographers, and content creators who need to prepare image assets in specific formats.
+        </p>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          How to Convert Images in Bulk Online
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "10px" }}>Select your output format (JPG, PNG, or WebP)</li>
+          <li style={{ marginBottom: "10px" }}>Optionally set quality and resize dimensions</li>
+          <li style={{ marginBottom: "10px" }}>Drop multiple images or click to browse</li>
+          <li style={{ marginBottom: "10px" }}>Click "Convert All" and download as ZIP</li>
+        </ol>
+        <p style={{ marginBottom: "16px" }}>
+          All conversions happen instantly in your browser — your images are never uploaded to any server.
+        </p>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Supported Conversions
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>PNG → JPG (reduce file size with white background fill)</li>
+          <li style={{ marginBottom: "8px" }}>JPG → WebP (modern format for web optimization)</li>
+          <li style={{ marginBottom: "8px" }}>WebP → PNG (lossless quality output)</li>
+          <li style={{ marginBottom: "8px" }}>AVIF / BMP / GIF → any format</li>
+          <li style={{ marginBottom: "8px" }}>Any image format → JPG, PNG, or WebP</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Key Features
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Bulk conversion:</strong> Convert dozens of images at once</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>ZIP download:</strong> Get all converted files in a single download</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Resize on convert:</strong> Set max width and height while converting</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Quality control:</strong> Adjust output quality for JPG and WebP</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Quick presets:</strong> One-click PNG→JPG, JPG→WebP, and more</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Drag & drop:</strong> Drop your files directly into the tool</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Use Cases
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Converting product photos for e-commerce (JPG → WebP)</li>
+          <li style={{ marginBottom: "8px" }}>Preparing web assets in the right format</li>
+          <li style={{ marginBottom: "8px" }}>Converting PNG screenshots to smaller JPG files</li>
+          <li style={{ marginBottom: "8px" }}>Batch resizing images for social media</li>
+          <li style={{ marginBottom: "8px" }}>Converting legacy AVIF/BMP files to modern formats</li>
+        </ul>
+      </div>
+    ),
+    faqs: [
+      { q: "Can I convert multiple images at once?", a: "Yes! You can drop as many images as you like and convert them all in one click. Download everything as a ZIP archive." },
+      { q: "What formats are supported as input?", a: "You can upload JPG, PNG, WebP, BMP, GIF, and AVIF images. Any format your browser can display can be converted." },
+      { q: "Does converting PNG to JPG lose quality?", a: "JPG uses lossy compression, so there will be a slight quality reduction. You can control this with the quality slider. Using 90%+ gives excellent results that are hard to distinguish from the original." },
+      { q: "Why is my WebP larger than the original JPG?", a: "WebP is generally more efficient than JPG for photos. However, if the original JPG was already highly compressed, the WebP output at higher quality may be slightly larger. Reduce the quality slider to get a smaller file." },
+      { q: "Is there a limit on how many files I can convert?", a: "There is no hard limit. However, very large batches may slow down your browser depending on your device performance." },
+      { q: "Are my images uploaded to your servers?", a: "No. All conversion happens entirely inside your browser using the Canvas API. Your images never leave your device." }
+    ],
+    keywords: ["bulk image converter", "convert images online free", "png to jpg converter", "jpg to webp converter", "batch image converter", "image format converter online", "convert multiple images at once"]
+  },
+  "sql-formatter": {
+    id: "sql-formatter",
+    name: "SQL Formatter",
+    shortIntro: "Looking for a free SQL formatter and beautifier online? This SQL formatter instantly formats messy SQL queries with proper indentation, keyword casing, and syntax highlighting. Supports SELECT, JOIN, INSERT, UPDATE, CREATE, and all major SQL dialects. Minify SQL to one line or beautify it for readability — no login required, 100% free and private.",
+    guideContent: (
+      <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Whether you are debugging a complex multi-table query or preparing SQL for documentation, this SQL beautifier makes your code clean, readable, and professionally formatted in seconds.
+        </p>
+        <p style={{ marginBottom: "16px" }}>
+          Works with MySQL, PostgreSQL, SQLite, SQL Server, Oracle, and most SQL dialects — all entirely in your browser.
+        </p>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          How to Format SQL Online
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "10px" }}>Paste your SQL query into the input box</li>
+          <li style={{ marginBottom: "10px" }}>Choose indent size and keyword case (UPPER / lower)</li>
+          <li style={{ marginBottom: "10px" }}>Click "Format SQL" to beautify</li>
+          <li style={{ marginBottom: "10px" }}>Copy the formatted output or use "Minify" to compact it</li>
+        </ol>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Features
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Format SQL:</strong> Adds proper indentation and newlines for each clause</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Minify SQL:</strong> Strips all extra whitespace and comments to one compact line</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Keyword casing:</strong> Convert all SQL keywords to UPPERCASE or lowercase</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Syntax highlighting:</strong> Color-coded keywords, functions, strings, numbers, and comments</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>SQL Quick Reference:</strong> Built-in cheat sheet for all major SQL keywords and functions</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Plain text view:</strong> Switch from highlighted to plain text for easy copying</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Supported SQL Statements
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>SELECT with JOINs (INNER, LEFT, RIGHT, FULL, CROSS)</li>
+          <li style={{ marginBottom: "8px" }}>WHERE, GROUP BY, HAVING, ORDER BY, LIMIT</li>
+          <li style={{ marginBottom: "8px" }}>INSERT INTO, UPDATE SET, DELETE FROM</li>
+          <li style={{ marginBottom: "8px" }}>CREATE TABLE, ALTER TABLE, DROP TABLE</li>
+          <li style={{ marginBottom: "8px" }}>CTEs (WITH clauses), subqueries, UNION</li>
+          <li style={{ marginBottom: "8px" }}>Window functions (ROW_NUMBER, RANK, LAG, etc.)</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Use Cases
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Formatting SQL for code reviews and documentation</li>
+          <li style={{ marginBottom: "8px" }}>Debugging complex multi-table queries</li>
+          <li style={{ marginBottom: "8px" }}>Standardizing SQL style across a team</li>
+          <li style={{ marginBottom: "8px" }}>Minifying SQL for embedding in application config</li>
+          <li style={{ marginBottom: "8px" }}>Learning SQL structure and syntax</li>
+        </ul>
+      </div>
+    ),
+    faqs: [
+      { q: "Does this work with MySQL, PostgreSQL, and SQL Server?", a: "Yes. The formatter is dialect-agnostic and works with any standard SQL syntax including MySQL, PostgreSQL, SQLite, SQL Server (T-SQL), and Oracle SQL." },
+      { q: "What is SQL formatting?", a: "SQL formatting is the process of adding consistent indentation, newlines, and spacing to SQL queries so they are easier to read and understand. Formatted SQL separates each clause (SELECT, FROM, WHERE, etc.) onto its own line." },
+      { q: "What does SQL minification do?", a: "Minification removes all unnecessary whitespace, newlines, and comments from a SQL query, reducing it to the smallest possible single-line version. This is useful for embedding SQL in JSON configs or application code." },
+      { q: "Does it handle comments?", a: "Yes. Single-line comments (--) and multi-line comments (/* */) are recognized and highlighted. Comments are removed during minification." },
+      { q: "Is my SQL sent to a server?", a: "No. All processing happens locally in your browser using JavaScript. Your SQL queries never leave your device." },
+      { q: "What is the difference between UPPER and lower keywords?", a: "UPPER keywords mode converts all SQL reserved words (SELECT, WHERE, JOIN, etc.) to all-caps, which is the traditional SQL style. Lower keywords mode converts them to all lowercase, which some modern codebases prefer." }
+    ],
+    keywords: ["sql formatter online", "sql beautifier", "format sql online free", "sql minifier", "sql syntax highlighter", "sql pretty print", "beautify sql query", "sql formatter mysql postgresql"]
+  },
+  "uuid-generator": {
+    id: "uuid-generator",
+    name: "UUID Generator",
+    shortIntro: "Looking for a free UUID generator online? This tool generates cryptographically random UUID v4s instantly — one at a time or in bulk up to 100,000. Download your UUIDs as TXT, CSV, or JSON. Supports multiple formats including lowercase, UPPERCASE, {GUID braces}, and URN notation. No login, no server calls, 100% free.",
+    guideContent: (
+      <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Whether you need a single unique ID for a database record, or thousands of UUIDs for bulk data seeding, testing, or generating unique keys — this tool does it all instantly in your browser.
+        </p>
+        <p style={{ marginBottom: "16px" }}>
+          All UUIDs are generated using your browser's <code>crypto.randomUUID()</code> API, which produces cryptographically strong random identifiers that comply with RFC 4122.
+        </p>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          How to Generate UUIDs Online
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "10px" }}>Choose your output format (lowercase, UPPERCASE, braces, or URN)</li>
+          <li style={{ marginBottom: "10px" }}>Click "Generate" for a single UUID, or select a bulk count</li>
+          <li style={{ marginBottom: "10px" }}>Copy individual UUIDs or click "Copy All" for the full list</li>
+          <li style={{ marginBottom: "10px" }}>Download as TXT, CSV, or JSON for use in your project</li>
+        </ol>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          UUID Formats Supported
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>lowercase:</strong> f47ac10b-58cc-4372-a567-0e02b2c3d479</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>UPPERCASE:</strong> F47AC10B-58CC-4372-A567-0E02B2C3D479</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>GUID braces:</strong> {"{"}F47AC10B-58CC-4372-A567-0E02B2C3D479{"}"}</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>URN:</strong> urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          What is UUID v4?
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          UUID (Universally Unique Identifier) v4 is a 128-bit random identifier formatted as 32 hexadecimal digits separated by hyphens in the pattern 8-4-4-4-12. Version 4 uses 122 bits of randomness, making the probability of collision virtually zero — around 1 in 5.3×10³⁶.
+        </p>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Use Cases
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Primary keys in PostgreSQL, MySQL, MongoDB, DynamoDB</li>
+          <li style={{ marginBottom: "8px" }}>Unique session tokens and API keys</li>
+          <li style={{ marginBottom: "8px" }}>Test data seeding and database population</li>
+          <li style={{ marginBottom: "8px" }}>Distributed system IDs with no central coordinator</li>
+          <li style={{ marginBottom: "8px" }}>Filename deduplication and asset naming</li>
+          <li style={{ marginBottom: "8px" }}>Correlation IDs in microservices and logging</li>
+        </ul>
+      </div>
+    ),
+    faqs: [
+      { q: "What is the difference between UUID and GUID?", a: "UUID (Universally Unique Identifier) and GUID (Globally Unique Identifier) are essentially the same thing. GUID is Microsoft's term for UUID, and both follow the same RFC 4122 specification." },
+      { q: "How unique is UUID v4?", a: "UUID v4 uses 122 bits of randomness, giving approximately 5.3×10³⁶ possible values. To have a 50% chance of a collision, you would need to generate 2.71 quintillion UUIDs — making collisions practically impossible." },
+      { q: "Can I use UUIDs as database primary keys?", a: "Yes. UUIDs are widely used as primary keys in relational databases (PostgreSQL, MySQL) and NoSQL databases (MongoDB, DynamoDB). PostgreSQL has a native UUID type and can auto-generate them with gen_random_uuid()." },
+      { q: "Are the generated UUIDs truly random?", a: "Yes. This tool uses the browser's built-in crypto.randomUUID() API which produces cryptographically secure random numbers, the same source used for secure encryption." },
+      { q: "Are my UUIDs sent to a server?", a: "No. UUID generation happens entirely in your browser using the Web Crypto API. Nothing is transmitted to our servers." },
+      { q: "What is the maximum number of UUIDs I can generate?", a: "You can generate up to 100,000 UUIDs in a single click. For larger volumes, simply generate multiple batches and concatenate the downloaded files." }
+    ],
+    keywords: ["uuid generator online", "guid generator free", "uuid v4 generator", "bulk uuid generator", "generate unique id online", "random uuid generator", "uuid generator no login", "online guid generator"]
+  },
+  "markdown-converter": {
+    id: "markdown-converter",
+    name: "Markdown Converter",
+    shortIntro: "Looking for a free Markdown to HTML converter online? This tool instantly converts Markdown to HTML with a live rendered preview, and also converts HTML back to Markdown. Supports full GitHub Flavored Markdown (GFM) including tables, code blocks, task lists, and more. No login, no ads, 100% free and runs entirely in your browser.",
+    guideContent: (
+      <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Whether you are writing documentation, a README file, a blog post, or converting HTML email templates to Markdown — this bidirectional converter handles it all with a live preview.
+        </p>
+        <p style={{ marginBottom: "16px" }}>
+          Type in the left panel and instantly see clean HTML or Markdown output on the right, plus a rendered preview that shows exactly how your content will look.
+        </p>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          How to Convert Markdown to HTML
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "10px" }}>Select "Markdown → HTML" mode</li>
+          <li style={{ marginBottom: "10px" }}>Type or paste your Markdown into the left panel</li>
+          <li style={{ marginBottom: "10px" }}>HTML output appears instantly on the right</li>
+          <li style={{ marginBottom: "10px" }}>Toggle the live preview to see the rendered result</li>
+          <li style={{ marginBottom: "10px" }}>Click Copy to grab the HTML output</li>
+        </ol>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Supported Markdown Syntax
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Headings: # H1 through ###### H6</li>
+          <li style={{ marginBottom: "8px" }}>Bold, italic, strikethrough: **bold** *italic* ~~strike~~</li>
+          <li style={{ marginBottom: "8px" }}>Links and images: [text](url) and ![alt](url)</li>
+          <li style={{ marginBottom: "8px" }}>Unordered and ordered lists</li>
+          <li style={{ marginBottom: "8px" }}>Blockquotes (&gt; text)</li>
+          <li style={{ marginBottom: "8px" }}>Inline code and fenced code blocks with language labels</li>
+          <li style={{ marginBottom: "8px" }}>GFM tables with headers and alignment</li>
+          <li style={{ marginBottom: "8px" }}>Horizontal rules (---)</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Use Cases
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Converting README.md files to HTML for websites</li>
+          <li style={{ marginBottom: "8px" }}>Generating HTML emails from Markdown drafts</li>
+          <li style={{ marginBottom: "8px" }}>Stripping HTML from web content and converting to Markdown for editing</li>
+          <li style={{ marginBottom: "8px" }}>Writing blog posts in Markdown and previewing the HTML output</li>
+          <li style={{ marginBottom: "8px" }}>Learning Markdown syntax with instant visual feedback</li>
+          <li style={{ marginBottom: "8px" }}>Converting HTML documentation back to Markdown for Git-based wikis</li>
+        </ul>
+      </div>
+    ),
+    faqs: [
+      { q: "Does this support GitHub Flavored Markdown (GFM)?", a: "Yes. The converter supports GFM features including tables, fenced code blocks with language labels, strikethrough, and standard Markdown elements." },
+      { q: "What is the difference between Markdown and HTML?", a: "Markdown is a lightweight plain-text formatting syntax designed to be readable as-is and convertible to HTML. HTML (HyperText Markup Language) is the standard language browsers use to render web pages." },
+      { q: "Can I convert HTML emails to Markdown?", a: "Yes. Paste your HTML into HTML → Markdown mode and the tool will extract the text structure and convert headings, bold, lists, links, and tables to their Markdown equivalents." },
+      { q: "Does it work offline?", a: "Yes. All conversion logic runs locally in your browser with JavaScript. No internet connection is required after the page loads." },
+      { q: "Is my content sent to a server?", a: "No. Everything is processed entirely client-side. Your Markdown and HTML content never leave your device." },
+      { q: "Can I use the generated HTML directly?", a: "Yes. The HTML output can be embedded in any web page, CMS, email template, or documentation system." }
+    ],
+    keywords: ["markdown to html converter", "html to markdown converter", "markdown converter online free", "markdown editor with preview", "markdown beautifier", "convert markdown online", "github flavored markdown converter", "md to html online"]
+  },
+  "diff-checker": {
+    id: "diff-checker",
+    name: "Diff Checker",
+    shortIntro: "Looking for a free online diff checker? Compare two text blocks or code files and instantly see every added, removed, and changed line — with word-level highlighting. Choose between side-by-side and inline views. Works with any plain text, code, JSON, CSV, or config files. No login, no file upload, 100% private.",
+    guideContent: (
+      <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          This diff checker uses a Longest Common Subsequence (LCS) algorithm to compute the minimal set of changes between two texts, giving you the same quality of diff as professional tools like git diff.
+        </p>
+        <p style={{ marginBottom: "16px" }}>
+          Beyond line-level comparison, it also performs word-level diff on changed lines — so you can see exactly which words were modified within a line, highlighted in red and green.
+        </p>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          How to Compare Text Online
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "10px" }}>Paste your original text in the left panel</li>
+          <li style={{ marginBottom: "10px" }}>Paste your modified text in the right panel</li>
+          <li style={{ marginBottom: "10px" }}>Click "Compare" to run the diff</li>
+          <li style={{ marginBottom: "10px" }}>Switch between Split (side-by-side) and Inline views</li>
+          <li style={{ marginBottom: "10px" }}>Toggle "Show unchanged lines" to focus on differences only</li>
+        </ol>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Diff Views Explained
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Split view:</strong> Original on the left, modified on the right, aligned by line number — best for reviewing changes</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Inline view:</strong> All lines in a single column with − (removed) and + (added) markers — matches git diff style</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Word-level diff:</strong> On changed lines, individual words that differ are highlighted within the line</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Color Legend
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>🟥 <strong style={{ color: "var(--text-primary)" }}>Red:</strong> Lines or words that were removed from the original</li>
+          <li style={{ marginBottom: "8px" }}>🟩 <strong style={{ color: "var(--text-primary)" }}>Green:</strong> Lines or words that were added in the modified version</li>
+          <li style={{ marginBottom: "8px" }}>🟨 <strong style={{ color: "var(--text-primary)" }}>Yellow highlight:</strong> Word-level changes within a modified line</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Use Cases
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Comparing code before and after a refactor</li>
+          <li style={{ marginBottom: "8px" }}>Reviewing changes to configuration files (JSON, YAML, TOML)</li>
+          <li style={{ marginBottom: "8px" }}>Proofreading documents and checking edits to legal or contract text</li>
+          <li style={{ marginBottom: "8px" }}>Comparing API responses or database query outputs</li>
+          <li style={{ marginBottom: "8px" }}>Verifying file migrations and data transformations</li>
+        </ul>
+      </div>
+    ),
+    faqs: [
+      { q: "What algorithm does this diff checker use?", a: "It uses the Longest Common Subsequence (LCS) dynamic programming algorithm — the same approach used by git diff and most professional diff tools. This produces the minimal set of changes to transform the original into the modified text." },
+      { q: "What is word-level diff?", a: "When a line is changed (not fully deleted or inserted), the tool goes a step further and compares individual words within that line. This lets you see exactly which words were added or removed, not just which lines changed." },
+      { q: "What types of text can I compare?", a: "Any plain text works: source code (JavaScript, Python, CSS, SQL, etc.), JSON, XML, YAML, Markdown, CSV, prose, legal text, and more." },
+      { q: "Is there a file size limit?", a: "There is no enforced limit, but very large files (100,000+ lines) may take a moment to process depending on your device. For best performance with large files, compare specific sections." },
+      { q: "Are my texts uploaded to a server?", a: "No. All comparison happens entirely in your browser using JavaScript. Your text never leaves your device." },
+      { q: "What is the difference between split and inline view?", a: "Split view shows the original on the left and the modified version on the right, aligned by line — great for visual review. Inline view shows all lines in a single column with + and − markers, matching the traditional git diff output." }
+    ],
+    keywords: ["diff checker online", "text compare online", "online diff tool", "compare two files online", "text difference checker", "code diff tool", "find differences in text", "side by side diff online"]
+  },
+  "jwt-decoder": {
+    id: "jwt-decoder",
+    name: "JWT Decoder",
+    shortIntro: "Looking for a free JWT decoder online? This tool decodes and inspects JSON Web Tokens instantly — displaying the header, payload, and signature with syntax highlighting, expiry time checks, and human-readable claim explanations. Your token never leaves your browser. No login, no server calls, 100% private.",
+    guideContent: (
+      <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          JWT (JSON Web Token) is a compact, URL-safe token format used for authentication and information exchange. This decoder lets you inspect any JWT token without needing a backend — decode the header and payload, verify expiry, and understand every claim.
+        </p>
+        <p style={{ marginBottom: "16px" }}>
+          All decoding happens locally in your browser using the Web Crypto API. Your token is never transmitted to any server, making this safe to use with real tokens during development and debugging.
+        </p>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          How to Decode a JWT Online
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "10px" }}>Paste your JWT token (starts with eyJ…) into the input field</li>
+          <li style={{ marginBottom: "10px" }}>The tool instantly decodes the header and payload</li>
+          <li style={{ marginBottom: "10px" }}>Check the expiry status and time remaining</li>
+          <li style={{ marginBottom: "10px" }}>Read claim explanations for all standard IANA JWT claims</li>
+          <li style={{ marginBottom: "10px" }}>Copy the JSON header or payload with one click</li>
+        </ol>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          JWT Structure
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Header (red):</strong> Contains token type (JWT) and signing algorithm (HS256, RS256, ES256, etc.)</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Payload (blue):</strong> Contains claims — registered (iss, sub, exp, iat) and custom claims</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Signature (green):</strong> Verifies the token hasn't been tampered with (requires secret/public key)</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Standard JWT Claims Decoded
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><code>iss</code> — Issuer: who created the token</li>
+          <li style={{ marginBottom: "8px" }}><code>sub</code> — Subject: who the token represents (usually user ID)</li>
+          <li style={{ marginBottom: "8px" }}><code>aud</code> — Audience: intended recipient of the token</li>
+          <li style={{ marginBottom: "8px" }}><code>exp</code> — Expiration: Unix timestamp when the token expires</li>
+          <li style={{ marginBottom: "8px" }}><code>iat</code> — Issued At: Unix timestamp when the token was created</li>
+          <li style={{ marginBottom: "8px" }}><code>nbf</code> — Not Before: token is not valid before this timestamp</li>
+          <li style={{ marginBottom: "8px" }}><code>jti</code> — JWT ID: unique identifier to prevent replay attacks</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Use Cases
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Debugging authentication flows in web apps</li>
+          <li style={{ marginBottom: "8px" }}>Checking if a JWT token is expired</li>
+          <li style={{ marginBottom: "8px" }}>Inspecting claims returned by OAuth2/OIDC providers</li>
+          <li style={{ marginBottom: "8px" }}>Understanding the structure of tokens from Auth0, Firebase, AWS Cognito</li>
+          <li style={{ marginBottom: "8px" }}>Learning JWT internals for security auditing</li>
+        </ul>
+      </div>
+    ),
+    faqs: [
+      { q: "Is it safe to paste a real JWT here?", a: "Yes. All decoding is done 100% locally in your browser. Your token is never sent to any server. However, for production secrets with sensitive payloads, exercise caution with any online tool — use it only in trusted environments." },
+      { q: "What is the difference between decoding and verifying a JWT?", a: "Decoding reads the base64-encoded header and payload without any cryptographic check. Verification confirms the signature using the secret or public key, ensuring the token wasn't tampered with. This tool only decodes — signature verification requires the secret key and must be done on your backend." },
+      { q: "Why does my token show as expired?", a: "The exp claim (expiration) is a Unix timestamp. If the current time is past that timestamp, the token is expired. Expired tokens should not be accepted by your backend API." },
+      { q: "What is the nbf claim?", a: "nbf stands for 'Not Before'. It's a Unix timestamp before which the token must not be accepted. This allows issuing tokens that activate at a future time." },
+      { q: "What JWT algorithms are supported?", a: "This decoder supports all standard JWT algorithms: HS256/384/512, RS256/384/512, ES256/384/512, and PS256/384/512. All produce the same 3-part token structure." },
+      { q: "Can I use this for JWTs from Auth0, Firebase, or AWS Cognito?", a: "Yes. JWTs from Auth0, Firebase Authentication, AWS Cognito, Okta, and any other standards-compliant JWT issuer all use the same format and can be decoded here." }
+    ],
+    keywords: ["jwt decoder online", "decode jwt token free", "jwt inspector", "json web token decoder", "jwt parser online", "jwt expiry checker", "decode jwt payload", "jwt debugger"]
+  },
 };
 

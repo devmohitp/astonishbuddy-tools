@@ -1,4 +1,5 @@
 "use client";
+import * as Lucide from "lucide-react";
 import { useState, useRef } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -16,7 +17,7 @@ const COMPRESSION_PRESETS = [
   {
     key: "low",
     label: "Low",
-    description: "High quality, good size reduction (~20–40%)",
+    description: "High quality, good size reduction (~20\u201340%)",
     imageQuality: 0.82,
     scale: 1.8,
     icon: "🟢",
@@ -24,7 +25,7 @@ const COMPRESSION_PRESETS = [
   {
     key: "medium",
     label: "Medium",
-    description: "Balanced quality and file size (~40–60%)",
+    description: "Balanced quality and file size (~40\u201360%)",
     imageQuality: 0.65,
     scale: 1.5,
     icon: "🟡",
@@ -32,7 +33,7 @@ const COMPRESSION_PRESETS = [
   {
     key: "high",
     label: "High",
-    description: "Smallest file, reduced quality (~60–75%)",
+    description: "Smallest file, reduced quality (~60\u201375%)",
     imageQuality: 0.45,
     scale: 1.2,
     icon: "🔴",
@@ -202,9 +203,7 @@ export default function PDFCompressor() {
                 justifyContent: "center",
                 fontSize: "24px",
               }}
-            >
-              📄
-            </div>
+            ><Lucide.File size={24} style={{ color: "#ef444422" }} /></div>
             <div>
               <h1
                 style={{
@@ -217,8 +216,7 @@ export default function PDFCompressor() {
                 Free PDF Compressor Online - Reduce PDF File Size Instantly
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
-                Compress PDF files in your browser — no upload to servers, 100%
-                private
+                Compress PDF files in your browser - no upload to servers, 100% private
               </p>
             </div>
           </div>
@@ -282,7 +280,7 @@ export default function PDFCompressor() {
             </div>
           ) : (
             <div style={{ textAlign: "center", padding: "48px 20px" }}>
-              <div style={{ fontSize: "56px", marginBottom: "16px" }}>📁</div>
+              <div style={{ fontSize: "56px", marginBottom: "16px" }}><Lucide.FolderOpen size={48} style={{ color: "var(--accent-1)", marginBottom: "16px" }} /></div>
               <p
                 style={{
                   color: "var(--text-primary)",
@@ -294,7 +292,7 @@ export default function PDFCompressor() {
                 Drop your PDF here or click to browse
               </p>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
-                Supports PDF files · Max 100 MB
+                Supports PDF files Max 100 MB
               </p>
             </div>
           )}
@@ -368,11 +366,11 @@ export default function PDFCompressor() {
                 color: "var(--text-muted)",
               }}
             >
-              ⚡ Selected:{" "}
+              <Lucide.Zap size={14} style={{ marginRight: "6px", color: "var(--accent-1)" }} /> Selected:{" "}
               <strong style={{ color: "var(--text-secondary)" }}>
                 {selectedPreset.label} compression
               </strong>{" "}
-              — {selectedPreset.description}
+              \u2014{selectedPreset.description}
             </p>
           </div>
         )}
@@ -395,7 +393,7 @@ export default function PDFCompressor() {
                 : "0 8px 24px rgba(239,68,68,0.35)",
             }}
           >
-            {loading ? "⏳ Compressing PDF..." : "🗜️ Compress PDF"}
+            {loading ? "\u23F3 Compressing PDF..." : "🗜️ Compress PDF"}
           </button>
         )}
 
@@ -540,7 +538,7 @@ export default function PDFCompressor() {
             gap: "12px",
           }}
         >
-          <span style={{ fontSize: "20px", flexShrink: 0 }}>🔒</span>
+          <span style={{ fontSize: "20px", flexShrink: 0 }}><Lucide.ShieldCheck size={20} style={{ color: "var(--accent-1)", flexShrink: 0 }} /></span>
           <p
             style={{
               fontSize: "13px",
@@ -564,25 +562,25 @@ export default function PDFCompressor() {
             {
               href: "/tools/image-compressor",
               label: "Image Compressor",
-              icon: "🖼️",
+              icon: "Image",
               desc: "Reduce image file size without losing quality",
             },
             {
               href: "/tools/bulk-qrcode-generator",
               label: "Bulk QR Generator",
-              icon: "🔳",
+              icon: "QrCode",
               desc: "Create hundreds of QR codes at once",
             },
             {
               href: "/tools/password-generator",
               label: "Password Generator",
-              icon: "🔐",
+              icon: "Lock",
               desc: "Generate strong, secure passwords",
             },
             {
               href: "/tools/base64-converter",
               label: "Base64 Converter",
-              icon: "🔄",
+              icon: "RefreshCw",
               desc: "Encode and decode Base64 data",
             },
           ]}

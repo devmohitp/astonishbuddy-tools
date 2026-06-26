@@ -1,4 +1,5 @@
 "use client";
+import * as Lucide from "lucide-react";
 import { useState, useCallback } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
@@ -73,7 +74,7 @@ export default function PasswordGenerator() {
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px",
                 flexShrink: 0,
               }}
-            >🔐</div>
+            ><Lucide.Lock size={24} style={{ color: "#ec489922" }} /></div>
             <div style={{ flex: 1 }}>
               <h1 style={{ fontSize: "clamp(1.3rem, 4vw, 1.8rem)", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px", lineHeight: 1.2 }}>
                 Free Strong Password Generator - Secure & Random Passwords Online
@@ -159,9 +160,9 @@ export default function PasswordGenerator() {
         )}
         <ToolSEO toolId="password-generator" />
         <RelatedTools tools={[
-          { href: "/tools/random-number-generator", label: "Random Number Generator", icon: "🎲", desc: "Generate random numbers in any range" },
-          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
-          { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "🔄", desc: "Encode/decode Base64 strings" },
+          { href: "/tools/random-number-generator", label: "Random Number Generator", icon: "Dices", desc: "Generate random numbers in any range" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, chars, reading time" },
+          { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "RefreshCw", desc: "Encode/decode Base64 strings" },
           { href: "/tools/qr-generator", label: "QR Code Generator", icon: "📱", desc: "Generate QR codes for any URL or text" },
         ]} />
       </div>

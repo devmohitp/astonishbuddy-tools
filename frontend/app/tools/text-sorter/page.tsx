@@ -1,4 +1,5 @@
 "use client";
+import * as Lucide from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
@@ -70,7 +71,7 @@ export default function TextSorter() {
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: "28px",
                 boxShadow: "0 8px 20px rgba(108, 99, 255, 0.2)",
               }}
-            >🔤</div>
+            ><Lucide.Type size={24} /></div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
                 Text Sorter Online - Sort Text Alphabetically A-Z, Z-A
@@ -101,7 +102,7 @@ export default function TextSorter() {
               </button>
             </div>
             <div style={{ display: "flex", gap: "8px" }}>
-              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}>📋 Paste</button>
+              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}><Lucide.Clipboard size={14} style={{ marginRight: "6px" }} />Paste</button>
               <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => { setInput(""); setOriginalInput(""); }}>Clear</button>
             </div>
           </div>
@@ -149,9 +150,9 @@ export default function TextSorter() {
         </div>
         <ToolSEO toolId="text-sorter" />
         <RelatedTools tools={[
-          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, chars, reading time" },
           { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert text to any letter case" },
-          { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "📄", desc: "Generate dummy text for designs" },
+          { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "File", desc: "Generate dummy text for designs" },
           { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format & validate JSON data" },
         ]} />
       </div>

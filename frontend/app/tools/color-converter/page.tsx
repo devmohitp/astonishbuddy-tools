@@ -1,4 +1,5 @@
 "use client";
+import * as Lucide from "lucide-react";
 import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
@@ -100,7 +101,7 @@ export default function ColorConverter() {
                 border: "1px solid #f43f5e33",
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px",
               }}
-            >🎨</div>
+            ><Lucide.Palette size={24} style={{ color: "#f43f5e22" }} /></div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
                 Color Code Converter - HEX to RGB, HSL Converter Online
@@ -116,7 +117,7 @@ export default function ColorConverter() {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
             <span className="label" style={{ margin: 0, fontWeight: 600, color: "var(--text-primary)" }}>Input Color (HEX, RGB, HSL, or Name)</span>
             <div style={{ display: "flex", gap: "8px" }}>
-              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}>📋 Paste</button>
+              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}><Lucide.Clipboard size={14} style={{ marginRight: "6px" }} />Paste</button>
               <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => { setInput(""); setHex(""); setRgb(""); setHsl(""); }}>Clear</button>
             </div>
           </div>
@@ -156,10 +157,10 @@ export default function ColorConverter() {
         )}
         <ToolSEO toolId="color-converter" />
         <RelatedTools tools={[
-          { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file sizes" },
-          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong passwords" },
+          { href: "/tools/image-compressor", label: "Image Compressor", icon: "Image", desc: "Reduce image file sizes" },
+          { href: "/tools/password-generator", label: "Password Generator", icon: "Lock", desc: "Generate strong passwords" },
           { href: "/tools/qr-generator", label: "QR Code Generator", icon: "📱", desc: "Generate QR codes for any URL" },
-          { href: "/tools/random-number-generator", label: "Random Numbers", icon: "🎲", desc: "Generate random numbers instantly" },
+          { href: "/tools/random-number-generator", label: "Random Numbers", icon: "Dices", desc: "Generate random numbers instantly" },
         ]} />
       </div>
     </main>

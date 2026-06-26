@@ -8,9 +8,9 @@ export default function Contact() {
       <Navbar />
       <div style={{ flex: 1, padding: "clamp(30px, 8vw, 60px) clamp(16px, 4vw, 24px)", maxWidth: "800px", margin: "0 auto", width: "100%", boxSizing: "border-box" }}>
         <h1 style={{ fontSize: "clamp(2rem, 6vw, 3rem)", fontWeight: 800, marginBottom: "clamp(20px, 4vw, 30px)", textAlign: "center" }}>Contact Us</h1>
-        
+
         <div style={{ background: "rgba(255, 255, 255, 0.02)", border: "1px solid var(--border)", borderRadius: "16px", padding: "clamp(20px, 6vw, 40px)", fontSize: "clamp(15px, 4vw, 16px)", lineHeight: 1.8, color: "var(--text-secondary)", textAlign: "center", boxSizing: "border-box" }}>
-          
+
           <p style={{ marginBottom: "20px", fontSize: "clamp(16px, 5vw, 18px)", color: "var(--text-primary)" }}>
             We’re always happy to hear from our users. If you have questions, suggestions, feedback, or if you find any issues while using our tools, please feel free to contact us.
           </p>

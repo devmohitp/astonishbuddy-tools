@@ -1,4 +1,5 @@
 "use client";
+import * as Lucide from "lucide-react";
 import { useState, useRef } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -46,8 +47,8 @@ export default function WordCounter() {
   };
 
   const statItems = [
-    { label: "Words", value: stats.words, icon: "📝", color: "#10b981" },
-    { label: "Characters", value: stats.chars, icon: "🔤", color: "#6c63ff" },
+    { label: "Words", value: stats.words, icon: "FileEdit", color: "#10b981" },
+    { label: "Characters", value: stats.chars, icon: "Type", color: "#6c63ff" },
     { label: "Chars (no spaces)", value: stats.charsNoSpaces, icon: "✂️", color: "#a855f7" },
     { label: "Sentences", value: stats.sentences, icon: ".", color: "#06b6d4" },
     { label: "Paragraphs", value: stats.paragraphs, icon: "¶", color: "#ec4899" },
@@ -72,7 +73,7 @@ export default function WordCounter() {
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px",
                 flexShrink: 0,
               }}
-            >📊</div>
+            ><Lucide.FileDigit size={24} style={{ color: "#10b98122" }} /></div>
             <div style={{ flex: 1 }}>
               <h1 style={{ fontSize: "clamp(1.3rem, 4vw, 1.8rem)", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px", lineHeight: 1.2 }}>
                 Word Counter Online - Count Words, Characters & Sentences
@@ -112,7 +113,7 @@ export default function WordCounter() {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
             <span className="label" style={{ margin: 0 }}>Your Text</span>
             <div style={{ display: "flex", gap: "8px" }}>
-              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}>📋 Paste</button>
+              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}><Lucide.Clipboard size={14} style={{ marginRight: "6px" }} />Paste</button>
               <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => setText("")}>Clear</button>
             </div>
           </div>
@@ -156,8 +157,8 @@ export default function WordCounter() {
       <ToolSEO toolId="word-counter" />
       <RelatedTools tools={[
         { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert text to UPPER, lower, Title case instantly" },
-        { href: "/tools/text-sorter", label: "Text Sorter", icon: "📋", desc: "Sort and de-duplicate lines of text" },
-        { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "📄", desc: "Generate placeholder text for designs" },
+        { href: "/tools/text-sorter", label: "Text Sorter", icon: "\uD83D\uDCCB ", desc: "Sort and de-duplicate lines of text" },
+        { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "File", desc: "Generate placeholder text for designs" },
         { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format & validate JSON with syntax highlighting" },
       ]} />
       </div>

@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Check } from "lucide-react";
 import dynamic from "next/dynamic";
 import Navbar from "../components/Navbar";
@@ -528,85 +527,86 @@ export default function FAQPage() {
               <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 {activeCategory === "all" ? "Filter by Category: All Tools" : <>{activeIcon} {activeLabel}</>}
               </span>
-              <motion.div animate={{ rotate: isDropdownOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
+              <div style={{
+                transform: isDropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+                transition: "transform 0.2s ease",
+                display: "flex",
+                alignItems: "center"
+              }}>
                 <ChevronDown size={18} color="var(--text-secondary)" />
-              </motion.div>
+              </div>
             </button>
 
-            <AnimatePresence>
-              {isDropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
+            {isDropdownOpen && (
+              <div
+                style={{
+                  animation: "dropdownFadeIn 0.2s ease-out forwards",
+                  transformOrigin: "top center",
+                  position: "absolute",
+                  top: "calc(100% + 8px)",
+                  left: 0,
+                  right: 0,
+                  background: "var(--bg-card)",
+                  border: "1px solid var(--border)",
+                  borderRadius: "14px",
+                  boxShadow: "0 10px 40px rgba(0,0,0,0.5)",
+                  overflow: "hidden",
+                  display: "flex",
+                  flexDirection: "column",
+                  maxHeight: "360px",
+                  overflowY: "auto",
+                }}
+              >
+                <div
+                  onClick={() => { setActiveCategory("all"); setIsDropdownOpen(false); }}
                   style={{
-                    position: "absolute",
-                    top: "calc(100% + 8px)",
-                    left: 0,
-                    right: 0,
-                    background: "var(--bg-card)",
-                    border: "1px solid var(--border)",
-                    borderRadius: "14px",
-                    boxShadow: "0 10px 40px rgba(0,0,0,0.5)",
-                    overflow: "hidden",
+                    padding: "14px 20px",
+                    cursor: "pointer",
                     display: "flex",
-                    flexDirection: "column",
-                    maxHeight: "360px",
-                    overflowY: "auto",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    background: activeCategory === "all" ? "rgba(129, 140, 248, 0.1)" : "transparent",
+                    color: activeCategory === "all" ? "#818cf8" : "var(--text-primary)",
+                    fontWeight: activeCategory === "all" ? 700 : 500,
+                    fontSize: "14px",
+                    borderBottom: "1px solid var(--border)",
+                    transition: "background 0.2s",
                   }}
+                  onMouseEnter={(e) => { if (activeCategory !== "all") e.currentTarget.style.background = "var(--bg-secondary)" }}
+                  onMouseLeave={(e) => { if (activeCategory !== "all") e.currentTarget.style.background = "transparent" }}
                 >
+                  All Tools
+                  {activeCategory === "all" && <Check size={16} />}
+                </div>
+
+                {faqCategories.map((cat) => (
                   <div
-                    onClick={() => { setActiveCategory("all"); setIsDropdownOpen(false); }}
+                    key={cat.id}
+                    onClick={() => { setActiveCategory(cat.id); setIsDropdownOpen(false); }}
                     style={{
-                      padding: "14px 20px",
+                      padding: "12px 20px",
                       cursor: "pointer",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "space-between",
-                      background: activeCategory === "all" ? "rgba(129, 140, 248, 0.1)" : "transparent",
-                      color: activeCategory === "all" ? "#818cf8" : "var(--text-primary)",
-                      fontWeight: activeCategory === "all" ? 700 : 500,
+                      background: activeCategory === cat.id ? `${cat.color}15` : "transparent",
+                      color: activeCategory === cat.id ? cat.color : "var(--text-primary)",
+                      fontWeight: activeCategory === cat.id ? 700 : 500,
                       fontSize: "14px",
-                      borderBottom: "1px solid var(--border)",
                       transition: "background 0.2s",
                     }}
-                    onMouseEnter={(e) => { if (activeCategory !== "all") e.currentTarget.style.background = "var(--bg-secondary)" }}
-                    onMouseLeave={(e) => { if (activeCategory !== "all") e.currentTarget.style.background = "transparent" }}
+                    onMouseEnter={(e) => { if (activeCategory !== cat.id) e.currentTarget.style.background = "var(--bg-secondary)" }}
+                    onMouseLeave={(e) => { if (activeCategory !== cat.id) e.currentTarget.style.background = "transparent" }}
                   >
-                    All Tools
-                    {activeCategory === "all" && <Check size={16} />}
+                    <span style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <span style={{ fontSize: "16px" }}>{cat.icon}</span>
+                      {cat.label}
+                    </span>
+                    {activeCategory === cat.id && <Check size={16} />}
                   </div>
-
-                  {faqCategories.map((cat) => (
-                    <div
-                      key={cat.id}
-                      onClick={() => { setActiveCategory(cat.id); setIsDropdownOpen(false); }}
-                      style={{
-                        padding: "12px 20px",
-                        cursor: "pointer",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        background: activeCategory === cat.id ? `${cat.color}15` : "transparent",
-                        color: activeCategory === cat.id ? cat.color : "var(--text-primary)",
-                        fontWeight: activeCategory === cat.id ? 700 : 500,
-                        fontSize: "14px",
-                        transition: "background 0.2s",
-                      }}
-                      onMouseEnter={(e) => { if (activeCategory !== cat.id) e.currentTarget.style.background = "var(--bg-secondary)" }}
-                      onMouseLeave={(e) => { if (activeCategory !== cat.id) e.currentTarget.style.background = "transparent" }}
-                    >
-                      <span style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                        <span style={{ fontSize: "16px" }}>{cat.icon}</span>
-                        {cat.label}
-                      </span>
-                      {activeCategory === cat.id && <Check size={16} />}
-                    </div>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 

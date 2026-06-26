@@ -3,7 +3,6 @@
 import { useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { FileText, DownloadCloud, Trash2, Plus, ChevronLeft, Copy, Check, RefreshCw, LayoutGrid } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 // Dynamically import heavy/below-fold components
@@ -131,7 +130,7 @@ export default function BulkQRGenerator() {
             <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "32px 24px 64px", position: "relative", zIndex: 1 }}>
 
                 {/* Back Button */}
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ marginBottom: "40px" }}>
+                <div style={{ marginBottom: "40px" }}>
                     <Link href="/" style={{
                         display: "inline-flex", alignItems: "center", gap: "6px",
                         color: "var(--text-secondary)", fontSize: "14px", fontWeight: 500,
@@ -142,13 +141,11 @@ export default function BulkQRGenerator() {
                     >
                         <ChevronLeft size={16} /> Back to Dashboard
                     </Link>
-                </motion.div>
+                </div>
 
                 {/* Centered Hero Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: -16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    style={{ textAlign: "center", marginBottom: "56px" }}
+                <div
+                    style={{ textAlign: "center", marginBottom: "56px", animation: "slideDown 0.4s ease-out" }}
                 >
                     <h1 style={{ fontSize: "clamp(2.2rem, 5vw, 3.5rem)", fontWeight: 900, letterSpacing: "-1.5px", color: "white", marginBottom: "16px", lineHeight: 1.1 }}>
                         Bulk <span className="gradient-text">QR Generator</span>
@@ -156,7 +153,7 @@ export default function BulkQRGenerator() {
                     <p style={{ color: "var(--text-secondary)", fontSize: "clamp(15px, 2vw, 18px)", maxWidth: "560px", margin: "0 auto", lineHeight: 1.7 }}>
                         Instantly generate multiple QR codes from your text or links. Export as PDF or ZIP in one click.
                     </p>
-                </motion.div>
+                </div>
 
                 {/* Main 2-Column Layout */}
                 <div style={{ display: "grid", gridTemplateColumns: "360px 1fr", gap: "28px", alignItems: "start" }}
@@ -164,10 +161,9 @@ export default function BulkQRGenerator() {
                 >
 
                     {/* ── LEFT: Input Panel ── */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -16 }}
-                        animate={{ opacity: 1, x: 0 }}
+                    <div
                         style={{
+                            animation: "slideDown 0.4s ease-out",
                             background: "var(--bg-card)",
                             border: "1px solid var(--border)",
                             borderRadius: "20px",
@@ -281,14 +277,12 @@ export default function BulkQRGenerator() {
                                 {isExportingZIP ? "Creating ZIP..." : "Download as ZIP"}
                             </button>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* ── RIGHT: Live Preview Panel ── */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 16 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.08 }}
+                    <div
                         style={{
+                            animation: "slideDown 0.4s ease-out 0.08s forwards",
                             background: "var(--bg-card)",
                             border: "1px solid var(--border)",
                             borderRadius: "20px",
@@ -370,101 +364,95 @@ export default function BulkQRGenerator() {
                                     gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
                                     gap: "24px"
                                 }}>
-                                    <AnimatePresence mode="popLayout">
-                                        {qrItems.map((item, index) => (
-                                            <motion.div
-                                                key={`${index}-${item}`}
-                                                layout
-                                                initial={{ opacity: 0, scale: 0.88 }}
-                                                animate={{ opacity: 1, scale: 1 }}
-                                                exit={{ opacity: 0, scale: 0.88 }}
-                                                transition={{ duration: 0.22 }}
-                                                style={{
-                                                    background: "var(--bg-secondary)",
-                                                    border: "1px solid var(--border)",
-                                                    borderRadius: "16px",
-                                                    padding: "16px",
-                                                    display: "flex",
-                                                    flexDirection: "column",
-                                                    alignItems: "center",
-                                                    gap: "12px",
-                                                    cursor: "default",
-                                                    transition: "border-color 0.2s, box-shadow 0.2s"
-                                                }}
-                                                onMouseEnter={e => {
-                                                    e.currentTarget.style.borderColor = "rgba(99,102,241,0.4)";
-                                                    e.currentTarget.style.boxShadow = "0 4px 24px rgba(99,102,241,0.1)";
-                                                }}
-                                                onMouseLeave={e => {
-                                                    e.currentTarget.style.borderColor = "var(--border)";
-                                                    e.currentTarget.style.boxShadow = "none";
-                                                }}
-                                            >
-                                                {/* QR Code — fixed size container */}
-                                                <div style={{
-                                                    width: "128px", height: "128px",
-                                                    background: "white", borderRadius: "10px",
-                                                    padding: "8px", flexShrink: 0,
-                                                    boxShadow: "0 2px 12px rgba(0,0,0,0.3)"
-                                                }}>
-                                                    <QRCodeCanvas
-                                                        id={`qr-${index}`}
-                                                        value={item}
-                                                        size={112}
-                                                        level={qrLevel}
-                                                        bgColor="#ffffff"
-                                                        fgColor="#000000"
-                                                        includeMargin={false}
-                                                    />
-                                                </div>
+                                    {qrItems.map((item, index) => (
+                                        <div
+                                            key={`${index}-${item}`}
+                                            style={{
+                                                animation: "dropdownFadeIn 0.22s ease-out",
+                                                background: "var(--bg-secondary)",
+                                                border: "1px solid var(--border)",
+                                                borderRadius: "16px",
+                                                padding: "16px",
+                                                display: "flex",
+                                                flexDirection: "column",
+                                                alignItems: "center",
+                                                gap: "12px",
+                                                cursor: "default",
+                                                transition: "border-color 0.2s, box-shadow 0.2s"
+                                            }}
+                                            onMouseEnter={e => {
+                                                e.currentTarget.style.borderColor = "rgba(99,102,241,0.4)";
+                                                e.currentTarget.style.boxShadow = "0 4px 24px rgba(99,102,241,0.1)";
+                                            }}
+                                            onMouseLeave={e => {
+                                                e.currentTarget.style.borderColor = "var(--border)";
+                                                e.currentTarget.style.boxShadow = "none";
+                                            }}
+                                        >
+                                            {/* QR Code — fixed size container */}
+                                            <div style={{
+                                                width: "128px", height: "128px",
+                                                background: "white", borderRadius: "10px",
+                                                padding: "8px", flexShrink: 0,
+                                                boxShadow: "0 2px 12px rgba(0,0,0,0.3)"
+                                            }}>
+                                                <QRCodeCanvas
+                                                    id={`qr-${index}`}
+                                                    value={item}
+                                                    size={112}
+                                                    level={qrLevel}
+                                                    bgColor="#ffffff"
+                                                    fgColor="#000000"
+                                                    includeMargin={false}
+                                                />
+                                            </div>
 
-                                                {/* Label */}
-                                                <p style={{
-                                                    fontSize: "11px", fontWeight: 500, color: "var(--text-secondary)",
-                                                    width: "100%", textAlign: "center",
-                                                    overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-                                                    padding: "0 4px"
-                                                }} title={item}>
-                                                    {item}
-                                                </p>
+                                            {/* Label */}
+                                            <p style={{
+                                                fontSize: "11px", fontWeight: 500, color: "var(--text-secondary)",
+                                                width: "100%", textAlign: "center",
+                                                overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                                                padding: "0 4px"
+                                            }} title={item}>
+                                                {item}
+                                            </p>
 
-                                                {/* Action Buttons */}
-                                                <div style={{ display: "flex", gap: "6px", width: "100%" }}>
-                                                    <button
-                                                        onClick={() => copyToClipboard(item, `copy-${index}`)}
-                                                        style={{
-                                                            flex: 1, padding: "6px 0", borderRadius: "8px",
-                                                            fontSize: "11px", fontWeight: 600,
-                                                            background: "var(--bg-card)", border: "1px solid var(--border)",
-                                                            color: "var(--text-secondary)", cursor: "pointer",
-                                                            display: "flex", alignItems: "center", justifyContent: "center", gap: "4px",
-                                                            transition: "all 0.2s"
-                                                        }}
-                                                        onMouseEnter={e => { e.currentTarget.style.color = "white"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; }}
-                                                        onMouseLeave={e => { e.currentTarget.style.color = "var(--text-secondary)"; e.currentTarget.style.borderColor = "var(--border)"; }}
-                                                    >
-                                                        {copyId === `copy-${index}` ? <Check size={11} color="#4ade80" /> : <Copy size={11} />}
-                                                        {copyId === `copy-${index}` ? "Copied" : "Copy"}
-                                                    </button>
-                                                    <button
-                                                        onClick={() => downloadSingleQR(index, item)}
-                                                        style={{
-                                                            flex: 1, padding: "6px 0", borderRadius: "8px",
-                                                            fontSize: "11px", fontWeight: 600,
-                                                            background: "rgba(99,102,241,0.15)", border: "1px solid rgba(99,102,241,0.3)",
-                                                            color: "#818cf8", cursor: "pointer",
-                                                            display: "flex", alignItems: "center", justifyContent: "center", gap: "4px",
-                                                            transition: "all 0.2s"
-                                                        }}
-                                                        onMouseEnter={e => { e.currentTarget.style.background = "rgba(99,102,241,0.3)"; }}
-                                                        onMouseLeave={e => { e.currentTarget.style.background = "rgba(99,102,241,0.15)"; }}
-                                                    >
-                                                        <DownloadCloud size={11} /> Save
-                                                    </button>
-                                                </div>
-                                            </motion.div>
-                                        ))}
-                                    </AnimatePresence>
+                                            {/* Action Buttons */}
+                                            <div style={{ display: "flex", gap: "6px", width: "100%" }}>
+                                                <button
+                                                    onClick={() => copyToClipboard(item, `copy-${index}`)}
+                                                    style={{
+                                                        flex: 1, padding: "6px 0", borderRadius: "8px",
+                                                        fontSize: "11px", fontWeight: 600,
+                                                        background: "var(--bg-card)", border: "1px solid var(--border)",
+                                                        color: "var(--text-secondary)", cursor: "pointer",
+                                                        display: "flex", alignItems: "center", justifyContent: "center", gap: "4px",
+                                                        transition: "all 0.2s"
+                                                    }}
+                                                    onMouseEnter={e => { e.currentTarget.style.color = "white"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; }}
+                                                    onMouseLeave={e => { e.currentTarget.style.color = "var(--text-secondary)"; e.currentTarget.style.borderColor = "var(--border)"; }}
+                                                >
+                                                    {copyId === `copy-${index}` ? <Check size={11} color="#4ade80" /> : <Copy size={11} />}
+                                                    {copyId === `copy-${index}` ? "Copied" : "Copy"}
+                                                </button>
+                                                <button
+                                                    onClick={() => downloadSingleQR(index, item)}
+                                                    style={{
+                                                        flex: 1, padding: "6px 0", borderRadius: "8px",
+                                                        fontSize: "11px", fontWeight: 600,
+                                                        background: "rgba(99,102,241,0.15)", border: "1px solid rgba(99,102,241,0.3)",
+                                                        color: "#818cf8", cursor: "pointer",
+                                                        display: "flex", alignItems: "center", justifyContent: "center", gap: "4px",
+                                                        transition: "all 0.2s"
+                                                    }}
+                                                    onMouseEnter={e => { e.currentTarget.style.background = "rgba(99,102,241,0.3)"; }}
+                                                    onMouseLeave={e => { e.currentTarget.style.background = "rgba(99,102,241,0.15)"; }}
+                                                >
+                                                    <DownloadCloud size={11} /> Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
                             )}
                         </div>
@@ -480,7 +468,7 @@ export default function BulkQRGenerator() {
                                 All data processed locally — never leaves your device
                             </span>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
 

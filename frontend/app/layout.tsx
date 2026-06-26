@@ -1,20 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
+import ThirdPartyScripts from "./components/ThirdPartyScripts";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-outfit",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "600", "800", "900"],
 });
 
 export const viewport: Viewport = {
@@ -60,27 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
       <body>
-        <Script
-          async
-          strategy="lazyOnload"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3280584684265213"
-          crossOrigin="anonymous"
-        />
-
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-E2KTZ2878L"
-          strategy="lazyOnload"
-        />
-
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-E2KTZ2878L');
-          `}
-        </Script>
-
+        <ThirdPartyScripts />
         {children}
       </body>
     </html>

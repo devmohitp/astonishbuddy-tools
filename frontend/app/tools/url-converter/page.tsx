@@ -1,4 +1,5 @@
 "use client";
+import * as Lucide from "lucide-react";
 import { useState, useRef } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
@@ -52,7 +53,7 @@ export default function UrlConverter() {
                 border: "1px solid #3b82f633",
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px",
               }}
-            >🔗</div>
+            ><Lucide.Link size={24} style={{ color: "#3b82f622" }} /></div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
                 URL Encoder & Decoder Online - Encode URLs Instantly
@@ -68,7 +69,7 @@ export default function UrlConverter() {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
             <span className="label" style={{ margin: 0, fontWeight: 600, color: "var(--text-primary)" }}>Input Text</span>
             <div style={{ display: "flex", gap: "8px" }}>
-              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}>📋 Paste</button>
+              <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={handlePaste}><Lucide.Clipboard size={14} style={{ marginRight: "6px" }} />Paste</button>
               <button className="btn-secondary" style={{ padding: "6px 12px", fontSize: "12px" }} onClick={() => { setInput(""); setOutput(""); }}>Clear</button>
             </div>
           </div>
@@ -105,9 +106,9 @@ export default function UrlConverter() {
         )}
         <ToolSEO toolId="url-converter" />
         <RelatedTools tools={[
-          { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "🔄", desc: "Encode/decode Base64 strings" },
+          { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "RefreshCw", desc: "Encode/decode Base64 strings" },
           { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format & validate JSON" },
-          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, chars, reading time" },
           { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert text casing instantly" },
         ]} />
       </div>

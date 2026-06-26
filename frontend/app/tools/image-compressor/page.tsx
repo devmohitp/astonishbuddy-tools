@@ -1,4 +1,5 @@
 "use client";
+import * as Lucide from "lucide-react";
 import { useState, useRef } from "react";
 import Link from "next/link";
 import imageCompression from "browser-image-compression";
@@ -112,7 +113,7 @@ export default function ImageCompressor() {
                 border: "1px solid #6c63ff33",
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px",
               }}
-            >🖼️</div>
+            ><Lucide.Image size={24} style={{ color: "#6c63ff22" }} /></div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
                 Free Image Compressor Online - Reduce Image Size Without Losing Quality
@@ -147,7 +148,7 @@ export default function ImageCompressor() {
                 style={{ maxHeight: "280px", maxWidth: "100%", borderRadius: "12px", objectFit: "contain" }}
               />
               <p style={{ marginTop: "12px", color: "var(--text-secondary)", fontSize: "14px" }}>
-                📄 {image?.name} · {formatBytes(image?.size || 0)}
+                📄 {image?.name} - {formatBytes(image?.size || 0)}
               </p>
               <p style={{ color: "var(--accent-1)", fontSize: "13px", marginTop: "6px" }}>
                 Click or drop to change image
@@ -155,12 +156,12 @@ export default function ImageCompressor() {
             </div>
           ) : (
             <div style={{ textAlign: "center", padding: "40px 20px" }}>
-              <div style={{ fontSize: "48px", marginBottom: "16px" }}>📁</div>
+              <div style={{ fontSize: "48px", marginBottom: "16px" }}><Lucide.FolderOpen size={48} style={{ color: "var(--accent-1)", marginBottom: "16px" }} /></div>
               <p style={{ color: "var(--text-primary)", fontWeight: 600, marginBottom: "8px" }}>
                 Drop your image here or click to browse
               </p>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
-                Supports JPG, PNG, WebP · Max 100MB
+                Supports JPG, PNG, WebP - Max 100MB
               </p>
             </div>
           )}
@@ -221,7 +222,7 @@ export default function ImageCompressor() {
 
         {result && (
           <div className="glass-card animate-fade-in" style={{ padding: "24px" }}>
-            <h3 style={{ marginBottom: "16px", color: "var(--text-primary)" }}>✅ Compression Result</h3>
+            <h3 style={{ marginBottom: "16px", color: "var(--text-primary)" }}><Lucide.CheckCircle2 size={16} style={{ marginRight: "8px", verticalAlign: "middle" }} />Compression Result</h3>
             <div className="responsive-stats-grid" style={{ marginBottom: "20px" }}>
               {[
                 { label: "Original Size", value: formatBytes(result.originalSize), type: "info" },
@@ -258,8 +259,8 @@ export default function ImageCompressor() {
         <RelatedTools tools={[
           { href: "/tools/qr-generator", label: "QR Code Generator", icon: "📱", desc: "Generate QR codes for any URL or text" },
           { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "🗂️", desc: "Create multiple QR codes at once" },
-          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
-          { href: "/tools/color-converter", label: "Color Converter", icon: "🎨", desc: "Convert between HEX, RGB, HSL" },
+          { href: "/tools/password-generator", label: "Password Generator", icon: "Lock", desc: "Generate strong, secure passwords" },
+          { href: "/tools/color-converter", label: "Color Converter", icon: "Palette", desc: "Convert between HEX, RGB, HSL" },
         ]} />
       </div>
       {loading && (

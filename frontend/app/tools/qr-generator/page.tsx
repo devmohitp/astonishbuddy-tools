@@ -1,4 +1,5 @@
 "use client";
+import * as Lucide from "lucide-react";
 import { useState, useRef } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -9,10 +10,10 @@ const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 const API_BASE = "/api";
 
 const ECC_OPTIONS = [
-  { value: "L", label: "L – Low (7%)", desc: "Best for clean environments" },
-  { value: "M", label: "M – Medium (15%)", desc: "Good default choice" },
-  { value: "Q", label: "Q – Quartile (25%)", desc: "Better error recovery" },
-  { value: "H", label: "H – High (30%)", desc: "Best for logos overlay" },
+  { value: "L", label: "L \u2013Low (7%)", desc: "Best for clean environments" },
+  { value: "M", label: "M \u2013Medium (15%)", desc: "Good default choice" },
+  { value: "Q", label: "Q \u2013Quartile (25%)", desc: "Better error recovery" },
+  { value: "H", label: "H \u2013High (30%)", desc: "Best for logos overlay" },
 ];
 
 export default function QRGenerator() {
@@ -86,7 +87,7 @@ export default function QRGenerator() {
                 border: "1px solid #f59e0b33",
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px",
               }}
-            >⬛</div>
+            ><Lucide.QrCode size={24} style={{ color: "#f59e0b22" }} /></div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
                 Free QR Code Generator Online - Create QR Codes Instantly
@@ -113,7 +114,7 @@ export default function QRGenerator() {
                 onChange={(e) => setText(e.target.value)}
               />
               <div style={{ display: "flex", gap: "8px", marginTop: "10px", flexWrap: "wrap" }}>
-                <button className="btn-secondary" style={{ fontSize: "12px", padding: "6px 12px" }} onClick={handlePaste}>📋 Paste</button>
+                <button className="btn-secondary" style={{ fontSize: "12px", padding: "6px 12px" }} onClick={handlePaste}><Lucide.Clipboard size={14} style={{ marginRight: "6px" }} />Paste</button>
                 {presets.map((p) => (
                   <button
                     key={p.label}
@@ -230,9 +231,9 @@ export default function QRGenerator() {
       <ToolSEO toolId="qr-generator" />
       <RelatedTools tools={[
         { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "🗂️", desc: "Generate multiple QR codes at once" },
-        { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file sizes" },
-        { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
-        { href: "/tools/color-converter", label: "Color Converter", icon: "🎨", desc: "Convert between HEX, RGB, HSL" },
+        { href: "/tools/image-compressor", label: "Image Compressor", icon: "Image", desc: "Reduce image file sizes" },
+        { href: "/tools/password-generator", label: "Password Generator", icon: "Lock", desc: "Generate strong, secure passwords" },
+        { href: "/tools/color-converter", label: "Color Converter", icon: "Palette", desc: "Convert between HEX, RGB, HSL" },
       ]} />
       </div>
     </main>

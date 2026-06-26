@@ -1,4 +1,5 @@
 "use client";
+import * as Lucide from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import CopyButton from "../../components/CopyButton";
@@ -49,7 +50,7 @@ export default function RandomNumberGenerator() {
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: "28px",
                 boxShadow: "0 8px 20px rgba(20, 184, 166, 0.2)",
               }}
-            >🎲</div>
+            ><Lucide.Dices size={24} style={{ color: "#14b8a6" }} /></div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
                 Random Number Generator - Generate Numbers Online Free
@@ -136,10 +137,10 @@ export default function RandomNumberGenerator() {
         )}
         <ToolSEO toolId="random-number-generator" />
         <RelatedTools tools={[
-          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, chars, reading time" },
           { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert letter casing" },
-          { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "📄", desc: "Generate placeholder text" },
-          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
+          { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "File", desc: "Generate placeholder text" },
+          { href: "/tools/password-generator", label: "Password Generator", icon: "Lock", desc: "Generate strong, secure passwords" },
         ]} />
       </div>
     </main>

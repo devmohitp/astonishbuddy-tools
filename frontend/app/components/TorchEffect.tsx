@@ -1,19 +1,35 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function TorchEffect() {
+  const ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    let frameId: number;
+
     const handleMouseMove = (e: MouseEvent) => {
-      document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
-      document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
+      if (!ref.current) return;
+      
+      // Throttle styling updates using requestAnimationFrame
+      cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(() => {
+        if (ref.current) {
+          ref.current.style.setProperty("--mouse-x", `${e.clientX}px`);
+          ref.current.style.setProperty("--mouse-y", `${e.clientY}px`);
+        }
+      });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(frameId);
+    };
   }, []);
 
   return (
     <div
+      ref={ref}
       className="torch-light"
       style={{
         position: "fixed",
