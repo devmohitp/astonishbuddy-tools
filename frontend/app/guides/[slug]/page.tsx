@@ -529,7 +529,7 @@ export default async function GuideDetailPage({ params }: Props) {
             >
               ← All Guides
             </Link>
-            <Link href="/tools" className="guide-cta-secondary">
+            <Link href="/#all-tools" className="guide-cta-secondary">
               🛠️ Explore Tools
             </Link>
           </div>

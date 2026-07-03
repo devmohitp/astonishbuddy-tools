@@ -428,7 +428,7 @@ export default async function BlogDetailPage({ params }: Props) {
             >
               ← Browse All Articles
             </Link>
-            <Link href="/tools" className="blog-cta-secondary">
+            <Link href="/#all-tools" className="blog-cta-secondary">
               🛠️ Explore Tools
             </Link>
           </div>
