@@ -137,7 +137,7 @@ export default function LatestArticles() {
         description: p.description,
         categoryLabel: getCategoryTag(p.slug).label,
         categoryColor: getCategoryTag(p.slug).color,
-        image: slugImageMap[p.slug] ?? DEFAULT_IMAGE,
+        image: p.image || slugImageMap[p.slug] || DEFAULT_IMAGE,
         readingTime: getReadingTime(p.description),
         isDemo: false,
       }));

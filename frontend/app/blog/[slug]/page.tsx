@@ -5,6 +5,7 @@ import Link from "next/link";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import { blogPosts } from "../../data/blog-posts";
+import { parseMarkdownToHTML } from "../../utils/markdown";
 
 // Map slugs to Unsplash free-to-use images
 const slugImageMap: Record<string, string> = {
@@ -84,6 +85,7 @@ export default async function BlogDetailPage({ params }: Props) {
 
   const cleanTitle = post.title.replace(/^\d+\.\s*/, "");
   const featuredImage =
+    post.image ||
     slugImageMap[slug] ||
     "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=1200&q=85";
 
@@ -377,7 +379,11 @@ export default async function BlogDetailPage({ params }: Props) {
             marginBottom: "80px",
           }}
         >
-          {post.content}
+          {typeof post.content === "string" ? (
+            <div dangerouslySetInnerHTML={{ __html: parseMarkdownToHTML(post.content) }} />
+          ) : (
+            post.content
+          )}
         </div>
 
         {/* CTA Section */}
@@ -457,6 +463,7 @@ export default async function BlogDetailPage({ params }: Props) {
             {related.map((rpost) => {
               const rCleanTitle = rpost.title.replace(/^\d+\.\s*/, "");
               const rImg =
+                rpost.image ||
                 slugImageMap[rpost.slug] ||
                 "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=600&q=75";
               return (

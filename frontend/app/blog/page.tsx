@@ -174,7 +174,7 @@ export default function BlogPage() {
           }}
         >
           {blogPosts.map((post, index) => {
-            const img = slugImageMap[post.slug] || slugImageMap["best-free-online-tools-for-students"];
+            const img = post.image || slugImageMap[post.slug] || slugImageMap["best-free-online-tools-for-students"];
             const category = getCategoryTag(post.slug);
             const cleanTitle = post.title.replace(/^\d+\.\s*/, "");
             return (

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 export default function ThirdPartyScripts() {
   const [shouldLoad, setShouldLoad] = useState(false);
@@ -25,7 +26,7 @@ export default function ThirdPartyScripts() {
     window.addEventListener("touchmove", loadScripts, { passive: true });
     window.addEventListener("keydown", loadScripts, { passive: true });
 
-    // Fallback: load after 4 seconds if no interaction
+    // Fallback: Load after 4 seconds
     const timeout = setTimeout(loadScripts, 4000);
 
     return () => {
@@ -39,26 +40,37 @@ export default function ThirdPartyScripts() {
   return (
     <>
       {/* Google Adsense */}
-      <script
+      <Script
+        id="adsense"
+        strategy="afterInteractive"
         async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3280584684265213"
         crossOrigin="anonymous"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3280584684265213"
       />
+
       {/* Google Analytics */}
-      <script
-        async
+      <Script
+        id="gtag-script"
+        strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-E2KTZ2878L"
       />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-E2KTZ2878L');
-          `,
-        }}
-      />
+
+      <Script
+        id="gtag-config"
+        strategy="afterInteractive"
+      >
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+
+          gtag('config', 'G-E2KTZ2878L', {
+            page_path: window.location.pathname,
+            anonymize_ip: true
+          });
+        `}
+      </Script>
     </>
   );
 }

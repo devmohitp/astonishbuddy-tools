@@ -1,4 +1,5 @@
 import React from "react";
+import userPostsData from "./user-posts.json";
 
 export interface BlogPost {
   title: string;
@@ -8,9 +9,10 @@ export interface BlogPost {
   description: string;
   content: React.ReactNode;
   color: string;
+  image?: string;
 }
 
-export const blogPosts: BlogPost[] = [
+const staticBlogPosts: BlogPost[] = [
   {
     title: "1. Best Free Online Tools for Students in 2026: Boost Productivity, Save Time, and Study Smarter",
     slug: "best-free-online-tools-for-students",
@@ -3143,4 +3145,21 @@ string decoded = System.Text.Encoding.UTF8.GetString(
     ),
     color: "#f59e0b",
   }
+];
+
+const deletedSlugs = new Set(
+  userPostsData.filter((p: any) => p.isDeleted).map((p: any) => p.slug)
+);
+const activeUserPosts = userPostsData.filter((p: any) => !p.isDeleted);
+const userPostSlugs = new Set(activeUserPosts.map((p: any) => p.slug));
+
+const activeStaticPosts = staticBlogPosts.filter(
+  (p) => !deletedSlugs.has(p.slug) && !userPostSlugs.has(p.slug)
+);
+
+export const blogPosts: BlogPost[] = [
+  ...activeStaticPosts,
+  ...activeUserPosts.map((post: any) => ({
+    ...post,
+  }))
 ];
