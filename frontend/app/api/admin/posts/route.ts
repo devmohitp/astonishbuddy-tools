@@ -16,11 +16,18 @@ const postsFilePath = path.join(
   "user-posts.json"
 );
 
+let inMemoryUserPosts: any[] | null = null;
+
 // Read current user posts helper
 async function readUserPosts(): Promise<any[]> {
+  if (inMemoryUserPosts !== null) {
+    return inMemoryUserPosts;
+  }
   try {
     const fileData = await fs.readFile(postsFilePath, "utf-8");
-    return JSON.parse(fileData);
+    const posts = JSON.parse(fileData);
+    inMemoryUserPosts = posts;
+    return posts;
   } catch (e) {
     return [];
   }
@@ -28,13 +35,33 @@ async function readUserPosts(): Promise<any[]> {
 
 // Write user posts helper
 async function writeUserPosts(posts: any[]): Promise<void> {
+  inMemoryUserPosts = posts;
   await fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2), "utf-8");
 }
 
 // GET all posts (with static elements converted to clean HTML strings)
 export async function GET() {
   try {
-    const serializedPosts = blogPosts.map((post) => ({
+    const currentDynamicPosts = await readUserPosts();
+
+    const deletedSlugs = new Set(
+      currentDynamicPosts.filter((p: any) => p.isDeleted).map((p: any) => p.slug)
+    );
+    const activeUserPosts = currentDynamicPosts.filter((p: any) => !p.isDeleted);
+    const userPostSlugs = new Set(activeUserPosts.map((p: any) => p.slug));
+
+    // Filter static blogPosts (which are in blogPosts)
+    const filteredStatic = blogPosts.filter(
+      (p) => !deletedSlugs.has(p.slug) && !userPostSlugs.has(p.slug)
+    );
+
+    // Merge static and user posts
+    const mergedPosts = [
+      ...filteredStatic,
+      ...activeUserPosts,
+    ];
+
+    const serializedPosts = mergedPosts.map((post) => ({
       ...post,
       content: typeof post.content === "string" ? post.content : reactNodeToHTML(post.content),
     }));

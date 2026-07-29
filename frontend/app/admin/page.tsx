@@ -770,7 +770,7 @@ export default function AdminPage() {
 
         {activeTab === "write" ? (
           /* Form tab */
-          <form onSubmit={handleSubmit} className="animate-fade-in" style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: "32px" }}>
+          <form onSubmit={handleSubmit} className="animate-fade-in" style={{ display: "grid", gridTemplateColumns: "minmax(0, 2fr) minmax(0, 1fr)", gap: "32px" }}>
 
             {/* Left side: Body content */}
             <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
@@ -914,7 +914,7 @@ export default function AdminPage() {
             </div>
 
             {/* Right side: Metadata, Image, Color */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "24px", minWidth: 0 }}>
 
               {/* Cover Image Upload */}
               <div className="tool-section">
@@ -951,7 +951,7 @@ export default function AdminPage() {
                       ✕
                     </button>
                     <div style={{ padding: "8px 12px", background: "var(--bg-secondary)", fontSize: "11px", color: "var(--text-secondary)", textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>
-                      {image}
+                      {image.startsWith("data:") ? `${image.slice(0, 45)}... (${(image.length / 1024).toFixed(1)} KB)` : image}
                     </div>
                   </div>
                 ) : (
