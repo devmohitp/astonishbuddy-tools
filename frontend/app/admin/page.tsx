@@ -83,6 +83,19 @@ export default function AdminPage() {
   // Word count state
   const [wordCount, setWordCount] = useState(0);
 
+  // Auto-download helper for read-only environments
+  const triggerAutoDownload = (jsonString: string) => {
+    const blob = new Blob([jsonString], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "user-posts.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   // Check auth on load
   useEffect(() => {
     const isAuth = localStorage.getItem("astonish_admin_auth") === "true";
@@ -186,7 +199,10 @@ export default function AdminPage() {
       }
 
       if (data.readOnly) {
-        setReadOnlyJSON(JSON.stringify(data.updatedPosts, null, 2));
+        const jsonString = JSON.stringify(data.updatedPosts, null, 2);
+        setReadOnlyJSON(jsonString);
+        // Auto-download so the user can redeploy with the updated file
+        triggerAutoDownload(jsonString);
       } else {
         setReadOnlyJSON(null);
       }
@@ -367,7 +383,10 @@ export default function AdminPage() {
       }
 
       if (data.readOnly) {
-        setReadOnlyJSON(JSON.stringify(data.updatedPosts, null, 2));
+        const jsonString = JSON.stringify(data.updatedPosts, null, 2);
+        setReadOnlyJSON(jsonString);
+        // Auto-download the updated file immediately
+        triggerAutoDownload(jsonString);
       } else {
         setReadOnlyJSON(null);
       }
@@ -388,13 +407,9 @@ export default function AdminPage() {
 
       // Refresh posts
       await fetchPosts();
-      
-      // Go to appropriate tab
-      if (data.readOnly) {
-        setActiveTab("write");
-      } else {
-        setActiveTab("manage");
-      }
+
+      // Always navigate to manage tab after success
+      setActiveTab("manage");
     } catch (err: any) {
       setSubmitError(err.message || "An unexpected error occurred.");
     } finally {
@@ -666,105 +681,86 @@ export default function AdminPage() {
           <div
             className="glass-card animate-fade-in"
             style={{
-              padding: "24px",
+              padding: "20px 24px",
               marginBottom: "30px",
-              border: "1px solid rgba(245, 158, 11, 0.3)",
-              background: "rgba(245, 158, 11, 0.05)",
+              border: "1px solid rgba(16, 185, 129, 0.3)",
+              background: "rgba(16, 185, 129, 0.06)",
               borderRadius: "16px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-start",
+              gap: "16px",
             }}
           >
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "12px" }}>
-              <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-                <span style={{ fontSize: "20px" }}>⚠️</span>
-                <div style={{ textAlign: "left" }}>
-                  <h3 style={{ fontSize: "16px", fontWeight: 700, color: "var(--accent-6)" }}>
-                    Hosting Environment is Read-Only
-                  </h3>
-                  <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "4px" }}>
-                    Your blog action succeeded in memory, but could not write directly to the server file system (common on Vercel).
-                    To persist this change, download or copy the updated <strong>user-posts.json</strong> file below, place it in your local <strong>frontend/app/data/user-posts.json</strong> path, and redeploy.
-                  </p>
+            <div style={{ display: "flex", gap: "12px", alignItems: "flex-start", flex: 1 }}>
+              <span style={{ fontSize: "22px", lineHeight: 1 }}>✅</span>
+              <div>
+                <h3 style={{ fontSize: "15px", fontWeight: 700, color: "var(--accent-5)", marginBottom: "4px" }}>
+                  Post saved — updated file downloaded automatically
+                </h3>
+                <p style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.6 }}>
+                  A <strong>user-posts.json</strong> file was downloaded to your computer.
+                  Replace <strong>frontend/app/data/user-posts.json</strong> with it in your project, then push &amp; redeploy to make this change permanent.
+                </p>
+                <div style={{ display: "flex", gap: "10px", marginTop: "12px", flexWrap: "wrap" }}>
+                  <button
+                    type="button"
+                    onClick={() => triggerAutoDownload(readOnlyJSON)}
+                    style={{
+                      padding: "8px 14px",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                      background: "var(--accent-5)",
+                      color: "#fff",
+                      border: "none",
+                      borderRadius: "8px",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "6px",
+                    }}
+                  >
+                    📥 Download Again
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigator.clipboard.writeText(readOnlyJSON);
+                      alert("Copied user-posts.json to clipboard!");
+                    }}
+                    style={{
+                      padding: "8px 14px",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                      background: "transparent",
+                      color: "var(--text-secondary)",
+                      border: "1px solid var(--border)",
+                      borderRadius: "8px",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "6px",
+                    }}
+                  >
+                    📋 Copy JSON
+                  </button>
                 </div>
               </div>
-              <button
-                onClick={() => setReadOnlyJSON(null)}
-                style={{
-                  background: "transparent",
-                  border: "none",
-                  color: "var(--text-secondary)",
-                  cursor: "pointer",
-                  fontSize: "18px",
-                  padding: "0 4px",
-                }}
-              >
-                ✕
-              </button>
             </div>
-
-            <div style={{ display: "flex", gap: "12px", marginBottom: "16px" }}>
-              <button
-                type="button"
-                onClick={() => {
-                  const blob = new Blob([readOnlyJSON], { type: "application/json" });
-                  const url = URL.createObjectURL(blob);
-                  const a = document.createElement("a");
-                  a.href = url;
-                  a.download = "user-posts.json";
-                  document.body.appendChild(a);
-                  a.click();
-                  document.body.removeChild(a);
-                  URL.revokeObjectURL(url);
-                }}
-                className="btn-primary"
-                style={{
-                  padding: "10px 16px",
-                  fontSize: "13px",
-                  background: "var(--accent-6)",
-                  boxShadow: "0 4px 12px rgba(245, 158, 11, 0.2)",
-                  cursor: "pointer",
-                }}
-              >
-                📥 Download user-posts.json
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  navigator.clipboard.writeText(readOnlyJSON);
-                  alert("Copied user-posts.json contents to clipboard!");
-                }}
-                className="btn-secondary"
-                style={{
-                  padding: "10px 16px",
-                  fontSize: "13px",
-                  cursor: "pointer",
-                }}
-              >
-                📋 Copy JSON Content
-              </button>
-            </div>
-
-            <details style={{ textAlign: "left" }}>
-              <summary style={{ cursor: "pointer", fontSize: "13px", color: "var(--text-secondary)", fontWeight: 500 }}>
-                Show user-posts.json code preview
-              </summary>
-              <textarea
-                readOnly
-                value={readOnlyJSON}
-                style={{
-                  width: "100%",
-                  height: "200px",
-                  fontFamily: "monospace",
-                  fontSize: "12px",
-                  background: "rgba(0,0,0,0.4)",
-                  color: "#a7f3d0",
-                  border: "1px solid var(--border)",
-                  borderRadius: "8px",
-                  padding: "12px",
-                  marginTop: "8px",
-                  resize: "vertical",
-                }}
-              />
-            </details>
+            <button
+              onClick={() => setReadOnlyJSON(null)}
+              style={{
+                background: "transparent",
+                border: "none",
+                color: "var(--text-secondary)",
+                cursor: "pointer",
+                fontSize: "18px",
+                padding: "0 4px",
+                flexShrink: 0,
+              }}
+            >
+              ✕
+            </button>
           </div>
         )}
 

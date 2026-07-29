@@ -1,5 +1,25 @@
 [
   {
+    "title": "11",
+    "slug": "11",
+    "date": "July 29, 2026",
+    "author": "AstonishBuddy Team",
+    "description": "1",
+    "content": "<h2>10 Everyday Tasks You Can Complete Faster Using Free Online Tools</h2>",
+    "color": "var(--accent-1)",
+    "image": "/uploads/1785306298037-ChatGPT_Image_Jul_29__2026__11_00_06_AM.png"
+  },
+  {
+    "title": "1",
+    "slug": "1",
+    "date": "July 29, 2026",
+    "author": "AstonishBuddy Team",
+    "description": "1",
+    "content": "<h2>10 Everyday Tasks You Can Complete Faster Using Free Online Tools</h2>",
+    "color": "var(--accent-1)",
+    "image": "/uploads/1785306145469-ChatGPT_Image_Jul_29__2026__11_00_06_AM.png"
+  },
+  {
     "title": "434",
     "slug": "434",
     "date": "July 29, 2026",
@@ -77,7 +97,8 @@
     "description": "2",
     "content": "32",
     "color": "var(--accent-1)",
-    "image": "/uploads/1785301192802-Viju_Mane.png"
+    "image": "/uploads/1785301192802-Viju_Mane.png",
+    "isDeleted": true
   },
   {
     "title": "w2",
