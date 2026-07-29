@@ -110,6 +110,12 @@
   </url>
 
   <url>
+    <loc>https://www.astonishbuddy.com/tools/ai-image-extender</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://www.astonishbuddy.com/tools/jwt-decoder</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

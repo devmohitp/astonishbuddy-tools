@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 const toolsList = [
   { id: "image-compressor", name: "Image Compressor", icon: "🖼️", desc: "Reduce image file size" },
   { id: "image-quality-enhancer", name: "Image Quality Enhancer", icon: "✨", desc: "Upscale & enhance images" },
+  { id: "ai-image-extender", name: "AI Image Extender", icon: "🌌", desc: "Uncrop & extend photos" },
   { id: "bulk-image-converter", name: "Bulk Image Converter", icon: "🔄", desc: "Convert PNG, JPG, WebP in bulk" },
   { id: "text-case-converter", name: "Text Case Converter", icon: "🔤", desc: "Convert text case" },
   { id: "password-generator", name: "Password Generator", icon: "🔐", desc: "Generate strong passwords" },

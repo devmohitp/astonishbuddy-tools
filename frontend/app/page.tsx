@@ -482,6 +482,7 @@ export default function Home() {
                     { name: "Image Compressor", href: "/tools/image-compressor" },
                     { name: "Bulk Converter", href: "/tools/bulk-image-converter" },
                     { name: "Quality Enhancer", href: "/tools/image-quality-enhancer" },
+                    { name: "AI Extender", href: "/tools/ai-image-extender" },
                     { name: "PDF Compressor", href: "/tools/pdf-compressor" },
                   ],
                 },

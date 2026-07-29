@@ -174,6 +174,17 @@ const tools = [
     tagText: "#fbbf24",
   },
   {
+    id: "ai-image-extender",
+    name: "AI Image Extender",
+    description: "Extend photo backgrounds to any aspect ratio using smart client-side outpainting. Uncrop, scale, reposition, and blend backgrounds seamlessly with zero uploads.",
+    icon: "🌌",
+    color: "#a855f7",
+    glow: "rgba(168, 85, 247, 0.4)",
+    tag: "Media",
+    tagColor: "rgba(168,85,247,0.15)",
+    tagText: "#c084fc",
+  },
+  {
     id: "bulk-image-converter",
     name: "Bulk Image Converter",
     description: "Convert dozens of images at once between PNG, JPG, WebP and more. Resize while converting, set output quality, and download everything as a single ZIP file.",

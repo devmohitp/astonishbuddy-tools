@@ -1541,5 +1541,70 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
     ],
     keywords: ["jwt decoder online", "decode jwt token free", "jwt inspector", "json web token decoder", "jwt parser online", "jwt expiry checker", "decode jwt payload", "jwt debugger"]
   },
+  "ai-image-extender": {
+    id: "ai-image-extender",
+    name: "AI Image Extender",
+    shortIntro: "Extend photo backgrounds to standard aspect ratios (16:9, 4:5, 1:1) or custom ratios instantly. Free online AI uncrop tool that runs 100% in your browser for maximum privacy. Enhance layout bounds, mirror edge details, blend border gradients, and apply film grain naturally without quality loss.",
+    guideContent: (
+      <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Need to adapt a photo for Instagram (4:5 or 1:1) or YouTube (16:9) without cropping the main subject? This AI Image Extender uses advanced edge synthesis and blending techniques to outpaint background details, providing a seamless extension.
+        </p>
+        <p style={{ marginBottom: "16px" }}>
+          Everything happens client-side in your browser. No files are uploaded to third-party servers, ensuring complete privacy, zero latency, and 100% free unlimited usage.
+        </p>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          How to Extend Photo Background Online
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "10px" }}>Upload your photo (JPG, PNG, or WebP)</li>
+          <li style={{ marginBottom: "10px" }}>Select a target aspect ratio (16:9, 4:5, 1:1) or set custom dimensions</li>
+          <li style={{ marginBottom: "10px" }}>Choose an expansion mode (AI Generative Expand, Blurred Depth, etc.)</li>
+          <li style={{ marginBottom: "10px" }}>Adjust image scale, positioning, feathering, and grain filters</li>
+          <li style={{ marginBottom: "10px" }}>Click "Generate AI Extension" and download the uncropped photo</li>
+        </ol>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Key Features & Outpainting Modes
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>
+            <strong style={{ color: "var(--text-primary)" }}>AI Generative Expand:</strong> Synthesizes background textures by mirroring border pixels, blurring them for depth-of-field, and applying film grain to blend boundaries.
+          </li>
+          <li style={{ marginBottom: "8px" }}>
+            <strong style={{ color: "var(--text-primary)" }}>Blurred Depth Extend:</strong> Fills the background with a larger blurred copy of the original image, generating a modern bokeh backdrop.
+          </li>
+          <li style={{ marginBottom: "8px" }}>
+            <strong style={{ color: "var(--text-primary)" }}>Border Color Gradient:</strong> Creates a smooth multi-stop gradient sampling dominant edge colors for dynamic blending.
+          </li>
+          <li style={{ marginBottom: "8px" }}>
+            <strong style={{ color: "var(--text-primary)" }}>Solid Background:</strong> Fills the extended boundaries with any color or samples the dominant color automatically.
+          </li>
+          <li style={{ marginBottom: "8px" }}>
+            <strong style={{ color: "var(--text-primary)" }}>Transparent Margins:</strong> Leaves empty areas transparent (ideal for PNG layout modifications).
+          </li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Why Use This Web-Based Extender?
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Adapt images to social media guidelines without cropping out important subjects.</li>
+          <li style={{ marginBottom: "8px" }}>Total data privacy: processing runs locally in browser Canvas; zero network traffic.</li>
+          <li style={{ marginBottom: "8px" }}>Custom scale, translation offsets, and drag-and-drop panning control.</li>
+          <li style={{ marginBottom: "8px" }}>Completely free, no login or registrations, and no watermarks on downloaded files.</li>
+        </ul>
+      </div>
+    ),
+    faqs: [
+      { q: "What is an AI Image Extender?", a: "An AI Image Extender (also known as an outpainting or uncrop tool) is designed to enlarge an image beyond its original borders by generating matching background content to fill the new aspect ratio." },
+      { q: "How is privacy maintained in this tool?", a: "Unlike server-based generators, this tool performs all outpainting, color sampling, and grain blending directly inside your web browser. No files are uploaded to our servers, keeping your personal photos 100% secure." },
+      { q: "Can I adjust the placement of the subject?", a: "Yes. You can drag and reposition the image directly in the preview frame, or use the horizontal, vertical, and scale sliders to place the subject exactly where you want it." },
+      { q: "Which formats are supported for download?", a: "You can download the extended uncropped output as JPEG, PNG, or WebP. The tool also provides custom quality compression controls for file optimization." },
+      { q: "Is there any limit to the aspect ratio?", a: "No. You can select standard preset aspect ratios (16:9, 4:5, 1:1) or enter any custom width/height values to create any custom aspect ratio you require." }
+    ],
+    keywords: ["ai image extender", "uncrop photo online", "extend image background", "outpaint image online free", "photo border expander", "change aspect ratio without crop", "expand picture borders"]
+  },
 };
 

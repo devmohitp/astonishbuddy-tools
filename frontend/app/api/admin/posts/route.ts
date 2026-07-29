@@ -100,9 +100,19 @@ export async function POST(req: NextRequest) {
     };
 
     currentPosts.unshift(newPost);
-    await writeUserPosts(currentPosts);
-
-    return NextResponse.json({ success: true, post: newPost });
+    try {
+      await writeUserPosts(currentPosts);
+      return NextResponse.json({ success: true, post: newPost });
+    } catch (writeErr: any) {
+      console.warn("Local filesystem write failed for post creation:", writeErr.message);
+      return NextResponse.json({
+        success: true,
+        readOnly: true,
+        message: "Post created successfully in memory (read-only environment). Please update your user-posts.json file.",
+        post: newPost,
+        updatedPosts: currentPosts
+      });
+    }
   } catch (err: any) {
     return NextResponse.json(
       { error: err.message || "Failed to save blog post" },
@@ -184,8 +194,18 @@ export async function PUT(req: NextRequest) {
       currentPosts.push(newOverridingPost);
     }
 
-    await writeUserPosts(currentPosts);
-    return NextResponse.json({ success: true });
+    try {
+      await writeUserPosts(currentPosts);
+      return NextResponse.json({ success: true });
+    } catch (writeErr: any) {
+      console.warn("Local filesystem write failed for post update:", writeErr.message);
+      return NextResponse.json({
+        success: true,
+        readOnly: true,
+        message: "Post updated successfully in memory (read-only environment). Please update your user-posts.json file.",
+        updatedPosts: currentPosts
+      });
+    }
   } catch (err: any) {
     return NextResponse.json(
       { error: err.message || "Failed to update blog post" },
@@ -221,8 +241,18 @@ export async function DELETE(req: NextRequest) {
       });
     }
 
-    await writeUserPosts(currentPosts);
-    return NextResponse.json({ success: true });
+    try {
+      await writeUserPosts(currentPosts);
+      return NextResponse.json({ success: true });
+    } catch (writeErr: any) {
+      console.warn("Local filesystem write failed for post deletion:", writeErr.message);
+      return NextResponse.json({
+        success: true,
+        readOnly: true,
+        message: "Post deleted successfully in memory (read-only environment). Please update your user-posts.json file.",
+        updatedPosts: currentPosts
+      });
+    }
   } catch (err: any) {
     return NextResponse.json(
       { error: err.message || "Failed to delete blog post" },
