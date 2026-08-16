@@ -347,6 +347,21 @@ export default function AdminPage() {
       return;
     }
 
+    // Helper: convert plain text paragraphs to HTML if not already HTML
+    const convertToHTML = (text: string): string => {
+      const trimmed = text.trim();
+      // If it already contains HTML tags, return as-is
+      if (/<[a-z][\s\S]*>/i.test(trimmed)) return trimmed;
+      // Otherwise, split by blank lines and wrap each block in <p>
+      return trimmed
+        .split(/\n\s*\n/)
+        .map((para) => `<p>${para.trim().replace(/\n/g, "<br/>")}</p>`)
+        .filter((p) => p !== "<p></p>")
+        .join("\n");
+    };
+
+    const htmlContent = convertToHTML(content);
+
     if (wordCount > 2000) {
       setSubmitError("Content exceeds the maximum word limit of 2000 words.");
       setIsSubmitting(false);
@@ -358,7 +373,7 @@ export default function AdminPage() {
         title,
         slug,
         description,
-        content,
+        content: htmlContent,
         author,
         color,
         image,
@@ -802,7 +817,7 @@ export default function AdminPage() {
               <div className="tool-section" style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
                   <label className="label" style={{ margin: 0 }}>
-                    Blog Content (HTML Format)
+                    Blog Content
                   </label>
 
                   {/* Toolbar */}
@@ -861,11 +876,17 @@ export default function AdminPage() {
                 <textarea
                   ref={textareaRef}
                   className="input-field"
-                  placeholder='Use HTML tags or the formatting helpers above to write your blog content. E.g. <p style="marginBottom: 16px">This is a paragraph.</p>'
+                  placeholder={`Write your blog content here. Separate paragraphs with a blank line — they will be formatted automatically.
+
+Example:
+
+The best workflow combines AI with online tools and human judgment.
+
+Start small, experiment, and focus on saving time.`}
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
                   style={{
-                    fontFamily: "'Courier New', Courier, monospace",
+                    fontFamily: "inherit",
                     minHeight: "420px",
                     lineHeight: "1.6",
                     fontSize: "14px",
@@ -876,7 +897,7 @@ export default function AdminPage() {
                 {/* Live word counter */}
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "13px", marginTop: "4px" }}>
                   <span style={{ color: "var(--text-secondary)" }}>
-                    Use the helper buttons to format headings, paragraphs, and list blocks easily.
+                    Separate paragraphs with a blank line. Use toolbar buttons for headings, bold, and lists.
                   </span>
                   <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                     <span
