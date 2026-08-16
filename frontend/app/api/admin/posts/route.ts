@@ -18,12 +18,71 @@ const postsFilePath = path.join(
 
 let inMemoryUserPosts: any[] | null = null;
 
-// Read current user posts helper
-async function readUserPosts(): Promise<any[]> {
-  if (inMemoryUserPosts !== null) {
-    return inMemoryUserPosts;
+// ─── GitHub API helpers ────────────────────────────────────────────────────
+const GITHUB_TOKEN  = process.env.GITHUB_TOKEN;
+const GITHUB_OWNER  = process.env.GITHUB_OWNER;
+const GITHUB_REPO   = process.env.GITHUB_REPO;
+const GITHUB_BRANCH = process.env.GITHUB_BRANCH || "main";
+// Path to the file inside the repo (relative to repo root)
+const REPO_FILE_PATH = "frontend/app/data/user-posts.json";
+
+const isGitHubConfigured = !!(GITHUB_TOKEN && GITHUB_OWNER && GITHUB_REPO);
+
+/** Fetch posts from GitHub (production) */
+async function readFromGitHub(): Promise<any[]> {
+  const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${REPO_FILE_PATH}?ref=${GITHUB_BRANCH}`;
+  const res = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+      Accept: "application/vnd.github+json",
+    },
+    cache: "no-store",
+  });
+  if (!res.ok) throw new Error(`GitHub read failed: ${res.status} ${res.statusText}`);
+  const data = await res.json();
+  // Content is base64-encoded
+  const content = Buffer.from(data.content, "base64").toString("utf-8");
+  return { posts: JSON.parse(content), sha: data.sha } as any;
+}
+
+/** Commit updated posts to GitHub (production) */
+async function writeToGitHub(posts: any[]): Promise<void> {
+  // Get current SHA (needed for update)
+  const { sha } = await readFromGitHub() as any;
+  const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${REPO_FILE_PATH}`;
+  const newContent = Buffer.from(JSON.stringify(posts, null, 2), "utf-8").toString("base64");
+  const res = await fetch(url, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+      Accept: "application/vnd.github+json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      message: "chore: update user-posts.json via admin",
+      content: newContent,
+      sha,
+      branch: GITHUB_BRANCH,
+    }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(`GitHub write failed: ${res.status} – ${JSON.stringify(err)}`);
   }
+}
+
+// ─── Read / Write helpers ──────────────────────────────────────────────────
+
+/** Read current user posts */
+async function readUserPosts(): Promise<any[]> {
+  if (inMemoryUserPosts !== null) return inMemoryUserPosts;
+
   try {
+    if (isGitHubConfigured) {
+      const { posts } = await readFromGitHub() as any;
+      inMemoryUserPosts = posts;
+      return posts;
+    }
     const fileData = await fs.readFile(postsFilePath, "utf-8");
     const posts = JSON.parse(fileData);
     inMemoryUserPosts = posts;
@@ -33,11 +92,16 @@ async function readUserPosts(): Promise<any[]> {
   }
 }
 
-// Write user posts helper
+/** Write user posts – GitHub in production, local file in dev */
 async function writeUserPosts(posts: any[]): Promise<void> {
   inMemoryUserPosts = posts;
+  if (isGitHubConfigured) {
+    await writeToGitHub(posts);
+    return;
+  }
   await fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2), "utf-8");
 }
+
 
 // GET all posts (with static elements converted to clean HTML strings)
 export async function GET() {
@@ -127,19 +191,10 @@ export async function POST(req: NextRequest) {
     };
 
     currentPosts.unshift(newPost);
-    try {
-      await writeUserPosts(currentPosts);
-      return NextResponse.json({ success: true, post: newPost });
-    } catch (writeErr: any) {
-      console.warn("Local filesystem write failed for post creation:", writeErr.message);
-      return NextResponse.json({
-        success: true,
-        readOnly: true,
-        message: "Post created successfully in memory (read-only environment). Please update your user-posts.json file.",
-        post: newPost,
-        updatedPosts: currentPosts
-      });
-    }
+    await writeUserPosts(currentPosts);
+    // Reset in-memory cache so next read fetches fresh data
+    inMemoryUserPosts = null;
+    return NextResponse.json({ success: true, post: newPost });
   } catch (err: any) {
     return NextResponse.json(
       { error: err.message || "Failed to save blog post" },
@@ -221,18 +276,10 @@ export async function PUT(req: NextRequest) {
       currentPosts.push(newOverridingPost);
     }
 
-    try {
-      await writeUserPosts(currentPosts);
-      return NextResponse.json({ success: true });
-    } catch (writeErr: any) {
-      console.warn("Local filesystem write failed for post update:", writeErr.message);
-      return NextResponse.json({
-        success: true,
-        readOnly: true,
-        message: "Post updated successfully in memory (read-only environment). Please update your user-posts.json file.",
-        updatedPosts: currentPosts
-      });
-    }
+    await writeUserPosts(currentPosts);
+    // Reset in-memory cache so next read fetches fresh data
+    inMemoryUserPosts = null;
+    return NextResponse.json({ success: true });
   } catch (err: any) {
     return NextResponse.json(
       { error: err.message || "Failed to update blog post" },
@@ -268,18 +315,10 @@ export async function DELETE(req: NextRequest) {
       });
     }
 
-    try {
-      await writeUserPosts(currentPosts);
-      return NextResponse.json({ success: true });
-    } catch (writeErr: any) {
-      console.warn("Local filesystem write failed for post deletion:", writeErr.message);
-      return NextResponse.json({
-        success: true,
-        readOnly: true,
-        message: "Post deleted successfully in memory (read-only environment). Please update your user-posts.json file.",
-        updatedPosts: currentPosts
-      });
-    }
+    await writeUserPosts(currentPosts);
+    // Reset in-memory cache so next read fetches fresh data
+    inMemoryUserPosts = null;
+    return NextResponse.json({ success: true });
   } catch (err: any) {
     return NextResponse.json(
       { error: err.message || "Failed to delete blog post" },
