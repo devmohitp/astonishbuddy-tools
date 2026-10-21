@@ -204,8 +204,10 @@ export default function TermsAndConditions() {
                 </a>
               </p>
               <p style={{ margin: "0 0 8px 0" }}>
-                <strong>Business Email [TODO]:</strong>{" "}
-                <span style={{ color: "var(--text-muted)" }}>contact@astonishbuddy.com</span>
+                <strong>Business Email : </strong>{" "}
+                <a href="mailto:astonishbuddy@gmail.com" style={{ color: "var(--accent-1)", textDecoration: "none", fontWeight: 600 }}>
+                  astonishbuddy@gmail.com
+                </a>
               </p>
               <p style={{ margin: 0, fontSize: "13px", color: "var(--text-muted)" }}>
                 Expected Response Time: 24 to 48 business hours

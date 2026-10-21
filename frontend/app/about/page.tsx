@@ -111,9 +111,9 @@ export default function About() {
               Astonishbuddy is founded, developed, and maintained by{" "}
               <strong style={{ color: "var(--text-primary)" }}>
                 {/* TODO: Fill in your full name here (e.g. Mohit Patel) */}
-                Mohit Patel [TODO: Founder & Lead Developer]
+                Mohit Patel, Founder & Lead Developer
               </strong>
-              , an enthusiastic web developer and technology advocate with a passion for high-performance web applications and software engineering.
+              , A web developer passionate about building fast, reliable web applications and exploring new technologies.
             </p>
             <div
               style={{
@@ -125,7 +125,7 @@ export default function About() {
               }}
             >
               <h3 style={{ fontSize: "16px", color: "var(--accent-1)", margin: "0 0 8px 0", fontWeight: 600 }}>
-                Author & Founder Bio [TODO: Edit with your bio]
+                Author & Founder Bio - Mohit Patel
               </h3>
               <p style={{ margin: 0, fontSize: "14px", lineHeight: 1.7 }}>
                 Mohit is a full-stack engineer specializing in Next.js, modern JavaScript, and web performance optimization. Having spent years building and debugging web applications, he launched Astonishbuddy to provide a clean, ad-clutter-free suite of everyday utilities that developers, creators, students, and digital professionals can rely on without risking their privacy.

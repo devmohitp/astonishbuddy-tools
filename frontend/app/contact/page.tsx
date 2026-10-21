@@ -129,9 +129,6 @@ export default function Contact() {
             >
               astonishbuddy@gmail.com
             </a>
-            <p style={{ margin: 0, fontSize: "13px", color: "var(--text-muted)" }}>
-              Business Email [TODO]: <span style={{ color: "var(--text-secondary)" }}>contact@astonishbuddy.com</span>
-            </p>
           </div>
 
           {/* Response Time Card */}
