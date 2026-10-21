@@ -1,9 +1,26 @@
-"use client";
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { blogPosts } from "../data/blog-posts";
+
+export const metadata: Metadata = {
+  title: "Blog – Web Productivity, Dev Guides & Tips | Astonishbuddy",
+  description:
+    "Explore in-depth articles, tutorials, and practical guides on image compression, text tools, developer utilities, and web productivity on Astonishbuddy.",
+  alternates: {
+    canonical: "https://www.astonishbuddy.com/blog",
+  },
+  openGraph: {
+    title: "Blog – Web Productivity, Dev Guides & Tips | Astonishbuddy",
+    description:
+      "Explore in-depth articles, tutorials, and practical guides on image compression, text tools, developer utilities, and web productivity on Astonishbuddy.",
+    url: "https://www.astonishbuddy.com/blog",
+    siteName: "Astonishbuddy",
+    type: "website",
+  },
+};
 
 // Map slugs to Unsplash free-to-use images
 const slugImageMap: Record<string, string> = {
@@ -19,7 +36,7 @@ const slugImageMap: Record<string, string> = {
     "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=800&q=80",
   "base64-encoder-decoder-guide":
     "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
-  "url-encoder-decoder-guide":
+  "url-encoder-decoder":
     "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&q=80",
   "lorem-ipsum-generator-guide":
     "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80",
@@ -45,10 +62,14 @@ const slugImageMap: Record<string, string> = {
     "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
   "minify-json":
     "https://images.unsplash.com/photo-1555099962-4199c345e5dd?w=800&q=80",
-  "base64-encoding":
-    "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
   "webp-vs-png-vs-jpg":
     "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80",
+  "image-compression-guide":
+    "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80",
+  "10-everyday-tasks-you-can-complete-faster-using-free-online-tools":
+    "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+  "ai-tools-that-save-time-how-to-use-ai-for-everyday-work-writing-and-productivity":
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
 };
 
 const getCategoryTag = (slug: string) => {
@@ -56,13 +77,32 @@ const getCategoryTag = (slug: string) => {
     return { label: "Images", color: "#06b6d4" };
   if (slug.includes("password") || slug.includes("jwt") || slug.includes("uuid"))
     return { label: "Security", color: "#10b981" };
-  if (slug.includes("sql") || slug.includes("json") || slug.includes("base64") || slug.includes("url-encoder") || slug.includes("markdown") || slug.includes("jwt"))
+  if (slug.includes("sql") || slug.includes("json") || slug.includes("base64") || slug.includes("url") || slug.includes("markdown"))
     return { label: "Developer", color: "#6c63ff" };
-  if (slug.includes("student") || slug.includes("productivity"))
+  if (slug.includes("student") || slug.includes("productivity") || slug.includes("task") || slug.includes("ai"))
     return { label: "Productivity", color: "#a855f7" };
   if (slug.includes("text") || slug.includes("lorem") || slug.includes("color"))
     return { label: "Text Tools", color: "#f59e0b" };
   return { label: "Guide", color: "#ec4899" };
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.astonishbuddy.com",
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://www.astonishbuddy.com/blog",
+    },
+  ],
 };
 
 export default function BlogPage() {
@@ -77,6 +117,10 @@ export default function BlogPage() {
         flexDirection: "column",
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Navbar />
 
       {/* Hero Section */}
@@ -88,7 +132,6 @@ export default function BlogPage() {
           overflow: "hidden",
         }}
       >
-        {/* Background glow */}
         <div
           style={{
             position: "absolute",
@@ -184,6 +227,7 @@ export default function BlogPage() {
                 style={{ textDecoration: "none", display: "block" }}
               >
                 <article
+                  className="blog-card"
                   style={{
                     background: "var(--bg-card)",
                     border: "1px solid var(--border)",
@@ -193,27 +237,14 @@ export default function BlogPage() {
                     display: "flex",
                     flexDirection: "column",
                     transition: "all 0.35s cubic-bezier(0.4,0,0.2,1)",
-                    cursor: "pointer",
                     position: "relative",
-                  }}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget;
-                    el.style.transform = "translateY(-6px)";
-                    el.style.borderColor = post.color;
-                    el.style.boxShadow = `0 24px 64px rgba(0,0,0,0.45), 0 0 0 1px ${post.color}22`;
-                  }}
-                  onMouseLeave={(e) => {
-                    const el = e.currentTarget;
-                    el.style.transform = "translateY(0)";
-                    el.style.borderColor = "var(--border)";
-                    el.style.boxShadow = "none";
                   }}
                 >
                   {/* Top accent bar */}
                   <div
                     style={{
                       height: "3px",
-                      background: `linear-gradient(90deg, ${post.color}, transparent)`,
+                      background: `linear-gradient(90deg, ${post.color || "var(--accent-1)"}, transparent)`,
                       flexShrink: 0,
                     }}
                   />
@@ -235,18 +266,10 @@ export default function BlogPage() {
                         width: "100%",
                         height: "100%",
                         objectFit: "cover",
-                        transition: "transform 0.5s ease",
                         display: "block",
-                      }}
-                      onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLImageElement).style.transform = "scale(1.06)";
-                      }}
-                      onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLImageElement).style.transform = "scale(1)";
                       }}
                       loading="lazy"
                     />
-                    {/* Gradient overlay */}
                     <div
                       style={{
                         position: "absolute",
@@ -358,7 +381,7 @@ export default function BlogPage() {
                         display: "flex",
                         alignItems: "center",
                         gap: "6px",
-                        color: post.color,
+                        color: post.color || "var(--accent-1)",
                         fontSize: "13px",
                         fontWeight: 700,
                         marginTop: "4px",
@@ -388,6 +411,14 @@ export default function BlogPage() {
       </section>
 
       <Footer />
+
+      <style>{`
+        .blog-card:hover {
+          transform: translateY(-6px);
+          border-color: rgba(108, 99, 255, 0.4) !important;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+        }
+      `}</style>
     </main>
   );
 }

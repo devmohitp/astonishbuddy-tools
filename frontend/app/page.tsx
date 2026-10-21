@@ -1,11 +1,56 @@
-"use client";
-
+import type { Metadata } from "next";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import AnimatedSection from "./components/AnimatedSection";
 import ToolsGrid from "./components/ToolsGrid";
 import FAQAccordion from "./components/FAQAccordion";
 import LatestArticles from "./components/LatestArticles";
+
+export const metadata: Metadata = {
+  title: "Astonishbuddy | Free Online Developer & Productivity Tools",
+  description:
+    "Free online tools for image compression, PDF editing, QR codes, text conversion, and code formatting. Fast, client-side, and completely free with no login required.",
+  alternates: {
+    canonical: "https://www.astonishbuddy.com",
+  },
+  openGraph: {
+    title: "Astonishbuddy | Free Online Developer & Productivity Tools",
+    description:
+      "Free online tools for image compression, PDF editing, QR codes, text conversion, and code formatting. Fast, client-side, and completely free with no login required.",
+    url: "https://www.astonishbuddy.com",
+    siteName: "Astonishbuddy",
+    type: "website",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.astonishbuddy.com/#website",
+      "url": "https://www.astonishbuddy.com",
+      "name": "Astonishbuddy",
+      "description":
+        "Free online developer and productivity tools: image compression, PDF conversion, code formatting, and text utilities.",
+      "publisher": {
+        "@id": "https://www.astonishbuddy.com/#organization",
+      },
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.astonishbuddy.com/#organization",
+      "name": "Astonishbuddy",
+      "url": "https://www.astonishbuddy.com",
+      "logo": "https://www.astonishbuddy.com/icon.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "astonishbuddy@gmail.com",
+        "contactType": "customer support",
+      },
+    },
+  ],
+};
 
 export default function Home() {
   return (
@@ -16,6 +61,10 @@ export default function Home() {
         fontFamily: "var(--font-outfit), sans-serif",
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       {/* Hero Section */}
@@ -93,7 +142,7 @@ export default function Home() {
                   textTransform: "uppercase",
                 }}
               >
-                🚀 About Us
+                ✦ About AstonishBuddy
               </div>
               <h2
                 style={{
@@ -564,16 +613,6 @@ export default function Home() {
                     position: "relative",
                     transition: "transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease",
                   }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-4px)";
-                    e.currentTarget.style.borderColor = cat.accentBorder;
-                    e.currentTarget.style.boxShadow = `0 20px 40px -20px ${cat.accentBorder}`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "none";
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
-                    e.currentTarget.style.boxShadow = "0 10px 30px -15px rgba(0,0,0,0.3)";
-                  }}
                 >
                   {/* Icon + Title Row */}
                   <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
@@ -611,8 +650,6 @@ export default function Home() {
                             color: "inherit",
                             transition: "color 0.2s ease",
                           }}
-                          onMouseEnter={(e) => (e.currentTarget.style.color = cat.accentText)}
-                          onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}
                         >
                           {cat.title}
                         </a>
@@ -661,16 +698,6 @@ export default function Home() {
                           cursor: "pointer",
                           transition: "all 0.2s ease",
                         }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.background = cat.accent;
-                          e.currentTarget.style.borderColor = cat.accentBorder;
-                          e.currentTarget.style.color = cat.accentText;
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.background = "rgba(255,255,255,0.03)";
-                          e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
-                          e.currentTarget.style.color = "var(--text-secondary)";
-                        }}
                       >
                         {tool.name}
                       </a>
@@ -699,14 +726,6 @@ export default function Home() {
                       textAlign: "center",
                       transition: "all 0.2s ease",
                       boxShadow: `0 4px 12px -4px ${cat.accentBorder}`,
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.filter = "brightness(1.15)";
-                      e.currentTarget.style.transform = "scale(1.02)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.filter = "none";
-                      e.currentTarget.style.transform = "none";
                     }}
                   >
                     Browse {cat.title}

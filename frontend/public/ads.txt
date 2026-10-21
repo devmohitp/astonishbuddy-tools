@@ -1,0 +1,4 @@
+# AstonishBuddy AdSense ads.txt
+# TODO: Replace pub-XXXXXXXXXXXXXXXX with your real Google AdSense Publisher ID after approval.
+# Example: google.com, pub-3280584684265213, DIRECT, f08c47fec0942fa0
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

@@ -14,10 +14,10 @@ export interface BlogPost {
 
 const staticBlogPosts: BlogPost[] = [
   {
-    title: "1. Best Free Online Tools for Students in 2026: Boost Productivity, Save Time, and Study Smarter",
+    title: "Best Free Online Tools for Students in 2026: Boost Productivity & Study Smarter",
     slug: "best-free-online-tools-for-students",
     date: "June 1, 2026",
-    author: "AstonishBuddy Team",
+    author: "Mohit Patel",
     description: "Discover the best free online tools for students in 2026. Improve productivity with free tools for writing, image editing, QR codes, passwords, JSON formatting, text editing, and more.",
     content: (
       <>
@@ -123,10 +123,10 @@ const staticBlogPosts: BlogPost[] = [
 
 
   {
-    title: "2. Top Online Productivity Tools You Should Bookmark in 2026",
+    title: "Top Online Productivity Tools You Should Bookmark in 2026",
     slug: "top-online-productivity-tools",
     date: "June 2, 2026",
-    author: "AstonishBuddy Team",
+    author: "Mohit Patel",
     description: "Discover the top online productivity tools you should bookmark in 2026. Save time and work smarter with free browser-based tools for image compression, QR codes, JSON formatting, passwords, and more.",
     content: (
       <>
@@ -221,10 +221,10 @@ const staticBlogPosts: BlogPost[] = [
   },
 
   {
-    title: "3. Why Online Tools Are Better Than Traditional Software",
+    title: "Why Online Tools Are Better Than Traditional Desktop Software",
     slug: "why-online-tools-are-better-than-traditional-software",
     date: "June 3, 2026",
-    author: "AstonishBuddy Team",
+    author: "Mohit Patel",
     description: "Discover why online tools are better than traditional software for everyday tasks. No installation, cross-device access, always updated, and completely free — here's why millions are switching.",
     content: (
       <>
@@ -321,10 +321,10 @@ const staticBlogPosts: BlogPost[] = [
   },
 
   {
-    title: "4. Benefits of Using Online File Conversion Tools",
+    title: "Key Benefits of Using Online File Conversion Tools",
     slug: "benefits-of-using-online-file-conversion-tools",
     date: "June 4, 2026",
-    author: "AstonishBuddy Team",
+    author: "Mohit Patel",
     description: "Discover the top benefits of using online file conversion tools. Convert PDFs, images, videos, and more instantly — no software required, completely free, and accessible from any device.",
     content: (
       <>
@@ -427,10 +427,10 @@ const staticBlogPosts: BlogPost[] = [
 
 
   {
-    title: "5. How to Create Strong Passwords Online: The Complete Guide to Protecting Your Digital Life",
+    title: "How to Create Strong Passwords Online: Complete Security Guide",
     slug: "how-to-create-strong-passwords-online",
     date: "June 5, 2026",
-    author: "AstonishBuddy Team",
+    author: "Mohit Patel",
     description: "Learn how to create strong passwords online with this complete guide. Discover best practices, common mistakes, hacker attack methods, and free password generator tools to protect your digital life.",
     content: (
       <>
@@ -528,199 +528,121 @@ const staticBlogPosts: BlogPost[] = [
   },
 
   {
-    title: "22. Base64 Encoder / Decoder: Complete Guide to Encoding and Decoding Data Online",
+    title: "Base64 Encoding & Decoding: The Definitive Developer Guide",
     slug: "base64-encoder-decoder-guide",
-    date: "July 7, 2026",
-    author: "AstonishBuddy Team",
-    description: "Learn everything about Base64 encoding and decoding. Discover how Base64 works, its common uses in APIs, emails, HTML, authentication, and how to encode or decode data online instantly.",
+    date: "July 9, 2026",
+    author: "Mohit Patel",
+    description: "Master Base64 encoding and decoding. Understand binary-to-text math, 6-bit grouping tables, URL-safe variants, and code examples in JS and Python.",
     content: (
       <>
-        <p style={{ marginBottom: "16px" }}>In today&apos;s digital world, data is constantly transferred between applications, servers, browsers, APIs, and databases. However, not every system is designed to handle raw binary data efficiently. That&apos;s where <strong>Base64 encoding</strong> becomes incredibly useful.</p>
-        <p style={{ marginBottom: "16px" }}>Whether you&apos;re a web developer, software engineer, cybersecurity professional, or simply someone working with APIs, understanding Base64 can save you time and prevent common data transmission issues.</p>
-        <p style={{ marginBottom: "24px" }}>In this comprehensive guide, we&apos;ll explain what Base64 is, how Base64 encoding and decoding work, practical use cases, advantages, limitations, and how you can quickly encode or decode data using an online Base64 Encoder/Decoder.</p>
 
-        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>What Is Base64?</h2>
-        <p style={{ marginBottom: "12px" }}>Base64 is a method of converting binary data into plain text using a set of 64 printable ASCII characters.</p>
-        <p style={{ marginBottom: "12px" }}>Instead of sending raw binary files—which may become corrupted when transmitted through systems designed for text—Base64 converts the data into readable characters that can safely travel through emails, JSON payloads, XML documents, HTTP requests, and many other text-based formats.</p>
-        <p style={{ marginBottom: "12px" }}>Despite its name, Base64 is <strong>not an encryption method</strong>. It simply changes the representation of data.</p>
-        <p style={{ marginBottom: "8px" }}>For example, the text:</p>
+        <p style={{ marginBottom: "16px" }}>In modern web development, networking, and software engineering, data is constantly transmitted between browsers, APIs, cloud services, and storage systems. However, many historical internet protocols (such as email systems, URL query strings, and legacy HTTP headers) were built strictly for printable 7-bit ASCII text and cannot reliably handle raw binary streams. That is where <strong>Base64 encoding</strong> becomes indispensable.</p>
+        <p style={{ marginBottom: "16px" }}>Whether you are a developer integrating third-party REST APIs, troubleshooting authentication tokens, embedding inline graphics into HTML emails, or working with cloud storage payloads, understanding how Base64 operates under the hood will help you avoid subtle data corruption bugs.</p>
+        <p style={{ marginBottom: "24px" }}>In this comprehensive guide, we will explore what Base64 is, the mathematical mechanics of binary-to-text conversion, step-by-step bitwise examples, common real-world use cases, URL-safe variants, security misconceptions, and practical code snippets across JavaScript, Python, and terminal environments.</p>
+
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>What Is Base64 Encoding?</h2>
+        <p style={{ marginBottom: "12px" }}>Base64 is a binary-to-text encoding scheme defined in RFC 4648 that represents arbitrary binary data using an alphabet of 64 printable ASCII characters.</p>
+        <p style={{ marginBottom: "12px" }}>It is essential to understand that Base64 is <strong>strictly an encoding format, not encryption or compression</strong>. It does not conceal secrets, nor does it make data smaller. In fact, because 3 binary bytes (24 bits) are expanded into 4 printable ASCII characters (32 bits), Base64 encoding inherently increases data size by approximately <strong>33%</strong>.</p>
+        <p style={{ marginBottom: "8px" }}>For example, the plain string:</p>
         <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "8px" }}>
           Hello World
         </pre>
-        <p style={{ marginBottom: "8px" }}>Becomes when Base64 encoded:</p>
+        <p style={{ marginBottom: "8px" }}>Converts to this Base64 representation:</p>
         <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "24px", color: "#10b981" }}>
           SGVsbG8gV29ybGQ=
         </pre>
 
-        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>How Does Base64 Encoding Work?</h2>
-        <p style={{ marginBottom: "12px" }}>Base64 encoding converts every group of three bytes (24 bits) into four groups of six bits. Each six-bit value corresponds to one character from the Base64 alphabet.</p>
-        <p style={{ marginBottom: "8px" }}>The Base64 character set includes:</p>
-        <ul style={{ paddingLeft: "20px", marginBottom: "12px" }}>
-          <li style={{ marginBottom: "4px" }}>A–Z (26 uppercase letters)</li>
-          <li style={{ marginBottom: "4px" }}>a–z (26 lowercase letters)</li>
-          <li style={{ marginBottom: "4px" }}>0–9 (10 digits)</li>
-          <li style={{ marginBottom: "4px" }}>+ (plus sign)</li>
-          <li style={{ marginBottom: "4px" }}>/ (forward slash)</li>
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>The 64-Character Base64 Alphabet</h2>
+        <p style={{ marginBottom: "12px" }}>The standard Base64 character set consists of safe, universal characters present in virtually all character sets:</p>
+        <ul style={{ paddingLeft: "20px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "4px" }}><strong>A to Z</strong> (Indices 0–25): Uppercase English letters</li>
+          <li style={{ marginBottom: "4px" }}><strong>a to z</strong> (Indices 26–51): Lowercase English letters</li>
+          <li style={{ marginBottom: "4px" }}><strong>0 to 9</strong> (Indices 52–61): Decimal digits</li>
+          <li style={{ marginBottom: "4px" }}><strong>+</strong> (Index 62): Plus sign</li>
+          <li style={{ marginBottom: "4px" }}><strong>/</strong> (Index 63): Forward slash</li>
+          <li style={{ marginBottom: "4px" }}><strong>=</strong> (Padding symbol): Used when input length is not a multiple of 3 bytes</li>
         </ul>
-        <p style={{ marginBottom: "24px" }}>When necessary, the <code>=</code> symbol is added as padding to ensure the encoded string length is divisible by four. Although the internal algorithm involves binary manipulation, modern tools perform the conversion instantly without requiring any technical knowledge.</p>
 
-        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>What Is Base64 Decoding?</h2>
-        <p style={{ marginBottom: "12px" }}>Base64 decoding performs the reverse operation. It takes a Base64-encoded string and converts it back into its original form.</p>
-        <p style={{ marginBottom: "8px" }}>For example, the encoded string:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "8px" }}>
-          U29mdHdhcmUgRGV2ZWxvcGVy
-        </pre>
-        <p style={{ marginBottom: "8px" }}>Decodes back to:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "24px", color: "#10b981" }}>
-          Software Developer
-        </pre>
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>How the Binary Math Works (Bit by Bit)</h2>
+        <p style={{ marginBottom: "12px" }}>Computers store data in 8-bit bytes (values 0 to 255). Base64 takes groups of 3 input bytes (24 bits total) and splits them into 4 groups of 6 bits each (since 2<sup>6</sup> = 64). Each 6-bit chunk directly references an index in the Base64 alphabet table.</p>
+        <p style={{ marginBottom: "8px" }}>Let us trace an exact worked example for the word <strong>&quot;Cat&quot;</strong>:</p>
+        <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--border)", borderRadius: "10px", padding: "16px", marginBottom: "20px", fontSize: "14px" }}>
+          <p style={{ margin: "0 0 6px 0" }}><strong>Step 1: ASCII Characters:</strong> &apos;C&apos;, &apos;a&apos;, &apos;t&apos;</p>
+          <p style={{ margin: "0 0 6px 0" }}><strong>Step 2: 8-bit Binary:</strong> 01000011 (67), 01100001 (97), 01110100 (116)</p>
+          <p style={{ margin: "0 0 6px 0" }}><strong>Step 3: Combine to 24 bits:</strong> 010000110110000101110100</p>
+          <p style={{ margin: "0 0 6px 0" }}><strong>Step 4: Regroup into 4x 6 bits:</strong> 010000 | 110110 | 000101 | 110100</p>
+          <p style={{ margin: "0 0 6px 0" }}><strong>Step 5: Decimal values:</strong> 16 | 54 | 5 | 52</p>
+          <p style={{ margin: 0 }}><strong>Step 6: Base64 Lookup:</strong> Q | 2 | F | 0 &rarr; <code>Q2F0</code></p>
+        </div>
 
-        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>Why Is Base64 Used?</h2>
-        <p style={{ marginBottom: "12px" }}>Many communication protocols were originally designed to transmit only text characters. Binary files such as images, PDFs, videos, or executable files may contain bytes that aren&apos;t supported by these systems.</p>
-        <p style={{ marginBottom: "24px" }}>Base64 solves this problem by converting binary data into safe ASCII characters that nearly every platform understands. This makes data transfer more reliable across different systems and programming languages.</p>
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>Why Does Base64 Use Padding (=)?</h2>
+        <p style={{ marginBottom: "12px" }}>What happens when your input is not divisible by 3 bytes? For instance, if you encode 1 byte (8 bits), the encoder appends 4 zero bits to form two 6-bit chunks, producing 2 Base64 characters followed by two <code>==</code> padding symbols. If your input has 2 bytes (16 bits), it produces 3 Base64 characters followed by one <code>=</code> padding symbol. This guarantees that the final encoded string length is always an exact multiple of 4.</p>
 
-        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>Common Uses of Base64 Encoding</h2>
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>Common Real-World Use Cases</h2>
+        <ul style={{ paddingLeft: "20px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong>Data URLs in Web Development:</strong> Inlining small icons and SVGs directly inside HTML or CSS (<code>data:image/png;base64,iVBOR...</code>) to eliminate extra HTTP requests.</li>
+          <li style={{ marginBottom: "8px" }}><strong>Email Attachments (MIME):</strong> Email protocols (SMTP) originally only permitted 7-bit ASCII characters. Base64 allows sending PDFs, photos, and ZIP files through email without corruption.</li>
+          <li style={{ marginBottom: "8px" }}><strong>JSON Web Tokens (JWT):</strong> The header and payload of authentication tokens are encoded as Base64URL strings for easy transmission in HTTP Authorization headers.</li>
+          <li style={{ marginBottom: "8px" }}><strong>Basic Authentication Headers:</strong> HTTP Basic Auth combines username and password into <code>username:password</code> and encodes it with Base64.</li>
+        </ul>
 
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>1. API Communication</h3>
-        <p style={{ marginBottom: "12px" }}>Many REST APIs send images, files, signatures, or certificates using Base64 strings. Instead of uploading binary files directly, the file is encoded and included inside JSON.</p>
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>URL-Safe Base64: What You Need to Know</h2>
+        <p style={{ marginBottom: "12px" }}>Standard Base64 contains <code>+</code> and <code>/</code>, which have reserved meanings in URL paths and query strings (e.g., <code>+</code> represents spaces in query parameters). To transmit Base64 safely inside URLs, the URL-safe variant replaces <code>+</code> with <code>-</code> (hyphen) and <code>/</code> with <code>_</code> (underscore), and frequently drops trailing <code>=</code> padding characters.</p>
+
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>Practical Code Snippets</h2>
+        <p style={{ marginBottom: "8px" }}><strong>JavaScript (Browser & Node.js):</strong></p>
         <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "16px" }}>
-          {`{
-  "image": "iVBORw0KGgoAAAANSUhEUgAA..."
-}`}
+          {`// Browser:
+const encoded = btoa("Hello World"); // "SGVsbG8gV29ybGQ="
+const decoded = atob(encoded);       // "Hello World"
+
+// Node.js:
+const b64 = Buffer.from("Hello World").toString("base64");
+const text = Buffer.from(b64, "base64").toString("utf-8");`}
+        </pre>
+        <p style={{ marginBottom: "8px" }}><strong>Python:</strong></p>
+        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "24px" }}>
+          {`import base64
+
+# Encoding
+raw_bytes = "Hello World".encode("utf-8")
+encoded = base64.b64encode(raw_bytes).decode("utf-8") # "SGVsbG8gV29ybGQ="
+
+# Decoding
+decoded = base64.b64decode(encoded).decode("utf-8")   # "Hello World"`}
         </pre>
 
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>2. Email Attachments</h3>
-        <p style={{ marginBottom: "16px" }}>Email protocols originally supported only text. Attachments such as PDFs, images, and Word documents are often encoded using Base64 before being sent. The receiving email client automatically decodes the file.</p>
 
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>3. Embedding Images in HTML</h3>
-        <p style={{ marginBottom: "8px" }}>Small icons or logos can be embedded directly inside HTML or CSS using Base64, eliminating separate image requests for small assets.</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "16px", wordBreak: "break-all", whiteSpace: "pre-wrap" }}>
-          {`<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." />`}
-        </pre>
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>Base64 Encoding vs. Character Encodings (UTF-8, ASCII)</h2>
+        <p style={{ marginBottom: "12px" }}>A frequent point of confusion among new developers is the distinction between character encodings (like UTF-8) and binary transfer encodings (like Base64). Character encodings map human alphabet symbols to numeric byte values (e.g., the letter &apos;A&apos; is mapped to byte value 65). In contrast, Base64 takes arbitrary raw bytes—regardless of whether they represent text, compressed ZIP blocks, JPEG quantization matrices, or compiled machine code—and converts those bytes into a standardized string of printable ASCII characters.</p>
+        <p style={{ marginBottom: "12px" }}>Because Base64 operates strictly on raw bytes, it is completely agnostic to the underlying file format. This guarantees that whether you are transmitting an image, a PDF document, or an encrypted password hash across an legacy mail gateway, every intermediary router and firewall handles the payload as plain, harmless text.</p>
 
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>4. Authentication Headers</h3>
-        <p style={{ marginBottom: "12px" }}>HTTP Basic Authentication uses Base64 to encode usernames and passwords.</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "8px" }}>
-          username:password
-        </pre>
-        <p style={{ marginBottom: "4px" }}>Encoded:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "8px", color: "#10b981" }}>
-          dXNlcm5hbWU6cGFzc3dvcmQ=
-        </pre>
-        <p style={{ marginBottom: "16px" }}>Remember that this is <strong>encoding only</strong>, not encryption. HTTPS should always be used.</p>
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>Step-by-Step Base64 Decoding Process</h2>
+        <p style={{ marginBottom: "12px" }}>Decoding reverses the bitwise process with zero ambiguity:</p>
+        <ol style={{ paddingLeft: "20px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "6px" }}>The decoder reads characters in groups of 4 (ignoring whitespace and line breaks).</li>
+          <li style={{ marginBottom: "6px" }}>Each character is looked up in the 64-character table to retrieve its 6-bit index (from 0 to 63).</li>
+          <li style={{ marginBottom: "6px" }}>The four 6-bit values are concatenated into a continuous 24-bit integer.</li>
+          <li style={{ marginBottom: "6px" }}>The 24-bit block is split back into three 8-bit bytes (3 original bytes).</li>
+          <li style={{ marginBottom: "6px" }}>If padding symbols (<code>=</code>) were present, the designated trailing null bytes are discarded.</li>
+        </ol>
 
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>5. JSON Data Exchange</h3>
-        <p style={{ marginBottom: "16px" }}>Developers often include images, QR codes, certificates, and digital signatures as Base64 strings inside JSON objects. This avoids issues with binary data transmission.</p>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>6. XML Documents</h3>
-        <p style={{ marginBottom: "16px" }}>Many enterprise applications transmit files inside XML using Base64. This is especially common in healthcare, finance, logistics, and government systems.</p>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>7. Mobile Applications</h3>
-        <p style={{ marginBottom: "16px" }}>Android and iOS applications frequently use Base64 when sending profile pictures, scanned documents, and signatures to backend servers.</p>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>8. Database Storage</h3>
-        <p style={{ marginBottom: "24px" }}>Some applications temporarily store images or documents as Base64 text before converting them back to binary files.</p>
-
-        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>Advantages of Base64 Encoding</h2>
-        <p style={{ marginBottom: "8px" }}>Using Base64 offers several benefits:</p>
-        <ul style={{ paddingLeft: "20px", marginBottom: "24px" }}>
-          <li style={{ marginBottom: "4px" }}>Safe transmission through text-based systems</li>
-          <li style={{ marginBottom: "4px" }}>Platform-independent format</li>
-          <li style={{ marginBottom: "4px" }}>Easy to generate and decode</li>
-          <li style={{ marginBottom: "4px" }}>Compatible with APIs and REST services</li>
-          <li style={{ marginBottom: "4px" }}>Prevents corruption during transmission</li>
-          <li style={{ marginBottom: "4px" }}>Widely supported across programming languages</li>
-          <li style={{ marginBottom: "4px" }}>Simple integration with web applications</li>
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>Security & Common Mistakes</h2>
+        <ul style={{ paddingLeft: "20px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong>Never Treat Base64 as Encryption:</strong> Anyone can decode Base64 in seconds without a secret key. Never store raw passwords or API keys as plain Base64.</li>
+          <li style={{ marginBottom: "8px" }}><strong>Watch Out for Payload Overhead:</strong> Do not inline massive 10 MB images with Base64 in HTML files. The 33% size increase significantly degrades webpage performance.</li>
+          <li style={{ marginBottom: "8px" }}><strong>Unicode Character Limitations:</strong> Browser <code>btoa()</code> only supports Latin1 characters. For UTF-8 emojis or non-English characters, convert via <code>TextEncoder</code> first.</li>
         </ul>
 
-        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>Limitations of Base64</h2>
-        <p style={{ marginBottom: "16px" }}>Although Base64 is useful, it also has some drawbacks.</p>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>Larger File Size</h3>
-        <p style={{ marginBottom: "16px" }}>Encoded data becomes approximately <strong>33% larger</strong> than the original binary file. For very large files, this increases storage requirements and bandwidth usage.</p>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>Not Encryption</h3>
-        <p style={{ marginBottom: "12px" }}>One of the biggest misconceptions is that Base64 protects data. It does not. Anyone can decode Base64 in seconds. Sensitive information should always be encrypted before encoding.</p>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>Additional Processing</h3>
-        <p style={{ marginBottom: "24px" }}>Encoding and decoding require extra CPU processing, although this is usually negligible for modern computers.</p>
-
-        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>Is Base64 Secure?</h2>
-        <p style={{ marginBottom: "12px" }}>No. Base64 is <strong>not a security mechanism</strong>. Consider this example:</p>
-        <p style={{ marginBottom: "4px" }}>Original Password:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "8px" }}>
-          MyPassword123
-        </pre>
-        <p style={{ marginBottom: "4px" }}>Encoded:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "12px" }}>
-          TXlQYXNzd29yZDEyMw==
-        </pre>
-        <p style={{ marginBottom: "8px" }}>Anyone with a Base64 decoder can recover the original password instantly. For secure storage or transmission, use:</p>
-        <ul style={{ paddingLeft: "20px", marginBottom: "24px" }}>
-          <li style={{ marginBottom: "4px" }}>Encryption (AES, RSA)</li>
-          <li style={{ marginBottom: "4px" }}>HTTPS for data in transit</li>
-          <li style={{ marginBottom: "4px" }}>Password hashing (bcrypt, Argon2)</li>
-          <li style={{ marginBottom: "4px" }}>Secure authentication methods</li>
-        </ul>
-
-        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>Developer Use Cases</h2>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>JWT Tokens</h3>
-        <p style={{ marginBottom: "16px" }}>While JSON Web Tokens contain Base64URL-encoded components, remember that the payload is only encoded—not encrypted. Anyone can decode the header and payload without a secret key.</p>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>OAuth</h3>
-        <p style={{ marginBottom: "16px" }}>Some OAuth implementations use Base64 for encoding client credentials in the Authorization header when requesting access tokens.</p>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>QR Code Data</h3>
-        <p style={{ marginBottom: "16px" }}>Certain QR code generators encode binary information using Base64 before processing, making it possible to embed complex data structures inside scannable codes.</p>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>Digital Certificates</h3>
-        <p style={{ marginBottom: "24px" }}>PEM certificates are Base64 encoded and wrapped between certificate headers. This is the standard format for SSL/TLS certificates, private keys, and certificate signing requests.</p>
-
-        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>Best Practices</h2>
-        <p style={{ marginBottom: "8px" }}>When working with Base64, follow these recommendations:</p>
-        <ul style={{ paddingLeft: "20px", marginBottom: "24px" }}>
-          <li style={{ marginBottom: "4px" }}>Don&apos;t use Base64 as a substitute for encryption</li>
-          <li style={{ marginBottom: "4px" }}>Always use HTTPS for secure data transmission</li>
-          <li style={{ marginBottom: "4px" }}>Avoid encoding extremely large files unless necessary</li>
-          <li style={{ marginBottom: "4px" }}>Validate Base64 input before decoding on the backend</li>
-          <li style={{ marginBottom: "4px" }}>Remove unnecessary whitespace from encoded strings</li>
-          <li style={{ marginBottom: "4px" }}>Compress files before encoding if bandwidth is important</li>
-        </ul>
-
-        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "16px", marginTop: "32px" }}>Frequently Asked Questions</h2>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>Is Base64 encryption?</h3>
-        <p style={{ marginBottom: "16px" }}>No. Base64 is only an encoding format. It provides no security and can be reversed by anyone in seconds.</p>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>Can I decode Base64 online?</h3>
-        <p style={{ marginBottom: "16px" }}>Yes. Many online Base64 Decoder tools instantly convert encoded strings back to their original text or binary data without any software installation.</p>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>Why is &quot;=&quot; added at the end?</h3>
-        <p style={{ marginBottom: "16px" }}>The &quot;=&quot; character is padding that ensures the encoded output length is a multiple of four characters, which is required by the Base64 specification.</p>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>Does Base64 increase file size?</h3>
-        <p style={{ marginBottom: "16px" }}>Yes. Encoded output is typically around 33% larger than the original data due to the conversion from 8-bit bytes to 6-bit characters.</p>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>Can images be converted to Base64?</h3>
-        <p style={{ marginBottom: "16px" }}>Yes. Images, PDFs, audio files, videos, and other binary files can all be encoded into Base64 strings for use in APIs, HTML data URLs, and more.</p>
-
-        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px", marginTop: "20px" }}>Is Base64 supported by all programming languages?</h3>
-        <p style={{ marginBottom: "24px" }}>Virtually every modern programming language—including JavaScript, Python, Java, C#, PHP, Go, and Rust—includes built-in Base64 encoding and decoding functions.</p>
-
-        <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px", marginTop: "32px" }}>Conclusion</h2>
-        <p style={{ marginBottom: "12px" }}>Base64 is one of the most widely used encoding standards in modern software development. It enables safe transmission of binary data across text-based systems, making it an essential tool for APIs, emails, web applications, authentication, mobile development, and cloud services.</p>
-        <p style={{ marginBottom: "12px" }}>While Base64 is incredibly useful for compatibility and data transport, it&apos;s important to remember that it does <strong>not</strong> provide security. Always use proper encryption and secure communication protocols when handling sensitive information.</p>
-        <p style={{ marginBottom: "24px" }}>If you need a fast and reliable way to convert data, an online <strong>Base64 Encoder/Decoder</strong> allows you to encode plain text into Base64 or decode Base64 back to its original form instantly—without installing any software. Whether you&apos;re debugging an API, embedding an image, or working with encoded data, a Base64 tool can simplify your workflow and save valuable development time.</p>
       </>
     ),
-    color: "#6366f1",
+    color: "#10b981",
   },
   {
-    title: "22. URL Encoder / Decoder: What It Is, Why It Matters, and How to Use It Effectively",
+    title: "URL Encoder & Decoder: What It Is, Why It Matters, and How to Use It",
     slug: "url-encoder-decoder",
-    date: "June 22, 2026",
-    author: "AstonishBuddy Team",
+    date: "June 25, 2026",
+    author: "Mohit Patel",
     description: "Learn everything about URL encoding and decoding. Understand percent encoding, why it matters for APIs and SEO, common encoded characters, real-world examples, and best practices for web developers.",
     content: (
       <>
@@ -913,6 +835,43 @@ quote("Hello World")
           <li style={{ marginBottom: "4px" }}>Encode only query parameter values, not the entire URL structure.</li>
         </ul>
 
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Deep Dive: CommonMark vs. GitHub Flavored Markdown (GFM)</strong></p>
+        <p style={{ marginBottom: "10px" }}>When John Gruber originally designed Markdown in 2004, it lacked an unambiguous formal specification. Over time, different parser implementations handled edge cases (such as nested lists, intra-word emphasis, and blockquotes) differently. To solve this ambiguity, the software engineering community established the <strong>CommonMark</strong> specification—a rigorous, unambiguous standard for Markdown syntax.</p>
+        <p style={{ marginBottom: "10px" }}>GitHub expanded upon CommonMark by introducing <strong>GitHub Flavored Markdown (GFM)</strong>, which adds essential web formatting features:</p>
+        <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
+          <li style={{ marginBottom: "4px" }}><strong>Markdown Tables:</strong> Pipe-delimited tables with column alignment (<code>| Syntax | Description |</code>).</li>
+          <li style={{ marginBottom: "4px" }}><strong>Task Lists:</strong> Interactive checkboxes formatted as <code>- [ ] Pending</code> or <code>- [x] Completed</code>.</li>
+          <li style={{ marginBottom: "4px" }}><strong>Strikethrough:</strong> Dual tildes wrapping text (<code>~~deleted text~~</code>).</li>
+          <li style={{ marginBottom: "4px" }}><strong>Fenced Code Blocks with Syntax Highlighting:</strong> Triple backticks with language tags (such as <code>```typescript</code> or <code>```python</code>).</li>
+        </ul>
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Security: Preventing Cross-Site Scripting (XSS) in HTML Output</strong></p>
+        <p style={{ marginBottom: "10px" }}>One of the most critical considerations when converting user-submitted Markdown into HTML is security. Because standard Markdown allows raw HTML tags (like <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code>) to be embedded directly inside Markdown documents, a malicious actor could embed dangerous <code>&lt;script&gt;</code> tags or <code>&lt;img onerror=&quot;...&quot;&gt;</code> vectors.</p>
+        <p style={{ marginBottom: "10px" }}>When converting Markdown in production applications, developers must always pass the resulting HTML through a sanitizer such as DOMPurify (in browser/Node.js) or sanitize-html to strip dangerous tags and JavaScript attributes before rendering it on the page.</p>
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Automating Markdown Workflows in Modern CMS & Static Site Generators</strong></p>
+        <p style={{ marginBottom: "10px" }}>Modern static site generators (like Next.js with MDX, Astro, Hugo, and Gatsby) rely heavily on automated Markdown-to-HTML conversion. Writers draft blog posts and technical guides in clean Markdown files with YAML frontmatter metadata, and the build pipeline compiles them into high-performance, SEO-optimized HTML pages at deploy time. Using an instant online converter allows writers to preview formatting and verify HTML tags before committing files to git repositories.</p>
+
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Cryptographic Signatures: Symmetric (HS256) vs. Asymmetric (RS256)</strong></p>
+        <p style={{ marginBottom: "10px" }}>The security of a JSON Web Token relies entirely on its signature. There are two primary cryptographic signing schemes used across the industry:</p>
+        <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
+          <li style={{ marginBottom: "8px" }}><strong>HMAC with SHA-256 (HS256):</strong> A symmetric algorithm where both the authentication server that issues the token and the API server that verifies the token share the <em>exact same secret key</em>. This is simple and fast, but if any service that verifies tokens is compromised, an attacker can use the shared secret to forge new valid tokens.</li>
+          <li style={{ marginBottom: "8px" }}><strong>RSA / ECDSA with SHA-256 (RS256 / ES256):</strong> An asymmetric public/private keypair algorithm. The identity provider signs the token using its private key, while client applications and resource APIs verify the signature using the provider&apos;s publicly distributed public key (frequently published via a JWKS / JSON Web Key Set endpoint). This is the standard for modern OAuth2 and OpenID Connect (OIDC) architectures.</li>
+        </ul>
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Critical Security Pitfalls Developers Must Avoid</strong></p>
+        <p style={{ marginBottom: "10px" }}>Because JWTs are encoded rather than encrypted, several security vulnerabilities frequently arise in web applications:</p>
+        <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
+          <li style={{ marginBottom: "6px" }}><strong>Never Put Passwords or Secrets in the Payload:</strong> Any user or browser extension that receives the token can decode the payload instantly using a decoder. Never store database passwords, API secrets, or credit card numbers in claims.</li>
+          <li style={{ marginBottom: "6px" }}><strong>Always Verify the Algorithm Header:</strong> Historically, vulnerable libraries accepted tokens where <code>&quot;alg&quot;: &quot;none&quot;</code> was specified, bypassing signature verification entirely. Modern verification libraries strictly enforce allowed signing algorithms.</li>
+          <li style={{ marginBottom: "6px" }}><strong>Always Check Expiration (<code>exp</code>):</strong> Tokens should have short lifespans (e.g., 15 minutes) paired with secure HTTP-only refresh tokens. Verifying servers must reject any token where <code>Date.now() &gt; exp</code>.</li>
+        </ul>
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Why Local Browser-Based JWT Decoding Is Essential for Privacy</strong></p>
+        <p style={{ marginBottom: "10px" }}>When troubleshooting production authentication errors, developers frequently copy real JWT tokens containing user emails, session IDs, and authorization roles. Pasting these tokens into public third-party decoding websites that log requests sends sensitive user tokens to external servers. Astonishbuddy&apos;s JWT Decoder processes tokens 100% locally in your browser memory, ensuring your authentication tokens never touch external servers or get stored in logs.</p>
+
         <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Frequently Asked Questions</strong></p>
         <p style={{ marginBottom: "6px" }}><strong>Is URL encoding the same as Base64 encoding?</strong></p>
         <p style={{ marginBottom: "10px", paddingLeft: "10px" }}>No. URL encoding replaces unsafe characters with percent-encoded values, while Base64 converts binary or text data into a different text representation. They serve different purposes.</p>
@@ -933,10 +892,10 @@ quote("Hello World")
     color: "#6366f1",
   },
   {
-    title: "8. Lorem Ipsum Generator: Everything You Need to Know About Placeholder Text",
+    title: "Lorem Ipsum Generator: Complete Guide to Placeholder Text",
     slug: "lorem-ipsum-generator-guide",
-    date: "June 8, 2026",
-    author: "AstonishBuddy Team",
+    date: "June 29, 2026",
+    author: "Mohit Patel",
     description: "Discover everything about Lorem Ipsum placeholder text — its history, why designers use it, benefits of a Lorem Ipsum Generator, common use cases, SEO considerations, and best practices for web design and development.",
     content: (
       <>
@@ -1064,10 +1023,10 @@ quote("Hello World")
     color: "#6366f1",
   },
   {
-    title: "9. Random Number Generator: Everything You Need to Know (Complete Guide)",
+    title: "Random Number Generators: How They Work and Practical Uses",
     slug: "random-number-generator-guide",
-    date: "June 9, 2026",
-    author: "AstonishBuddy Team",
+    date: "July 3, 2026",
+    author: "Mohit Patel",
     description: "A complete guide to Random Number Generators — how they work, types (TRNG vs PRNG), real-world uses in gaming, security, research, and education, plus tips for choosing the right online RNG tool.",
     content: (
       <>
@@ -1206,10 +1165,10 @@ quote("Hello World")
     color: "#14b8a6",
   },
   {
-    title: "10. Text Sorter: Organize Your Text Instantly for Better Productivity",
+    title: "Text Sorter Guide: Organize Lists and Text Instantly",
     slug: "text-sorter-guide",
-    date: "June 10, 2026",
-    author: "AstonishBuddy Team",
+    date: "July 7, 2026",
+    author: "Mohit Patel",
     description: "Discover how a Text Sorter tool helps you instantly organize lists alphabetically, numerically, or by length. Learn sorting methods, use cases for students, developers, SEO pros, and best practices for clean data.",
     content: (
       <>
@@ -1314,7 +1273,19 @@ quote("Hello World")
           {`3\n12\n45\n89\n100`}
         </pre>
 
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Tips for Better Results</strong></p>
+                <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>How the Myers Diff Algorithm Works</strong></p>
+        <p style={{ marginBottom: "10px" }}>Under the hood, virtually all modern difference checkers—including Git&apos;s default diff engine, GNU diff, and online comparison utilities—are powered by the <strong>Myers Diff Algorithm</strong> (developed by Eugene W. Myers in 1986). The algorithm models the problem of finding differences as discovering the &ldquo;Shortest Edit Script&rdquo; (SES) on an edit graph.</p>
+        <p style={{ marginBottom: "10px" }}>Given Text A with <em>N</em> lines and Text B with <em>M</em> lines, the algorithm plots a grid where horizontal moves represent deletions and vertical moves represent insertions. Diagonal moves represent identical lines shared between both files. By finding the shortest path across the grid using greedy breadth-first search, the algorithm guarantees the minimum number of changes needed to transform the original text into the updated text, producing the cleanest and most human-readable diff possible.</p>
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Real-World Use Cases for Diff Checkers</strong></p>
+        <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
+          <li style={{ marginBottom: "8px" }}><strong>JSON & Configuration Auditing:</strong> When updating cloud infrastructure configuration files (e.g., Kubernetes YAML, AWS IAM JSON policies, Docker Compose files), accidental typos can cause catastrophic downtime. Running old vs. new files through a diff checker immediately highlights modified environment variables, modified ports, or changed IP addresses.</li>
+          <li style={{ marginBottom: "8px" }}><strong>Legal Contract & Terms Revisions:</strong> Reviewing amended agreements, non-disclosure agreements (NDAs), or revised terms of service manually is exhausting. A diff checker highlights inserted clauses, modified liability figures, or deleted clauses with complete precision.</li>
+          <li style={{ marginBottom: "8px" }}><strong>SEO Content Optimization:</strong> Copywriters and SEO specialists use diff checkers to compare published blog posts against revised drafts to ensure critical keyword variations, header tags, or outbound links were not accidentally omitted during proofreading.</li>
+          <li style={{ marginBottom: "8px" }}><strong>Code Review Without Git:</strong> Frequently, developers need to quickly compare two snippets of JavaScript, CSS, or SQL query results without creating git branches or opening heavy IDE tools. An instant browser diff checker provides immediate side-by-side clarity.</li>
+        </ul>
+
+<p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Tips for Better Results</strong></p>
         <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
           <li style={{ marginBottom: "4px" }}>Remove unnecessary blank lines before sorting.</li>
           <li style={{ marginBottom: "4px" }}>Choose the correct sorting method for your data type.</li>
@@ -1352,10 +1323,10 @@ quote("Hello World")
     color: "#8b5cf6",
   },
   {
-    title: "11. Color Code Converter: The Ultimate Guide to HEX, RGB, HSL, CMYK, and More",
+    title: "Color Code Converter: Complete Guide to HEX, RGB, and HSL",
     slug: "color-code-converter-guide",
     date: "June 11, 2026",
-    author: "AstonishBuddy Team",
+    author: "Mohit Patel",
     description: "Learn everything about color code formats — HEX, RGB, RGBA, HSL, HSLA, HSV, and CMYK. Understand why color conversion matters for web design, graphic design, and printing, with practical examples and best practices.",
     content: (
       <>
@@ -1525,11 +1496,11 @@ quote("Hello World")
     color: "#f43f5e",
   },
   {
-    title: "12. Image Quality Enhancer: Improve Photo Clarity Without Losing Detail",
+    title: "Image Quality Enhancer: Improve Photo Clarity Without Artifacts",
     slug: "image-quality-enhancer",
-    date: "June 12, 2026",
-    author: "AstonishBuddy Team",
-    description: "Enhance your image clarity, contrast, and visual resolution using our free online quality upscaling guidelines.",
+    date: "June 23, 2026",
+    author: "Mohit Patel",
+    description: "Learn how to upscale and enhance image clarity, contrast, and resolution without distortion. Master browser-based unsharp masking and sharpening filters.",
     content: (
       <>
         <p style={{ marginBottom: "10px" }}><strong>Introduction</strong></p>
@@ -1652,11 +1623,11 @@ quote("Hello World")
     color: "#f59e0b",
   },
   {
-    title: "13. Bulk Image Converter: The Complete Guide to Fast, Secure, and High-Quality Image Conversion",
+    title: "Bulk Image Converter: Convert PNG, JPG & WebP in Batches",
     slug: "bulk-image-converter",
     date: "June 13, 2026",
-    author: "AstonishBuddy Team",
-    description: "Learn how to convert multiple images simultaneously across PNG, JPG, and WebP formats securely in your browser.",
+    author: "Mohit Patel",
+    description: "Discover how to convert batches of images across PNG, JPG, and WebP formats simultaneously. Boost site performance with fast client-side image conversion.",
     content: (
       <>
         <p style={{ marginBottom: "10px" }}><strong>Introduction</strong></p>
@@ -1786,7 +1757,24 @@ quote("Hello World")
         <p style={{ marginBottom: "6px" }}><strong>Do converted images keep their dimensions?</strong></p>
         <p style={{ marginBottom: "10px", paddingLeft: "10px" }}>In most cases, yes. Unless resizing is enabled, only the file format changes while dimensions remain the same.</p>
 
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Final Thoughts</strong></p>
+                <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Deep Dive: CommonMark vs. GitHub Flavored Markdown (GFM)</strong></p>
+        <p style={{ marginBottom: "10px" }}>When John Gruber originally designed Markdown in 2004, it lacked an unambiguous formal specification. Over time, different parser implementations handled edge cases (such as nested lists, intra-word emphasis, and blockquotes) differently. To solve this ambiguity, the software engineering community established the <strong>CommonMark</strong> specification—a rigorous, unambiguous standard for Markdown syntax.</p>
+        <p style={{ marginBottom: "10px" }}>GitHub expanded upon CommonMark by introducing <strong>GitHub Flavored Markdown (GFM)</strong>, which adds essential web formatting features:</p>
+        <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
+          <li style={{ marginBottom: "4px" }}><strong>Markdown Tables:</strong> Pipe-delimited tables with column alignment (<code>| Header 1 | Header 2 |</code>).</li>
+          <li style={{ marginBottom: "4px" }}><strong>Task Lists:</strong> Interactive checkboxes formatted as <code>- [ ] Pending</code> or <code>- [x] Completed</code>.</li>
+          <li style={{ marginBottom: "4px" }}><strong>Strikethrough:</strong> Dual tildes wrapping text (<code>~~deleted text~~</code>).</li>
+          <li style={{ marginBottom: "4px" }}><strong>Fenced Code Blocks with Syntax Highlighting:</strong> Triple backticks with language tags (such as <code>```typescript</code> or <code>```python</code>).</li>
+        </ul>
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Security: Preventing Cross-Site Scripting (XSS) in HTML Output</strong></p>
+        <p style={{ marginBottom: "10px" }}>One of the most critical considerations when converting user-submitted Markdown into HTML is security. Because standard Markdown allows raw HTML tags (like <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code>) to be embedded directly inside Markdown documents, a malicious actor could embed dangerous <code>&lt;script&gt;</code> tags or <code>&lt;img onerror=&quot;...&quot;&gt;</code> vectors.</p>
+        <p style={{ marginBottom: "10px" }}>When converting Markdown in production applications, developers must always pass the resulting HTML through a sanitizer such as DOMPurify (in browser/Node.js) or sanitize-html to strip dangerous tags and JavaScript attributes before rendering it on the page.</p>
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Automating Markdown Workflows in Modern Static Site Generators</strong></p>
+        <p style={{ marginBottom: "10px" }}>Modern static site generators (like Next.js with MDX, Astro, Hugo, and Gatsby) rely heavily on automated Markdown-to-HTML conversion. Writers draft blog posts and technical guides in clean Markdown files with YAML frontmatter metadata, and the build pipeline compiles them into high-performance, SEO-optimized HTML pages at deploy time. Using an instant online converter allows writers to preview formatting and verify HTML tags before committing files to git repositories.</p>
+
+<p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Final Thoughts</strong></p>
         <p style={{ marginBottom: "10px" }}>A Bulk Image Converter is an essential productivity tool for anyone who regularly works with digital images. Whether you&apos;re optimizing a website, managing product photos, preparing blog content, or organizing design assets, converting multiple images at once saves time and improves efficiency.</p>
         <p style={{ marginBottom: "10px" }}>By choosing the right output format and following best practices, you can reduce storage space, improve website speed, and maintain high visual quality. For developers, marketers, businesses, and everyday users alike, a reliable Bulk Image Converter is one of the simplest ways to streamline image management and enhance digital workflows.</p>
       </>
@@ -1794,11 +1782,11 @@ quote("Hello World")
     color: "#06b6d4",
   },
   {
-    title: "14. SQL Formatter: What It Is, Why It Matters, and How to Format SQL Queries Like a Pro",
+    title: "SQL Formatter: How to Format and Beautify SQL Queries",
     slug: "sql-formatter",
-    date: "June 14, 2026",
-    author: "AstonishBuddy Team",
-    description: "Beautify and optimize SQL queries instantly with proper indentation, casing settings, and syntax highlighting.",
+    date: "June 27, 2026",
+    author: "Mohit Patel",
+    description: "Beautify, indent, and optimize complex SQL queries instantly. Learn SQL formatting standards, keyword casing, subquery indentation, and dialect options.",
     content: (
       <>
         <p style={{ marginBottom: "10px" }}><strong>Introduction</strong></p>
@@ -1925,11 +1913,11 @@ ORDER BY
     color: "#10b981",
   },
   {
-    title: "15. UUID / GUID Generator Online – Free, Secure & Instant",
+    title: "UUID / GUID Generator: Understanding UUID v4 and Random Identifiers",
     slug: "uuid-guid-generator",
     date: "June 15, 2026",
-    author: "AstonishBuddy Team",
-    description: "Generate cryptographically secure, random Universally Unique Identifiers (UUID v4) locally in your browser.",
+    author: "Mohit Patel",
+    description: "Generate cryptographically secure UUID v4 identifiers locally in your browser. Learn UUID structure, collisions probability, and database key best practices.",
     content: (
       <>
         <p style={{ marginBottom: "10px" }}><strong>UUID / GUID Generator Online</strong></p>
@@ -2089,11 +2077,11 @@ ORDER BY
     color: "#a855f7",
   },
   {
-    title: "16. Free Markdown ↔ HTML Converter Online: The Fastest Way to Convert Markdown to HTML and Back",
+    title: "Markdown to HTML Converter: The Complete Guide to Formatting Web Content",
     slug: "markdown-html-converter",
-    date: "June 16, 2026",
-    author: "AstonishBuddy Team",
-    description: "Bdirectionally convert Markdown to HTML code and back instantly with live rendered preview screens.",
+    date: "July 1, 2026",
+    author: "Mohit Patel",
+    description: "Convert Markdown to clean HTML code and back instantly. Learn CommonMark syntax, GitHub Flavored Markdown tables, and safe HTML rendering practices.",
     content: (
       <>
         <p style={{ marginBottom: "10px" }}><strong>Introduction</strong></p>
@@ -2243,16 +2231,34 @@ We build amazing tools.`}
         <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Final Thoughts</strong></p>
         <p style={{ marginBottom: "10px" }}>Whether you&apos;re a developer maintaining documentation, a blogger preparing articles, or a student organizing notes, a reliable <strong>Markdown &harr; HTML Converter</strong> can save significant time and effort. Instead of manually rewriting formatting or editing complex HTML tags, simply paste your content and convert it instantly.</p>
         <p style={{ marginBottom: "10px" }}>Our <strong>Free Markdown &harr; HTML Converter Online</strong> is built to provide a seamless, fast, and user-friendly experience. Try it today to transform Markdown into clean HTML or convert existing HTML into readable Markdown with just a few clicks.</p>
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Deep Dive: CommonMark vs. GitHub Flavored Markdown (GFM)</strong></p>
+        <p style={{ marginBottom: "10px" }}>When John Gruber originally designed Markdown in 2004, it lacked an unambiguous formal specification. Over time, different parser implementations handled edge cases (such as nested lists, intra-word emphasis, and blockquotes) differently. To solve this ambiguity, the software engineering community established the <strong>CommonMark</strong> specification—a rigorous, unambiguous standard for Markdown syntax.</p>
+        <p style={{ marginBottom: "10px" }}>GitHub expanded upon CommonMark by introducing <strong>GitHub Flavored Markdown (GFM)</strong>, which adds essential web formatting features:</p>
+        <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
+          <li style={{ marginBottom: "4px" }}><strong>Markdown Tables:</strong> Pipe-delimited tables with column alignment (<code>| Header 1 | Header 2 |</code>).</li>
+          <li style={{ marginBottom: "4px" }}><strong>Task Lists:</strong> Interactive checkboxes formatted as <code>- [ ] Pending</code> or <code>- [x] Completed</code>.</li>
+          <li style={{ marginBottom: "4px" }}><strong>Strikethrough:</strong> Dual tildes wrapping text (<code>~~deleted text~~</code>).</li>
+          <li style={{ marginBottom: "4px" }}><strong>Fenced Code Blocks with Syntax Highlighting:</strong> Triple backticks with language tags (such as <code>```typescript</code> or <code>```python</code>).</li>
+        </ul>
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Security: Preventing Cross-Site Scripting (XSS) in HTML Output</strong></p>
+        <p style={{ marginBottom: "10px" }}>One of the most critical considerations when converting user-submitted Markdown into HTML is security. Because standard Markdown allows raw HTML tags (like <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code>) to be embedded directly inside Markdown documents, a malicious actor could embed dangerous <code>&lt;script&gt;</code> tags or <code>&lt;img onerror=&quot;...&quot;&gt;</code> vectors.</p>
+        <p style={{ marginBottom: "10px" }}>When converting Markdown in production applications, developers must always pass the resulting HTML through a sanitizer such as DOMPurify (in browser/Node.js) or sanitize-html to strip dangerous tags and JavaScript attributes before rendering it on the page.</p>
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Automating Markdown Workflows in Modern Static Site Generators</strong></p>
+        <p style={{ marginBottom: "10px" }}>Modern static site generators (like Next.js with MDX, Astro, Hugo, and Gatsby) rely heavily on automated Markdown-to-HTML conversion. Writers draft blog posts and technical guides in clean Markdown files with YAML frontmatter metadata, and the build pipeline compiles them into high-performance, SEO-optimized HTML pages at deploy time. Using an instant online converter allows writers to preview formatting and verify HTML tags before committing files to git repositories.</p>
+
       </>
     ),
     color: "#fb923c",
   },
   {
-    title: "17. Text Diff Checker – Compare Text & Find Differences Online",
+    title: "Text Diff Checker: Compare Text and Highlight Differences Online",
     slug: "text-diff-checker",
     date: "June 17, 2026",
-    author: "AstonishBuddy Team",
-    description: "Compare two blocks of text side by side to instantly highlight line-level and word-level edits.",
+    author: "Mohit Patel",
+    description: "Compare two text documents side-by-side to highlight character, word, and line differences. Learn how Myers diff algorithms detect changes in code and text.",
     content: (
       <>
         <p style={{ marginBottom: "10px" }}><strong>Compare Two Texts Instantly with Our Free Text Diff Checker</strong></p>
@@ -2344,16 +2350,29 @@ We build amazing tools.`}
         <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Final Thoughts</strong></p>
         <p style={{ marginBottom: "10px" }}>A reliable <strong>Text Diff Checker</strong> is one of the simplest yet most valuable productivity tools available online. Whether you&apos;re reviewing source code, proofreading articles, checking contracts, or comparing reports, it helps you identify differences in seconds instead of minutes or hours.</p>
         <p style={{ marginBottom: "10px" }}>Use our <strong>free online Text Diff Checker</strong> to compare text accurately, reduce errors, and streamline your workflow. With instant highlighting, an easy-to-use interface, and no complicated setup, it&apos;s the perfect solution.</p>
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>How the Myers Diff Algorithm Works</strong></p>
+        <p style={{ marginBottom: "10px" }}>Under the hood, virtually all modern difference checkers—including Git&apos;s default diff engine, GNU diff, and online comparison utilities—are powered by the <strong>Myers Diff Algorithm</strong> (developed by Eugene W. Myers in 1986). The algorithm models the problem of finding differences as discovering the &ldquo;Shortest Edit Script&rdquo; (SES) on an edit graph.</p>
+        <p style={{ marginBottom: "10px" }}>Given Text A with <em>N</em> lines and Text B with <em>M</em> lines, the algorithm plots a grid where horizontal moves represent deletions and vertical moves represent insertions. Diagonal moves represent identical lines shared between both files. By finding the shortest path across the grid using greedy breadth-first search, the algorithm guarantees the minimum number of changes needed to transform the original text into the updated text, producing the cleanest and most human-readable diff possible.</p>
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Real-World Use Cases for Diff Checkers</strong></p>
+        <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
+          <li style={{ marginBottom: "8px" }}><strong>JSON & Configuration Auditing:</strong> When updating cloud infrastructure configuration files (e.g., Kubernetes YAML, AWS IAM JSON policies, Docker Compose files), accidental typos can cause catastrophic downtime. Running old vs. new files through a diff checker immediately highlights modified environment variables, modified ports, or changed IP addresses.</li>
+          <li style={{ marginBottom: "8px" }}><strong>Legal Contract & Terms Revisions:</strong> Reviewing amended agreements, non-disclosure agreements (NDAs), or revised terms of service manually is exhausting. A diff checker highlights inserted clauses, modified liability figures, or deleted clauses with complete precision.</li>
+          <li style={{ marginBottom: "8px" }}><strong>SEO Content Optimization:</strong> Copywriters and SEO specialists use diff checkers to compare published blog posts against revised drafts to ensure critical keyword variations, header tags, or outbound links were not accidentally omitted during proofreading.</li>
+          <li style={{ marginBottom: "8px" }}><strong>Code Review Without Git:</strong> Frequently, developers need to quickly compare two snippets of JavaScript, CSS, or SQL query results without creating git branches or opening heavy IDE tools. An instant browser diff checker provides immediate side-by-side clarity.</li>
+        </ul>
+
       </>
     ),
     color: "#f43f5e",
   },
   {
-    title: "18. JWT Decoder – Decode & Inspect JSON Web Tokens Online",
+    title: "JWT Decoder: How to Decode, Inspect, and Debug JSON Web Tokens",
     slug: "jwt-decoder",
-    date: "June 18, 2026",
-    author: "AstonishBuddy Team",
-    description: "Decode and inspect JWT tokens locally in your browser. View header, payload claims, and expiry values securely.",
+    date: "July 5, 2026",
+    author: "Mohit Patel",
+    description: "Decode and inspect JSON Web Tokens locally in your browser. Understand JWT headers, claims, signature verification, expiration checks, and token security.",
     content: (
       <>
         <p style={{ marginBottom: "10px" }}><strong>What Is a JWT (JSON Web Token)?</strong></p>
@@ -2437,7 +2456,25 @@ exampleSignature`}
         <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Is Decoding the Same as Verifying?</strong></p>
         <p style={{ marginBottom: "10px" }}>No. A decoder only converts Base64URL-encoded data into readable JSON. It <strong>does not verify</strong> whether the token is authentic or signed correctly. Verification requires the appropriate secret key or public key used during token generation.</p>
 
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Is It Safe to Decode JWTs?</strong></p>
+                <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Cryptographic Signatures: Symmetric (HS256) vs. Asymmetric (RS256)</strong></p>
+        <p style={{ marginBottom: "10px" }}>The security of a JSON Web Token relies entirely on its signature. There are two primary cryptographic signing schemes used across the industry:</p>
+        <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
+          <li style={{ marginBottom: "8px" }}><strong>HMAC with SHA-256 (HS256):</strong> A symmetric algorithm where both the authentication server that issues the token and the API server that verifies the token share the <em>exact same secret key</em>. This is simple and fast, but if any service that verifies tokens is compromised, an attacker can use the shared secret to forge new valid tokens.</li>
+          <li style={{ marginBottom: "8px" }}><strong>RSA / ECDSA with SHA-256 (RS256 / ES256):</strong> An asymmetric public/private keypair algorithm. The identity provider signs the token using its private key, while client applications and resource APIs verify the signature using the provider&apos;s publicly distributed public key (frequently published via a JWKS / JSON Web Key Set endpoint). This is the standard for modern OAuth2 and OpenID Connect (OIDC) architectures.</li>
+        </ul>
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Critical Security Pitfalls Developers Must Avoid</strong></p>
+        <p style={{ marginBottom: "10px" }}>Because JWTs are encoded rather than encrypted, several security vulnerabilities frequently arise in web applications:</p>
+        <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
+          <li style={{ marginBottom: "6px" }}><strong>Never Put Passwords or Secrets in the Payload:</strong> Any user or browser extension that receives the token can decode the payload instantly using a decoder. Never store database passwords, API secrets, or credit card numbers in claims.</li>
+          <li style={{ marginBottom: "6px" }}><strong>Always Verify the Algorithm Header:</strong> Historically, vulnerable libraries accepted tokens where <code>&quot;alg&quot;: &quot;none&quot;</code> was specified, bypassing signature verification entirely. Modern verification libraries strictly enforce allowed signing algorithms.</li>
+          <li style={{ marginBottom: "6px" }}><strong>Always Check Expiration (<code>exp</code>):</strong> Tokens should have short lifespans (e.g., 15 minutes) paired with secure HTTP-only refresh tokens. Verifying servers must reject any token where <code>Date.now() &gt; exp</code>.</li>
+        </ul>
+
+        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Why Local Browser-Based JWT Decoding Is Essential for Privacy</strong></p>
+        <p style={{ marginBottom: "10px" }}>When troubleshooting production authentication errors, developers frequently copy real JWT tokens containing user emails, session IDs, and authorization roles. Pasting these tokens into public third-party decoding websites that log requests sends sensitive user tokens to external servers. Astonishbuddy&apos;s JWT Decoder processes tokens 100% locally in your browser memory, ensuring your authentication tokens never touch external servers or get stored in logs.</p>
+
+<p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Is It Safe to Decode JWTs?</strong></p>
         <p style={{ marginBottom: "10px" }}>Decoding is generally safe because it simply reads the token contents. However, never share production tokens publicly and avoid exposing sensitive authentication credentials. For maximum privacy, use tools that perform decoding locally within your browser.</p>
 
         <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Common JWT Claims Explained</strong></p>
@@ -2519,11 +2556,11 @@ exampleSignature`}
     color: "#6366f1",
   },
   {
-    title: "19. How to Minify JSON: A Complete Beginner’s Guide",
+    title: "How to Minify JSON: Boost Performance and Reduce API Latency",
     slug: "minify-json",
     date: "June 19, 2026",
-    author: "AstonishBuddy Team",
-    description: "Learn about the performance and bandwidth benefits of minifying JSON data files for production deployment.",
+    author: "Mohit Patel",
+    description: "Learn how minifying JSON reduces network payload size, speeds up API response times, and cuts bandwidth costs across cloud infrastructure and web apps.",
     content: (
       <>
         <p style={{ marginBottom: "10px" }}>JSON (JavaScript Object Notation) is one of the most widely used data formats for storing and exchanging information between applications, websites, and APIs. Whether you&apos;re a web developer, mobile app developer, or simply working with configuration files, you&apos;ve likely encountered JSON.</p>
@@ -2693,249 +2730,11 @@ exampleSignature`}
     color: "#06b6d4",
   },
   {
-    title: "20. What Is Base64 Encoding? A Complete Beginner’s Guide",
-    slug: "base64-encoding",
-    date: "June 20, 2026",
-    author: "AstonishBuddy Team",
-    description: "A complete guide to Base64 encoding concepts, character sets, standard uses, and multi-language implementation.",
-    content: (
-      <>
-        <p style={{ marginBottom: "10px" }}>If you&apos;ve ever worked with web development, APIs, emails, QR codes, or data transfer, you may have come across the term <strong>Base64 encoding</strong>. While it might sound complicated, Base64 is actually a simple and widely used method for converting data into a text format that can be safely transmitted and stored.</p>
-        <p style={{ marginBottom: "10px" }}>Base64 encoding is not encryption and it is not meant to protect sensitive information. Instead, it is a standardized way of representing binary data using only printable ASCII characters. This makes it extremely useful for sending images, files, or other binary content through systems that are designed to handle text.</p>
-        <p style={{ marginBottom: "10px" }}>In this guide, you&apos;ll learn what Base64 encoding is, how it works, where it is used, its advantages and disadvantages, and how you can easily encode or decode data using online tools.</p>
-
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>What Is Base64 Encoding?</strong></p>
-        <p style={{ marginBottom: "10px" }}>Base64 encoding is a method of converting binary data into a string made up of 64 different printable characters. These characters include:</p>
-        <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
-          <li style={{ marginBottom: "4px" }}>Uppercase letters (A–Z)</li>
-          <li style={{ marginBottom: "4px" }}>Lowercase letters (a–z)</li>
-          <li style={{ marginBottom: "4px" }}>Numbers (0–9)</li>
-          <li style={{ marginBottom: "4px" }}>Plus sign (+)</li>
-          <li style={{ marginBottom: "4px" }}>Forward slash (/)</li>
-        </ul>
-        <p style={{ marginBottom: "10px" }}>Sometimes an equals sign (<code>=</code>) is added at the end as padding to ensure the encoded string has the correct length.</p>
-        <p style={{ marginBottom: "10px" }}>The main goal of Base64 is to make binary data compatible with systems that only support plain text.</p>
-
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Why Is Base64 Needed?</strong></p>
-        <p style={{ marginBottom: "10px" }}>Many communication protocols were originally designed to transmit text only. Binary files such as images, PDFs, videos, or executable files could become corrupted during transmission.</p>
-        <p style={{ marginBottom: "10px" }}>Base64 solves this problem by converting binary data into text characters that can safely travel through:</p>
-        <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
-          <li style={{ marginBottom: "4px" }}>Emails</li>
-          <li style={{ marginBottom: "4px" }}>JSON APIs</li>
-          <li style={{ marginBottom: "4px" }}>XML documents</li>
-          <li style={{ marginBottom: "4px" }}>HTML files</li>
-          <li style={{ marginBottom: "4px" }}>Database fields</li>
-          <li style={{ marginBottom: "4px" }}>URLs (using Base64 URL-safe variants)</li>
-        </ul>
-
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>How Does Base64 Encoding Work?</strong></p>
-        <p style={{ marginBottom: "10px" }}>Base64 groups binary data into chunks of 24 bits. These 24 bits are then divided into four groups of 6 bits each. Each 6-bit value maps to one of the 64 Base64 characters.</p>
-        <p style={{ marginBottom: "4px" }}>Original text:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px" }}>
-          Hello
-        </pre>
-        <p style={{ marginBottom: "4px" }}>Base64 encoded:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px", wordBreak: "break-all", whiteSpace: "pre-wrap" }}>
-          SGVsbG8=
-        </pre>
-        <p style={{ marginBottom: "10px" }}>When decoded, the original text is perfectly restored.</p>
-
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Base64 Character Set</strong></p>
-        <p style={{ marginBottom: "4px" }}>The Base64 alphabet consists of:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px" }}>
-          {`ABCDEFGHIJKLMNOPQRSTUVWXYZ
-abcdefghijklmnopqrstuvwxyz
-0123456789+/`}
-        </pre>
-        <p style={{ marginBottom: "4px" }}>Padding character:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px" }}>
-          =
-        </pre>
-        <p style={{ marginBottom: "10px" }}>The padding ensures the output length is always a multiple of four characters.</p>
-
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Base64 Encoding Example</strong></p>
-        <p style={{ marginBottom: "4px" }}>Plain text:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px" }}>
-          OpenAI
-        </pre>
-        <p style={{ marginBottom: "4px" }}>Encoded result:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px", color: "#10b981" }}>
-          T3BlbkFJ
-        </pre>
-        <p style={{ marginBottom: "4px" }}>Another example plain text:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px" }}>
-          ChatGPT
-        </pre>
-        <p style={{ marginBottom: "4px" }}>Encoded result:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px", color: "#10b981" }}>
-          Q2hhdEdQVA==
-        </pre>
-
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Is Base64 Encryption?</strong></p>
-        <p style={{ marginBottom: "10px" }}>No. This is one of the most common misconceptions. Base64 <strong>does not encrypt data</strong> and <strong>does not provide security</strong>. Anyone can decode Base64 in seconds using freely available tools.</p>
-        <p style={{ marginBottom: "4px" }}>Example plain text password:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px" }}>
-          Password123
-        </pre>
-        <p style={{ marginBottom: "4px" }}>Encoded result:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px" }}>
-          UGFzc3dvcmQxMjM=
-        </pre>
-        <p style={{ marginBottom: "10px" }}>This can easily be decoded back to <code>Password123</code>. If you need to protect sensitive information, use proper encryption methods such as AES or RSA rather than Base64.</p>
-
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Common Uses of Base64 Encoding</strong></p>
-        <p style={{ marginBottom: "6px" }}><strong>1. Embedding Images in HTML</strong></p>
-        <p style={{ marginBottom: "10px", paddingLeft: "10px" }}>Developers can embed small images directly into HTML or CSS stylesheets to eliminate separate resource loading requests:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px", wordBreak: "break-all", whiteSpace: "pre-wrap" }}>
-          {`<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUg..." />`}
-        </pre>
-        <p style={{ marginBottom: "6px" }}><strong>2. Email Attachments</strong></p>
-        <p style={{ marginBottom: "10px", paddingLeft: "10px" }}>MIME email systems encode binary files using Base64 so email attachments travel safely through text-based routing servers.</p>
-        <p style={{ marginBottom: "6px" }}><strong>3. REST APIs</strong></p>
-        <p style={{ marginBottom: "10px", paddingLeft: "10px" }}>APIs use Base64 to transmit binary payloads like documents or user avatar assets easily in text-based JSON endpoints.</p>
-        <p style={{ marginBottom: "6px" }}><strong>4. JSON Data Transfer</strong></p>
-        <p style={{ marginBottom: "10px", paddingLeft: "10px" }}>Since JSON values must be text-safe, files are encoded in Base64 before inclusion:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px" }}>
-          {`{
-  "filename": "photo.jpg",
-  "content": "VGhpcyBpcyBhIEJhc2U2NCBlbmNvZGVkIHN0cmluZw=="
-}`}
-        </pre>
-        <p style={{ marginBottom: "6px" }}><strong>5. JWT Tokens</strong></p>
-        <p style={{ marginBottom: "10px", paddingLeft: "10px" }}>JSON Web Tokens (JWTs) use Base64URL encoding to structure the header and payload blocks.</p>
-        <p style={{ marginBottom: "6px" }}><strong>6. QR Code Generation</strong></p>
-        <p style={{ marginBottom: "10px", paddingLeft: "10px" }}>Systems sometimes convert binary configurations into Base64 strings before packing them inside QR codes.</p>
-        <p style={{ marginBottom: "6px" }}><strong>7. Data URLs</strong></p>
-        <p style={{ marginBottom: "10px", paddingLeft: "10px" }}>Browsers process Data URLs natively:</p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px" }}>
-          data:text/plain;base64,SGVsbG8gV29ybGQ=
-        </pre>
-
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Advantages of Base64 Encoding</strong></p>
-        <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
-          <li style={{ marginBottom: "4px" }}>Simple, reliable, and standardized</li>
-          <li style={{ marginBottom: "4px" }}>Perfectly safe for text-only communication channels</li>
-          <li style={{ marginBottom: "4px" }}>Broadly supported by almost all programming libraries</li>
-          <li style={{ marginBottom: "4px" }}>Preserves binary structures accurately without layout distortion</li>
-        </ul>
-
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Disadvantages of Base64 Encoding</strong></p>
-        <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
-          <li style={{ marginBottom: "4px" }}>Increases transferred file size by roughly 33%</li>
-          <li style={{ marginBottom: "4px" }}>Provides no encryption security layer</li>
-          <li style={{ marginBottom: "4px" }}>Larger payloads can reduce API transfer speeds</li>
-        </ul>
-
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Base64 vs Encryption</strong></p>
-        <div style={{ overflowX: "auto", marginBottom: "16px" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px", border: "1px solid var(--border)" }}>
-            <thead>
-              <tr style={{ background: "rgba(255,255,255,0.05)", borderBottom: "1px solid var(--border)" }}>
-                <th style={{ padding: "10px", textAlign: "left", fontWeight: 700 }}>Feature</th>
-                <th style={{ padding: "10px", textAlign: "left", fontWeight: 700 }}>Base64 Encoding</th>
-                <th style={{ padding: "10px", textAlign: "left", fontWeight: 700 }}>Encryption</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style={{ borderBottom: "1px solid var(--border)" }}>
-                <td style={{ padding: "10px" }}><strong>Purpose</strong></td>
-                <td style={{ padding: "10px" }}>Data representation</td>
-                <td style={{ padding: "10px" }}>Data protection</td>
-              </tr>
-              <tr style={{ borderBottom: "1px solid var(--border)" }}>
-                <td style={{ padding: "10px" }}><strong>Reversible</strong></td>
-                <td style={{ padding: "10px" }}>Yes</td>
-                <td style={{ padding: "10px" }}>Only with proper keys</td>
-              </tr>
-              <tr style={{ borderBottom: "1px solid var(--border)" }}>
-                <td style={{ padding: "10px" }}><strong>Security</strong></td>
-                <td style={{ padding: "10px" }}>None</td>
-                <td style={{ padding: "10px" }}>High</td>
-              </tr>
-              <tr style={{ borderBottom: "1px solid var(--border)" }}>
-                <td style={{ padding: "10px" }}><strong>Human-readable</strong></td>
-                <td style={{ padding: "10px" }}>Encoded text</td>
-                <td style={{ padding: "10px" }}>Usually unreadable</td>
-              </tr>
-              <tr>
-                <td style={{ padding: "10px" }}><strong>Typical Use</strong></td>
-                <td style={{ padding: "10px" }}>APIs, emails, file transfer</td>
-                <td style={{ padding: "10px" }}>Secure communication</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Programming Examples</strong></p>
-        <p style={{ marginBottom: "4px" }}><strong>JavaScript:</strong></p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px" }}>
-          {`const encoded = btoa("Hello World");
-console.log(encoded); // SGVsbG8gV29ybGQ=
-
-const decoded = atob(encoded);
-console.log(decoded); // Hello World`}
-        </pre>
-
-        <p style={{ marginBottom: "4px" }}><strong>Python:</strong></p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px" }}>
-          {`import base64
-
-text = "Hello World"
-
-encoded = base64.b64encode(text.encode()).decode()
-print(encoded) # SGVsbG8gV29ybGQ=
-
-decoded = base64.b64decode(encoded).decode()
-print(decoded) # Hello World`}
-        </pre>
-
-        <p style={{ marginBottom: "4px" }}><strong>C#:</strong></p>
-        <pre style={{ background: "rgba(255,255,255,0.03)", padding: "12px", borderRadius: "8px", overflowX: "auto", fontFamily: "monospace", fontSize: "14px", marginBottom: "10px" }}>
-          {`string text = "Hello World";
-
-string encoded = Convert.ToBase64String(
-    System.Text.Encoding.UTF8.GetBytes(text)
-);
-
-string decoded = System.Text.Encoding.UTF8.GetString(
-    Convert.FromBase64String(encoded)
-);`}
-        </pre>
-
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Best Practices</strong></p>
-        <ul style={{ paddingLeft: "20px", marginBottom: "10px" }}>
-          <li style={{ marginBottom: "4px" }}>Never store passwords using raw Base64.</li>
-          <li style={{ marginBottom: "4px" }}>Always use HTTPS when transmitting encoded user information.</li>
-          <li style={{ marginBottom: "4px" }}>Compress large files before encoding to minimize overhead.</li>
-          <li style={{ marginBottom: "4px" }}>Validate Base64 formats on the backend before parsing parameters.</li>
-        </ul>
-
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Frequently Asked Questions</strong></p>
-        <p style={{ marginBottom: "6px" }}><strong>Is Base64 secure?</strong></p>
-        <p style={{ marginBottom: "10px", paddingLeft: "10px" }}>No. It is purely an encoding format to convert binary formats to text characters safely and is completely reversible in seconds.</p>
-        <p style={{ marginBottom: "6px" }}><strong>Why does Base64 end with &apos;=&apos;?</strong></p>
-        <p style={{ marginBottom: "10px", paddingLeft: "10px" }}>The equals character serves as padding so the length of the string is always a multiple of four.</p>
-        <p style={{ marginBottom: "6px" }}><strong>Does Base64 increase file size?</strong></p>
-        <p style={{ marginBottom: "10px", paddingLeft: "10px" }}>Yes, encoding binary data into ASCII characters increases payload sizes by around 33%.</p>
-        <p style={{ marginBottom: "6px" }}><strong>Can Base64 encode images?</strong></p>
-        <p style={{ marginBottom: "10px", paddingLeft: "10px" }}>Yes. Images, PDFs, sound files, and documents are routinely packed into Base64 strings.</p>
-        <p style={{ marginBottom: "6px" }}><strong>Is Base64 reversible?</strong></p>
-        <p style={{ marginBottom: "10px", paddingLeft: "10px" }}>Yes, the base binary data is recovered with 100% fidelity upon decoding.</p>
-
-        <p style={{ marginBottom: "10px", marginTop: "16px" }}><strong>Conclusion</strong></p>
-        <p style={{ marginBottom: "10px" }}>Base64 encoding is a reliable and widely adopted technique for representing binary data as text. It plays a crucial role in web development, APIs, email systems, and countless software applications by ensuring data can be transmitted safely through text-based channels.</p>
-        <p style={{ marginBottom: "10px" }}>However, it&apos;s important to remember that Base64 is <strong>an encoding scheme, not a security mechanism</strong>. While it makes data portable and compatible, it offers no protection against unauthorized access. For sensitive information, always use proper encryption in addition to Base64 when needed.</p>
-        <p style={{ marginBottom: "10px" }}>Whether you&apos;re a developer, student, or technology enthusiast, understanding Base64 encoding will help you work more effectively with modern applications and data exchange formats.</p>
-      </>
-    ),
-    color: "#10b981",
-  },
-  {
-    title: "21. WebP vs PNG vs JPG: Which Image Format Should You Use in 2026?",
+    title: "WebP vs PNG vs JPG: Which Image Format Should You Use?",
     slug: "webp-vs-png-vs-jpg",
     date: "June 21, 2026",
-    author: "AstonishBuddy Team",
-    description: "Compare WebP, PNG, and JPG in detail. Learn which image formats load fastest and help optimize SEO performance.",
+    author: "Mohit Patel",
+    description: "Compare WebP, PNG, and JPG image formats in depth. Learn which format to choose for web performance, SEO rankings, transparency, and photographic quality.",
     content: (
       <>
         <p style={{ marginBottom: "10px" }}>Images play a crucial role in website performance, user experience, and SEO. Choosing the right image format can significantly reduce page load times, improve search engine rankings, and provide better visual quality for your visitors. The three most commonly used formats are <strong>WebP</strong>, <strong>PNG</strong>, and <strong>JPG (JPEG)</strong>.</p>

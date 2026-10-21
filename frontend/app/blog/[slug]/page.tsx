@@ -66,13 +66,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return { title: "Blog Not Found" };
   const cleanTitle = post.title.replace(/^\d+\.\s*/, "");
+  const canonicalUrl = `https://www.astonishbuddy.com/blog/${slug}`;
+  const img =
+    post.image ||
+    slugImageMap[slug] ||
+    "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=1200&q=85";
+
   return {
-    title: cleanTitle,
+    title: `${cleanTitle} | Astonishbuddy Blog`,
     description: post.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
-      title: cleanTitle,
+      title: `${cleanTitle} | Astonishbuddy Blog`,
       description: post.description,
-      images: [slugImageMap[slug] || ""],
+      url: canonicalUrl,
+      siteName: "Astonishbuddy",
+      type: "article",
+      images: [img],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${cleanTitle} | Astonishbuddy Blog`,
+      description: post.description,
+      images: [img],
     },
   };
 }
@@ -92,6 +110,57 @@ export default async function BlogDetailPage({ params }: Props) {
   // Related posts (exclude current, pick up to 3)
   const related = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: cleanTitle,
+    description: post.description,
+    image: [featuredImage],
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author || "Mohit Patel",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Astonishbuddy",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.astonishbuddy.com/icon.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.astonishbuddy.com/blog/${slug}`,
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.astonishbuddy.com",
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://www.astonishbuddy.com/blog",
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": cleanTitle,
+        "item": `https://www.astonishbuddy.com/blog/${slug}`,
+      },
+    ],
+  };
+
   return (
     <main
       style={{
@@ -103,6 +172,14 @@ export default async function BlogDetailPage({ params }: Props) {
         flexDirection: "column",
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Navbar />
 
       {/* CSS for all hover effects — avoids event handlers in server components */}

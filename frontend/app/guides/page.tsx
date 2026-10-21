@@ -6,9 +6,20 @@ import Navbar from "../components/Navbar";
 import { guidePosts } from "../data/guides-data";
 
 export const metadata: Metadata = {
-  title: "Guides – How to Use Free Online Tools",
+  title: "How-To Tool Guides: Step-by-Step Online Tutorials",
   description:
-    "Step-by-step guides for every free online tool on AstonishBuddy. Learn how to compress images, format JSON, generate passwords, and much more.",
+    "Practical step-by-step tutorials and guides for all Astonishbuddy utilities: compress images, format SQL & JSON, generate passwords, and boost productivity.",
+  alternates: {
+    canonical: "https://www.astonishbuddy.com/guides",
+  },
+  openGraph: {
+    title: "How-To Tool Guides: Step-by-Step Online Tutorials",
+    description:
+      "Practical step-by-step tutorials and guides for all Astonishbuddy utilities: compress images, format SQL & JSON, generate passwords, and boost productivity.",
+    url: "https://www.astonishbuddy.com/guides",
+    siteName: "Astonishbuddy",
+    type: "website",
+  },
 };
 
 // Unsplash images per tool slug

@@ -53,6 +53,21 @@ const nextConfig: NextConfig = {
         destination: "https://www.astonishbuddy.com/:path*",
         permanent: true,
       },
+      {
+        source: "/blog/the-ultimate-guide-to-image-compression-reduce-file-size-without-losing-quality-give-me-1500-words-for-post",
+        destination: "/blog/image-compression-guide",
+        permanent: true,
+      },
+      {
+        source: "/blog/the-ultimate-guide-to-image-compression-reduce-file-size-without-losing-quality",
+        destination: "/blog/image-compression-guide",
+        permanent: true,
+      },
+      {
+        source: "/blog/base64-encoding",
+        destination: "/blog/base64-encoder-decoder-guide",
+        permanent: true,
+      },
     ];
   },
 

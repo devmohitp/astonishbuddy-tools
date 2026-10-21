@@ -116,6 +116,25 @@ export default function Navbar() {
         </div>
       </Link>
 
+      {/* Visible Main Navigation for Desktop */}
+      <nav className="desktop-main-nav" aria-label="Main Navigation">
+        <Link href="/#all-tools" className="desktop-nav-link">
+          Tools
+        </Link>
+        <Link href="/blog" className="desktop-nav-link">
+          Blog
+        </Link>
+        <Link href="/guides" className="desktop-nav-link">
+          Guides
+        </Link>
+        <Link href="/about" className="desktop-nav-link">
+          About
+        </Link>
+        <Link href="/contact" className="desktop-nav-link">
+          Contact
+        </Link>
+      </nav>
+
       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
         {/* Animated Search Container */}
         <div ref={searchRef} style={{ display: "flex", alignItems: "center", position: "relative" }}>
@@ -295,6 +314,33 @@ export default function Navbar() {
           </div>
         </nav>
       )}
+      <style jsx>{`
+        .desktop-main-nav {
+          display: flex;
+          align-items: center;
+          gap: 28px;
+        }
+        :global(.desktop-nav-link) {
+          color: var(--text-secondary);
+          text-decoration: none;
+          font-size: 15px;
+          font-weight: 500;
+          transition: color 0.2s ease;
+        }
+        :global(.desktop-nav-link:hover) {
+          color: var(--text-primary);
+        }
+        @media (max-width: 820px) {
+          .desktop-main-nav {
+            display: none;
+          }
+        }
+        @media (min-width: 821px) {
+          :global(#hamburger-btn) {
+            display: none !important;
+          }
+        }
+      `}</style>
     </header>
   );
 }

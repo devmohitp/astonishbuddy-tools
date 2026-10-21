@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /api/
 
-Sitemap: https://astonishbuddy.com/sitemap.xml
+Sitemap: https://www.astonishbuddy.com/sitemap.xml

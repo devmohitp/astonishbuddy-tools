@@ -64,12 +64,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const guide = guidePosts.find((g) => g.slug === slug);
   if (!guide) return { title: "Guide Not Found" };
+  const url = `https://www.astonishbuddy.com/guides/${slug}`;
   return {
-    title: guide.title,
+    title: `${guide.title} | Astonishbuddy Guide`,
     description: guide.description,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
-      title: guide.title,
+      title: `${guide.title} | Astonishbuddy Guide`,
       description: guide.description,
+      url,
+      siteName: "Astonishbuddy",
+      type: "article",
       images: [slugImageMap[slug] || ""],
     },
   };
@@ -93,6 +100,59 @@ export default async function GuideDetailPage({ params }: Props) {
   const nextGuide =
     currentIndex < guidePosts.length - 1 ? guidePosts[currentIndex + 1] : null;
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.astonishbuddy.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Guides",
+        item: "https://www.astonishbuddy.com/guides",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: guide.title,
+        item: `https://www.astonishbuddy.com/guides/${slug}`,
+      },
+    ],
+  };
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: guide.title,
+    description: guide.description,
+    image: [featuredImage],
+    datePublished: "2026-06-01T00:00:00Z",
+    dateModified: "2026-10-17T00:00:00Z",
+    author: {
+      "@type": "Person",
+      name: "Mohit Patel",
+      url: "https://www.astonishbuddy.com/about",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Astonishbuddy",
+      url: "https://www.astonishbuddy.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.astonishbuddy.com/icon.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.astonishbuddy.com/guides/${slug}`,
+    },
+  };
+
   return (
     <main
       style={{
@@ -104,6 +164,14 @@ export default async function GuideDetailPage({ params }: Props) {
         flexDirection: "column",
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <Navbar />
 
       {/* CSS hover effects — no JS handlers needed (server component safe) */}

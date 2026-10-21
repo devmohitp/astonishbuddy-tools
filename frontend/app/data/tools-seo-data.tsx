@@ -18,1063 +18,1232 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
   "image-compressor": {
     id: "image-compressor",
     name: "Image Compressor",
-    shortIntro: "Looking for a free image compressor online to reduce image size without losing quality? This tool lets you compress JPG, PNG, and WebP images instantly. You can reduce image size for websites, social media, or storage without any noticeable loss in quality. Our image compressor works directly in your browser — no upload to server, no login, and completely free.",
+    shortIntro: "Astonishbuddy Image Compressor provides fast, lossless and visually lossless image compression directly in your web browser. Optimize JPEG, PNG, and WebP images without uploading your private photos to third-party cloud servers. Achieve dramatic file size reductions while preserving sharp text, vibrant color gamuts, and fine photographic textures.",
     guideContent: (
-      <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+<div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
         <p style={{ marginBottom: "16px" }}>
-          Whether you want to compress image to 50KB, 100KB, or optimize images for faster website loading, this tool helps you do it in seconds.
-        </p>
-        <p style={{ marginBottom: "16px" }}>
-          It is perfect for developers, designers, bloggers, and anyone who needs fast and reliable image compression online.
+          Images account for over 60% of total web page weight on modern websites. High-resolution photos captured on modern smartphones frequently exceed 4 to 8 megabytes each, causing sluggish page load speeds, high mobile bandwidth consumption, and lower search engine rankings. Our Image Compressor enables web developers, content creators, ecommerce managers, and students to dramatically shrink image file sizes without noticeable visual degradation.
         </p>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          How to Compress Image Online
+          How Browser-Based Image Compression Works
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          Unlike traditional online compressors that force you to upload your files to remote cloud storage, Astonishbuddy leverages HTML5 Canvas and native browser rendering engines. When you select an image, our client-side algorithms decode the pixel data into memory and apply intelligent quantization:
+        </p>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Chroma Subsampling:</strong> Human vision is significantly more sensitive to brightness variations than color nuances. The compressor selectively compresses color channels (YCbCr) while preserving luminance details.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Metadata Stripping:</strong> Unnecessary camera EXIF tags, GPS geotags, thumbnail caches, and date stamps are safely stripped out, often shedding 20KB to 100KB per image instantly.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Quantization Optimization:</strong> Discrete Cosine Transform (DCT) coefficients are tuned to discard high-frequency noise that is imperceptible to the naked eye.</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Step-by-Step Usage Guide
         </h3>
         <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li>Upload your image (JPG, PNG, or WebP)</li>
-          <li>Adjust compression level if needed</li>
-          <li>Click on compress button</li>
-          <li>Download your optimized image instantly</li>
+          <li style={{ marginBottom: "8px" }}>Drag and drop your JPG, PNG, or WebP file into the upload zone, or click Browse to select an image from your device.</li>
+          <li style={{ marginBottom: "8px" }}>Use the Quality Slider to select your desired balance between file size and visual fidelity (80% to 85% is ideal for most web graphics).</li>
+          <li style={{ marginBottom: "8px" }}>Examine the real-time size comparison to verify the exact bytes saved and percentage reduction.</li>
+          <li style={{ marginBottom: "8px" }}>Click Download to save your newly compressed image immediately to your computer or mobile storage.</li>
         </ol>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Practical Worked Examples
+        </h3>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: High-Res Smartphone Photograph</strong></p>
         <p style={{ marginBottom: "16px" }}>
-          The compression happens in real-time in your browser, ensuring fast performance and full privacy.
+          An uncompressed JPEG photo taken with a 48MP smartphone camera measures 5.2 MB (5,452,595 bytes). Compressing at 82% quality strips 48 KB of EXIF metadata and optimizes quantization, resulting in a 680 KB file (87% size reduction) that looks identical on desktop monitors and mobile retina screens.
+        </p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Transparent PNG Website Logo</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          A 24-bit transparent PNG graphic measuring 920 KB is compressed using adaptive color indexing and transparency preservation. The output file size drops to 142 KB with crisp alpha-channel edges and zero color banding.
         </p>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Why Use This Image Compressor?
+          Tips and Common Mistakes to Avoid
         </h3>
         <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li>Reduce image size without losing quality</li>
-          <li>Improve website loading speed</li>
-          <li>No login or signup required</li>
-          <li>100% free image compression tool</li>
-          <li>Works on all devices (mobile & desktop)</li>
+          <li style={{ marginBottom: "8px" }}>Avoid repeatedly compressing an already compressed JPEG image; re-compressing lossy files compounds compression artifacts (known as generation loss).</li>
+          <li style={{ marginBottom: "8px" }}>For illustrations and graphics with transparent backgrounds, test converting to WebP for up to 30% smaller sizes than PNG.</li>
+          <li style={{ marginBottom: "8px" }}>Always preserve your original master files in a backup folder before uploading compressed versions to production websites.</li>
         </ul>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          What is Image Compression?
+          Privacy and Security Guarantee
         </h3>
-        <p style={{ marginBottom: "12px" }}>
-          Image compression is the process of reducing the file size of an image while maintaining acceptable visual quality. It removes unnecessary data so the image loads faster and takes less storage space.
+        <p style={{ marginBottom: "16px" }}>
+          Your privacy is our utmost priority. All compression calculations occur strictly inside your device&apos;s browser memory. Your personal photographs, sensitive invoices, receipts, and designs are never transmitted across the network, stored on remote databases, or inspected by third parties.
         </p>
-        <p style={{ marginBottom: "4px" }}>There are two types:</p>
-        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li style={{ marginBottom: "6px" }}>
-            <strong style={{ color: "var(--text-primary)" }}>Lossy Compression:</strong> Smaller size, slight quality reduction
-          </li>
-          <li style={{ marginBottom: "6px" }}>
-            <strong style={{ color: "var(--text-primary)" }}>Lossless Compression:</strong> Maintains quality, slightly larger size
-          </li>
-        </ul>
-
-        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Use Cases
-        </h3>
-        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li>Optimize images for websites (SEO boost 🚀)</li>
-          <li>Compress images for email or WhatsApp</li>
-          <li>Reduce image size for faster uploads</li>
-          <li>Save storage space on devices</li>
-          <li>Improve page speed performance</li>
-        </ul>
       </div>
     ),
     faqs: [
-      { q: "How to compress image under 50KB?", a: "To compress an image under 50KB, upload your image and move the quality slider to a lower percentage (e.g., 60-70%) until the preview size shows less than 50KB." },
-      { q: "Does compression reduce quality?", a: "Our tool uses advanced smart compression that balances quality and size. While lossy compression removes some data, the visual difference is often unnoticeable to the human eye." },
-      { q: "Is this tool free?", a: "Yes, our image compressor is 100% free with no hidden charges, limits, or signup requirements." },
-      { q: "Is it safe to upload my photos?", a: "Absolutely. All processing happens locally in your browser. Your images are never uploaded to our servers, ensuring total privacy." }
+          {
+                "q": "How does browser-based image compression preserve visual quality?",
+                "a": "Browser-based compression uses mathematical psycho-visual algorithms that focus size reduction on high-frequency noise and subtle color variations that human eyes cannot distinguish, preserving sharp edges, text contrast, and accurate exposure."
+          },
+          {
+                "q": "Can I compress transparent PNG images without turning the background black?",
+                "a": "Yes. Our tool fully supports PNG and WebP alpha transparency channels. Transparent areas remain completely clear and transparent without any discoloration or solid black fill."
+          },
+          {
+                "q": "What is the recommended compression percentage for website images?",
+                "a": "We recommend setting the quality slider between 80% and 85%. This sweet spot delivers 70% to 85% file size reduction with virtually zero perceptible loss in visual clarity."
+          },
+          {
+                "q": "Will compressing my photos remove private EXIF and GPS location data?",
+                "a": "Yes. When the browser re-encodes your image through the HTML5 Canvas pipeline, camera model strings, GPS coordinates, and personal device metadata are automatically discarded."
+          },
+          {
+                "q": "Does this tool have file size or daily upload limits?",
+                "a": "No. Because all compression tasks are executed locally on your device rather than our servers, there are zero arbitrary file size limits, no cooldown timers, and no paid subscriptions."
+          },
+          {
+                "q": "Can I compress images on my iPhone, iPad, or Android phone?",
+                "a": "Yes. Astonishbuddy Image Compressor is fully responsive and compatible with all modern mobile browsers including Safari, Chrome, Edge, and Firefox on iOS and Android."
+          }
     ],
-    keywords: ["compress image online", "reduce image size", "image compressor free", "compress image to 50kb", "compress image without losing quality"]
+    keywords: ["image compressor online","reduce image size free","compress jpeg without losing quality","compress png online","client side image compression"]
   },
   "text-case-converter": {
     id: "text-case-converter",
     name: "Text Case Converter",
-    shortIntro: "Looking for a text case converter to change uppercase to lowercase or format text instantly? This free text case converter allows you to convert text into uppercase, lowercase, title case, sentence case, and more. It works instantly in your browser without login or limits. Whether you're writing content, coding, or formatting text, this tool helps you quickly transform text into the desired format.",
+    shortIntro: "The Astonishbuddy Text Case Converter is an instant typography and code formatting utility. Transform text between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, and kebab-case in a single click with zero data transmission.",
     guideContent: (
-        <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
-          <p style={{ marginBottom: "16px" }}>
-            Easily convert text case online for emails, documents, social media posts, or programming tasks. This tool is perfect for developers, writers, students, and marketers who need quick and accurate text formatting.
-          </p>
+<div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Inconsistent capitalization in documents, article headlines, marketing copy, and programming code wastes valuable time and creates visual clutter. Whether you accidentally typed a paragraph with the Caps Lock key engaged, need to format blog headers according to standard publishing stylebooks, or need to normalize variable names for software development, our Text Case Converter delivers immediate, accurate transformations.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            How to Use Text Case Converter
-          </h3>
-          <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "10px" }}>Enter or paste your text</li>
-            <li style={{ marginBottom: "10px" }}>Select the desired case (uppercase, lowercase, title case, etc.)</li>
-            <li style={{ marginBottom: "10px" }}>Get instant converted text</li>
-            <li style={{ marginBottom: "10px" }}>Copy or download the result</li>
-          </ol>
-          <p style={{ marginBottom: "16px" }}>
-            The tool works instantly and securely in your browser.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Supported Capitalization Formats
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>UPPERCASE:</strong> Converts every alphabetical character to capital letters. Ideal for acronyms, legal disclaimers, and urgent warning banners.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>lowercase:</strong> Converts all characters to small letters. Commonly used for email addresses, URL paths, and CSS selectors.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Title Case:</strong> Capitalizes the initial letter of major words while keeping minor prepositions, conjunctions, and articles in lowercase (following Chicago and AP editorial standards).</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Sentence case:</strong> Capitalizes only the first letter of each sentence and proper nouns, resetting accidental all-caps blocks back to readable narrative text.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>camelCase & PascalCase:</strong> Removes whitespace and capitalizes words for JavaScript object properties, methods, and TypeScript classes.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>snake_case & kebab-case:</strong> Replaces spaces with underscores or hyphens for database schemas, REST API endpoints, and slug URLs.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Supported Text Formats
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Uppercase (ALL CAPS)</li>
-            <li style={{ marginBottom: "8px" }}>Lowercase (all small letters)</li>
-            <li style={{ marginBottom: "8px" }}>Title Case (First Letter Capital)</li>
-            <li style={{ marginBottom: "8px" }}>Sentence case</li>
-            <li style={{ marginBottom: "8px" }}>Capitalize Each Word</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Step-by-Step Usage Guide
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Type or paste your text into the main input textarea.</li>
+          <li style={{ marginBottom: "8px" }}>Click your desired transformation button (e.g., Title Case, Sentence case, or camelCase).</li>
+          <li style={{ marginBottom: "8px" }}>Inspect the converted text in real time in the output display.</li>
+          <li style={{ marginBottom: "8px" }}>Click the Copy button to immediately save the converted text to your system clipboard.</li>
+        </ol>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Why Use This Text Case Converter?
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Convert text instantly</li>
-            <li style={{ marginBottom: "8px" }}>No login required</li>
-            <li style={{ marginBottom: "8px" }}>Free and unlimited usage</li>
-            <li style={{ marginBottom: "8px" }}>Works on all devices</li>
-            <li style={{ marginBottom: "8px" }}>Saves time in formatting content</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Practical Worked Examples
+        </h3>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Accidental Caps Lock Recovery</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          <em>Input:</em> &quot;THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG. WE MUST PROCEED IMMEDIATELY.&quot;<br />
+          <em>Converted (Sentence case):</em> &quot;The quick brown fox jumps over the lazy dog. We must proceed immediately.&quot;
+        </p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Code Variable Normalization</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          <em>Input:</em> &quot;user account billing address&quot;<br />
+          <em>Converted (camelCase):</em> &quot;userAccountBillingAddress&quot;<br />
+          <em>Converted (snake_case):</em> &quot;user_account_billing_address&quot;<br />
+          <em>Converted (kebab-case):</em> &quot;user-account-billing-address&quot;
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Use Cases
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Formatting blog content</li>
-            <li style={{ marginBottom: "8px" }}>Writing emails and documents</li>
-            <li style={{ marginBottom: "8px" }}>Coding and development tasks</li>
-            <li style={{ marginBottom: "8px" }}>Social media content formatting</li>
-            <li style={{ marginBottom: "8px" }}>Academic and student work</li>
-          </ul>
-        </div>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Tips and Common Mistakes
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Double-check recognized acronyms (such as NASA, FBI, or API) when converting long documents to Sentence case, as automated parsers may lower them.</li>
+          <li style={{ marginBottom: "8px" }}>Ensure numbers and special punctuation marks are not surrounded by unnecessary whitespace when generating developer identifiers.</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Privacy and Security
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          All string conversions execute in JavaScript memory on your local browser thread. None of the text you enter, whether confidential company reports or personal notes, is transmitted to our servers or saved in browsing cookies.
+        </p>
+      </div>
     ),
     faqs: [
-      { q: "Is the text case converter free?", a: "Yes, it is completely free to use with no hidden fees." },
-      { q: "Does it support camelCase?", a: "Yes, our tool supports camelCase, PascalCase, and other programming formats." },
-      { q: "Is there a character limit?", a: "No, you can paste large amounts of text and convert them instantly." }
+          {
+                "q": "What is the key difference between Title Case and Sentence case?",
+                "a": "Title Case capitalizes the first letter of every major word (nouns, verbs, adjectives) while leaving minor words in lowercase. Sentence case capitalizes only the very first letter of each sentence and proper nouns."
+          },
+          {
+                "q": "How do camelCase, PascalCase, and snake_case differ for programmers?",
+                "a": "camelCase starts with a lowercase letter (e.g., userProfile), PascalCase starts with an uppercase letter (e.g., UserProfile), and snake_case separates words with underscores (e.g., user_profile)."
+          },
+          {
+                "q": "Will converting text case alter my punctuation or emojis?",
+                "a": "No. Standard punctuation marks, numbers, special symbols, and emojis remain completely intact and unaffected during case conversion."
+          },
+          {
+                "q": "Is there a maximum character limit when pasting large manuscripts?",
+                "a": "Because processing happens directly on your device hardware, you can easily convert documents containing tens of thousands of words without lag or limitations."
+          },
+          {
+                "q": "Can I convert text back if I choose the wrong casing button?",
+                "a": "Yes. You can click any other transformation button at any time, or click Reset/Undo to restore your initial input text."
+          },
+          {
+                "q": "Does Astonishbuddy store or log any confidential text pasted into the tool?",
+                "a": "Never. The conversion logic runs entirely on the client side without any server logging, database storage, or analytics tracking of your text content."
+          }
     ],
-    keywords: ["text case converter", "uppercase to lowercase converter", "change text case online", "title case converter", "convert text online"]
+    keywords: ["text case converter","uppercase to lowercase","title case generator","sentence case online","camelcase converter"]
   },
   "password-generator": {
     id: "password-generator",
     name: "Password Generator",
-    shortIntro: "Looking for a strong password generator to create secure passwords instantly? This free password generator helps you generate strong, random, and secure passwords for your accounts. You can customize length, include symbols, numbers, and uppercase letters to create highly secure passwords. No login required — generate unlimited passwords instantly in your browser.",
+    shortIntro: "The Astonishbuddy Strong Password Generator creates cryptographically secure, random passwords directly on your machine. Protect your digital accounts against brute-force and dictionary attacks using modern Web Crypto API randomness with customizable character sets.",
     guideContent: (
-        <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
-          <p style={{ marginBottom: "16px" }}>
-            Whether you need a password for email, banking, social media, or development purposes, this tool ensures your passwords are strong and hard to crack. Use this random password generator to improve your online security and protect your accounts from unauthorized access.
-          </p>
+<div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Data breaches and credential stuffing attacks compromise millions of online accounts every single day. The primary vulnerability in most security incidents is human-generated passwords: names, dictionary words, birthdates, and simple sequential numbers that automated hacking tools crack in milliseconds. Generating long, completely unpredictable passwords using true mathematical entropy is the most effective defense you can implement.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            How to Generate Strong Password
-          </h3>
-          <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "10px" }}>Choose password length</li>
-            <li style={{ marginBottom: "10px" }}>Select options (uppercase, lowercase, numbers, symbols)</li>
-            <li style={{ marginBottom: "10px" }}>Click generate</li>
-            <li style={{ marginBottom: "10px" }}>Copy and use your secure password</li>
-          </ol>
-          <p style={{ marginBottom: "16px" }}>
-            Passwords are generated instantly and securely in your browser.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Understanding Password Entropy and Security
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          Password strength is measured in bits of entropy—a mathematical calculation of how many guesses an attacker would need to exhaust all possible combinations. A 16-character password combining uppercase letters, lowercase letters, numbers, and symbols contains approximately 105 bits of entropy. At billions of guesses per second, a supercomputer would require hundreds of trillions of years to brute-force this search space.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Why Use This Password Generator?
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Create strong and secure passwords</li>
-            <li style={{ marginBottom: "8px" }}>Protect accounts from hacking</li>
-            <li style={{ marginBottom: "8px" }}>No login or signup required</li>
-            <li style={{ marginBottom: "8px" }}>100% free and unlimited usage</li>
-            <li style={{ marginBottom: "8px" }}>Instant password generation</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Step-by-Step Usage Guide
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Select your desired password length using the slider (we recommend at least 16 to 20 characters for sensitive accounts).</li>
+          <li style={{ marginBottom: "8px" }}>Toggle the character options you require: Uppercase (A-Z), Lowercase (a-z), Numbers (0-9), and Symbols (!@#$%^&*).</li>
+          <li style={{ marginBottom: "8px" }}>Optionally enable &quot;Exclude Ambiguous Characters&quot; (such as 0/O, 1/l/I) if you plan on typing the password manually on keyboards or mobile screens.</li>
+          <li style={{ marginBottom: "8px" }}>Click Generate to calculate a fresh cryptographic string, then click Copy to store it in your clipboard securely.</li>
+        </ol>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Types of Passwords You Can Generate
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Random passwords</li>
-            <li style={{ marginBottom: "8px" }}>Strong passwords</li>
-            <li style={{ marginBottom: "8px" }}>Secure passwords with symbols</li>
-            <li style={{ marginBottom: "8px" }}>Alphanumeric passwords</li>
-            <li style={{ marginBottom: "8px" }}>Custom length passwords</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Practical Worked Examples
+        </h3>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: High-Security Vault Master Password (20 Characters)</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          <em>Settings:</em> Length 20, Uppercase + Lowercase + Numbers + Symbols.<br />
+          <em>Generated Sample:</em> <code style={{ color: "var(--accent-1)" }}>k9#mP$2vL!8xQ@4zR*7w</code><br />
+          <em>Entropy:</em> ~131 bits. Resists all modern GPU-accelerated hash clusters indefinitely.
+        </p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Alphanumeric Mobile-Friendly Passcode (14 Characters)</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          <em>Settings:</em> Length 14, Uppercase + Lowercase + Numbers, Ambiguous characters excluded.<br />
+          <em>Generated Sample:</em> <code style={{ color: "var(--accent-1)" }}>h7K9m3P2w8R4t6</code><br />
+          <em>Entropy:</em> ~83 bits. Excellent for accounts requiring on-screen touch typing.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Use Cases
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Email account security</li>
-            <li style={{ marginBottom: "8px" }}>Banking and financial accounts</li>
-            <li style={{ marginBottom: "8px" }}>Social media login protection</li>
-            <li style={{ marginBottom: "8px" }}>Developer testing and systems</li>
-            <li style={{ marginBottom: "8px" }}>Personal and business accounts</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Security Best Practices and Common Mistakes
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Never reuse the same password across multiple online platforms; if one service experiences a breach, attackers will immediately attempt credential stuffing across your other accounts.</li>
+          <li style={{ marginBottom: "8px" }}>Do not write passwords down in unencrypted text files or sticky notes. Instead, save them in an encrypted password manager (such as Bitwarden, 1Password, or Apple Keychain).</li>
+          <li style={{ marginBottom: "8px" }}>Always pair strong passwords with hardware two-factor authentication (2FA/Passkeys) wherever supported.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Password Security Tips
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Use at least 12–16 characters</li>
-            <li style={{ marginBottom: "8px" }}>Include symbols, numbers, and uppercase letters</li>
-            <li style={{ marginBottom: "8px" }}>Avoid using personal information</li>
-            <li style={{ marginBottom: "8px" }}>Never reuse the same password</li>
-            <li style={{ marginBottom: "8px" }}>Use a password manager for storage</li>
-          </ul>
-        </div>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Cryptographic Privacy Guarantee
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          Our generator utilizes the industry-standard <code style={{ color: "var(--accent-1)" }}>window.crypto.getRandomValues</code> API built natively into modern browsers. Your passwords are never transmitted across the internet, never logged, and are discarded from memory as soon as you close or refresh the tab.
+        </p>
+      </div>
     ),
     faqs: [
-      { q: "Is it safe to generate passwords online?", a: "Our generator runs locally in your browser. No password ever leaves your device or is stored on our servers." },
-      { q: "Why should I use a unique password?", a: "Using the same password for multiple sites means one breach can compromise all your accounts. Unique passwords prevent this risk." },
-      { q: "What length is recommended?", a: "We recommend at least 12 characters for standard security and 16+ for sensitive accounts like banking." }
+          {
+                "q": "What makes a password cryptographically secure?",
+                "a": "Cryptographic security requires non-deterministic entropy. Unlike standard pseudo-random number generators that can be predicted, the browser's Web Crypto API draws entropy directly from underlying operating system hardware events."
+          },
+          {
+                "q": "How long should my passwords be in 2026?",
+                "a": "We recommend a minimum of 16 characters for general web accounts, and 20 or more characters for critical accounts such as primary email, banking, and password manager master vaults."
+          },
+          {
+                "q": "Why shouldn't I use words or personal dates in my passwords?",
+                "a": "Modern cracking programs utilize dictionary attacks and automated profile scraping that test billions of word combinations, substitutions (like @ for a), and date formats within seconds."
+          },
+          {
+                "q": "Can Astonishbuddy or anyone else see the passwords I generate?",
+                "a": "No. The code executes 100% locally on your computer or phone. No network calls are dispatched, meaning no server ever sees, stores, or transmits your passwords."
+          },
+          {
+                "q": "What should I do if a website rejects special characters?",
+                "a": "Simply uncheck the 'Symbols' option in the settings. Our generator will immediately produce a high-entropy string using only alphanumeric characters (A-Z, a-z, 0-9)."
+          },
+          {
+                "q": "How should I store generated passwords safely?",
+                "a": "Use a reputable, end-to-end encrypted password manager. Password managers remember and auto-fill your complex passwords across devices, eliminating the need to memorize them."
+          }
     ],
-    keywords: ["password generator", "strong password generator", "random password generator", "secure password generator", "generate strong password online"]
+    keywords: ["password generator online","strong password creator","secure random password","generate safe password","crypto password generator"]
   },
   "json-formatter": {
     id: "json-formatter",
     name: "JSON Formatter",
-    shortIntro: "Looking for a JSON formatter online to beautify and validate JSON instantly? This free JSON formatter helps you format, beautify, and validate JSON data in seconds. It makes your JSON readable and easy to debug without any login or installation. Perfect for developers, testers, and anyone working with APIs or structured data.",
+    shortIntro: "The Astonishbuddy JSON Formatter and Validator formats, validates, beautifies, and minifies JSON payloads instantly. Detect syntax errors with line-number precision and copy clean, formatted JSON data with 100% client-side privacy.",
     guideContent: (
-        <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
-          <p style={{ marginBottom: "16px" }}>
-            You can quickly format JSON, fix invalid JSON errors, and improve readability for debugging or development purposes.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            This JSON beautifier works directly in your browser and ensures fast and secure processing.
-          </p>
+<div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          JavaScript Object Notation (JSON) is the universal data format powering modern web APIs, serverless backends, microservices, and database configurations. However, working with raw, single-line minified JSON payloads or malformed JSON returned by third-party services is challenging. Our JSON Formatter provides developers, QA testers, and data analysts with a clean, instant tool to inspect, debug, and beautify complex data structures.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            How to Use JSON Formatter
-          </h3>
-          <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "10px" }}>Paste your JSON data</li>
-            <li style={{ marginBottom: "10px" }}>Click on "Format JSON"</li>
-            <li style={{ marginBottom: "10px" }}>View formatted and structured output</li>
-            <li style={{ marginBottom: "10px" }}>Copy or download the result</li>
-          </ol>
-          <p style={{ marginBottom: "16px" }}>
-            The tool instantly formats JSON and highlights errors if present.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Key Features and Capabilities
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Syntax Error Pinpointing:</strong> Detects invalid JSON syntax, unquoted keys, illegal trailing commas, and unclosed brackets with clear error messages.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Configurable Indentation:</strong> Format using industry-standard 2-space or 4-space indentation for optimal legibility in code reviews and documentation.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>One-Click Minification:</strong> Strip whitespace, tabs, and newlines to shrink payload sizes before sending network API requests or embedding data in configuration files.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Why Use This JSON Formatter?
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Beautify JSON instantly</li>
-            <li style={{ marginBottom: "8px" }}>Validate JSON structure</li>
-            <li style={{ marginBottom: "8px" }}>Detect and fix errors</li>
-            <li style={{ marginBottom: "8px" }}>Improve readability for debugging</li>
-            <li style={{ marginBottom: "8px" }}>No login required and completely free</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Step-by-Step Usage Guide
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Paste your raw JSON text or API response into the code input editor.</li>
+          <li style={{ marginBottom: "8px" }}>Click &quot;Format JSON&quot; to beautify and indent the hierarchy, or &quot;Minify JSON&quot; to compress it onto a single line.</li>
+          <li style={{ marginBottom: "8px" }}>If syntax errors exist, review the highlighted error notification to quickly fix missing quotes or commas.</li>
+          <li style={{ marginBottom: "8px" }}>Click Copy to Clipboard to save the clean result for your code editor or API client.</li>
+        </ol>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            What is JSON Formatting?
-          </h3>
-          <p style={{ marginBottom: "12px" }}>
-            JSON formatting is the process of organizing JSON data into a readable structure with proper indentation and spacing. It helps developers understand and debug JSON more efficiently.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            Formatted JSON is easier to read, edit, and share.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Practical Worked Examples
+        </h3>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Minified API Response to Beautified Hierarchy</strong></p>
+        <p style={{ marginBottom: "8px" }}><em>Raw Input:</em></p>
+        <pre style={{ background: "rgba(255,255,255,0.05)", padding: "12px", borderRadius: "8px", overflowX: "auto" }}>
+          {JSON.stringify({ status: "success", data: { id: 1042, user: "Alex", roles: ["admin", "editor"], active: true } })}
+        </pre>
+        <p style={{ margin: "12px 0 8px" }}><em>Beautified Output:</em></p>
+        <pre style={{ background: "rgba(255,255,255,0.05)", padding: "12px", borderRadius: "8px", overflowX: "auto" }}>
+{`{
+  "status": "success",
+  "data": {
+    "id": 1042,
+    "user": "Alex",
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "active": true
+  }
+}`}
+        </pre>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Use Cases
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>API response formatting</li>
-            <li style={{ marginBottom: "8px" }}>Debugging JSON data</li>
-            <li style={{ marginBottom: "8px" }}>Development and coding tasks</li>
-            <li style={{ marginBottom: "8px" }}>Data visualization and testing</li>
-            <li style={{ marginBottom: "8px" }}>Working with configuration files</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Common Mistakes in JSON Formatting
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Using single quotes instead of double quotes: The JSON specification (RFC 8259) strictly requires double quotes (<code style={{ color: "var(--accent-1)" }}>&quot;key&quot;: &quot;value&quot;</code>) around all object keys and string values.</li>
+          <li style={{ marginBottom: "8px" }}>Trailing commas: In standard JSON, a comma after the final item in an array or object causes a parser syntax error.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Features
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Instant JSON formatting</li>
-            <li style={{ marginBottom: "8px" }}>Error detection and validation</li>
-            <li style={{ marginBottom: "8px" }}>Copy formatted JSON easily</li>
-            <li style={{ marginBottom: "8px" }}>Works in browser (no upload required)</li>
-            <li style={{ marginBottom: "8px" }}>Fast and lightweight tool</li>
-          </ul>
-        </div>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Client-Side Privacy Guarantee
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          Your JSON data may contain production customer records, internal API tokens, or proprietary database schemas. Our formatter executes 100% in your browser using the native <code style={{ color: "var(--accent-1)" }}>JSON.parse</code> and <code style={{ color: "var(--accent-1)" }}>JSON.stringify</code> engines. Not a single byte is ever transmitted across the internet.
+        </p>
+      </div>
     ),
     faqs: [
-      { q: "Does the tool validate JSON?", a: "Yes, it will identify common syntax errors like missing commas or quotes." },
-      { q: "Can I minify JSON?", a: "Yes, we provide both beautify (format) and minify (compact) options." },
-      { q: "Is my JSON data kept private?", a: "Yes, formatting is done entirely on your computer via JavaScript. We never see your data." }
+          {
+                "q": "Why does my JSON return a syntax error when using single quotes?",
+                "a": "The official RFC 8259 JSON standard strictly requires double quotes for all string literals and object keys. Single quotes are valid in JavaScript syntax, but invalid in JSON."
+          },
+          {
+                "q": "What is the difference between beautifying and minifying JSON?",
+                "a": "Beautifying adds newlines and indentation spaces to make complex data readable for humans. Minifying removes all unnecessary whitespace to minimize byte size for high-speed network transmission."
+          },
+          {
+                "q": "Does minifying JSON change or corrupt the underlying data?",
+                "a": "No. Minification only strips superficial whitespace outside of string values. The data types, numbers, booleans, and structure remain completely identical."
+          },
+          {
+                "q": "Can this tool handle large JSON files and database exports?",
+                "a": "Yes. Because processing runs locally using your computer's high-speed V8 JavaScript engine, it can process large payloads measuring several megabytes without timing out."
+          },
+          {
+                "q": "How do I fix unexpected trailing comma errors?",
+                "a": "Check the last key-value pair of objects and the last item in arrays. If there is a trailing comma before the closing brace (} or ]), simply delete that comma."
+          },
+          {
+                "q": "Is my proprietary JSON or customer database data stored on your servers?",
+                "a": "Never. The formatting and validation logic runs entirely on your local machine inside your browser. No data is sent over the internet or logged on any server."
+          }
     ],
-    keywords: ["json formatter online", "json beautifier", "format json online", "json viewer", "json validator"]
+    keywords: ["json formatter online","beautify json","validate json online","json parser","minify json free"]
   },
   "word-counter": {
     id: "word-counter",
     name: "Word Counter",
-    shortIntro: "Looking for a free word counter online to count words, characters, and sentences instantly? This word counter tool helps you count words, characters, spaces, and sentences in real-time. It is perfect for writers, students, bloggers, and professionals who need quick and accurate text analysis. No login required — use this free word counter online anytime.",
+    shortIntro: "The Astonishbuddy Word Counter provides real-time text analysis, counting words, characters, sentences, paragraphs, and estimating silent reading and speaking times instantly directly in your browser.",
     guideContent: (
-        <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
-          <p style={{ marginBottom: "16px" }}>
-            Whether you're writing an essay, blog post, or social media content, this tool helps you stay within word limits and improve your writing.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            It works instantly in your browser and provides accurate results without any delay.
-          </p>
+<div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Whether drafting an academic research paper with strict word limits, composing SEO-optimized blog articles, preparing a keynote speech, or crafting concise social media copy, tracking your exact text metrics is essential. Our Word Counter delivers instantaneous character, word, sentence, and readability metrics as you type or paste text.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            How to Use Word Counter
-          </h3>
-          <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "10px" }}>Paste or type your text</li>
-            <li style={{ marginBottom: "10px" }}>Instantly see word and character count</li>
-            <li style={{ marginBottom: "10px" }}>Edit your text as needed</li>
-            <li style={{ marginBottom: "10px" }}>Copy or download results</li>
-          </ol>
-          <p style={{ marginBottom: "16px" }}>
-            The tool updates counts in real-time as you type.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Comprehensive Real-Time Statistics
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Word & Character Counts:</strong> Accurately tallies total words, characters with spaces, and characters excluding whitespace.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Sentence & Paragraph Structure:</strong> Tracks structural pacing to help you maintain concise, readable sentence lengths.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Reading & Speaking Time Estimates:</strong> Calculates estimated silent reading time (based on average 225 words per minute) and public speaking time (based on average 135 words per minute).</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Why Use This Word Counter?
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Count words and characters instantly</li>
-            <li style={{ marginBottom: "8px" }}>Track sentence and paragraph count</li>
-            <li style={{ marginBottom: "8px" }}>No login or signup required</li>
-            <li style={{ marginBottom: "8px" }}>Free and unlimited usage</li>
-            <li style={{ marginBottom: "8px" }}>Works on all devices</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Step-by-Step Usage Guide
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Type directly into the text editor or paste copied text from Word, Google Docs, or your CMS.</li>
+          <li style={{ marginBottom: "8px" }}>Watch the live analytics cards update instantaneously on every keystroke.</li>
+          <li style={{ marginBottom: "8px" }}>Review the reading time metric to verify whether your content fits your target audience attention span.</li>
+          <li style={{ marginBottom: "8px" }}>Click Copy to save your polished text, or Clear to start a fresh calculation.</li>
+        </ol>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            What is Word Count?
-          </h3>
-          <p style={{ marginBottom: "12px" }}>
-            Word count is the total number of words in a piece of text. It is commonly used in writing, blogging, academic assignments, and SEO to ensure content meets specific length requirements.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            Tracking word count helps improve readability and maintain consistency in writing.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Practical Worked Examples
+        </h3>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Social Media Character Optimization</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          When crafting an X (Twitter) post with a 280-character maximum, or a Google Ads headline with a 30-character limit, our character counter ensures your message fits precisely without awkward truncation.
+        </p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: 5-Minute Speech Preparation</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          An average speech pace is 130 to 140 words per minute. For a strict 5-minute presentation, aim for approximately 650 to 700 words. Our speaking time counter confirms when your draft matches your allotted stage time.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Use Cases
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Writing essays and assignments</li>
-            <li style={{ marginBottom: "8px" }}>Blog content creation</li>
-            <li style={{ marginBottom: "8px" }}>SEO content optimization</li>
-            <li style={{ marginBottom: "8px" }}>Social media post limits</li>
-            <li style={{ marginBottom: "8px" }}>Professional writing tasks</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Writing Tips and Common Mistakes
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Keep average sentence length under 20 words for maximum online readability and lower bounce rates.</li>
+          <li style={{ marginBottom: "8px" }}>Remember that hyphenated words (e.g., &quot;state-of-the-art&quot;) count as one word in standard grammar tools.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Features
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Real-time word count</li>
-            <li style={{ marginBottom: "8px" }}>Character count (with and without spaces)</li>
-            <li style={{ marginBottom: "8px" }}>Sentence and paragraph count</li>
-            <li style={{ marginBottom: "8px" }}>Instant updates</li>
-            <li style={{ marginBottom: "8px" }}>Simple and clean interface</li>
-          </ul>
-        </div>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Privacy Guarantee
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          Your draft articles, personal essays, book chapters, and proprietary correspondence are never sent across the network. All metrics are calculated in real time inside your browser memory with zero server storage.
+        </p>
+      </div>
     ),
     faqs: [
-      { q: "Is the word count accurate?", a: "Yes, we use standardized counting algorithms used by professional editors." },
-      { q: "Does it work in real-time?", a: "Yes, as you type in the box, the numbers update immediately." },
-      { q: "Can I count characters without spaces?", a: "Yes, we provide both metrics: with and without spaces." }
+          {
+                "q": "How is the estimated reading time calculated?",
+                "a": "Reading time is calculated using an industry-standard benchmark of 225 words per minute, which represents the average silent reading speed of an adult reader."
+          },
+          {
+                "q": "Why is speaking time slower than reading time?",
+                "a": "Silent reading is purely cognitive, whereas public speaking requires vocal articulation, pauses, and audience pacing, averaging between 130 and 150 words per minute."
+          },
+          {
+                "q": "Do hyphenated words count as one word or multiple words?",
+                "a": "Our algorithm follows standard linguistic conventions: words connected by hyphens (such as 'user-friendly' or 'first-class') are counted as a single compound word."
+          },
+          {
+                "q": "Why do character counts differ with and without spaces?",
+                "a": "'Characters with spaces' counts every keystroke including whitespace, while 'Characters without spaces' counts only visible typographical letters, numbers, and punctuation."
+          },
+          {
+                "q": "What is the recommended word count for SEO blog articles?",
+                "a": "Most comprehensive, high-ranking guides range from 1,200 to 2,500 words, providing in-depth coverage of the topic while satisfying search intent."
+          },
+          {
+                "q": "Does Astonishbuddy store or inspect the manuscripts I paste here?",
+                "a": "No. The word counter is completely client-side. Your text is evaluated in your browser's local memory and is never logged or saved anywhere."
+          }
     ],
-    keywords: ["word counter", "character counter", "online word count tool", "count words online"]
+    keywords: ["word counter online","character count tool","reading time calculator","count words and characters","free text counter"]
   },
   "qr-generator": {
     id: "qr-generator",
     name: "QR Code Generator",
-    shortIntro: "Looking for a free QR code generator to create QR codes instantly? This QR code generator allows you to create QR codes for URLs, text, email, phone numbers, and more. You can generate QR codes online without login and download them instantly. It is fast, simple, and works directly in your browser.",
+    shortIntro: "The Astonishbuddy Free QR Code Generator creates high-resolution, customizable QR codes for website URLs, contact vCards, Wi-Fi credentials, and plain text. Download crisp SVG and PNG vector codes instantly with zero expiration dates or scan limits.",
     guideContent: (
-        <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
-          <p style={{ marginBottom: "16px" }}>
-            Create QR codes for websites, business cards, social media, or personal use. This free QR generator is perfect for marketers, developers, students, and business owners.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            Generate unlimited QR codes quickly and easily with no restrictions.
-          </p>
+<div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Quick Response (QR) codes have become the standard bridge connecting physical media to digital experiences. From restaurant menus, retail packaging, and real estate flyers to conference badges and payment portals, QR codes enable users to access web links instantly using smartphone cameras. Our QR Code Generator creates high-contrast, fully scannable static QR codes in seconds.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            How to Generate QR Code
-          </h3>
-          <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "10px" }}>Enter your data (URL, text, etc.)</li>
-            <li style={{ marginBottom: "10px" }}>Click on "Generate QR Code"</li>
-            <li style={{ marginBottom: "10px" }}>Preview your QR code instantly</li>
-            <li style={{ marginBottom: "10px" }}>Download or share the QR code</li>
-          </ol>
-          <p style={{ marginBottom: "16px" }}>
-            The process is fast and works directly in your browser.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Supported QR Code Types and Uses
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Website URLs:</strong> Direct users directly to landing pages, social profiles, portfolio sites, or YouTube videos.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Wi-Fi Access:</strong> Allow guests and customers to join your Wi-Fi network instantly without manually typing complex WPA2 security keys.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>vCard Contact Cards:</strong> Share your full name, phone number, email, and company details directly into smartphone address books.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Plain Text & Messages:</strong> Encode product serial numbers, notes, discount promo codes, or short text messages.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Why Use This QR Code Generator?
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Create QR codes instantly</li>
-            <li style={{ marginBottom: "8px" }}>No login or signup required</li>
-            <li style={{ marginBottom: "8px" }}>Free and unlimited usage</li>
-            <li style={{ marginBottom: "8px" }}>Works on mobile and desktop</li>
-            <li style={{ marginBottom: "8px" }}>Fast and secure processing</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Step-by-Step Usage Guide
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Select the QR code category (URL, Text, Wi-Fi, or Contact).</li>
+          <li style={{ marginBottom: "8px" }}>Enter your destination link or information into the designated field.</li>
+          <li style={{ marginBottom: "8px" }}>Customize your desired resolution and error correction level.</li>
+          <li style={{ marginBottom: "8px" }}>Review the real-time preview, test scan with your smartphone camera, and click Download PNG or SVG.</li>
+        </ol>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            What is a QR Code?
-          </h3>
-          <p style={{ marginBottom: "12px" }}>
-            A QR code (Quick Response code) is a type of barcode that can store information such as URLs, text, or contact details. It can be scanned using smartphones to quickly access information.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            QR codes are widely used in marketing, payments, and digital communication.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Practical Worked Examples
+        </h3>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Business Card Landing Page QR Code</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          Encoding <code style={{ color: "var(--accent-1)" }}>https://www.astonishbuddy.com/about</code> with High error correction (Level H). Even if the business card gets slightly scratched or smudged in a wallet, the Reed-Solomon redundancy ensures immediate camera scanning.
+        </p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Guest Wi-Fi QR Code</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          Encoding <code style={{ color: "var(--accent-1)" }}>WIFI:S:OfficeGuest;T:WPA;P:SecureKey2026;;</code>. Framing this QR code in a lobby allows visitors to tap and connect to the guest network in one second.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Use Cases
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Website and URL sharing</li>
-            <li style={{ marginBottom: "8px" }}>Business cards and contact details</li>
-            <li style={{ marginBottom: "8px" }}>Marketing campaigns</li>
-            <li style={{ marginBottom: "8px" }}>Event tickets and passes</li>
-            <li style={{ marginBottom: "8px" }}>Product packaging and labels</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Best Practices for Reliable QR Scanning
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Always maintain high contrast between the foreground code and background surface (dark pattern on light background is universally best).</li>
+          <li style={{ marginBottom: "8px" }}>Leave a clean &quot;quiet zone&quot; (white border) around the QR code so scanners can distinguish it from surrounding design artwork.</li>
+          <li style={{ marginBottom: "8px" }}>Always test scan the printed proof with both an iPhone and an Android phone before mass printing.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Features
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Instant QR code generation</li>
-            <li style={{ marginBottom: "8px" }}>Multiple data types supported</li>
-            <li style={{ marginBottom: "8px" }}>Download in high quality</li>
-            <li style={{ marginBottom: "8px" }}>Works in browser (no installation)</li>
-            <li style={{ marginBottom: "8px" }}>Simple and user-friendly interface</li>
-          </ul>
-        </div>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Zero Expiration and Privacy Policy
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          The QR codes generated here are static and direct. We do not reroute your links through proprietary redirect domains, insert advertisements, or impose scan limits. Your codes will function forever as long as your destination link remains active.
+        </p>
+      </div>
     ),
     faqs: [
-      { q: "Are the QR codes permanent?", a: "Yes, static QR codes do not expire." },
-      { q: "Do I need to pay to create a QR code?", a: "No, our generator is completely free." },
-      { q: "Can I use it for my business?", a: "Yes, there are no limitations for commercial use." }
+          {
+                "q": "Do the QR codes generated on Astonishbuddy ever expire?",
+                "a": "No. Our QR codes are 100% static, meaning your destination URL or data is directly encoded into the matrix. They never expire and have no scan limitations."
+          },
+          {
+                "q": "What error correction level should I choose for printed materials?",
+                "a": "For business cards, billboards, or flyers where physical wear and tear may occur, choose Level Q (25% recovery) or Level H (30% recovery) for optimal resilience."
+          },
+          {
+                "q": "Can I download my QR code as a scalable vector graphic?",
+                "a": "Yes. You can download crisp, infinitely scalable SVG vector files suitable for professional billboard printing, or high-resolution PNG files for digital display."
+          },
+          {
+                "q": "Why won't my smartphone camera scan my printed QR code?",
+                "a": "Check for common issues: insufficient contrast (e.g., light gray on white), missing quiet zone borders, or an overly complex URL that created excessively small dots."
+          },
+          {
+                "q": "Are there any recurring subscription fees or watermark branding?",
+                "a": "No. Astonishbuddy QR Generator is completely free. There are no watermarks, no signups, and no hidden fees."
+          },
+          {
+                "q": "Is the data I enter into the QR code logged on your servers?",
+                "a": "No. The QR matrix is generated directly in your browser using client-side canvas and vector rendering. Your links and text are never tracked or saved."
+          }
     ],
-    keywords: ["qr code generator", "free qr generator", "create qr code online", "generate qr code", "qr code maker"]
+    keywords: ["qr code generator free","create custom qr code","qr code for wifi","static qr code creator","high resolution qr code"]
   },
   "base64-converter": {
     id: "base64-converter",
-    name: "Base64 Converter",
-    shortIntro: "Looking for a Base64 encoder and decoder online? This free Base64 converter allows you to encode text to Base64 and decode Base64 back to text instantly. It works directly in your browser without login and provides fast and accurate results. Perfect for developers, testers, and anyone working with encoded data.",
+    name: "Base64 Encoder & Decoder",
+    shortIntro: "The Astonishbuddy Base64 Encoder & Decoder converts plain text and binary files to Base64 and decodes Base64 strings back to readable UTF-8 text with 100% browser-based security and zero server logging.",
     guideContent: (
-        <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
-          <p style={{ marginBottom: "16px" }}>
-            You can easily convert text to Base64 or decode Base64 strings in seconds. This tool is useful for API development, data encoding, debugging, and secure data transfer.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            No installation required — everything runs securely in your browser.
-          </p>
+<div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Base64 is a binary-to-text encoding scheme defined by RFC 4648 that translates binary data and arbitrary characters into a set of 64 printable ASCII characters (A-Z, a-z, 0-9, +, and /). It is widely used across web development, email transport (MIME), data URI schemes, API authorization headers, and configuration files to ensure that data passes intact through systems designed strictly for text.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            How to Use Base64 Converter
-          </h3>
-          <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "10px" }}>Enter your text or Base64 string</li>
-            <li style={{ marginBottom: "10px" }}>Choose encode or decode option</li>
-            <li style={{ marginBottom: "10px" }}>Get instant results</li>
-            <li style={{ marginBottom: "10px" }}>Copy the output</li>
-          </ol>
-          <p style={{ marginBottom: "16px" }}>
-            The conversion happens instantly and securely in your browser.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Common Practical Use Cases
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Data URIs in CSS and HTML:</strong> Embed small SVG icons or logo graphics directly into CSS stylesheets, eliminating extra HTTP requests.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>HTTP Basic Authentication:</strong> Encode <code style={{ color: "var(--accent-1)" }}>username:password</code> pairs for the standard <code style={{ color: "var(--accent-1)" }}>Authorization: Basic ...</code> request header.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Safe Payload Transport:</strong> Transfer binary blobs, cryptographic hashes, or complex strings through JSON and XML without character escaping issues.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Why Use This Base64 Converter?
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Encode and decode Base64 instantly</li>
-            <li style={{ marginBottom: "8px" }}>No login or signup required</li>
-            <li style={{ marginBottom: "8px" }}>Free and unlimited usage</li>
-            <li style={{ marginBottom: "8px" }}>Fast and secure processing</li>
-            <li style={{ marginBottom: "8px" }}>Works on all devices</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Step-by-Step Usage Guide
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Select &quot;Encode&quot; to convert raw text into Base64, or &quot;Decode&quot; to extract original text from Base64.</li>
+          <li style={{ marginBottom: "8px" }}>Type or paste your content into the input box.</li>
+          <li style={{ marginBottom: "8px" }}>View the instantaneous conversion in the output editor.</li>
+          <li style={{ marginBottom: "8px" }}>Click &quot;Copy&quot; to transfer the converted string directly to your clipboard.</li>
+        </ol>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            What is Base64 Encoding?
-          </h3>
-          <p style={{ marginBottom: "12px" }}>
-            Base64 is a method of encoding binary data into text format using a set of 64 characters. It is commonly used to transmit data over systems that handle text only.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            Base64 encoding is widely used in APIs, email attachments, and data transfer.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Practical Worked Examples
+        </h3>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Basic Authentication Encoding</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          <em>Plain Text Input:</em> <code style={{ color: "var(--accent-1)" }}>admin:MySecretPass2026</code><br />
+          <em>Base64 Output:</em> <code style={{ color: "var(--accent-1)" }}>YWRtaW46TXlTZWNyZXRQYXNzMjAyNg==</code><br />
+          <em>HTTP Header:</em> <code style={{ color: "var(--accent-1)" }}>Authorization: Basic YWRtaW46TXlTZWNyZXRQYXNzMjAyNg==</code>
+        </p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Decoding a Data URI Payload</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          <em>Base64 Input:</em> <code style={{ color: "var(--accent-1)" }}>SGVsbG8sIFdvcmxkISBXZWxjb21lIHRvIEFzdG9uaXNoYnVkZHku</code><br />
+          <em>Decoded Text:</em> &quot;Hello, World! Welcome to Astonishbuddy.&quot;
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Use Cases
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Encoding data for APIs</li>
-            <li style={{ marginBottom: "8px" }}>Decoding Base64 responses</li>
-            <li style={{ marginBottom: "8px" }}>Email attachments and file transfer</li>
-            <li style={{ marginBottom: "8px" }}>Debugging encoded data</li>
-            <li style={{ marginBottom: "8px" }}>Secure data transmission</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Crucial Developer Notes: Encoding vs Encryption
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Base64 is strictly an <strong>encoding format</strong>, NOT encryption. Anyone can decode a Base64 string instantly without a key. Never use Base64 alone to protect passwords or confidential data.</li>
+          <li style={{ marginBottom: "8px" }}>Base64 increases data size by roughly 33% because every 3 binary bytes are represented by 4 ASCII characters.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Features
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Encode text to Base64</li>
-            <li style={{ marginBottom: "8px" }}>Decode Base64 to text</li>
-            <li style={{ marginBottom: "8px" }}>Instant results</li>
-            <li style={{ marginBottom: "8px" }}>Works in browser (no upload required)</li>
-            <li style={{ marginBottom: "8px" }}>Simple and user-friendly interface</li>
-          </ul>
-        </div>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Privacy and Security
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          All conversions are handled locally via your browser&apos;s native <code style={{ color: "var(--accent-1)" }}>btoa</code> and <code style={{ color: "var(--accent-1)" }}>atob</code> APIs with UTF-8 byte stream handlers. Your strings never leave your device.
+        </p>
+      </div>
     ),
     faqs: [
-      { q: "Is Base64 encoding secure?", a: "No, Base64 is only an encoding format, not encryption. It is easily reversible." },
-      { q: "Why use Base64 for images?", a: "It allows you to embed images directly in HTML/CSS, reducing the number of HTTP requests." },
-      { q: "Is there a size limit?", a: "For best performance in the browser, try to keep data under 10MB." }
+          {
+                "q": "What is Base64 encoding used for?",
+                "a": "Base64 is used to encode binary data (like images or encrypted keys) into ASCII text so it can safely pass through text-only communication channels like email, JSON APIs, and HTTP headers."
+          },
+          {
+                "q": "Is Base64 an encryption method?",
+                "a": "No. Base64 is a reversible encoding scheme, not encryption. It provides zero confidentiality, as anyone can decode it instantly without a password or key."
+          },
+          {
+                "q": "Why is Base64 encoded output larger than the original text?",
+                "a": "Base64 represents 6 bits of data using an 8-bit ASCII character, resulting in a predictable size increase of approximately 33% compared to raw binary data."
+          },
+          {
+                "q": "What do the '=' characters at the end of a Base64 string mean?",
+                "a": "The '=' symbol is padding. Because Base64 processes data in 3-byte blocks, padding is appended when the input data length is not evenly divisible by 3."
+          },
+          {
+                "q": "Does this tool support non-English characters and emojis?",
+                "a": "Yes. Our tool uses full UTF-8 byte encoding (TextEncoder/TextDecoder), so accented letters, foreign alphabets, and emojis are converted cleanly without distortion."
+          },
+          {
+                "q": "Does Astonishbuddy log the strings or tokens I decode here?",
+                "a": "No. The entire decoding and encoding process runs locally inside your browser's memory. No data is sent over the network or saved to any server."
+          }
     ],
-    keywords: ["base64 converter", "base64 encoder decoder", "encode base64 online", "decode base64 online", "base64 tool"]
+    keywords: ["base64 converter online","base64 encode string","base64 decoder","decode base64 text","base64 utf8 converter"]
   },
   "url-converter": {
     id: "url-converter",
     name: "URL Converter",
-    shortIntro: "Looking for a URL encoder and decoder online? This free URL encoder and decoder tool allows you to encode URLs into a safe format and decode encoded URLs back to readable text instantly. It works directly in your browser with no login required. Perfect for developers, testers, and anyone working with web URLs and query parameters.",
+    shortIntro: "The Astonishbuddy URL Encoder & Decoder converts web URLs, query parameters, and special characters into standard percent-encoded format and decodes encoded strings back to readable URLs instantly.",
     guideContent: (
-        <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
-          <p style={{ marginBottom: "16px" }}>
-            Easily encode URL strings for safe transmission or decode encoded URLs to understand their original format. This tool is useful for handling special characters, debugging APIs, and working with query strings.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            Fast, secure, and completely free to use.
-          </p>
+<div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Uniform Resource Identifiers (URLs) can only be sent across the internet using the standard ASCII character set. Because URLs frequently contain spaces, non-ASCII characters, or reserved syntax characters (such as <code style={{ color: "var(--accent-1)" }}>?</code>, <code style={{ color: "var(--accent-1)" }}>&amp;</code>, <code style={{ color: "var(--accent-1)" }}>=</code>, and <code style={{ color: "var(--accent-1)" }}>/</code>), these characters must be converted into valid percent-encoding (RFC 3986) to prevent web servers and browsers from misinterpreting request parameters.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            How to Use URL Encoder & Decoder
-          </h3>
-          <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "10px" }}>Enter your URL or encoded string</li>
-            <li style={{ marginBottom: "10px" }}>Click on "Encode" or "Decode"</li>
-            <li style={{ marginBottom: "10px" }}>Get instant result</li>
-            <li style={{ marginBottom: "10px" }}>Copy the output</li>
-          </ol>
-          <p style={{ marginBottom: "16px" }}>
-            The tool processes data instantly in your browser.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Understanding Percent-Encoding
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          In percent-encoding, reserved and unprintable characters are replaced with a percent sign (<code style={{ color: "var(--accent-1)" }}>%</code>) followed by the two-digit hexadecimal representation of their UTF-8 byte value. For example, a space character becomes <code style={{ color: "var(--accent-1)" }}>%20</code> (or <code style={{ color: "var(--accent-1)" }}>+</code> in form data), an ampersand becomes <code style={{ color: "var(--accent-1)" }}>%26</code>, and an exclamation mark becomes <code style={{ color: "var(--accent-1)" }}>%21</code>.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Why Use This URL Encoder & Decoder?
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Encode URLs safely for web use</li>
-            <li style={{ marginBottom: "8px" }}>Decode URL-encoded strings instantly</li>
-            <li style={{ marginBottom: "8px" }}>No login or signup required</li>
-            <li style={{ marginBottom: "8px" }}>Free and unlimited usage</li>
-            <li style={{ marginBottom: "8px" }}>Fast and secure processing</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Step-by-Step Usage Guide
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Choose whether to &quot;Encode&quot; or &quot;Decode&quot; your URL.</li>
+          <li style={{ marginBottom: "8px" }}>Paste your raw URL, search query, or encoded string into the input editor.</li>
+          <li style={{ marginBottom: "8px" }}>Review the converted result generated instantly in the output field.</li>
+          <li style={{ marginBottom: "8px" }}>Click Copy to Clipboard to save the result.</li>
+        </ol>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            What is URL Encoding?
-          </h3>
-          <p style={{ marginBottom: "12px" }}>
-            URL encoding is the process of converting characters into a format that can be safely transmitted over the internet. Special characters such as spaces, symbols, and non-ASCII characters are encoded into a standard format.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            For example, a space is encoded as %20 in URLs.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Practical Worked Examples
+        </h3>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Safe Query String Encoding</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          <em>Raw Input:</em> <code style={{ color: "var(--accent-1)" }}>https://example.com/search?q=web tools &amp; utilities 100%</code><br />
+          <em>Encoded Output:</em> <code style={{ color: "var(--accent-1)" }}>https%3A%2F%2Fexample.com%2Fsearch%3Fq%3Dweb%20tools%20%26%20utilities%20100%25</code>
+        </p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Decoding a Tracking Redirect URL</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          <em>Encoded Input:</em> <code style={{ color: "var(--accent-1)" }}>https%3A%2F%2Fastonishbuddy.com%2Ftools%2Fimage-compressor</code><br />
+          <em>Decoded Output:</em> <code style={{ color: "var(--accent-1)" }}>https://astonishbuddy.com/tools/image-compressor</code>
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Use Cases
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Encoding query parameters in URLs</li>
-            <li style={{ marginBottom: "8px" }}>Decoding API request URLs</li>
-            <li style={{ marginBottom: "8px" }}>Handling special characters in web links</li>
-            <li style={{ marginBottom: "8px" }}>Debugging encoded data</li>
-            <li style={{ marginBottom: "8px" }}>Working with web development projects</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Tips and Common Mistakes
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Beware of double-encoding: encoding an already encoded string turns <code style={{ color: "var(--accent-1)" }}>%20</code> into <code style={{ color: "var(--accent-1)" }}>%2520</code>, which will break backend routing.</li>
+          <li style={{ marginBottom: "8px" }}>When encoding entire URLs, ensure protocol slashes (<code style={{ color: "var(--accent-1)" }}>https://</code>) are preserved unless specifically passing a URL as a parameter to another endpoint.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Features
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Encode URLs instantly</li>
-            <li style={{ marginBottom: "8px" }}>Decode URL-encoded strings</li>
-            <li style={{ marginBottom: "8px" }}>Works in browser (no installation)</li>
-            <li style={{ marginBottom: "8px" }}>Fast and lightweight tool</li>
-            <li style={{ marginBottom: "8px" }}>Simple and user-friendly interface</li>
-          </ul>
-        </div>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Privacy Guarantee
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          Conversions run purely inside your web browser using native <code style={{ color: "var(--accent-1)" }}>encodeURIComponent</code> and <code style={{ color: "var(--accent-1)" }}>decodeURIComponent</code> functions. Your URLs and sensitive tracking tokens are never sent over the internet or logged.
+        </p>
+      </div>
     ),
     faqs: [
-      { q: "What is URL decoding?", a: "Decoding is the reverse process: it turns encoded characters like %20 back into their original form (a space)." },
-      { q: "Are all characters encoded?", a: "Only special characters and non-ASCII characters are encoded; standard alphanumeric characters remain the same." },
-      { q: "Is this tool free?", a: "Yes, it is completely free to use." }
+          {
+                "q": "What is URL percent-encoding?",
+                "a": "Percent-encoding is a mechanism for encoding arbitrary data in a Uniform Resource Identifier (URI) using ASCII characters, replacing non-ASCII characters with '%XX' hexadecimal values."
+          },
+          {
+                "q": "Why do spaces in URLs sometimes turn into '%20' and sometimes '+'?",
+                "a": "'%20' is the standard percent-encoded space according to RFC 3986 (used in path components), while '+' is historically used in application/x-www-form-urlencoded query string parameters."
+          },
+          {
+                "q": "What happens if a URL contains special characters or foreign language letters?",
+                "a": "The browser encodes non-ASCII characters into their multi-byte UTF-8 sequence, then percent-encodes each individual byte (for example, accented letters or emojis)."
+          },
+          {
+                "q": "What is double-encoding and how do I avoid it?",
+                "a": "Double-encoding happens when an already encoded string is passed through an encoder a second time (turning % into %25). Always ensure raw text is encoded only once."
+          },
+          {
+                "q": "Can I decode a URL with complex nested parameters?",
+                "a": "Yes. The decoder parses nested percent-encoded components cleanly, restoring readable characters and query structures."
+          },
+          {
+                "q": "Does Astonishbuddy track or log the URLs I encode?",
+                "a": "No. All encoding and decoding logic executes locally on your machine. We do not track, log, or transmit any URLs you enter."
+          }
     ],
-    keywords: ["url encoder", "url decoder", "encode url online", "decode url online", "url encode decode tool"]
+    keywords: ["url encoder online","url decoder","percent encoding tool","encode uri component","decode url free"]
   },
   "lorem-ipsum-generator": {
     id: "lorem-ipsum-generator",
     name: "Lorem Ipsum Generator",
-    shortIntro: "Looking for a Lorem Ipsum generator to create placeholder text instantly? This free Lorem Ipsum generator helps you generate dummy text for design, development, and content layout. You can create paragraphs, sentences, or words quickly without login. Perfect for designers, developers, and content creators who need placeholder text.",
+    shortIntro: "The Astonishbuddy Lorem Ipsum Generator creates customized dummy placeholder text for web designers, graphic artists, and developers. Generate paragraphs, sentences, or word counts instantly to populate mockups and wireframes.",
     guideContent: (
-        <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
-          <p style={{ marginBottom: "16px" }}>
-            Generate Lorem Ipsum text for websites, UI design, wireframes, or mockups. This tool allows you to customize the number of paragraphs, sentences, or words easily.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            Fast, simple, and works directly in your browser.
-          </p>
+<div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          When presenting wireframes, UI prototypes, or editorial layouts to clients and stakeholders, using readable English text often distracts reviewers from evaluating visual hierarchy, typography, and spacing. By utilizing standard pseudo-Latin &quot;Lorem Ipsum&quot; placeholder text, designers establish an even distribution of letters and word lengths that mimics natural reading flow without conveying distracting semantic meaning.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            How to Use Lorem Ipsum Generator
-          </h3>
-          <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "10px" }}>Select number of paragraphs, sentences, or words</li>
-            <li style={{ marginBottom: "10px" }}>Click on "Generate"</li>
-            <li style={{ marginBottom: "10px" }}>Get instant placeholder text</li>
-            <li style={{ marginBottom: "10px" }}>Copy and use in your project</li>
-          </ol>
-          <p style={{ marginBottom: "16px" }}>
-            The text is generated instantly in your browser.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Historical Origins of Lorem Ipsum
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          Contrary to popular belief, Lorem Ipsum is not simply random gibberish. Its roots date back over 2,000 years to classical Latin literature. In 1914, Latin scholar Richard McClintock traced its origins to sections 1.10.32 and 1.10.33 of Cicero&apos;s philosophical treatise <em>De finibus bonorum et malorum</em> (&quot;On the Extremes of Good and Evil&quot;), written in 45 BC. In the 1960s, Letraset popularized adhesive sheets containing Lorem Ipsum passages, which later became the digital standard in desktop publishing software like Aldus PageMaker.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Why Use This Lorem Ipsum Generator?
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Generate placeholder text instantly</li>
-            <li style={{ marginBottom: "8px" }}>Customize paragraphs, sentences, or words</li>
-            <li style={{ marginBottom: "8px" }}>No login or signup required</li>
-            <li style={{ marginBottom: "8px" }}>Free and unlimited usage</li>
-            <li style={{ marginBottom: "8px" }}>Works on all devices</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Step-by-Step Usage Guide
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Select whether you wish to generate by Paragraphs, Sentences, or Words.</li>
+          <li style={{ marginBottom: "8px" }}>Enter your desired quantity (e.g., 3 paragraphs or 50 words).</li>
+          <li style={{ marginBottom: "8px" }}>Toggle whether to start the text with the traditional &quot;Lorem ipsum dolor sit amet...&quot; opening phrase.</li>
+          <li style={{ marginBottom: "8px" }}>Click Generate, then click Copy to transfer the mock text directly into Figma, Sketch, or your code editor.</li>
+        </ol>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            What is Lorem Ipsum?
-          </h3>
-          <p style={{ marginBottom: "12px" }}>
-            Lorem Ipsum is a placeholder text commonly used in design and publishing. It helps designers focus on layout and visual elements without being distracted by real content.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            It has been used in the printing and typesetting industry for centuries.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Practical Worked Examples
+        </h3>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Blog Card Excerpt (25 Words)</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          <em>Output:</em> &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.&quot;
+        </p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Multi-Paragraph Article Mockup</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          Generating 3 structured paragraphs with standard paragraph breaks to test typography scale, line heights (<code style={{ color: "var(--accent-1)" }}>line-height: 1.6</code>), and margin spacing across responsive breakpoints.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Use Cases
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Website design and UI mockups</li>
-            <li style={{ marginBottom: "8px" }}>Graphic design and layouts</li>
-            <li style={{ marginBottom: "8px" }}>Content placeholders</li>
-            <li style={{ marginBottom: "8px" }}>Wireframes and prototypes</li>
-            <li style={{ marginBottom: "8px" }}>Printing and publishing projects</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Best Practices for UI Design
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Remember to replace all placeholder copy with real, production-ready content prior to launching public web pages.</li>
+          <li style={{ marginBottom: "8px" }}>Test layouts with varying text lengths: German, Finnish, and Dutch words are often significantly longer than English words, which can break tight UI containers.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Features
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Generate Lorem Ipsum instantly</li>
-            <li style={{ marginBottom: "8px" }}>Customizable text length</li>
-            <li style={{ marginBottom: "8px" }}>Copy text easily</li>
-            <li style={{ marginBottom: "8px" }}>Works in browser (no installation)</li>
-            <li style={{ marginBottom: "8px" }}>Simple and user-friendly interface</li>
-          </ul>
-        </div>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Zero Network Overhead
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          All text generation happens instantaneously using local client-side vocabulary algorithms with zero server latency.
+        </p>
+      </div>
     ),
     faqs: [
-      { q: "Is Lorem Ipsum actual Latin?", a: "It is derived from Latin literature but is now mostly nonsensical 'pseudo-Latin'." },
-      { q: "Can I generate thousands of words?", a: "Yes, our tool can generate large amounts of text in an instant." },
-      { q: "Is this free for commercial use?", a: "Yes, Lorem Ipsum is public domain and free for everyone." }
+          {
+                "q": "What does Lorem Ipsum mean in English?",
+                "a": "The text is derived from Cicero's Latin text on ethics, starting from 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur...' ('There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain')."
+          },
+          {
+                "q": "Why is dummy text better than typing random keyboard keys?",
+                "a": "Random typing creates unnatural letter clusters and word lengths that fail to represent realistic typographical balance, kerning, and visual paragraph rhythm."
+          },
+          {
+                "q": "Can I use generated Lorem Ipsum text in commercial design projects?",
+                "a": "Yes. The text is in the public domain and is completely free to use in personal, educational, and commercial designs without licensing or attribution."
+          },
+          {
+                "q": "Can I choose the exact number of words or paragraphs?",
+                "a": "Yes. You can specify exact counts for words, sentences, or full paragraphs to fit any card, sidebar, modal, or layout container."
+          },
+          {
+                "q": "Why do some generators not start with 'Lorem ipsum dolor sit amet'?",
+                "a": "Our generator provides a toggle allowing you to choose whether or not to include the standard opening phrase, depending on whether you prefer variety across multiple mock cards."
+          },
+          {
+                "q": "Does Astonishbuddy store any information when I use this tool?",
+                "a": "No. The generator runs 100% inside your browser using static JavaScript dictionaries. No data is sent over the internet or saved."
+          }
     ],
-    keywords: ["lorem ipsum generator", "dummy text generator", "placeholder text generator", "generate lorem ipsum online", "lorem ipsum text"]
+    keywords: ["lorem ipsum generator","dummy text generator","placeholder text online","latin text generator","mock copy creator"]
   },
   "random-number-generator": {
     id: "random-number-generator",
     name: "Random Number Generator",
-    shortIntro: "Looking for a random number generator online? This free random number generator helps you generate random numbers instantly within a custom range. You can choose minimum and maximum values and generate numbers for games, testing, or decision-making. No login required — fast, simple, and completely free.",
+    shortIntro: "The Astonishbuddy Random Number Generator generates true, unbiased random numbers across custom numerical ranges. Perfect for prize drawings, statistics sampling, games, and research with cryptographic randomness.",
     guideContent: (
-        <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
-          <p style={{ marginBottom: "16px" }}>
-            Generate random numbers for lottery picks, games, simulations, or development tasks. This tool ensures quick and reliable number generation directly in your browser.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            Perfect for students, developers, teachers, and anyone who needs random numbers instantly.
-          </p>
+<div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Whether selecting a fair winner for an online giveaway, rolling dice for tabletop roleplaying games, conducting random sampling for academic research, or simulating statistical models, having a source of verifiable, unbiased random numbers is critical. Our Random Number Generator leverages hardware-backed cryptographic entropy to ensure that every generated integer is statistically independent and fair.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            How to Generate Random Numbers
-          </h3>
-          <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "10px" }}>Enter minimum value</li>
-            <li style={{ marginBottom: "10px" }}>Enter maximum value</li>
-            <li style={{ marginBottom: "10px" }}>Click on "Generate"</li>
-            <li style={{ marginBottom: "10px" }}>Get a random number instantly</li>
-          </ol>
-          <p style={{ marginBottom: "16px" }}>
-            The tool generates numbers in real-time with accurate results.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          True Randomness vs Pseudo-Randomness
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          Standard programming functions like <code style={{ color: "var(--accent-1)" }}>Math.random()</code> are pseudo-random: they use deterministic mathematical formulas based on an internal clock seed. Given enough observed outputs, an attacker can predict future numbers. In contrast, Astonishbuddy utilizes the browser&apos;s native <code style={{ color: "var(--accent-1)" }}>window.crypto.getRandomValues()</code> API. This pulls true hardware entropy from operating system kernel events (such as disk timings, thermal noise, and CPU interrupt variations), guaranteeing non-deterministic randomness.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Why Use This Random Number Generator?
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Generate random numbers instantly</li>
-            <li style={{ marginBottom: "8px" }}>Customize number range</li>
-            <li style={{ marginBottom: "8px" }}>No login or signup required</li>
-            <li style={{ marginBottom: "8px" }}>Free and unlimited usage</li>
-            <li style={{ marginBottom: "8px" }}>Works on all devices</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Step-by-Step Usage Guide
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Set your Minimum and Maximum range boundaries (e.g., Min: 1, Max: 100).</li>
+          <li style={{ marginBottom: "8px" }}>Select the quantity of numbers you need generated simultaneously.</li>
+          <li style={{ marginBottom: "8px" }}>Toggle &quot;Allow Duplicates&quot; on or off depending on whether you are drawing raffle tickets or simulating independent dice rolls.</li>
+          <li style={{ marginBottom: "8px" }}>Click &quot;Generate Numbers&quot; to see the result instantly, with a one-click Copy button.</li>
+        </ol>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            What is a Random Number Generator?
-          </h3>
-          <p style={{ marginBottom: "12px" }}>
-            A random number generator (RNG) is a tool that generates numbers randomly within a defined range. It is commonly used in games, simulations, testing, and decision-making processes.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            Random number generators ensure unbiased and unpredictable results.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Practical Worked Examples
+        </h3>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Unbiased Raffle Winner Selection</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          A community giveaway has 350 registered participants numbered 1 through 350. Setting Min: 1, Max: 350, Quantity: 1 produces a completely fair, unmanipulated winning ticket number.
+        </p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Multi-Sided Dice Simulator</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          To simulate rolling four 20-sided dice (4d20) in tabletop gaming, set Min: 1, Max: 20, Quantity: 4, and Allow Duplicates: Yes. The tool outputs four independent numbers instantaneously.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Use Cases
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Lottery number generation</li>
-            <li style={{ marginBottom: "8px" }}>Games and simulations</li>
-            <li style={{ marginBottom: "8px" }}>Random selection or decision making</li>
-            <li style={{ marginBottom: "8px" }}>Testing and development</li>
-            <li style={{ marginBottom: "8px" }}>Classroom activities and learning</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Common Mistakes to Avoid
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Forgetting to disable duplicate numbers when drawing multiple prize winners (so the same participant is not drawn twice).</li>
+          <li style={{ marginBottom: "8px" }}>Confusing inclusive vs exclusive boundaries: our tool is always <strong>inclusive</strong>, meaning both the minimum and maximum numbers can be selected.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Features
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Instant number generation</li>
-            <li style={{ marginBottom: "8px" }}>Custom number range</li>
-            <li style={{ marginBottom: "8px" }}>Fast and lightweight tool</li>
-            <li style={{ marginBottom: "8px" }}>Works in browser (no installation)</li>
-            <li style={{ marginBottom: "8px" }}>Simple and user-friendly interface</li>
-          </ul>
-        </div>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Privacy and Integrity
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          All computations are executed locally on your device hardware without remote server intervention. No drawing results are recorded, logged, or altered.
+        </p>
+      </div>
     ),
     faqs: [
-      { q: "Are the numbers truly random?", a: "They are generated by a high-quality pseudo-random algorithm, suitable for non-cryptographic purposes." },
-      { q: "Can I generate decimal numbers?", a: "Currently, our tool focuses on whole numbers (integers)." },
-      { q: "Is there a limit on the range?", a: "You can generate numbers up to extremely high values supported by standard JavaScript numbering." }
+          {
+                "q": "How does this tool guarantee that numbers are completely unbiased?",
+                "a": "Our generator uses the Web Crypto API (crypto.getRandomValues), which gathers unpredictable physical entropy from your device hardware to generate uniformly distributed random numbers."
+          },
+          {
+                "q": "Can I generate multiple unique numbers without duplicates?",
+                "a": "Yes. By switching off the 'Allow Duplicates' option, the tool ensures that every number in your batch is strictly unique, perfect for lottery or contest drawings."
+          },
+          {
+                "q": "What is the maximum number range supported?",
+                "a": "You can generate random integers up to standard JavaScript safe integer limits (up to 9,007,199,254,740,991), supporting virtually any practical scale."
+          },
+          {
+                "q": "Are the minimum and maximum boundaries included in the draw?",
+                "a": "Yes. The range is inclusive, meaning both your exact minimum and maximum numbers have an equal mathematical probability of being selected."
+          },
+          {
+                "q": "Can I use this tool for research data sampling?",
+                "a": "Yes. The underlying uniform distribution algorithm meets rigorous scientific standards for random sampling and experimental assignment."
+          },
+          {
+                "q": "Does Astonishbuddy store or record the drawn numbers?",
+                "a": "No. The calculation runs entirely inside your browser's local JavaScript environment. No drawing outcomes or parameters are stored on our servers."
+          }
     ],
-    keywords: ["random number generator", "generate random number", "number generator online", "rng tool", "random number picker"]
+    keywords: ["random number generator","rng online free","pick random number","raffle number picker","crypto random numbers"]
   },
   "text-sorter": {
     id: "text-sorter",
     name: "Text Sorter",
-    shortIntro: "Looking for a text sorter online to sort lines alphabetically or numerically? This free text sorter tool allows you to sort text instantly in ascending or descending order. You can organize lists, names, numbers, or any text data quickly and efficiently. No login required — simple, fast, and completely free.",
+    shortIntro: "The Astonishbuddy Text Sorter organizes text lines alphabetically (A-Z or Z-A), numerically, or by length, and removes duplicate lines instantly with complete client-side security.",
     guideContent: (
-        <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
-          <p style={{ marginBottom: "16px" }}>
-            Easily sort text alphabetically (A to Z or Z to A) or sort numbers in ascending or descending order. This tool is perfect for managing lists, cleaning data, or organizing content.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            Works instantly in your browser with no installation required.
-          </p>
+<div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Managing disorganized data lists, customer email inventories, product SKU logs, or code references manually is tedious and prone to human error. Our Text Sorter enables writers, spreadsheet analysts, programmers, and administrative professionals to instantly organize, sort, reverse, and deduplicate lists of text directly in the browser.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            How to Use Text Sorter
-          </h3>
-          <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "10px" }}>Paste your text (one item per line)</li>
-            <li style={{ marginBottom: "10px" }}>Choose sorting type (A–Z, Z–A, numeric)</li>
-            <li style={{ marginBottom: "10px" }}>Click on "Sort"</li>
-            <li style={{ marginBottom: "10px" }}>Get sorted text instantly</li>
-          </ol>
-          <p style={{ marginBottom: "16px" }}>
-            You can copy or download the sorted result easily.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Key Sorting Modes and Capabilities
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Alphabetical Sort (A to Z):</strong> Arranges lines in standard alphabetical order according to localized dictionary rules.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Reverse Alphabetical (Z to A):</strong> Inverts the alphabetical order immediately.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Natural Numerical Sort:</strong> Intelligently sorts numbers and mixed strings naturally (so &quot;Item 2&quot; appears before &quot;Item 10&quot;).</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Instant Deduplication:</strong> Identifies and purges duplicate lines, leaving a clean, unique dataset in one click.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Why Use This Text Sorter?
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Sort text instantly</li>
-            <li style={{ marginBottom: "8px" }}>Alphabetical and numeric sorting</li>
-            <li style={{ marginBottom: "8px" }}>No login or signup required</li>
-            <li style={{ marginBottom: "8px" }}>Free and unlimited usage</li>
-            <li style={{ marginBottom: "8px" }}>Works on all devices</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Step-by-Step Usage Guide
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Paste your unorganized list into the input box, with each item on a separate line.</li>
+          <li style={{ marginBottom: "8px" }}>Select your desired sorting order (Alphabetical A-Z, Z-A, or Numerical).</li>
+          <li style={{ marginBottom: "8px" }}>Optionally check &quot;Remove Duplicates&quot; or &quot;Trim Whitespace&quot;.</li>
+          <li style={{ marginBottom: "8px" }}>Review the sorted result in the output panel and click Copy to Clipboard.</li>
+        </ol>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            What is Text Sorting?
-          </h3>
-          <p style={{ marginBottom: "12px" }}>
-            Text sorting is the process of arranging text in a specific order, such as alphabetical (A–Z or Z–A) or numerical order. It helps organize data and makes it easier to read and analyze.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            Sorting text is commonly used in data processing, programming, and content management.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Practical Worked Examples
+        </h3>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Deduplicating and Sorting an Email List</strong></p>
+        <p style={{ marginBottom: "8px" }}><em>Raw Input:</em></p>
+        <pre style={{ background: "rgba(255,255,255,0.05)", padding: "12px", borderRadius: "8px" }}>
+sarah@company.com
+alex@domain.com
+sarah@company.com
+zach@test.org
+alex@domain.com
+        </pre>
+        <p style={{ margin: "12px 0 8px" }}><em>Sorted (A-Z with Deduplication):</em></p>
+        <pre style={{ background: "rgba(255,255,255,0.05)", padding: "12px", borderRadius: "8px" }}>
+alex@domain.com
+sarah@company.com
+zach@test.org
+        </pre>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Use Cases
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Sorting lists of names or items</li>
-            <li style={{ marginBottom: "8px" }}>Organizing data in spreadsheets</li>
-            <li style={{ marginBottom: "8px" }}>Cleaning and formatting text</li>
-            <li style={{ marginBottom: "8px" }}>Programming and development tasks</li>
-            <li style={{ marginBottom: "8px" }}>Managing large text datasets</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Tips for Accurate Sorting
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Enable &quot;Trim Whitespace&quot; to prevent accidental leading spaces from causing lines to sort to the very top.</li>
+          <li style={{ marginBottom: "8px" }}>For case-sensitive sorting, uppercase letters standardly precede lowercase letters in ASCII order.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Features
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Alphabetical sorting (A–Z, Z–A)</li>
-            <li style={{ marginBottom: "8px" }}>Numeric sorting</li>
-            <li style={{ marginBottom: "8px" }}>Instant results</li>
-            <li style={{ marginBottom: "8px" }}>Works in browser (no installation)</li>
-            <li style={{ marginBottom: "8px" }}>Simple and user-friendly interface</li>
-          </ul>
-        </div>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Privacy Guarantee
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          Your proprietary contact lists, customer leads, and internal data are sorted strictly in your local browser memory. Nothing is ever sent to our servers.
+        </p>
+      </div>
     ),
     faqs: [
-      { q: "Can I sort numbers?", a: "Yes, our natural sorting algorithm handles mixed text and numerical values correctly." },
-      { q: "How do I remove duplicates?", a: "Simply click the 'Remove Duplicates' button before or after sorting." },
-      { q: "Is there a limit to the number of lines?", a: "No, our tool can efficiently handle thousands of lines at once." }
+          {
+                "q": "What is the difference between alphabetical sort and natural sort?",
+                "a": "Standard alphabetical sort treats numbers as characters, placing 'item 10' before 'item 2'. Natural sort recognizes numbers, placing 'item 2' correctly before 'item 10'."
+          },
+          {
+                "q": "How does the deduplication feature work?",
+                "a": "The tool analyzes each line and removes exact duplicates, leaving only the first unique instance in your sorted result."
+          },
+          {
+                "q": "Can I sort text by line length?",
+                "a": "Yes. You can organize lines from shortest to longest or longest to shortest, which is especially useful for poetry, titles, or keyword research."
+          },
+          {
+                "q": "Does leading whitespace affect sorting?",
+                "a": "Yes, spaces have a lower ASCII value than letters. We recommend using the 'Trim Whitespace' option to avoid unexpected sorting."
+          },
+          {
+                "q": "Is there a limit on how many lines I can sort at once?",
+                "a": "Because processing happens directly on your computer's high-speed JavaScript engine, you can effortlessly sort tens of thousands of lines in seconds."
+          },
+          {
+                "q": "Does Astonishbuddy store my sorted contact lists or emails?",
+                "a": "No. The sorting algorithm runs 100% client-side in your browser. No data is stored, transmitted, or logged."
+          }
     ],
-    keywords: ["text sorter", "sort text online", "alphabetical order tool", "sort lines alphabetically", "text sorting tool"]
+    keywords: ["text sorter online","sort lines alphabetically","remove duplicate lines","alphabetical list organizer","natural numerical sort"]
   },
   "color-converter": {
     id: "color-converter",
-    name: "Color Converter",
-    shortIntro: "Looking for a color code converter to convert HEX, RGB, or HSL values? This free color code converter allows you to convert colors instantly between HEX, RGB, and HSL formats. It helps designers and developers quickly switch between color formats for web and design projects. No login required — fast, simple, and completely free.",
+    name: "Color Code Converter",
+    shortIntro: "The Astonishbuddy Color Code Converter translates color codes between HEX, RGB, and HSL formats in real time. Inspect visual color swatches and copy CSS-ready syntax with instant precision.",
     guideContent: (
-        <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
-          <p style={{ marginBottom: "16px" }}>
-            Easily convert HEX to RGB, RGB to HEX, or HSL values in seconds. This tool is perfect for web design, UI development, and graphic design workflows.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            Works instantly in your browser with accurate color conversion.
-          </p>
+<div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Color representation is a fundamental aspect of digital design and web development. Different platforms and tools demand different color notations: graphic designers often work with HEX codes, CSS animations frequently utilize RGBA for opacity, while modern CSS design systems favor HSL for intuitive lightness adjustments and theme generation. Our Color Code Converter provides seamless, bi-directional conversions between all primary web color formats.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            How to Use Color Code Converter
-          </h3>
-          <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "10px" }}>Enter your color value (HEX, RGB, or HSL)</li>
-            <li style={{ marginBottom: "10px" }}>Select conversion format</li>
-            <li style={{ marginBottom: "10px" }}>Get instant converted result</li>
-            <li style={{ marginBottom: "10px" }}>Copy the output</li>
-          </ol>
-          <p style={{ marginBottom: "16px" }}>
-            The tool processes color conversion instantly.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Understanding the Color Models
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>HEX (Hexadecimal):</strong> A six-digit alphanumeric code (#RRGGBB) representing Red, Green, and Blue light channels in base-16. Standard in HTML and graphic design software.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>RGB (Red, Green, Blue):</strong> Defines colors using numerical intensity channels ranging from 0 to 255. RGBA adds an alpha channel (0.0 to 1.0) for transparency.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>HSL (Hue, Saturation, Lightness):</strong> Models color as a cylindrical coordinate system. Hue (0°–360°) sets the base color, Saturation (0%–100%) sets purity, and Lightness (0%–100%) controls illumination.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Why Use This Color Code Converter?
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Convert HEX, RGB, and HSL instantly</li>
-            <li style={{ marginBottom: "8px" }}>Accurate color conversion</li>
-            <li style={{ marginBottom: "8px" }}>No login or signup required</li>
-            <li style={{ marginBottom: "8px" }}>Free and unlimited usage</li>
-            <li style={{ marginBottom: "8px" }}>Works on all devices</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Step-by-Step Usage Guide
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Enter any valid HEX code (e.g., #4F46E5), RGB value, or HSL coordinate into the input field.</li>
+          <li style={{ marginBottom: "8px" }}>View the live preview swatch to confirm the visual appearance immediately.</li>
+          <li style={{ marginBottom: "8px" }}>Inspect the simultaneous conversions across all other formats.</li>
+          <li style={{ marginBottom: "8px" }}>Click the Copy button next to your desired format to grab CSS-ready code.</li>
+        </ol>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            What is Color Code Conversion?
-          </h3>
-          <p style={{ marginBottom: "12px" }}>
-            Color code conversion is the process of converting color values between different formats such as HEX, RGB, and HSL. These formats are commonly used in web development and design.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            Each format represents color differently but refers to the same visual color.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Practical Worked Examples
+        </h3>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Converting Brand Indigo</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          <em>HEX:</em> <code style={{ color: "var(--accent-1)" }}>#6366f1</code><br />
+          <em>RGB:</em> <code style={{ color: "var(--accent-1)" }}>rgb(99, 102, 241)</code><br />
+          <em>HSL:</em> <code style={{ color: "var(--accent-1)" }}>hsl(239, 84%, 67%)</code>
+        </p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Creating a Button Hover State with HSL</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          With HSL, creating a hover state is effortless. Taking the base color <code style={{ color: "var(--accent-1)" }}>hsl(239, 84%, 67%)</code> and decreasing Lightness by 10% produces the perfect darker hover color: <code style={{ color: "var(--accent-1)" }}>hsl(239, 84%, 57%)</code>.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Use Cases
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Web design and UI development</li>
-            <li style={{ marginBottom: "8px" }}>Graphic design and branding</li>
-            <li style={{ marginBottom: "8px" }}>CSS color styling</li>
-            <li style={{ marginBottom: "8px" }}>Converting colors for different platforms</li>
-            <li style={{ marginBottom: "8px" }}>Design system management</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Design Tips and Best Practices
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Always test color combinations against Web Content Accessibility Guidelines (WCAG) contrast minimums (at least 4.5:1 for normal text).</li>
+          <li style={{ marginBottom: "8px" }}>3-digit HEX codes (e.g., #F00) automatically expand to 6 digits (#FF0000).</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Features
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>HEX to RGB conversion</li>
-            <li style={{ marginBottom: "8px" }}>RGB to HEX conversion</li>
-            <li style={{ marginBottom: "8px" }}>HSL conversion support</li>
-            <li style={{ marginBottom: "8px" }}>Instant results</li>
-            <li style={{ marginBottom: "8px" }}>Simple and user-friendly interface</li>
-          </ul>
-        </div>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Privacy and Security
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          Calculations are computed locally in your web browser with zero network latency and no external tracking.
+        </p>
+      </div>
     ),
     faqs: [
-      { q: "What is the best format for web development?", a: "HEX or RGB are the most common, though HSL is gaining popularity for its ease of adjustment." },
-      { q: "Can I pick a color from a screen?", a: "Yes, using our integrated color picker tool." },
-      { q: "Is the tool free to use?", a: "Yes, it is 100% free with no signup." }
+          {
+                "q": "How does HEX color notation work?",
+                "a": "HEX notation uses two hexadecimal digits (00 to FF) for each of the Red, Green, and Blue color channels, providing over 16.7 million possible color combinations."
+          },
+          {
+                "q": "Why do frontend developers prefer HSL over RGB?",
+                "a": "HSL is intuitive for human designers. Creating lighter tints, darker shades, or desaturated variations simply requires adjusting one percentage value (Lightness or Saturation)."
+          },
+          {
+                "q": "Can I input shorthand 3-digit HEX codes like #fff?",
+                "a": "Yes. Our converter automatically expands 3-digit shorthand codes into standard 6-digit hexadecimal format (#fff becomes #ffffff)."
+          },
+          {
+                "q": "Does this tool support CSS-ready copyable formats?",
+                "a": "Yes. Clicking the copy button copies the exact CSS format (e.g., rgb(255, 0, 0) or hsl(0, 100%, 50%)) directly to your clipboard."
+          },
+          {
+                "q": "What is the difference between RGB and CMYK?",
+                "a": "RGB is an additive color model used for illuminated digital screens, while CMYK is a subtractive color model used for physical ink printing on paper."
+          },
+          {
+                "q": "Is my color history or palette data saved on your servers?",
+                "a": "No. The tool runs purely on client-side JavaScript. Your color selections remain completely private on your own device."
+          }
     ],
-    keywords: ["color code converter", "hex to rgb", "rgb to hex", "color converter online", "hex rgb converter"]
+    keywords: ["color code converter","hex to rgb online","rgb to hsl converter","css color converter","hex color picker"]
   },
   "bulk-qrcode-generator": {
     id: "bulk-qrcode-generator",
-    name: "Bulk QR Generator",
-    shortIntro: "Looking for a bulk QR code generator to create multiple QR codes at once? This free bulk QR code generator allows you to generate hundreds of QR codes instantly without login or limits. You can create QR codes for URLs, text, product IDs, or any custom data and download them as ZIP or PDF files. Perfect for businesses, developers, and marketers who need fast and efficient QR code generation.",
+    name: "Bulk QR Code Generator",
+    shortIntro: "The Astonishbuddy Bulk QR Code Generator produces dozens or hundreds of custom QR codes simultaneously from a list of URLs or text entries. Download batch QR codes packaged neatly into a single ZIP archive or printable PDF.",
     guideContent: (
-        <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
-          <p style={{ marginBottom: "16px" }}>
-            Easily generate multiple QR codes in bulk for inventory, event tickets, product labels, or marketing campaigns. This tool helps you save time by creating QR codes in seconds.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            No installation required — everything works directly in your browser.
-          </p>
+<div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+        <p style={{ marginBottom: "16px" }}>
+          Generating individual QR codes one by one for event tickets, retail inventory tags, student ID cards, or multi-product catalogs is tedious and time-consuming. Our Bulk QR Code Generator automates mass QR code creation: simply paste a list of URLs or text strings, configure your preferred styling, and generate hundreds of unique high-resolution QR codes in seconds.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            How to Generate Bulk QR Codes
-          </h3>
-          <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "10px" }}>Enter multiple values (one per line)</li>
-            <li style={{ marginBottom: "10px" }}>Click on "Generate QR Codes"</li>
-            <li style={{ marginBottom: "10px" }}>Preview all QR codes instantly</li>
-            <li style={{ marginBottom: "10px" }}>Download as ZIP or PDF</li>
-          </ol>
-          <p style={{ marginBottom: "16px" }}>
-            The tool processes everything instantly and securely in your browser.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Key Features for High-Volume Production
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Instant Batch Generation:</strong> Paste line-separated links or upload a CSV file to render hundreds of QR codes simultaneously.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Automated ZIP Packaging:</strong> Download all generated codes neatly organized in a single compressed ZIP folder, named sequentially or according to your input lines.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Printable PDF Layout:</strong> Export batch codes arranged in an organized grid ready for direct printing on standard label sheets.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Why Use This Bulk QR Code Generator?
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Generate multiple QR codes instantly</li>
-            <li style={{ marginBottom: "8px" }}>No login or signup required</li>
-            <li style={{ marginBottom: "8px" }}>Free and unlimited usage</li>
-            <li style={{ marginBottom: "8px" }}>Fast and secure processing</li>
-            <li style={{ marginBottom: "8px" }}>Works on all devices</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Step-by-Step Usage Guide
+        </h3>
+        <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Enter or paste your list of URLs or identifiers into the textarea, placing each entry on a new line.</li>
+          <li style={{ marginBottom: "8px" }}>Choose your desired image resolution and error correction level.</li>
+          <li style={{ marginBottom: "8px" }}>Click &quot;Generate All QR Codes&quot; and watch the batch progress bar.</li>
+          <li style={{ marginBottom: "8px" }}>Click &quot;Download All as ZIP&quot; or &quot;Export PDF&quot; to save your complete collection immediately.</li>
+        </ol>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            What is a Bulk QR Code Generator?
-          </h3>
-          <p style={{ marginBottom: "12px" }}>
-            A bulk QR code generator is a tool that allows you to create multiple QR codes at once instead of generating them one by one. It is widely used for handling large datasets efficiently.
-          </p>
-          <p style={{ marginBottom: "16px" }}>
-            This helps save time and improves productivity for businesses and developers.
-          </p>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Practical Worked Examples
+        </h3>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Conference Attendance Badges</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          Paste 50 unique attendee check-in links (e.g., <code style={{ color: "var(--accent-1)" }}>https://event.com/checkin?id=101</code> through <code style={{ color: "var(--accent-1)" }}>https://event.com/checkin?id=150</code>). The tool generates 50 crisp PNG files packaged in a single ZIP file in under 3 seconds.
+        </p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Warehouse Inventory Tracking</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          Input 100 internal SKU part codes (e.g., <code style={{ color: "var(--accent-1)" }}>SKU-8841-A</code>, <code style={{ color: "var(--accent-1)" }}>SKU-8842-B</code>). The resulting QR codes can be printed directly on label sheets for immediate shelf scanning.
+        </p>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Use Cases
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Product labeling and inventory tracking</li>
-            <li style={{ marginBottom: "8px" }}>Event passes and ticket generation</li>
-            <li style={{ marginBottom: "8px" }}>Marketing campaigns and promotions</li>
-            <li style={{ marginBottom: "8px" }}>Bulk URL generation</li>
-            <li style={{ marginBottom: "8px" }}>Business operations and automation</li>
-          </ul>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Tips for High-Volume Batches
+        </h3>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}>Ensure there are no blank lines or trailing empty spaces in your input text to avoid generating blank codes.</li>
+          <li style={{ marginBottom: "8px" }}>Ensure full URL protocols (<code style={{ color: "var(--accent-1)" }}>https://</code>) are included if you intend for scanners to launch browser tabs automatically.</li>
+        </ul>
 
-          <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-            Features
-          </h3>
-          <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-            <li style={{ marginBottom: "8px" }}>Generate QR codes in bulk</li>
-            <li style={{ marginBottom: "8px" }}>Download as ZIP or PDF</li>
-            <li style={{ marginBottom: "8px" }}>Instant preview</li>
-            <li style={{ marginBottom: "8px" }}>Works in browser (no installation)</li>
-            <li style={{ marginBottom: "8px" }}>Simple and user-friendly interface</li>
-          </ul>
-        </div>
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Data Privacy and Speed
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          Batch generation uses client-side JavaScript multi-threading and in-browser ZIP compression (JSZip). Your proprietary URLs, customer IDs, and inventory records remain strictly on your local computer.
+        </p>
+      </div>
     ),
     faqs: [
-      { q: "How many QR codes can I generate at once?", a: "You can easily generate hundreds at once. For best performance, we recommend batches of up to 500." },
-      { q: "What is the difference between ZIP and PDF export?", a: "ZIP gives you individual image files for each code, while PDF places them in a print-ready document with labels." },
-      { q: "Is my data stored?", a: "No, all generation happens in your browser session. Once you refresh or close the tab, the data is gone." }
+          {
+                "q": "How many QR codes can I generate at one time?",
+                "a": "You can comfortably generate batches of 100 to 500 QR codes in a single run. Since generation happens in your local browser, larger batches simply take a few extra seconds."
+          },
+          {
+                "q": "How should I format the input text for bulk generation?",
+                "a": "Simply place each URL, part number, or text string on its own separate line in the text box. The generator treats each line as a distinct QR code."
+          },
+          {
+                "q": "Can I download all generated QR codes in a single file?",
+                "a": "Yes. Clicking 'Download All as ZIP' bundles all generated PNG files into an organized ZIP archive with sequential filenames."
+          },
+          {
+                "q": "Do bulk-generated QR codes expire or have scan limits?",
+                "a": "No. All generated codes are static and direct. They will continue scanning indefinitely without scan caps or expiration dates."
+          },
+          {
+                "q": "What resolution are the downloaded QR code images?",
+                "a": "Codes are generated at high resolution (up to 1000x1000 pixels), ensuring sharp, clear print quality on stickers, badges, and posters."
+          },
+          {
+                "q": "Does Astonishbuddy store my list of ticket links or inventory numbers?",
+                "a": "No. The entire batch processing pipeline runs locally in your web browser. Your lists are never uploaded to any remote server or database."
+          }
     ],
-    keywords: ["bulk qr code generator", "generate multiple qr codes", "qr code batch generator", "create qr codes in bulk", "free qr generator online"]
+    keywords: ["bulk qr code generator","batch qr code creator","generate multiple qr codes","mass qr code download zip","qr code batch processing"]
   },
   "pdf-compressor": {
     id: "pdf-compressor",
     name: "PDF Compressor",
-    shortIntro: "Looking for a free PDF compressor online to reduce PDF file size without losing quality? This PDF compressor allows you to compress PDF files instantly while maintaining quality. You can reduce PDF size for email, upload, or storage purposes without installing any software. No login required — fast, secure, and completely free.",
+    shortIntro: "The Astonishbuddy PDF Compressor reduces large PDF document file sizes while preserving sharp typography, vector drawings, and visual clarity with 100% client-side security.",
     guideContent: (
-      <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
+<div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
         <p style={{ marginBottom: "16px" }}>
-          Easily compress large PDF files to smaller sizes for faster sharing and uploads. This tool helps you reduce PDF file size online without compromising readability.
-        </p>
-        <p style={{ marginBottom: "16px" }}>
-          Perfect for students, professionals, and businesses.
+          Portable Document Format (PDF) files are the standard for legal contracts, academic papers, tax filings, invoices, and corporate presentations. However, high-resolution scanned pages and embedded uncompressed graphics often bloat PDF files to 20MB, 50MB, or more—exceeding strict email attachment limits and job application portal caps. Our PDF Compressor solves this problem by shrinking PDF sizes directly in your browser.
         </p>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          How to Compress PDF Online
+          How Client-Side PDF Compression Operates
+        </h3>
+        <p style={{ marginBottom: "16px" }}>
+          Unlike standard online PDF utilities that require you to upload confidential legal or financial paperwork to unknown cloud servers, Astonishbuddy runs WebAssembly (WASM) PDF optimization directly inside your browser. The engine performs several sophisticated optimizations:
+        </p>
+        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Stream Deflation (FlateDecode):</strong> Re-compresses uncompressed internal PDF content streams and structural trees using optimal zlib/deflate compression.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Image Downsampling & Re-Encoding:</strong> Detects heavy 300+ DPI scanned images within the document and scales them to a crisp, web-optimized 150 DPI while preserving text clarity.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Metadata & Font Pruning:</strong> Strips redundant font subsets, unreferenced objects, and document modification history.</li>
+        </ul>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Step-by-Step Usage Guide
         </h3>
         <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li style={{ marginBottom: "10px" }}>Upload your PDF file</li>
-          <li style={{ marginBottom: "10px" }}>Click on "Compress PDF"</li>
-          <li style={{ marginBottom: "10px" }}>Wait for processing</li>
-          <li style={{ marginBottom: "10px" }}>Download the compressed file</li>
+          <li style={{ marginBottom: "8px" }}>Select or drag and drop your PDF document into the upload area.</li>
+          <li style={{ marginBottom: "8px" }}>Select your desired compression intensity (Standard is recommended for general documents; High for large scanned files).</li>
+          <li style={{ marginBottom: "8px" }}>Wait a moment while the local WebAssembly engine processes the document pages.</li>
+          <li style={{ marginBottom: "8px" }}>Inspect the file size savings and click Download Compressed PDF.</li>
         </ol>
+
+        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
+          Practical Worked Examples
+        </h3>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Scanned Real Estate Lease Agreement</strong></p>
         <p style={{ marginBottom: "16px" }}>
-          The tool compresses PDF files quickly and securely in your browser.
+          A 12-page scanned contract measuring 18.4 MB is compressed using adaptive image downsampling. The output file drops to 2.1 MB (88% reduction), making it effortless to send via standard email attachment limits (typically 25 MB).
         </p>
-
-        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Why Use This PDF Compressor?
-        </h3>
-        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li style={{ marginBottom: "8px" }}>Reduce PDF file size instantly</li>
-          <li style={{ marginBottom: "8px" }}>Maintain document quality</li>
-          <li style={{ marginBottom: "8px" }}>No login or signup required</li>
-          <li style={{ marginBottom: "8px" }}>Free and unlimited usage</li>
-          <li style={{ marginBottom: "8px" }}>Works on all devices</li>
-        </ul>
-
-        <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          What is PDF Compression?
-        </h3>
-        <p style={{ marginBottom: "12px" }}>
-          PDF compression is the process of reducing the file size of a PDF document while keeping its content readable. It removes unnecessary data and optimizes images inside the PDF.
-        </p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Academic Research Thesis with Charts</strong></p>
         <p style={{ marginBottom: "16px" }}>
-          Compressed PDFs are easier to share, upload, and store.
+          A 45-page document with vector charts and text measuring 9.5 MB is compressed to 3.2 MB while maintaining 100% crisp vector line rendering for professional printing.
         </p>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Use Cases
+          Tips and Common Mistakes
         </h3>
         <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li style={{ marginBottom: "8px" }}>Email attachments</li>
-          <li style={{ marginBottom: "8px" }}>Website uploads</li>
-          <li style={{ marginBottom: "8px" }}>Document sharing</li>
-          <li style={{ marginBottom: "8px" }}>Storage optimization</li>
-          <li style={{ marginBottom: "8px" }}>Business and academic use</li>
+          <li style={{ marginBottom: "8px" }}>Documents containing only digital text (no scanned images) are already compact; expect modest 5% to 20% size reductions on pure text PDFs.</li>
+          <li style={{ marginBottom: "8px" }}>Always inspect the downloaded PDF to ensure digital signatures and form fields remain intact before submitting to official institutions.</li>
         </ul>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Features
+          Uncompromised Confidentiality and Security
         </h3>
-        <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li style={{ marginBottom: "8px" }}>Fast PDF compression</li>
-          <li style={{ marginBottom: "8px" }}>Maintain quality output</li>
-          <li style={{ marginBottom: "8px" }}>Works in browser (no installation)</li>
-          <li style={{ marginBottom: "8px" }}>Secure processing</li>
-          <li style={{ marginBottom: "8px" }}>Simple and user-friendly interface</li>
-        </ul>
+        <p style={{ marginBottom: "16px" }}>
+          We understand that PDF files frequently contain highly sensitive personal records, tax returns, bank statements, and legal agreements. <strong>Your files are never uploaded to any server.</strong> All parsing, re-compression, and generation happen 100% inside your browser&apos;s isolated sandbox.
+        </p>
       </div>
     ),
     faqs: [
-      { q: "Is the PDF compressor completely free?", a: "Yes, 100% free with no hidden charges, no sign-up, and no file limits per session." },
-      { q: "Is my PDF safe to compress online?", a: "Absolutely. All processing happens locally inside your browser. Your file is never uploaded to any server." },
-      { q: "Why didn't the file size reduce much?", a: "PDFs that are already optimized or contain mostly text have little room for further reduction. The tool removes redundant data, but highly efficient PDFs may not see a significant size change." },
-      { q: "Can I compress encrypted PDFs?", a: "Our tool attempts to process encrypted PDFs, but some security restrictions may prevent modification. Try removing the password first if possible." },
-      { q: "What is the maximum file size I can compress?", a: "You can compress PDF files up to 100 MB using our free online tool." }
+          {
+                "q": "How does browser-based PDF compression work without uploading files?",
+                "a": "Our tool runs modern WebAssembly (WASM) compiled libraries directly inside your web browser thread, processing PDF stream structures locally on your device hardware."
+          },
+          {
+                "q": "Will compressing a PDF make the text blurry or unreadable?",
+                "a": "No. Vector text and fonts are preserved at 100% original sharpness. Only oversized embedded raster images are optimized to balance visual quality and file size."
+          },
+          {
+                "q": "Is it safe to compress confidential legal, tax, or medical documents?",
+                "a": "Yes, completely safe. Because the file is processed locally in your browser memory and never uploaded to any cloud server, third parties cannot access your sensitive data."
+          },
+          {
+                "q": "Why do some PDF files compress by 80% while others only compress by 10%?",
+                "a": "PDFs containing high-resolution scanned camera photos compress dramatically (70-90%). PDFs containing primarily digital text and vector graphics are already compact."
+          },
+          {
+                "q": "Can I compress password-protected or encrypted PDF documents?",
+                "a": "For security reasons, password-protected PDFs must first have their password removed before client-side optimization algorithms can parse internal content streams."
+          },
+          {
+                "q": "Are there any file size limits or daily usage limits?",
+                "a": "No. Because our servers do not handle processing, there are no artificial file size caps, cooldown periods, or paid restrictions."
+          }
     ],
-    keywords: ["pdf compressor", "compress pdf online", "reduce pdf size", "free pdf compressor", "compress pdf without losing quality"]
+    keywords: ["pdf compressor online","reduce pdf size free","compress pdf without losing quality","compress pdf client side","secure pdf compressor"]
   },
   "image-quality-enhancer": {
     id: "image-quality-enhancer",

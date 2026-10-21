@@ -28,27 +28,32 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.astonishbuddy.com"),
 
   title: {
-    default: "Astonishbuddy",
+    default: "Astonishbuddy | Free Online Developer & Productivity Tools",
     template: "%s | Astonishbuddy",
   },
 
   description:
-    "A collection of free online tools: image compressor, text case converter, password generator, JSON formatter, word counter, and QR code generator.",
-
-  keywords:
-    "free online tools, image compressor, text converter, password generator, JSON formatter, word counter, QR code generator",
-
-  alternates: {
-    canonical: "/", // 👈 homepage canonical
-  },
+    "Free, fast, and secure online browser tools: image compressor, PDF tools, code formatters, converters, and generators. 100% private with no sign-up required.",
 
   openGraph: {
-    title: "Astonishbuddy",
+    title: "Astonishbuddy | Free Online Developer & Productivity Tools",
     description:
-      "Free online tools for image compression, text conversion, password generation and more.",
-    url: "https://www.astonishbuddy.com",
+      "Free, fast, and secure online browser tools: image compressor, PDF tools, code formatters, converters, and generators. 100% private with no sign-up required.",
     siteName: "Astonishbuddy",
     type: "website",
+    locale: "en_US",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

@@ -54,6 +54,29 @@ export default function Footer() {
               <li><Link href="/contact" style={linkStyle} onMouseEnter={(e) => e.currentTarget.style.color = "var(--text-primary)"} onMouseLeave={(e) => e.currentTarget.style.color = "inherit"}>Contact Us</Link></li>
               <li><Link href="/privacy-policy" style={linkStyle} onMouseEnter={(e) => e.currentTarget.style.color = "var(--text-primary)"} onMouseLeave={(e) => e.currentTarget.style.color = "inherit"}>Privacy Policy</Link></li>
               <li><Link href="/terms-and-conditions" style={linkStyle} onMouseEnter={(e) => e.currentTarget.style.color = "var(--text-primary)"} onMouseLeave={(e) => e.currentTarget.style.color = "inherit"}>Terms & Conditions</Link></li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (typeof window !== "undefined") {
+                      window.dispatchEvent(new Event("open-cookie-settings"));
+                    }
+                  }}
+                  style={{
+                    ...linkStyle,
+                    background: "none",
+                    border: "none",
+                    padding: 0,
+                    font: "inherit",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}
+                >
+                  Cookie Settings
+                </button>
+              </li>
             </ul>
           </div>
           <div style={{ flex: "1 1 200px" }}>
@@ -82,7 +105,7 @@ export default function Footer() {
             textAlign: "center",
           }}
         >
-          <p>©2026 AstonishBuddy, All rights reserved. Most tools process data directly in your browser or on our secure servers. We do not store your files or personal data.</p>
+          <p>©2026 AstonishBuddy. All rights reserved. Fast, secure, and private online tools that process files directly in your web browser. We never store or sell your files or personal data.</p>
         </div>
       </div>
     </footer>
