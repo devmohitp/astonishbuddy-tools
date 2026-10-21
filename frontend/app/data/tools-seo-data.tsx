@@ -18,23 +18,24 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
   "image-compressor": {
     id: "image-compressor",
     name: "Image Compressor",
-    shortIntro: "Astonishbuddy Image Compressor provides fast, lossless and visually lossless image compression directly in your web browser. Optimize JPEG, PNG, and WebP images without uploading your private photos to third-party cloud servers. Achieve dramatic file size reductions while preserving sharp text, vibrant color gamuts, and fine photographic textures.",
+    shortIntro: "Astonishbuddy Image Compressor provides fast, high-quality client-side image compression directly in your web browser. Optimize JPEG, PNG, and WebP images without uploading your private photos to third-party cloud servers. Achieve dramatic file size reductions while preserving sharp text, vibrant color gamuts, and fine photographic textures.",
     guideContent: (
 <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
         <p style={{ marginBottom: "16px" }}>
-          Images account for over 60% of total web page weight on modern websites. High-resolution photos captured on modern smartphones frequently exceed 4 to 8 megabytes each, causing sluggish page load speeds, high mobile bandwidth consumption, and lower search engine rankings. Our Image Compressor enables web developers, content creators, ecommerce managers, and students to dramatically shrink image file sizes without noticeable visual degradation.
+          Images often account for a significant portion of total web page weight on modern websites. High-resolution photos captured on modern smartphones frequently exceed 4 to 8 megabytes each, causing sluggish page load speeds, high mobile bandwidth consumption, and lower search engine rankings. Our Image Compressor enables web developers, content creators, ecommerce managers, and students to dramatically shrink image file sizes without noticeable visual degradation.
         </p>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
           How Browser-Based Image Compression Works
         </h3>
         <p style={{ marginBottom: "16px" }}>
-          Unlike traditional online compressors that force you to upload your files to remote cloud storage, Astonishbuddy leverages HTML5 Canvas and native browser rendering engines. When you select an image, our client-side algorithms decode the pixel data into memory and apply intelligent quantization:
+          Unlike traditional online compressors that upload your files to remote cloud servers, Astonishbuddy runs client-side image compression directly inside your web browser using HTML5 Canvas and Web Workers:
         </p>
         <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Chroma Subsampling:</strong> Human vision is significantly more sensitive to brightness variations than color nuances. The compressor selectively compresses color channels (YCbCr) while preserving luminance details.</li>
-          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Metadata Stripping:</strong> Unnecessary camera EXIF tags, GPS geotags, thumbnail caches, and date stamps are safely stripped out, often shedding 20KB to 100KB per image instantly.</li>
-          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Quantization Optimization:</strong> Discrete Cosine Transform (DCT) coefficients are tuned to discard high-frequency noise that is imperceptible to the naked eye.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Background Web Worker Processing:</strong> The image file is decoded and processed inside a dedicated browser Web Worker thread, keeping the main interface responsive without freezing.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Resolution Dimension Capping:</strong> Extremely large images are constrained to a maximum width or height of 4096px, downscaling excessive pixel counts that cause unnecessary bloat while preserving sharp visual detail.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Quality-Controlled Canvas Re-Encoding:</strong> The image is drawn onto an in-memory canvas and re-encoded using the browser&apos;s native image encoder at your selected quality percentage (from 10% to 100%).</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Metadata Stripping:</strong> Because the graphic is redrawn and exported as a new image blob, extraneous EXIF metadata, camera settings, and geolocation tags are automatically omitted.</li>
         </ul>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
@@ -48,15 +49,18 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
         </ol>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Practical Worked Examples
+          Illustrative Worked Examples
         </h3>
+        <p style={{ marginBottom: "16px", fontSize: "14px", fontStyle: "italic", color: "var(--text-muted)" }}>
+          Note: The following examples are illustrative benchmarks. Actual compression ratios vary depending on original image dimensions, format, and complexity.
+        </p>
         <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: High-Res Smartphone Photograph</strong></p>
         <p style={{ marginBottom: "16px" }}>
-          An uncompressed JPEG photo taken with a 48MP smartphone camera measures 5.2 MB (5,452,595 bytes). Compressing at 82% quality strips 48 KB of EXIF metadata and optimizes quantization, resulting in a 680 KB file (87% size reduction) that looks identical on desktop monitors and mobile retina screens.
+          An illustrative JPEG photo taken with a smartphone camera measuring 5.2 MB. Compressing at 80% quality re-encodes the image and omits camera EXIF tags, resulting in an estimated ~680 KB file (~87% size reduction) that looks clear on desktop and mobile screens.
         </p>
-        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Transparent PNG Website Logo</strong></p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Transparent PNG Website Graphic</strong></p>
         <p style={{ marginBottom: "16px" }}>
-          A 24-bit transparent PNG graphic measuring 920 KB is compressed using adaptive color indexing and transparency preservation. The output file size drops to 142 KB with crisp alpha-channel edges and zero color banding.
+          An illustrative transparent PNG graphic measuring 920 KB compressed at 80% quality produces a significantly smaller file size while preserving alpha transparency and crisp edges.
         </p>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
@@ -79,7 +83,7 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
     faqs: [
           {
                 "q": "How does browser-based image compression preserve visual quality?",
-                "a": "Browser-based compression uses mathematical psycho-visual algorithms that focus size reduction on high-frequency noise and subtle color variations that human eyes cannot distinguish, preserving sharp edges, text contrast, and accurate exposure."
+                "a": "Our tool renders your image onto an in-memory HTML5 Canvas within a background Web Worker. It resizes any dimensions exceeding 4096px down to standard limits and uses the browser's native canvas image encoder at your selected quality percentage to balance byte savings against compression artifacts."
           },
           {
                 "q": "Can I compress transparent PNG images without turning the background black?",
@@ -95,7 +99,7 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
           },
           {
                 "q": "Does this tool have file size or daily upload limits?",
-                "a": "No. Because all compression tasks are executed locally on your device rather than our servers, there are zero arbitrary file size limits, no cooldown timers, and no paid subscriptions."
+                "a": "You can compress single images up to 100 MB directly in your browser. This 100 MB limit protects browser memory and prevents crashes during client-side canvas decoding. There are no daily usage limits, cooldown timers, or subscriptions."
           },
           {
                 "q": "Can I compress images on my iPhone, iPad, or Android phone?",
@@ -120,8 +124,8 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
         <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
           <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>UPPERCASE:</strong> Converts every alphabetical character to capital letters. Ideal for acronyms, legal disclaimers, and urgent warning banners.</li>
           <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>lowercase:</strong> Converts all characters to small letters. Commonly used for email addresses, URL paths, and CSS selectors.</li>
-          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Title Case:</strong> Capitalizes the initial letter of major words while keeping minor prepositions, conjunctions, and articles in lowercase (following Chicago and AP editorial standards).</li>
-          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Sentence case:</strong> Capitalizes only the first letter of each sentence and proper nouns, resetting accidental all-caps blocks back to readable narrative text.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Title Case:</strong> Capitalizes the initial letter of each word across your text.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Sentence case:</strong> Capitalizes only the first letter of each sentence, resetting accidental all-caps blocks back to readable narrative text.</li>
           <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>camelCase & PascalCase:</strong> Removes whitespace and capitalizes words for JavaScript object properties, methods, and TypeScript classes.</li>
           <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>snake_case & kebab-case:</strong> Replaces spaces with underscores or hyphens for database schemas, REST API endpoints, and slug URLs.</li>
         </ul>
@@ -130,15 +134,17 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
           Step-by-Step Usage Guide
         </h3>
         <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li style={{ marginBottom: "8px" }}>Type or paste your text into the main input textarea.</li>
-          <li style={{ marginBottom: "8px" }}>Click your desired transformation button (e.g., Title Case, Sentence case, or camelCase).</li>
-          <li style={{ marginBottom: "8px" }}>Inspect the converted text in real time in the output display.</li>
-          <li style={{ marginBottom: "8px" }}>Click the Copy button to immediately save the converted text to your system clipboard.</li>
+          <li style={{ marginBottom: "8px" }}>Type or paste your text into the input textarea (word and character counters update in real time).</li>
+          <li style={{ marginBottom: "8px" }}>Review all converted formats (UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case, etc.) generated simultaneously below.</li>
+          <li style={{ marginBottom: "8px" }}>Click the Copy button next to any format to save it directly to your system clipboard.</li>
         </ol>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Practical Worked Examples
+          Illustrative Worked Examples
         </h3>
+        <p style={{ marginBottom: "16px", fontSize: "14px", fontStyle: "italic", color: "var(--text-muted)" }}>
+          Note: The following examples are illustrative text transformations.
+        </p>
         <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Accidental Caps Lock Recovery</strong></p>
         <p style={{ marginBottom: "16px" }}>
           <em>Input:</em> &quot;THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG. WE MUST PROCEED IMMEDIATELY.&quot;<br />
@@ -171,7 +177,7 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
     faqs: [
           {
                 "q": "What is the key difference between Title Case and Sentence case?",
-                "a": "Title Case capitalizes the first letter of every major word (nouns, verbs, adjectives) while leaving minor words in lowercase. Sentence case capitalizes only the very first letter of each sentence and proper nouns."
+                "a": "Title Case capitalizes the initial letter of every word, while Sentence case capitalizes only the first letter of each sentence and converts the remainder to lowercase."
           },
           {
                 "q": "How do camelCase, PascalCase, and snake_case differ for programmers?",
@@ -186,8 +192,8 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
                 "a": "Because processing happens directly on your device hardware, you can easily convert documents containing tens of thousands of words without lag or limitations."
           },
           {
-                "q": "Can I convert text back if I choose the wrong casing button?",
-                "a": "Yes. You can click any other transformation button at any time, or click Reset/Undo to restore your initial input text."
+                "q": "Will converting cases alter my original input text?",
+                "a": "No. Your original input text remains untouched in the input box. All converted formats appear simultaneously below with independent copy buttons, so your starting text is never lost."
           },
           {
                 "q": "Does Astonishbuddy store or log any confidential text pasted into the tool?",
@@ -212,6 +218,9 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
         <p style={{ marginBottom: "16px" }}>
           Password strength is measured in bits of entropy—a mathematical calculation of how many guesses an attacker would need to exhaust all possible combinations. A 16-character password combining uppercase letters, lowercase letters, numbers, and symbols contains approximately 105 bits of entropy. At billions of guesses per second, a supercomputer would require hundreds of trillions of years to brute-force this search space.
         </p>
+        <p style={{ marginBottom: "16px" }}>
+          Unlike standard pseudo-random number generators (PRNGs) like JavaScript&apos;s <code style={{ color: "var(--accent-1)" }}>Math.random()</code>—which use deterministic mathematical formulas based on an internal clock seed that can be reverse-engineered—our tool uses the Web Crypto API (<code style={{ color: "var(--accent-1)" }}>window.crypto.getRandomValues</code>). This cryptographically secure PRNG (CSPRNG) accesses non-deterministic hardware entropy from operating system kernel events, guaranteeing statistical unpredictability.
+        </p>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
           Step-by-Step Usage Guide
@@ -224,18 +233,21 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
         </ol>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Practical Worked Examples
+          Illustrative Worked Examples
         </h3>
+        <p style={{ marginBottom: "16px", fontSize: "14px", fontStyle: "italic", color: "var(--text-muted)" }}>
+          Note: The following examples are illustrative samples generated using cryptographically secure random values.
+        </p>
         <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: High-Security Vault Master Password (20 Characters)</strong></p>
         <p style={{ marginBottom: "16px" }}>
           <em>Settings:</em> Length 20, Uppercase + Lowercase + Numbers + Symbols.<br />
-          <em>Generated Sample:</em> <code style={{ color: "var(--accent-1)" }}>k9#mP$2vL!8xQ@4zR*7w</code><br />
+          <em>Generated Sample:</em> <code style={{ color: "var(--accent-1)" }}>k9#mP$2vL!8xQ@4zR*7w</code> <span style={{ color: "#f87171", fontSize: "13px", fontWeight: 600 }}>(Sample only — don&apos;t use this)</span><br />
           <em>Entropy:</em> ~131 bits. Resists all modern GPU-accelerated hash clusters indefinitely.
         </p>
         <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Alphanumeric Mobile-Friendly Passcode (14 Characters)</strong></p>
         <p style={{ marginBottom: "16px" }}>
           <em>Settings:</em> Length 14, Uppercase + Lowercase + Numbers, Ambiguous characters excluded.<br />
-          <em>Generated Sample:</em> <code style={{ color: "var(--accent-1)" }}>h7K9m3P2w8R4t6</code><br />
+          <em>Generated Sample:</em> <code style={{ color: "var(--accent-1)" }}>h7K9m3P2w8R4t6</code> <span style={{ color: "#f87171", fontSize: "13px", fontWeight: 600 }}>(Sample only — don&apos;t use this)</span><br />
           <em>Entropy:</em> ~83 bits. Excellent for accounts requiring on-screen touch typing.
         </p>
 
@@ -258,8 +270,8 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
     ),
     faqs: [
           {
-                "q": "What makes a password cryptographically secure?",
-                "a": "Cryptographic security requires non-deterministic entropy. Unlike standard pseudo-random number generators that can be predicted, the browser's Web Crypto API draws entropy directly from underlying operating system hardware events."
+                "q": "What makes a password cryptographically secure compared to Math.random()?",
+                "a": "Standard pseudo-random number generators (PRNGs) like JavaScript's Math.random() use deterministic formulas seeded by clock times, making them vulnerable to prediction. In contrast, our tool uses the Web Crypto API (window.crypto.getRandomValues), a CSPRNG that draws non-deterministic physical entropy directly from operating system kernel events."
           },
           {
                 "q": "How long should my passwords be in 2026?",
@@ -314,8 +326,11 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
         </ol>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Practical Worked Examples
+          Illustrative Worked Examples
         </h3>
+        <p style={{ marginBottom: "16px", fontSize: "14px", fontStyle: "italic", color: "var(--text-muted)" }}>
+          Note: The following examples are illustrative JSON payload formatting demonstrations.
+        </p>
         <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Minified API Response to Beautified Hierarchy</strong></p>
         <p style={{ marginBottom: "8px" }}><em>Raw Input:</em></p>
         <pre style={{ background: "rgba(255,255,255,0.05)", padding: "12px", borderRadius: "8px", overflowX: "auto" }}>
@@ -397,7 +412,7 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
         <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
           <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Word & Character Counts:</strong> Accurately tallies total words, characters with spaces, and characters excluding whitespace.</li>
           <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Sentence & Paragraph Structure:</strong> Tracks structural pacing to help you maintain concise, readable sentence lengths.</li>
-          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Reading & Speaking Time Estimates:</strong> Calculates estimated silent reading time (based on average 225 words per minute) and public speaking time (based on average 135 words per minute).</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Reading & Speaking Time Estimates:</strong> Calculates estimated silent reading time (based on 200–225 words per minute) and public speaking time (based on average 135 words per minute).</li>
         </ul>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
@@ -411,8 +426,11 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
         </ol>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Practical Worked Examples
+          Illustrative Worked Examples
         </h3>
+        <p style={{ marginBottom: "16px", fontSize: "14px", fontStyle: "italic", color: "var(--text-muted)" }}>
+          Note: The following examples are illustrative writing and speech pacing benchmarks.
+        </p>
         <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Social Media Character Optimization</strong></p>
         <p style={{ marginBottom: "16px" }}>
           When crafting an X (Twitter) post with a 280-character maximum, or a Google Ads headline with a 30-character limit, our character counter ensures your message fits precisely without awkward truncation.
@@ -441,7 +459,7 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
     faqs: [
           {
                 "q": "How is the estimated reading time calculated?",
-                "a": "Reading time is calculated using an industry-standard benchmark of 225 words per minute, which represents the average silent reading speed of an adult reader."
+                "a": "Reading time is calculated using an industry-standard benchmark of 200 to 225 words per minute, which represents the average silent reading speed of an adult reader."
           },
           {
                 "q": "Why is speaking time slower than reading time?",
@@ -469,7 +487,7 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
   "qr-generator": {
     id: "qr-generator",
     name: "QR Code Generator",
-    shortIntro: "The Astonishbuddy Free QR Code Generator creates high-resolution, customizable QR codes for website URLs, contact vCards, Wi-Fi credentials, and plain text. Download crisp SVG and PNG vector codes instantly with zero expiration dates or scan limits.",
+    shortIntro: "The Astonishbuddy Free QR Code Generator creates high-resolution, customizable QR codes for website URLs, contact vCards, Wi-Fi credentials, and plain text. Download crisp PNG codes instantly with zero expiration dates or scan limits.",
     guideContent: (
 <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
         <p style={{ marginBottom: "16px" }}>
@@ -493,12 +511,15 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
           <li style={{ marginBottom: "8px" }}>Select the QR code category (URL, Text, Wi-Fi, or Contact).</li>
           <li style={{ marginBottom: "8px" }}>Enter your destination link or information into the designated field.</li>
           <li style={{ marginBottom: "8px" }}>Customize your desired resolution and error correction level.</li>
-          <li style={{ marginBottom: "8px" }}>Review the real-time preview, test scan with your smartphone camera, and click Download PNG or SVG.</li>
+          <li style={{ marginBottom: "8px" }}>Review the real-time preview, test scan with your smartphone camera, and click Download PNG.</li>
         </ol>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Practical Worked Examples
+          Illustrative Worked Examples
         </h3>
+        <p style={{ marginBottom: "16px", fontSize: "14px", fontStyle: "italic", color: "var(--text-muted)" }}>
+          Note: The following examples are illustrative QR code encoding scenarios.
+        </p>
         <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Business Card Landing Page QR Code</strong></p>
         <p style={{ marginBottom: "16px" }}>
           Encoding <code style={{ color: "var(--accent-1)" }}>https://www.astonishbuddy.com/about</code> with High error correction (Level H). Even if the business card gets slightly scratched or smudged in a wallet, the Reed-Solomon redundancy ensures immediate camera scanning.
@@ -535,8 +556,8 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
                 "a": "For business cards, billboards, or flyers where physical wear and tear may occur, choose Level Q (25% recovery) or Level H (30% recovery) for optimal resilience."
           },
           {
-                "q": "Can I download my QR code as a scalable vector graphic?",
-                "a": "Yes. You can download crisp, infinitely scalable SVG vector files suitable for professional billboard printing, or high-resolution PNG files for digital display."
+                "q": "Can I download my QR code in high resolution?",
+                "a": "Yes. You can download high-resolution PNG files suitable for print materials, signage, and digital display."
           },
           {
                 "q": "Why won't my smartphone camera scan my printed QR code?",
@@ -548,7 +569,7 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
           },
           {
                 "q": "Is the data I enter into the QR code logged on your servers?",
-                "a": "No. The QR matrix is generated directly in your browser using client-side canvas and vector rendering. Your links and text are never tracked or saved."
+                "a": "No. The QR code image is generated on demand and delivered directly to your session. Your links and text are never tracked or saved to a database."
           }
     ],
     keywords: ["qr code generator free","create custom qr code","qr code for wifi","static qr code creator","high resolution qr code"]
@@ -583,8 +604,11 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
         </ol>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Practical Worked Examples
+          Illustrative Worked Examples
         </h3>
+        <p style={{ marginBottom: "16px", fontSize: "14px", fontStyle: "italic", color: "var(--text-muted)" }}>
+          Note: The following examples are illustrative encoding and decoding workflows.
+        </p>
         <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Basic Authentication Encoding</strong></p>
         <p style={{ marginBottom: "16px" }}>
           <em>Plain Text Input:</em> <code style={{ color: "var(--accent-1)" }}>admin:MySecretPass2026</code><br />
@@ -669,8 +693,11 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
         </ol>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Practical Worked Examples
+          Illustrative Worked Examples
         </h3>
+        <p style={{ marginBottom: "16px", fontSize: "14px", fontStyle: "italic", color: "var(--text-muted)" }}>
+          Note: The following examples are illustrative percent-encoding test cases.
+        </p>
         <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Safe Query String Encoding</strong></p>
         <p style={{ marginBottom: "16px" }}>
           <em>Raw Input:</em> <code style={{ color: "var(--accent-1)" }}>https://example.com/search?q=web tools &amp; utilities 100%</code><br />
@@ -729,7 +756,7 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
   "lorem-ipsum-generator": {
     id: "lorem-ipsum-generator",
     name: "Lorem Ipsum Generator",
-    shortIntro: "The Astonishbuddy Lorem Ipsum Generator creates customized dummy placeholder text for web designers, graphic artists, and developers. Generate paragraphs, sentences, or word counts instantly to populate mockups and wireframes.",
+    shortIntro: "The Astonishbuddy Lorem Ipsum Generator creates customized dummy placeholder text for web designers, graphic artists, and developers. Generate customized paragraphs of dummy placeholder text instantly to populate mockups and wireframes.",
     guideContent: (
 <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
         <p style={{ marginBottom: "16px" }}>
@@ -747,15 +774,18 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
           Step-by-Step Usage Guide
         </h3>
         <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li style={{ marginBottom: "8px" }}>Select whether you wish to generate by Paragraphs, Sentences, or Words.</li>
+          <li style={{ marginBottom: "8px" }}>Select the number of paragraphs you need generated.</li>
           <li style={{ marginBottom: "8px" }}>Enter your desired quantity (e.g., 3 paragraphs or 50 words).</li>
-          <li style={{ marginBottom: "8px" }}>Toggle whether to start the text with the traditional &quot;Lorem ipsum dolor sit amet...&quot; opening phrase.</li>
+          <li style={{ marginBottom: "8px" }}>Review the real-time preview of the classic Cicero Latin passages.</li>
           <li style={{ marginBottom: "8px" }}>Click Generate, then click Copy to transfer the mock text directly into Figma, Sketch, or your code editor.</li>
         </ol>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Practical Worked Examples
+          Illustrative Worked Examples
         </h3>
+        <p style={{ marginBottom: "16px", fontSize: "14px", fontStyle: "italic", color: "var(--text-muted)" }}>
+          Note: The following examples are illustrative typography layout tests.
+        </p>
         <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Blog Card Excerpt (25 Words)</strong></p>
         <p style={{ marginBottom: "16px" }}>
           <em>Output:</em> &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.&quot;
@@ -795,12 +825,8 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
                 "a": "Yes. The text is in the public domain and is completely free to use in personal, educational, and commercial designs without licensing or attribution."
           },
           {
-                "q": "Can I choose the exact number of words or paragraphs?",
-                "a": "Yes. You can specify exact counts for words, sentences, or full paragraphs to fit any card, sidebar, modal, or layout container."
-          },
-          {
-                "q": "Why do some generators not start with 'Lorem ipsum dolor sit amet'?",
-                "a": "Our generator provides a toggle allowing you to choose whether or not to include the standard opening phrase, depending on whether you prefer variety across multiple mock cards."
+                "q": "Can I choose the exact number of paragraphs?",
+                "a": "Yes. You can select your desired paragraph count to generate the exact volume of placeholder text needed for your mockups."
           },
           {
                 "q": "Does Astonishbuddy store any information when I use this tool?",
@@ -837,8 +863,11 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
         </ol>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Practical Worked Examples
+          Illustrative Worked Examples
         </h3>
+        <p style={{ marginBottom: "16px", fontSize: "14px", fontStyle: "italic", color: "var(--text-muted)" }}>
+          Note: The following examples are illustrative random number selections.
+        </p>
         <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Unbiased Raffle Winner Selection</strong></p>
         <p style={{ marginBottom: "16px" }}>
           A community giveaway has 350 registered participants numbered 1 through 350. Setting Min: 1, Max: 350, Quantity: 1 produces a completely fair, unmanipulated winning ticket number.
@@ -895,7 +924,7 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
   "text-sorter": {
     id: "text-sorter",
     name: "Text Sorter",
-    shortIntro: "The Astonishbuddy Text Sorter organizes text lines alphabetically (A-Z or Z-A), numerically, or by length, and removes duplicate lines instantly with complete client-side security.",
+    shortIntro: "The Astonishbuddy Text Sorter organizes text lines alphabetically (A-Z or Z-A) or by length, supports line and word modes, reverses, shuffles, and removes duplicate lines instantly with complete client-side security.",
     guideContent: (
 <div style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: 1.9 }}>
         <p style={{ marginBottom: "16px" }}>
@@ -906,10 +935,10 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
           Key Sorting Modes and Capabilities
         </h3>
         <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Alphabetical Sort (A to Z):</strong> Arranges lines in standard alphabetical order according to localized dictionary rules.</li>
-          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Reverse Alphabetical (Z to A):</strong> Inverts the alphabetical order immediately.</li>
-          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Natural Numerical Sort:</strong> Intelligently sorts numbers and mixed strings naturally (so &quot;Item 2&quot; appears before &quot;Item 10&quot;).</li>
-          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Instant Deduplication:</strong> Identifies and purges duplicate lines, leaving a clean, unique dataset in one click.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Alphabetical Sort (A to Z &amp; Z to A):</strong> Arranges lines or words in standard or reverse alphabetical order.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Sort by Length:</strong> Orders lines or words from shortest to longest.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Line &amp; Word Modes:</strong> Toggle between sorting line-by-line or sorting individual space-separated words.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Deduplication &amp; Utilities:</strong> Remove duplicate items, reverse the list order, or randomize order with Shuffle in one click.</li>
         </ul>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
@@ -917,14 +946,17 @@ export const toolsSEOData: Record<string, ToolSEOData> = {
         </h3>
         <ol style={{ paddingLeft: "24px", marginBottom: "16px" }}>
           <li style={{ marginBottom: "8px" }}>Paste your unorganized list into the input box, with each item on a separate line.</li>
-          <li style={{ marginBottom: "8px" }}>Select your desired sorting order (Alphabetical A-Z, Z-A, or Numerical).</li>
-          <li style={{ marginBottom: "8px" }}>Optionally check &quot;Remove Duplicates&quot; or &quot;Trim Whitespace&quot;.</li>
+          <li style={{ marginBottom: "8px" }}>Choose whether to sort in Line Mode or Word Mode, then select your sorting order (A to Z, Z to A, or By Length).</li>
+          <li style={{ marginBottom: "8px" }}>Optionally click &quot;No Duplicates&quot;, &quot;Reverse List&quot;, or &quot;Shuffle&quot; to modify your dataset.</li>
           <li style={{ marginBottom: "8px" }}>Review the sorted result in the output panel and click Copy to Clipboard.</li>
         </ol>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Practical Worked Examples
+          Illustrative Worked Examples
         </h3>
+        <p style={{ marginBottom: "16px", fontSize: "14px", fontStyle: "italic", color: "var(--text-muted)" }}>
+          Note: The following examples are illustrative list organization cases.
+        </p>
         <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Deduplicating and Sorting an Email List</strong></p>
         <p style={{ marginBottom: "8px" }}><em>Raw Input:</em></p>
         <pre style={{ background: "rgba(255,255,255,0.05)", padding: "12px", borderRadius: "8px" }}>
@@ -945,7 +977,7 @@ zach@test.org
           Tips for Accurate Sorting
         </h3>
         <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li style={{ marginBottom: "8px" }}>Enable &quot;Trim Whitespace&quot; to prevent accidental leading spaces from causing lines to sort to the very top.</li>
+          <li style={{ marginBottom: "8px" }}>Empty lines and excess blank spaces are automatically filtered out during sorting.</li>
           <li style={{ marginBottom: "8px" }}>For case-sensitive sorting, uppercase letters standardly precede lowercase letters in ASCII order.</li>
         </ul>
 
@@ -959,8 +991,8 @@ zach@test.org
     ),
     faqs: [
           {
-                "q": "What is the difference between alphabetical sort and natural sort?",
-                "a": "Standard alphabetical sort treats numbers as characters, placing 'item 10' before 'item 2'. Natural sort recognizes numbers, placing 'item 2' correctly before 'item 10'."
+                "q": "What is the difference between Line Mode and Word Mode?",
+                "a": "Line Mode treats each newline as an independent list item, whereas Word Mode splits your text by whitespace to sort individual words."
           },
           {
                 "q": "How does the deduplication feature work?",
@@ -1015,8 +1047,11 @@ zach@test.org
         </ol>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Practical Worked Examples
+          Illustrative Worked Examples
         </h3>
+        <p style={{ marginBottom: "16px", fontSize: "14px", fontStyle: "italic", color: "var(--text-muted)" }}>
+          Note: The following examples are illustrative color translations.
+        </p>
         <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Converting Brand Indigo</strong></p>
         <p style={{ marginBottom: "16px" }}>
           <em>HEX:</em> <code style={{ color: "var(--accent-1)" }}>#6366f1</code><br />
@@ -1086,7 +1121,7 @@ zach@test.org
           Key Features for High-Volume Production
         </h3>
         <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Instant Batch Generation:</strong> Paste line-separated links or upload a CSV file to render hundreds of QR codes simultaneously.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Instant Batch Generation:</strong> Paste line-separated links or identifiers to render multiple QR codes simultaneously.</li>
           <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Automated ZIP Packaging:</strong> Download all generated codes neatly organized in a single compressed ZIP folder, named sequentially or according to your input lines.</li>
           <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Printable PDF Layout:</strong> Export batch codes arranged in an organized grid ready for direct printing on standard label sheets.</li>
         </ul>
@@ -1102,8 +1137,11 @@ zach@test.org
         </ol>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Practical Worked Examples
+          Illustrative Worked Examples
         </h3>
+        <p style={{ marginBottom: "16px", fontSize: "14px", fontStyle: "italic", color: "var(--text-muted)" }}>
+          Note: The following examples are illustrative batch generation scenarios.
+        </p>
         <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Conference Attendance Badges</strong></p>
         <p style={{ marginBottom: "16px" }}>
           Paste 50 unique attendee check-in links (e.g., <code style={{ color: "var(--accent-1)" }}>https://event.com/checkin?id=101</code> through <code style={{ color: "var(--accent-1)" }}>https://event.com/checkin?id=150</code>). The tool generates 50 crisp PNG files packaged in a single ZIP file in under 3 seconds.
@@ -1171,12 +1209,12 @@ zach@test.org
           How Client-Side PDF Compression Operates
         </h3>
         <p style={{ marginBottom: "16px" }}>
-          Unlike standard online PDF utilities that require you to upload confidential legal or financial paperwork to unknown cloud servers, Astonishbuddy runs WebAssembly (WASM) PDF optimization directly inside your browser. The engine performs several sophisticated optimizations:
+          Unlike standard online PDF utilities that require you to upload confidential legal or financial paperwork to unknown cloud servers, Astonishbuddy runs client-side PDF rendering and reassembly directly inside your browser:
         </p>
         <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
-          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Stream Deflation (FlateDecode):</strong> Re-compresses uncompressed internal PDF content streams and structural trees using optimal zlib/deflate compression.</li>
-          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Image Downsampling & Re-Encoding:</strong> Detects heavy 300+ DPI scanned images within the document and scales them to a crisp, web-optimized 150 DPI while preserving text clarity.</li>
-          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Metadata & Font Pruning:</strong> Strips redundant font subsets, unreferenced objects, and document modification history.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Browser Canvas Rendering (pdf.js):</strong> Each page of your PDF document is rendered onto an offscreen HTML5 canvas using the high-performance pdf.js rendering engine at your selected scale factor.</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Targeted JPEG Compression:</strong> The rendered page canvas is re-encoded as an optimized JPEG image using your selected compression preset (Extreme, Recommended, or High Quality).</li>
+          <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Document Reassembly (pdf-lib):</strong> Each compressed page is embedded into a fresh, streamlined PDF document generated with pdf-lib and saved directly to your device without network transit.</li>
         </ul>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
@@ -1190,15 +1228,18 @@ zach@test.org
         </ol>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
-          Practical Worked Examples
+          Illustrative Worked Examples
         </h3>
-        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Scanned Real Estate Lease Agreement</strong></p>
-        <p style={{ marginBottom: "16px" }}>
-          A 12-page scanned contract measuring 18.4 MB is compressed using adaptive image downsampling. The output file drops to 2.1 MB (88% reduction), making it effortless to send via standard email attachment limits (typically 25 MB).
+        <p style={{ marginBottom: "16px", fontSize: "14px", fontStyle: "italic", color: "var(--text-muted)" }}>
+          Note: The following examples are illustrative benchmarks. Actual file size savings vary depending on page count, image resolution, and original document structure.
         </p>
-        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Academic Research Thesis with Charts</strong></p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Scanned Document Compression</strong></p>
         <p style={{ marginBottom: "16px" }}>
-          A 45-page document with vector charts and text measuring 9.5 MB is compressed to 3.2 MB while maintaining 100% crisp vector line rendering for professional printing.
+          A 12-page scanned document measuring 18.4 MB compressed using the Recommended preset re-renders pages onto canvas, dropping file size to ~2.1 MB (~88% reduction) for easy emailing.
+        </p>
+        <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Multi-Page Report</strong></p>
+        <p style={{ marginBottom: "16px" }}>
+          A 45-page presentation with figures measuring 9.5 MB compressed using the High Quality preset produces a compact ~3.2 MB output while preserving clear legibility.
         </p>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
@@ -1223,8 +1264,8 @@ zach@test.org
                 "a": "Our tool runs modern WebAssembly (WASM) compiled libraries directly inside your web browser thread, processing PDF stream structures locally on your device hardware."
           },
           {
-                "q": "Will compressing a PDF make the text blurry or unreadable?",
-                "a": "No. Vector text and fonts are preserved at 100% original sharpness. Only oversized embedded raster images are optimized to balance visual quality and file size."
+                "q": "Will compressing a PDF affect visual readability?",
+                "a": "Each page is re-rendered to canvas and encoded using your selected compression level. For optimal sharpness on documents containing fine text, choose the High Quality preset."
           },
           {
                 "q": "Is it safe to compress confidential legal, tax, or medical documents?",
@@ -1240,7 +1281,7 @@ zach@test.org
           },
           {
                 "q": "Are there any file size limits or daily usage limits?",
-                "a": "No. Because our servers do not handle processing, there are no artificial file size caps, cooldown periods, or paid restrictions."
+                "a": "You can upload PDF files up to 100 MB. This client-side limit ensures smooth browser rendering without running out of memory. There are no daily usage limits, page count restrictions, or paid tiers."
           }
     ],
     keywords: ["pdf compressor online","reduce pdf size free","compress pdf without losing quality","compress pdf client side","secure pdf compressor"]
@@ -1346,7 +1387,7 @@ zach@test.org
         <ul style={{ paddingLeft: "24px", marginBottom: "16px" }}>
           <li style={{ marginBottom: "8px" }}>PNG → JPG (reduce file size with white background fill)</li>
           <li style={{ marginBottom: "8px" }}>JPG → WebP (modern format for web optimization)</li>
-          <li style={{ marginBottom: "8px" }}>WebP → PNG (lossless quality output)</li>
+          <li style={{ marginBottom: "8px" }}>WebP → PNG (clean PNG format export)</li>
           <li style={{ marginBottom: "8px" }}>AVIF / BMP / GIF → any format</li>
           <li style={{ marginBottom: "8px" }}>Any image format → JPG, PNG, or WebP</li>
         </ul>
@@ -1652,7 +1693,7 @@ zach@test.org
           JWT (JSON Web Token) is a compact, URL-safe token format used for authentication and information exchange. This decoder lets you inspect any JWT token without needing a backend — decode the header and payload, verify expiry, and understand every claim.
         </p>
         <p style={{ marginBottom: "16px" }}>
-          All decoding happens locally in your browser using the Web Crypto API. Your token is never transmitted to any server, making this safe to use with real tokens during development and debugging.
+          All decoding happens locally in your browser using client-side base64url decoding and JSON parsing. Your token is never transmitted to any server, making this safe to use with real tokens during development and debugging.
         </p>
 
         <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>

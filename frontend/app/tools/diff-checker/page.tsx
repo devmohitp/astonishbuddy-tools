@@ -623,10 +623,10 @@ export default function DiffChecker() {
 
         <ToolSEO toolId="diff-checker" />
         <RelatedTools tools={[
-          { href: "/tools/markdown-converter", label: "Markdown Converter", icon: "FileEdit", desc: "Convert Markdown ↔ HTML with preview" },
+          { href: "/tools/markdown-converter", label: "Markdown Converter", icon: "📝", desc: "Convert Markdown ↔ HTML with preview" },
           { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format and validate JSON data" },
-          { href: "/tools/sql-formatter", label: "SQL Formatter", icon: "Database", desc: "Format and beautify SQL queries" },
-          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, characters, reading time" },
+          { href: "/tools/sql-formatter", label: "SQL Formatter", icon: "🗄️", desc: "Format and beautify SQL queries" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, characters, reading time" },
         ]} />
       </div>
     </main>

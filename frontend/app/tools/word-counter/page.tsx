@@ -47,8 +47,8 @@ export default function WordCounter() {
   };
 
   const statItems = [
-    { label: "Words", value: stats.words, icon: "FileEdit", color: "#10b981" },
-    { label: "Characters", value: stats.chars, icon: "Type", color: "#6c63ff" },
+    { label: "Words", value: stats.words, icon: "📝", color: "#10b981" },
+    { label: "Characters", value: stats.chars, icon: "🔤", color: "#6c63ff" },
     { label: "Chars (no spaces)", value: stats.charsNoSpaces, icon: "✂️", color: "#a855f7" },
     { label: "Sentences", value: stats.sentences, icon: ".", color: "#06b6d4" },
     { label: "Paragraphs", value: stats.paragraphs, icon: "¶", color: "#ec4899" },
@@ -158,7 +158,7 @@ export default function WordCounter() {
       <RelatedTools tools={[
         { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert text to UPPER, lower, Title case instantly" },
         { href: "/tools/text-sorter", label: "Text Sorter", icon: "\uD83D\uDCCB ", desc: "Sort and de-duplicate lines of text" },
-        { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "File", desc: "Generate placeholder text for designs" },
+        { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "📄", desc: "Generate placeholder text for designs" },
         { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format & validate JSON with syntax highlighting" },
       ]} />
       </div>

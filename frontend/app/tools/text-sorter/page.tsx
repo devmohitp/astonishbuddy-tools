@@ -150,9 +150,9 @@ export default function TextSorter() {
         </div>
         <ToolSEO toolId="text-sorter" />
         <RelatedTools tools={[
-          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, chars, reading time" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
           { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert text to any letter case" },
-          { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "File", desc: "Generate dummy text for designs" },
+          { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "📄", desc: "Generate dummy text for designs" },
           { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format & validate JSON data" },
         ]} />
       </div>

@@ -430,7 +430,7 @@ export default function UUIDGenerator() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "12px" }}>
             {[
               {
-                icon: "Lock",
+                icon: "🔐",
                 title: "Cryptographically Random",
                 desc: "UUID v4 uses 122 bits of randomness from crypto.randomUUID() \u2014collision probability is astronomically small.",
               },
@@ -479,10 +479,10 @@ export default function UUIDGenerator() {
 
         <ToolSEO toolId="uuid-generator" />
         <RelatedTools tools={[
-          { href: "/tools/password-generator", label: "Password Generator", icon: "Lock", desc: "Generate strong, secure passwords" },
-          { href: "/tools/random-number-generator", label: "Random Number", icon: "Dices", desc: "Generate random numbers in any range" },
+          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
+          { href: "/tools/random-number-generator", label: "Random Number", icon: "🎲", desc: "Generate random numbers in any range" },
           { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format and validate JSON data" },
-          { href: "/tools/sql-formatter", label: "SQL Formatter", icon: "Database", desc: "Format and beautify SQL queries" },
+          { href: "/tools/sql-formatter", label: "SQL Formatter", icon: "🗄️", desc: "Format and beautify SQL queries" },
         ]} />
       </div>
     </main>

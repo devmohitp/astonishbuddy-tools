@@ -115,9 +115,9 @@ export default function Base64ConverterClient() {
 
                 <ToolSEO toolId="base64-converter" />
                 <RelatedTools tools={[
-                    { href: "/tools/url-converter", label: "URL Encoder", icon: "Link", desc: "Encode and decode URLs" },
+                    { href: "/tools/url-converter", label: "URL Encoder", icon: "🔗", desc: "Encode and decode URLs" },
                     { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format and validate JSON data" },
-                    { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words and characters" },
+                    { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words and characters" },
                     { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert text case instantly" },
                 ]} />
             </div>

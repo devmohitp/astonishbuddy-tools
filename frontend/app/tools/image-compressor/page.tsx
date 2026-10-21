@@ -259,8 +259,8 @@ export default function ImageCompressor() {
         <RelatedTools tools={[
           { href: "/tools/qr-generator", label: "QR Code Generator", icon: "📱", desc: "Generate QR codes for any URL or text" },
           { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "🗂️", desc: "Create multiple QR codes at once" },
-          { href: "/tools/password-generator", label: "Password Generator", icon: "Lock", desc: "Generate strong, secure passwords" },
-          { href: "/tools/color-converter", label: "Color Converter", icon: "Palette", desc: "Convert between HEX, RGB, HSL" },
+          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
+          { href: "/tools/color-converter", label: "Color Converter", icon: "🎨", desc: "Convert between HEX, RGB, HSL" },
         ]} />
       </div>
       {loading && (

@@ -93,10 +93,10 @@ export default function LoremIpsumGenerator() {
         )}
         <ToolSEO toolId="lorem-ipsum-generator" />
         <RelatedTools tools={[
-          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, chars, reading time" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
           { href: "/tools/text-sorter", label: "Text Sorter", icon: "\uD83D\uDCCB ", desc: "Sort and de-duplicate lines" },
           { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert to UPPER, lower, Title case" },
-          { href: "/tools/password-generator", label: "Password Generator", icon: "Lock", desc: "Generate strong, secure passwords" },
+          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
         ]} />
       </div>
     </main>

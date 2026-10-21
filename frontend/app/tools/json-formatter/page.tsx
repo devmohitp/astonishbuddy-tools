@@ -186,9 +186,9 @@ export default function JSONFormatter() {
         </div>
         <ToolSEO toolId="json-formatter" />
         <RelatedTools tools={[
-          { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "RefreshCw", desc: "Encode/decode Base64 strings" },
-          { href: "/tools/url-converter", label: "URL Encoder", icon: "Link", desc: "Encode special characters in URLs" },
-          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, chars, reading time" },
+          { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "🔄", desc: "Encode/decode Base64 strings" },
+          { href: "/tools/url-converter", label: "URL Encoder", icon: "🔗", desc: "Encode special characters in URLs" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
           { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Transform letter casing instantly" },
         ]} />
       </div>

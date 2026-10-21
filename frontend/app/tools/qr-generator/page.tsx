@@ -231,9 +231,9 @@ export default function QRGenerator() {
       <ToolSEO toolId="qr-generator" />
       <RelatedTools tools={[
         { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "🗂️", desc: "Generate multiple QR codes at once" },
-        { href: "/tools/image-compressor", label: "Image Compressor", icon: "Image", desc: "Reduce image file sizes" },
-        { href: "/tools/password-generator", label: "Password Generator", icon: "Lock", desc: "Generate strong, secure passwords" },
-        { href: "/tools/color-converter", label: "Color Converter", icon: "Palette", desc: "Convert between HEX, RGB, HSL" },
+        { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file sizes" },
+        { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
+        { href: "/tools/color-converter", label: "Color Converter", icon: "🎨", desc: "Convert between HEX, RGB, HSL" },
       ]} />
       </div>
     </main>

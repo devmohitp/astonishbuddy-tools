@@ -457,10 +457,10 @@ export default function ImageQualityEnhancer() {
 
         <ToolSEO toolId="image-quality-enhancer" />
         <RelatedTools tools={[
-          { href: "/tools/image-compressor", label: "Image Compressor", icon: "Image", desc: "Reduce image file size without losing quality" },
-          { href: "/tools/pdf-compressor", label: "PDF Compressor", icon: "File", desc: "Compress PDF files instantly in browser" },
+          { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file size without losing quality" },
+          { href: "/tools/pdf-compressor", label: "PDF Compressor", icon: "📄", desc: "Compress PDF files instantly in browser" },
           { href: "/tools/qr-generator", label: "QR Code Generator", icon: "📱", desc: "Generate QR codes for any URL or text" },
-          { href: "/tools/color-converter", label: "Color Converter", icon: "Palette", desc: "Convert between HEX, RGB, HSL" },
+          { href: "/tools/color-converter", label: "Color Converter", icon: "🎨", desc: "Convert between HEX, RGB, HSL" },
         ]} />
       </div>
 

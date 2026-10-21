@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free Image Compressor: Reduce Image Size Without Loss",
+  title: "Free Image Compressor: Reduce Image Size Online",
   description: "Reduce JPG, PNG, and WebP image file sizes without noticeable quality loss. Fast client-side image compression in your browser with zero server uploads.",
   alternates: {
     canonical: "https://www.astonishbuddy.com/tools/image-compressor",
   },
   openGraph: {
-    title: "Free Image Compressor: Reduce Image Size Without Loss",
+    title: "Free Image Compressor: Reduce Image Size Online",
     description: "Reduce JPG, PNG, and WebP image file sizes without noticeable quality loss. Fast client-side image compression in your browser with zero server uploads.",
     url: "https://www.astonishbuddy.com/tools/image-compressor",
     siteName: "Astonishbuddy",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Image Compressor: Reduce Image Size Without Loss",
+    title: "Free Image Compressor: Reduce Image Size Online",
     description: "Reduce JPG, PNG, and WebP image file sizes without noticeable quality loss. Fast client-side image compression in your browser with zero server uploads.",
   },
 };

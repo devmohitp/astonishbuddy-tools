@@ -379,9 +379,9 @@ export default function JWTDecoder() {
 
         <ToolSEO toolId="jwt-decoder" />
         <RelatedTools tools={[
-          { href: "/tools/password-generator", label: "Password Generator", icon: "Lock", desc: "Generate cryptographically secure passwords" },
-          { href: "/tools/uuid-generator", label: "UUID Generator", icon: "Key", desc: "Generate UUID v4 in bulk" },
-          { href: "/tools/base64-converter", label: "Base64 Converter", icon: "RefreshCw", desc: "Encode/decode Base64 strings" },
+          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate cryptographically secure passwords" },
+          { href: "/tools/uuid-generator", label: "UUID Generator", icon: "🔑", desc: "Generate UUID v4 in bulk" },
+          { href: "/tools/base64-converter", label: "Base64 Converter", icon: "🔄", desc: "Encode/decode Base64 strings" },
           { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format and validate JSON data" },
         ]} />
       </div>

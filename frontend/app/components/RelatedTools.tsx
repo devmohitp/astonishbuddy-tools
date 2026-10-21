@@ -1,4 +1,6 @@
 import Link from "next/link";
+import React from "react";
+import * as Lucide from "lucide-react";
 
 export interface RelatedTool {
   href: string;
@@ -9,6 +11,75 @@ export interface RelatedTool {
 
 interface RelatedToolsProps {
   tools: RelatedTool[];
+}
+
+function renderToolIcon(iconStr: string) {
+  if (!iconStr) return null;
+
+  // Check if iconStr is a Lucide component name (e.g. FileDigit, RefreshCw, Dices, Lock, Palette, etc.)
+  const LucideIcon = (Lucide as unknown as Record<string, React.ComponentType<{ size?: number; style?: React.CSSProperties }>>)[iconStr];
+  if (LucideIcon && typeof LucideIcon === "function") {
+    return (
+      <div
+        style={{
+          width: "36px",
+          height: "36px",
+          borderRadius: "10px",
+          background: "rgba(108, 99, 255, 0.12)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexShrink: 0,
+        }}
+      >
+        <LucideIcon size={20} style={{ color: "var(--accent-1)" }} />
+      </div>
+    );
+  }
+
+  // Handle "{ }" code icon notation
+  if (iconStr.trim() === "{ }") {
+    return (
+      <div
+        style={{
+          width: "36px",
+          height: "36px",
+          borderRadius: "10px",
+          background: "rgba(108, 99, 255, 0.12)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexShrink: 0,
+          fontFamily: "monospace",
+          fontWeight: 700,
+          fontSize: "13px",
+          color: "var(--accent-1)",
+        }}
+      >
+        &#123; &#125;
+      </div>
+    );
+  }
+
+  // Handle standard emoji or unicode character
+  return (
+    <div
+      style={{
+        width: "36px",
+        height: "36px",
+        borderRadius: "10px",
+        background: "rgba(255, 255, 255, 0.05)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "20px",
+        lineHeight: 1,
+        flexShrink: 0,
+      }}
+    >
+      {iconStr}
+    </div>
+  );
 }
 
 export default function RelatedTools({ tools }: RelatedToolsProps) {
@@ -67,7 +138,7 @@ export default function RelatedTools({ tools }: RelatedToolsProps) {
               (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
             }}
           >
-            <span style={{ fontSize: "22px", lineHeight: 1, flexShrink: 0 }}>{tool.icon}</span>
+            {renderToolIcon(tool.icon)}
             <div>
               <div
                 style={{

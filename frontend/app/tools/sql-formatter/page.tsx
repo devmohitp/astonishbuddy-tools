@@ -745,9 +745,9 @@ export default function SQLFormatter() {
         <ToolSEO toolId="sql-formatter" />
         <RelatedTools tools={[
           { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format, validate & minify JSON" },
-          { href: "/tools/base64-converter", label: "Base64 Converter", icon: "RefreshCw", desc: "Encode/decode Base64 strings" },
-          { href: "/tools/url-converter", label: "URL Encoder", icon: "Link", desc: "Encode special characters in URLs" },
-          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, characters, reading time" },
+          { href: "/tools/base64-converter", label: "Base64 Converter", icon: "🔄", desc: "Encode/decode Base64 strings" },
+          { href: "/tools/url-converter", label: "URL Encoder", icon: "🔗", desc: "Encode special characters in URLs" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, characters, reading time" },
         ]} />
       </div>
     </main>

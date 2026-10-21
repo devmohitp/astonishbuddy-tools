@@ -48,10 +48,25 @@ export default function PasswordGenerator() {
     }
     if (!chars) return;
     const generated: string[] = [];
+    const getCryptoRandomIndex = (max: number): number => {
+      if (typeof window !== "undefined" && window.crypto?.getRandomValues) {
+        const maxUint32 = 0xffffffff;
+        const limit = maxUint32 - (maxUint32 % max);
+        const buffer = new Uint32Array(1);
+        let rand: number;
+        do {
+          window.crypto.getRandomValues(buffer);
+          rand = buffer[0];
+        } while (rand >= limit);
+        return rand % max;
+      }
+      return Math.floor(Math.random() * max);
+    };
+
     for (let n = 0; n < count; n++) {
       let pwd = "";
       for (let i = 0; i < length; i++) {
-        pwd += chars.charAt(Math.floor(Math.random() * chars.length));
+        pwd += chars.charAt(getCryptoRandomIndex(chars.length));
       }
       generated.push(pwd);
     }
@@ -160,9 +175,9 @@ export default function PasswordGenerator() {
         )}
         <ToolSEO toolId="password-generator" />
         <RelatedTools tools={[
-          { href: "/tools/random-number-generator", label: "Random Number Generator", icon: "Dices", desc: "Generate random numbers in any range" },
-          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, chars, reading time" },
-          { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "RefreshCw", desc: "Encode/decode Base64 strings" },
+          { href: "/tools/random-number-generator", label: "Random Number Generator", icon: "🎲", desc: "Generate random numbers in any range" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
+          { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "🔄", desc: "Encode/decode Base64 strings" },
           { href: "/tools/qr-generator", label: "QR Code Generator", icon: "📱", desc: "Generate QR codes for any URL or text" },
         ]} />
       </div>

@@ -137,10 +137,10 @@ export default function RandomNumberGenerator() {
         )}
         <ToolSEO toolId="random-number-generator" />
         <RelatedTools tools={[
-          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, chars, reading time" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
           { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert letter casing" },
-          { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "File", desc: "Generate placeholder text" },
-          { href: "/tools/password-generator", label: "Password Generator", icon: "Lock", desc: "Generate strong, secure passwords" },
+          { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "📄", desc: "Generate placeholder text" },
+          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
         ]} />
       </div>
     </main>

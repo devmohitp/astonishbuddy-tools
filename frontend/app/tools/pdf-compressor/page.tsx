@@ -562,25 +562,25 @@ export default function PDFCompressor() {
             {
               href: "/tools/image-compressor",
               label: "Image Compressor",
-              icon: "Image",
+              icon: "🖼️",
               desc: "Reduce image file size without losing quality",
             },
             {
               href: "/tools/bulk-qrcode-generator",
               label: "Bulk QR Generator",
-              icon: "QrCode",
+              icon: "📱",
               desc: "Create hundreds of QR codes at once",
             },
             {
               href: "/tools/password-generator",
               label: "Password Generator",
-              icon: "Lock",
+              icon: "🔐",
               desc: "Generate strong, secure passwords",
             },
             {
               href: "/tools/base64-converter",
               label: "Base64 Converter",
-              icon: "RefreshCw",
+              icon: "🔄",
               desc: "Encode and decode Base64 data",
             },
           ]}

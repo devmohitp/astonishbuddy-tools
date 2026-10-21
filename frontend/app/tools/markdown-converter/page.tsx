@@ -659,9 +659,9 @@ export default function MarkdownConverter() {
         <ToolSEO toolId="markdown-converter" />
         <RelatedTools tools={[
           { href: "/tools/json-formatter", label: "JSON Formatter", icon: "{ }", desc: "Format and validate JSON data" },
-          { href: "/tools/sql-formatter", label: "SQL Formatter", icon: "Database", desc: "Format and beautify SQL queries" },
-          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, characters, reading time" },
-          { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "Type", desc: "Transform text casing instantly" },
+          { href: "/tools/sql-formatter", label: "SQL Formatter", icon: "🗄️", desc: "Format and beautify SQL queries" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, characters, reading time" },
+          { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔤", desc: "Transform text casing instantly" },
         ]} />
       </div>
     </main>

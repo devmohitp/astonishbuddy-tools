@@ -138,10 +138,10 @@ export default function TextCaseConverter() {
         )}
         <ToolSEO toolId="text-case-converter" />
         <RelatedTools tools={[
-          { href: "/tools/word-counter", label: "Word Counter", icon: "FileDigit", desc: "Count words, chars, reading time" },
+          { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
           { href: "/tools/text-sorter", label: "Text Sorter", icon: "\uD83D\uDCCB ", desc: "Sort and de-duplicate lines of text" },
-          { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "File", desc: "Generate placeholder text" },
-          { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "RefreshCw", desc: "Encode/decode Base64 strings" },
+          { href: "/tools/lorem-ipsum-generator", label: "Lorem Ipsum Generator", icon: "📄", desc: "Generate placeholder text" },
+          { href: "/tools/base64-converter", label: "Base64 Encoder", icon: "🔄", desc: "Encode/decode Base64 strings" },
         ]} />
       </div>
     </main>

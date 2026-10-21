@@ -690,12 +690,12 @@ export default function BulkImageConverter() {
             </p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "12px" }}>
               {[
-                { icon: "Image", title: "Convert Any Format", desc: "PNG, JPG, WebP, AVIF, BMP, GIF → any format" },
+                { icon: "🖼️", title: "Convert Any Format", desc: "PNG, JPG, WebP, AVIF, BMP, GIF → any format" },
                 { icon: "📦", title: "Bulk ZIP Download", desc: "Convert dozens of files and get them in one ZIP" },
                 { icon: "📐", title: "Resize on Convert", desc: "Set max width/height while converting" },
                 { icon: "🔒", title: "100% Private", desc: "All processing happens in your browser. No uploads." },
                 { icon: "⚡", title: "Fast & Free", desc: "No signup, no watermark, no limits" },
-                { icon: "Palette", title: "Quality Control", desc: "Adjust quality for JPG and WebP output" },
+                { icon: "🎨", title: "Quality Control", desc: "Adjust quality for JPG and WebP output" },
               ].map((f) => (
                 <div key={f.title} style={{
                   padding: "14px", borderRadius: "12px",
@@ -712,10 +712,10 @@ export default function BulkImageConverter() {
 
         <ToolSEO toolId="bulk-image-converter" />
         <RelatedTools tools={[
-          { href: "/tools/image-compressor", label: "Image Compressor", icon: "Image", desc: "Reduce image file size without losing quality" },
-          { href: "/tools/image-quality-enhancer", label: "Image Quality Enhancer", icon: "Sparkles", desc: "Upscale & sharpen images online" },
-          { href: "/tools/pdf-compressor", label: "PDF Compressor", icon: "File", desc: "Compress PDF files instantly" },
-          { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "QrCode", desc: "Generate hundreds of QR codes" },
+          { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file size without losing quality" },
+          { href: "/tools/image-quality-enhancer", label: "Image Quality Enhancer", icon: "✨", desc: "Upscale & sharpen images online" },
+          { href: "/tools/pdf-compressor", label: "PDF Compressor", icon: "📄", desc: "Compress PDF files instantly" },
+          { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "📱", desc: "Generate hundreds of QR codes" },
         ]} />
       </div>
     </main>
