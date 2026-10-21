@@ -23,6 +23,8 @@ const slugImageMap: Record<string, string> = {
     "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=85",
   "url-encoder-decoder-guide":
     "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&q=85",
+  "url-encoder-decoder":
+    "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&q=85",
   "lorem-ipsum-generator-guide":
     "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=85",
   "random-number-generator-guide":

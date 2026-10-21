@@ -561,7 +561,7 @@ export default function Home() {
                   accentText: "#fbbf24",
                   tools: [
                     { name: "Word Counter", href: "/tools/word-counter" },
-                    { name: "Case Converter", href: "/tools/case-converter" },
+                    { name: "Case Converter", href: "/tools/text-case-converter" },
                     { name: "Text Sorter", href: "/tools/text-sorter" },
                     { name: "Lorem Ipsum", href: "/tools/lorem-ipsum-generator" },
                     { name: "Markdown Converter", href: "/tools/markdown-converter" },
@@ -590,10 +590,10 @@ export default function Home() {
                   accentText: "#34d399",
                   tools: [
                     { name: "QR Generator", href: "/tools/qr-generator" },
-                    { name: "Base64 Converter", href: "/tools/base64-encoder" },
-                    { name: "URL Converter", href: "/tools/url-encoder-decoder" },
+                    { name: "Base64 Converter", href: "/tools/base64-converter" },
+                    { name: "URL Converter", href: "/tools/url-converter" },
                     { name: "Random Number", href: "/tools/random-number-generator" },
-                    { name: "Color Converter", href: "/tools/color-code-converter" },
+                    { name: "Color Converter", href: "/tools/color-converter" },
                   ],
                 },
               ].map((cat) => (

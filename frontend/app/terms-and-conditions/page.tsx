@@ -198,13 +198,7 @@ export default function TermsAndConditions() {
               }}
             >
               <p style={{ margin: "0 0 8px 0" }}>
-                <strong>Support Email:</strong>{" "}
-                <a href="mailto:astonishbuddy@gmail.com" style={{ color: "var(--accent-1)", textDecoration: "none", fontWeight: 600 }}>
-                  astonishbuddy@gmail.com
-                </a>
-              </p>
-              <p style={{ margin: "0 0 8px 0" }}>
-                <strong>Business Email : </strong>{" "}
+                <strong>Contact Email: </strong>{" "}
                 <a href="mailto:astonishbuddy@gmail.com" style={{ color: "var(--accent-1)", textDecoration: "none", fontWeight: 600 }}>
                   astonishbuddy@gmail.com
                 </a>

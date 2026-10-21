@@ -53,6 +53,7 @@ const nextConfig: NextConfig = {
         destination: "https://www.astonishbuddy.com/:path*",
         permanent: true,
       },
+      // Blog Slug Redirects
       {
         source: "/blog/the-ultimate-guide-to-image-compression-reduce-file-size-without-losing-quality-give-me-1500-words-for-post",
         destination: "/blog/image-compression-guide",
@@ -66,6 +67,38 @@ const nextConfig: NextConfig = {
       {
         source: "/blog/base64-encoding",
         destination: "/blog/base64-encoder-decoder-guide",
+        permanent: true,
+      },
+      {
+        source: "/blog/url-encoder-decoder-guide",
+        destination: "/blog/url-encoder-decoder",
+        permanent: true,
+      },
+
+      // Old Tool URL Redirects (301 Permanent - Google Search Console 404 Fixes)
+      {
+        source: "/tools/color-code-converter",
+        destination: "/tools/color-converter",
+        permanent: true,
+      },
+      {
+        source: "/tools/url-encoder-decoder",
+        destination: "/tools/url-converter",
+        permanent: true,
+      },
+      {
+        source: "/tools/case-converter",
+        destination: "/tools/text-case-converter",
+        permanent: true,
+      },
+      {
+        source: "/tools/base64-encoder",
+        destination: "/tools/base64-converter",
+        permanent: true,
+      },
+      {
+        source: "/tools/base64-encoder-decoder",
+        destination: "/tools/base64-converter",
         permanent: true,
       },
     ];

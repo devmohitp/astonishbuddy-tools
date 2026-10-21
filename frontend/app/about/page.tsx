@@ -110,7 +110,6 @@ export default function About() {
             <p style={{ marginBottom: "14px" }}>
               Astonishbuddy is founded, developed, and maintained by{" "}
               <strong style={{ color: "var(--text-primary)" }}>
-                {/* TODO: Fill in your full name here (e.g. Mohit Patel) */}
                 Mohit Patel, Founder & Lead Developer
               </strong>
               , A web developer passionate about building fast, reliable web applications and exploring new technologies.
