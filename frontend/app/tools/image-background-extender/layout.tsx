@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Image Extender: Uncrop & Outpaint Photos Online Free",
-  description: "Extend photo backgrounds to 16:9, 4:5, or custom aspect ratios. Free online AI uncrop tool that processes images directly in your browser for privacy.",
+  title: "Image Background Extender: Expand Canvas & Photo Margins Free",
+  description: "Extend photo backgrounds to 16:9, 4:5, or custom aspect ratios using edge mirroring, blur expansion, or color gradients. Free browser-based uncrop tool.",
   alternates: {
-    canonical: "https://www.astonishbuddy.com/tools/ai-image-extender",
+    canonical: "https://www.astonishbuddy.com/tools/image-background-extender",
   },
   openGraph: {
-    title: "AI Image Extender: Uncrop & Outpaint Photos Online Free",
-    description: "Extend photo backgrounds to 16:9, 4:5, or custom aspect ratios. Free online AI uncrop tool that processes images directly in your browser for privacy.",
-    url: "https://www.astonishbuddy.com/tools/ai-image-extender",
+    title: "Image Background Extender: Expand Canvas & Photo Margins Free",
+    description: "Extend photo backgrounds to 16:9, 4:5, or custom aspect ratios using edge mirroring, blur expansion, or color gradients. Free browser-based uncrop tool.",
+    url: "https://www.astonishbuddy.com/tools/image-background-extender",
     siteName: "Astonishbuddy",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Image Extender: Uncrop & Outpaint Photos Online Free",
-    description: "Extend photo backgrounds to 16:9, 4:5, or custom aspect ratios. Free online AI uncrop tool that processes images directly in your browser for privacy.",
+    title: "Image Background Extender: Expand Canvas & Photo Margins Free",
+    description: "Extend photo backgrounds to 16:9, 4:5, or custom aspect ratios using edge mirroring, blur expansion, or color gradients. Free browser-based uncrop tool.",
   },
 };
 
@@ -40,8 +40,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {
         "@type": "ListItem",
         position: 3,
-        name: "AI Image Extender",
-        item: "https://www.astonishbuddy.com/tools/ai-image-extender",
+        name: "Image Background Extender",
+        item: "https://www.astonishbuddy.com/tools/image-background-extender",
       },
     ],
   };
@@ -49,8 +49,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const webAppSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "AI Image Extender",
-    url: "https://www.astonishbuddy.com/tools/ai-image-extender",
+    name: "Image Background Extender",
+    url: "https://www.astonishbuddy.com/tools/image-background-extender",
     applicationCategory: "UtilitiesApplication",
     operatingSystem: "All",
     browserRequirements: "Requires JavaScript. Requires HTML5.",
@@ -59,7 +59,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       price: "0",
       priceCurrency: "USD",
     },
-    description: "Extend photo backgrounds to 16:9, 4:5, or custom aspect ratios. Free online AI uncrop tool that processes images directly in your browser for privacy.",
+    description: "Extend photo backgrounds to 16:9, 4:5, or custom aspect ratios using edge mirroring, blur expansion, or color gradients. Free browser-based uncrop tool.",
   };
 
   return (

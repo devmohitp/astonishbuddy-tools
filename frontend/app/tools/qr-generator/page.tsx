@@ -3,6 +3,7 @@ import * as Lucide from "lucide-react";
 import { useState, useRef } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import QRCode from "qrcode";
 
 const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
 const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
@@ -10,27 +11,35 @@ const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 const API_BASE = "/api";
 
 const ECC_OPTIONS = [
-  { value: "L", label: "L \u2013Low (7%)", desc: "Best for clean environments" },
-  { value: "M", label: "M \u2013Medium (15%)", desc: "Good default choice" },
-  { value: "Q", label: "Q \u2013Quartile (25%)", desc: "Better error recovery" },
-  { value: "H", label: "H \u2013High (30%)", desc: "Best for logos overlay" },
+  { value: "L", label: "L – Low (7%)", desc: "Best for clean environments" },
+  { value: "M", label: "M – Medium (15%)", desc: "Standard default choice" },
+  { value: "Q", label: "Q – Quartile (25%)", desc: "Better error recovery" },
+  { value: "H", label: "H – High (30%)", desc: "Highest durability / logo overlay" },
+];
+
+const PRESETS = [
+  { label: "URL", value: "https://example.com", icon: "🌐" },
+  { label: "Email", value: "mailto:hello@example.com", icon: "📧" },
+  { label: "Phone", value: "tel:+1234567890", icon: "📱" },
+  { label: "WiFi", value: "WIFI:T:WPA;S:NetworkName;P:Password;;", icon: "📶" },
 ];
 
 export default function QRGenerator() {
   const [text, setText] = useState("");
   const [size, setSize] = useState(300);
-  const [ecc, setEcc] = useState("M");
+  const [ecc, setEcc] = useState<"L" | "M" | "Q" | "H">("M");
   const [darkColor, setDarkColor] = useState("#000000");
   const [lightColor, setLightColor] = useState("#ffffff");
   const [qrCode, setQrCode] = useState<string | null>(null);
+  const [qrSvg, setQrSvg] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const handlePaste = async () => {
     try {
-      const text = await navigator.clipboard.readText();
-      setText((prev) => prev + text);
+      const clipText = await navigator.clipboard.readText();
+      setText((prev) => prev + clipText);
       textareaRef.current?.focus();
     } catch (err) {
       console.error("Failed to read clipboard:", err);
@@ -41,23 +50,44 @@ export default function QRGenerator() {
     if (!text.trim()) return;
     setLoading(true);
     setError("");
+
     try {
-      const res = await fetch(`${API_BASE}/generate-qr`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, size, errorCorrectionLevel: ecc, darkColor, lightColor }),
+      // 100% Client-side generation using qrcode package
+      const pngUrl = await QRCode.toDataURL(text, {
+        width: size,
+        errorCorrectionLevel: ecc,
+        color: { dark: darkColor, light: lightColor },
       });
-      const data = await res.json();
-      if (!res.ok || !data.success) throw new Error(data.error || "Generation failed");
-      setQrCode(data.qrCode);
-    } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : "Failed. Is the backend server running?");
+
+      const svgString = await QRCode.toString(text, {
+        type: "svg",
+        width: size,
+        errorCorrectionLevel: ecc,
+        color: { dark: darkColor, light: lightColor },
+      });
+
+      setQrCode(pngUrl);
+      setQrSvg(svgString);
+    } catch {
+      // Fallback to server endpoint if client-side canvas encounters restrictions
+      try {
+        const res = await fetch(`${API_BASE}/generate-qr`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text, size, errorCorrectionLevel: ecc, darkColor, lightColor }),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.success) throw new Error(data.error || "Generation failed");
+        setQrCode(data.qrCode);
+      } catch (err: unknown) {
+        setError(err instanceof Error ? err.message : "Failed to generate QR code.");
+      }
     } finally {
       setLoading(false);
     }
   };
 
-  const download = () => {
+  const downloadPNG = () => {
     if (!qrCode) return;
     const link = document.createElement("a");
     link.href = qrCode;
@@ -65,12 +95,16 @@ export default function QRGenerator() {
     link.click();
   };
 
-  const presets = [
-    { label: "URL", value: "https://example.com", icon: "🌐" },
-    { label: "Email", value: "mailto:hello@example.com", icon: "📧" },
-    { label: "Phone", value: "tel:+1234567890", icon: "📱" },
-    { label: "WiFi", value: "WIFI:T:WPA;S:NetworkName;P:Password;;", icon: "📶" },
-  ];
+  const downloadSVG = () => {
+    if (!qrSvg) return;
+    const blob = new Blob([qrSvg], { type: "image/svg+xml;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "qrcode.svg";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <main style={{ minHeight: "100vh", background: "var(--bg-primary)" }}>
@@ -87,13 +121,13 @@ export default function QRGenerator() {
                 border: "1px solid #f59e0b33",
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px",
               }}
-            ><Lucide.QrCode size={24} style={{ color: "#f59e0b22" }} /></div>
+            ><Lucide.QrCode size={24} style={{ color: "#f59e0b" }} /></div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
                 Free QR Code Generator Online - Create QR Codes Instantly
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
-                Generate customizable QR codes for any text or URL
+                Generate customizable QR codes with PNG and SVG download directly in your browser
               </p>
             </div>
           </div>
@@ -104,27 +138,36 @@ export default function QRGenerator() {
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             {/* Text Input */}
             <div className="tool-section">
-              <span className="label">Text / URL</span>
-              <textarea
-                ref={textareaRef}
-                className="input-field"
-                placeholder="Enter URL, text, email, phone..."
-                style={{ minHeight: "100px", fontFamily: "inherit", resize: "vertical" }}
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-              />
-              <div style={{ display: "flex", gap: "8px", marginTop: "10px", flexWrap: "wrap" }}>
-                <button className="btn-secondary" style={{ fontSize: "12px", padding: "6px 12px" }} onClick={handlePaste}><Lucide.Clipboard size={14} style={{ marginRight: "6px" }} />Paste</button>
-                {presets.map((p) => (
+              <span className="label">Type Tabs & Content</span>
+              <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
+                {PRESETS.map((p) => (
                   <button
                     key={p.label}
+                    type="button"
                     className="btn-secondary"
-                    style={{ fontSize: "12px", padding: "6px 12px" }}
+                    style={{ fontSize: "12px", padding: "6px 14px", borderRadius: "8px" }}
                     onClick={() => setText(p.value)}
                   >
                     {p.icon} {p.label}
                   </button>
                 ))}
+              </div>
+
+              <textarea
+                ref={textareaRef}
+                className="input-field"
+                placeholder="Enter URL, text, email, phone, or WiFi credentials..."
+                style={{ minHeight: "100px", fontFamily: "inherit", resize: "vertical" }}
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+              />
+              <div style={{ display: "flex", gap: "8px", marginTop: "10px", flexWrap: "wrap" }}>
+                <button className="btn-secondary" style={{ fontSize: "12px", padding: "6px 12px" }} onClick={handlePaste}>
+                  <Lucide.Clipboard size={14} style={{ marginRight: "6px" }} />Paste
+                </button>
+                <button className="btn-secondary" style={{ fontSize: "12px", padding: "6px 12px" }} onClick={() => setText("")}>
+                  Clear
+                </button>
               </div>
             </div>
 
@@ -151,7 +194,7 @@ export default function QRGenerator() {
                       display: "flex", alignItems: "flex-start", gap: "8px",
                     }}
                   >
-                    <input type="radio" value={opt.value} checked={ecc === opt.value} onChange={() => setEcc(opt.value)} style={{ marginTop: "2px", accentColor: "#f59e0b" }} />
+                    <input type="radio" value={opt.value} checked={ecc === opt.value} onChange={() => setEcc(opt.value as any)} style={{ marginTop: "2px", accentColor: "#f59e0b" }} />
                     <div>
                       <div style={{ fontSize: "13px", fontWeight: 600, color: ecc === opt.value ? "#fbbf24" : "var(--text-primary)" }}>{opt.label}</div>
                       <div style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "2px" }}>{opt.desc}</div>
@@ -214,11 +257,18 @@ export default function QRGenerator() {
             </h3>
             {qrCode ? (
               <div className="animate-fade-in">
-                <img src={qrCode} alt="QR Code" style={{ width: "100%", maxWidth: "280px", borderRadius: "12px" }} />
-                <div className="divider" />
-                <button className="btn-primary" onClick={download} style={{ width: "100%", justifyContent: "center" }}>
-                  ⬇️ Download PNG
-                </button>
+                <img src={qrCode} alt="QR Code" style={{ width: "100%", maxWidth: "280px", borderRadius: "12px", margin: "0 auto", display: "block" }} />
+                <div className="divider" style={{ margin: "20px 0" }} />
+                <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                  <button className="btn-primary" onClick={downloadPNG} style={{ width: "100%", justifyContent: "center" }}>
+                    ⬇️ Download PNG
+                  </button>
+                  {qrSvg && (
+                    <button className="btn-secondary" onClick={downloadSVG} style={{ width: "100%", justifyContent: "center" }}>
+                      ⬇️ Download SVG
+                    </button>
+                  )}
+                </div>
               </div>
             ) : (
               <div style={{ padding: "60px 20px", color: "var(--text-muted)" }}>
@@ -228,13 +278,13 @@ export default function QRGenerator() {
             )}
           </div>
         </div>
-      <ToolSEO toolId="qr-generator" />
-      <RelatedTools tools={[
-        { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "🗂️", desc: "Generate multiple QR codes at once" },
-        { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file sizes" },
-        { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
-        { href: "/tools/color-converter", label: "Color Converter", icon: "🎨", desc: "Convert between HEX, RGB, HSL" },
-      ]} />
+        <ToolSEO toolId="qr-generator" />
+        <RelatedTools tools={[
+          { href: "/tools/bulk-qrcode-generator", label: "Bulk QR Generator", icon: "🗂️", desc: "Generate multiple QR codes at once" },
+          { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file sizes" },
+          { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
+          { href: "/tools/color-converter", label: "Color Converter", icon: "🎨", desc: "Convert between HEX, RGB, HSL" },
+        ]} />
       </div>
     </main>
   );

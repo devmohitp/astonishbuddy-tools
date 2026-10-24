@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import * as Lucide from "lucide-react";
@@ -13,12 +14,32 @@ interface RelatedToolsProps {
   tools: RelatedTool[];
 }
 
+const ICON_FALLBACKS: Record<string, string> = {
+  RefreshCw: "🔄",
+  FileDigit: "🔢",
+  Link: "🔗",
+  Lock: "🔐",
+  Dices: "🎲",
+  Palette: "🎨",
+  Image: "🖼️",
+  File: "📄",
+  Key: "🔑",
+  Database: "🗄️",
+  FileEdit: "📝",
+  Type: "🔤",
+  Sparkles: "✨",
+  QrCode: "📱",
+  Code: "💻",
+  FileText: "📄",
+  Binary: "🔢",
+};
+
 function renderToolIcon(iconStr: string) {
   if (!iconStr) return null;
 
   // Check if iconStr is a Lucide component name (e.g. FileDigit, RefreshCw, Dices, Lock, Palette, etc.)
   const LucideIcon = (Lucide as unknown as Record<string, React.ComponentType<{ size?: number; style?: React.CSSProperties }>>)[iconStr];
-  if (LucideIcon && typeof LucideIcon === "function") {
+  if (LucideIcon && (typeof LucideIcon === "function" || (typeof LucideIcon === "object" && LucideIcon !== null))) {
     return (
       <div
         style={{
@@ -61,7 +82,33 @@ function renderToolIcon(iconStr: string) {
     );
   }
 
-  // Handle standard emoji or unicode character
+  // Handle known icon name fallback
+  const fallbackEmoji = ICON_FALLBACKS[iconStr];
+  if (fallbackEmoji) {
+    return (
+      <div
+        style={{
+          width: "36px",
+          height: "36px",
+          borderRadius: "10px",
+          background: "rgba(255, 255, 255, 0.05)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: "20px",
+          lineHeight: 1,
+          flexShrink: 0,
+        }}
+      >
+        {fallbackEmoji}
+      </div>
+    );
+  }
+
+  // If iconStr looks like an identifier/word (e.g. RefreshCw), never display raw text
+  const isWordIdentifier = /^[A-Za-z0-9_-]{2,}$/.test(iconStr.trim());
+  const displayChar = isWordIdentifier ? "🛠️" : iconStr;
+
   return (
     <div
       style={{
@@ -77,7 +124,7 @@ function renderToolIcon(iconStr: string) {
         flexShrink: 0,
       }}
     >
-      {iconStr}
+      {displayChar}
     </div>
   );
 }

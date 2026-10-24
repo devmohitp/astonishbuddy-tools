@@ -322,17 +322,17 @@ export default function JWTDecoder() {
 
                 {/* Signature Indicator */}
                 <div>
-                  <span className="label" style={{ display: "block", marginBottom: "8px", color: PART_COLORS[2].color }}>Signature Verified (locally decoded)</span>
+                  <span className="label" style={{ display: "block", marginBottom: "8px", color: "#f59e0b" }}>Signature not verified (decode only)</span>
                   <div style={{
                     padding: "12px 14px", background: "var(--bg-card)", borderRadius: "8px",
                     border: "1px solid var(--border)", fontSize: "13px", color: "var(--text-secondary)",
                     fontFamily: "monospace", display: "flex", alignItems: "center", gap: "8px"
                   }}>
-                    <Lucide.ShieldCheck size={16} style={{ color: "#34d399" }} />
+                    <Lucide.ShieldAlert size={16} style={{ color: "#f59e0b" }} />
                     <span>
                       {result.header.alg && typeof result.header.alg === "string" && ALG_INFO[result.header.alg]
-                        ? `Signature Algorithm: ${ALG_INFO[result.header.alg]}`
-                        : "Signature bytes verified locally."}
+                        ? `Algorithm (display only): ${ALG_INFO[result.header.alg]}`
+                        : "Signature not verified (decode only — secret key verification must be done on your backend)."}
                     </span>
                   </div>
                 </div>

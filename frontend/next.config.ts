@@ -101,6 +101,11 @@ const nextConfig: NextConfig = {
         destination: "/tools/base64-converter",
         permanent: true,
       },
+      {
+        source: "/tools/ai-image-extender",
+        destination: "/tools/image-background-extender",
+        permanent: true,
+      },
     ];
   },
 

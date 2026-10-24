@@ -183,20 +183,20 @@ function getEdgeColors(img: HTMLImageElement) {
 }
 
 const EXPANSION_MODES = [
-  { id: "generative_fill", name: "AI Generative Expand", desc: "Outpaint details matching border textures (Recommended)" },
+  { id: "edge_mirror", name: "Edge Mirror & Feather", desc: "Mirrors edge pixels outward with smooth boundary feathering (Recommended)" },
   { id: "blur_extend", name: "Blurred Depth Extend", desc: "Defocus extend using scaled photo details" },
   { id: "gradient", name: "Border Color Gradient", desc: "Fades into smooth, edge-matched color stops" },
   { id: "solid", name: "Solid Background", desc: "Fill margins with flat color or custom picker" },
   { id: "transparent", name: "Transparent Margins", desc: "Leave background margins transparent (PNG)" },
 ] as const;
 
-export default function AIImageExtender() {
+export default function ImageBackgroundExtender() {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [originalPreview, setOriginalPreview] = useState<string | null>(null);
   const [imgDimensions, setImgDimensions] = useState({ width: 0, height: 0 });
   const [selectedRatio, setSelectedRatio] = useState<AspectRatio>(ASPECT_RATIOS[0]);
   const [settings, setSettings] = useState<ExtenderSettings>(DEFAULT_SETTINGS);
-  const [expandMode, setExpandMode] = useState<"generative_fill" | "blur_extend" | "gradient" | "solid" | "transparent">("generative_fill");
+  const [expandMode, setExpandMode] = useState<"edge_mirror" | "blur_extend" | "gradient" | "solid" | "transparent">("edge_mirror");
   const [isModeDropdownOpen, setIsModeDropdownOpen] = useState(false);
   const [isRefineDropdownOpen, setIsRefineDropdownOpen] = useState(true);
 
@@ -262,7 +262,7 @@ export default function AIImageExtender() {
     return selectedRatio.value;
   }, [selectedRatio, settings.customWidth, settings.customHeight]);
 
-  // Outpainting processor
+  // Background extender processor
   const handleGenerate = async () => {
     if (!originalPreview || !imageElementRef.current) return;
     setLoading(true);
@@ -285,7 +285,7 @@ export default function AIImageExtender() {
 
       await new Promise((r) => setTimeout(r, 700));
       setProgress(50);
-      setStatusMsg("Synthesizing background outpaint texture...");
+      setStatusMsg("Mirroring edge pixels and expanding margins...");
 
       await new Promise((r) => setTimeout(r, 800));
       setProgress(75);
@@ -293,7 +293,7 @@ export default function AIImageExtender() {
 
       await new Promise((r) => setTimeout(r, 600));
       setProgress(90);
-      setStatusMsg("Injecting photographic noise overlay...");
+      setStatusMsg("Applying subtle grain and border blending...");
 
       // Canvas Operations
       const origW = img.naturalWidth;
@@ -363,7 +363,7 @@ export default function AIImageExtender() {
         grad.addColorStop(1, colors.bottomRight);
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, canvasW, canvasH);
-      } else if (expandMode === "blur_extend" || expandMode === "generative_fill") {
+      } else if (expandMode === "blur_extend" || expandMode === "edge_mirror") {
         // Base fill with full-scale stretched blurred image
         const bgCanvas = document.createElement("canvas");
         bgCanvas.width = canvasW;
@@ -384,7 +384,7 @@ export default function AIImageExtender() {
         }
 
         // Generative Fill mode adds smart edge-synthesised texture strips
-        if (expandMode === "generative_fill") {
+        if (expandMode === "edge_mirror") {
           const genCanvas = document.createElement("canvas");
           genCanvas.width = canvasW;
           genCanvas.height = canvasH;
@@ -598,7 +598,7 @@ export default function AIImageExtender() {
       canvas.toBlob(
         (blob) => {
           if (!blob) {
-            setError("Failed to export generated image.");
+            setError("Failed to export extended image.");
             setLoading(false);
             return;
           }
@@ -618,7 +618,7 @@ export default function AIImageExtender() {
 
     } catch (err: unknown) {
       console.error(err);
-      setError(err instanceof Error ? err.message : "Background generation failed. Try a smaller image size.");
+      setError(err instanceof Error ? err.message : "Background extension failed. Try a smaller image size.");
       setLoading(false);
     }
   };
@@ -702,7 +702,7 @@ export default function AIImageExtender() {
     setResult(null);
     setSettings(DEFAULT_SETTINGS);
     setSelectedRatio(ASPECT_RATIOS[0]);
-    setExpandMode("generative_fill");
+    setExpandMode("edge_mirror");
     setError("");
   };
 
@@ -715,7 +715,7 @@ export default function AIImageExtender() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            "name": "AI Image Extender",
+            "name": "Image Background Extender",
             "operatingSystem": "All",
             "applicationCategory": "MultimediaApplication",
             "offers": {
@@ -723,12 +723,12 @@ export default function AIImageExtender() {
               "price": "0",
               "priceCurrency": "USD",
             },
-            "description": "Free web-based AI Image Extender. Outpaint, uncrop, and extend photo backgrounds to any aspect ratio (16:9, 4:5, 1:1) instantly in your browser with 100% privacy.",
+            "description": "Free web-based Image Background Extender. Outpaint, uncrop, and extend photo backgrounds to any aspect ratio (16:9, 4:5, 1:1) instantly in your browser with 100% privacy.",
             "featureList": [
-              "Extend borders and outpaint background seamlessly",
+              "Extend borders and canvas margins seamlessly",
               "Aspect ratios (16:9, 4:5, 1:1, Custom)",
               "Zero uploads (100% private client-side Canvas processing)",
-              "Smart edge mirroring, feathering, depth blur, and photo grain synthesis",
+              "Edge mirroring, feathering, depth blur, and grain blending",
               "Reposition & scale images inside custom aspect bounds",
             ],
           }),
@@ -766,10 +766,10 @@ export default function AIImageExtender() {
                   margin: 0,
                 }}
               >
-                AI Image Extender
+                Image Background Extender
               </h1>
               <p style={{ fontSize: "14px", color: "var(--text-secondary)", marginTop: "4px" }}>
-                Uncrop and extend photo backgrounds to any aspect ratio instantly.
+                Extend photo backgrounds to any aspect ratio using edge mirroring, blur, or gradients.
               </p>
             </div>
           </div>
@@ -936,7 +936,7 @@ export default function AIImageExtender() {
                       pointerEvents: "none",
                     }}
                   >
-                    {/* The Outpaint Box representing Target Aspect Ratio bounds */}
+                    {/* The Extension Box representing Target Aspect Ratio bounds */}
                     <div
                       style={{
                         position: "relative",
@@ -953,8 +953,8 @@ export default function AIImageExtender() {
                         justifyContent: "center",
                       }}
                     >
-                      {/* Generative Extend simulated background rendering */}
-                      {(expandMode === "generative_fill" || expandMode === "blur_extend") && (
+                      {/* Edge Mirror simulated background rendering */}
+                      {(expandMode === "edge_mirror" || expandMode === "blur_extend") && (
                         <div
                           style={{
                             position: "absolute",
@@ -1152,7 +1152,7 @@ export default function AIImageExtender() {
                     >
                       <Lucide.CheckCircle2 style={{ width: "14px", height: "14px", color: "#10b981" }} />
                     </div>
-                    <h3 style={{ fontSize: "16px", fontWeight: 700 }}>AI Extension Successful</h3>
+                    <h3 style={{ fontSize: "16px", fontWeight: 700 }}>Background Extension Complete</h3>
                   </div>
                   <span
                     style={{
@@ -1586,8 +1586,8 @@ export default function AIImageExtender() {
                     />
                   </div>
 
-                  {/* Advanced Outpainting Settings */}
-                  {(expandMode === "generative_fill" || expandMode === "blur_extend") && (
+                  {/* Background Extension Settings */}
+                  {(expandMode === "edge_mirror" || expandMode === "blur_extend") && (
                     <>
                       <div style={{ height: "1px", background: "var(--border)", margin: "16px 0" }} />
 
@@ -1627,7 +1627,7 @@ export default function AIImageExtender() {
                         />
                       </div>
 
-                      {/* Grain Synthesis Slider */}
+                      {/* Film Grain Slider */}
                       <div style={{ marginBottom: "8px" }}>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
                           <span style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-secondary)" }}>Film Grain Noise Matching</span>
@@ -1665,20 +1665,21 @@ export default function AIImageExtender() {
                 }}
               >
                 <Lucide.Sparkles style={{ width: "20px", height: "20px", animation: "pulse 2s infinite" }} />
-                {loading ? "Generating Extension..." : "Generate AI Extension"}
+                {loading ? "Extending Background..." : "Extend Background"}
               </button>
             </div>
           )}
         </div>
 
         {/* SEO guide content blocks rendered at the bottom */}
-        <ToolSEO toolId="ai-image-extender" />
+        <ToolSEO toolId="image-background-extender" />
 
         {/* Related Tools Panel */}
         <RelatedTools tools={[
           { href: "/tools/image-compressor", label: "Image Compressor", icon: "🖼️", desc: "Reduce image file size without losing quality" },
           { href: "/tools/image-quality-enhancer", label: "Image Quality Enhancer", icon: "✨", desc: "Upscale & sharpen photos online" },
           { href: "/tools/bulk-image-converter", label: "Bulk Image Converter", icon: "🔄", desc: "Convert PNG, JPG, WebP in bulk" },
+          { href: "/tools/pdf-compressor", label: "PDF Compressor", icon: "📄", desc: "Compress and optimize PDF documents" },
         ]} />
       </div>
 

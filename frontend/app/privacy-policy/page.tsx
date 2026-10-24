@@ -147,7 +147,7 @@ export default function PrivacyPolicy() {
               <ul style={{ paddingLeft: "20px", marginTop: "10px", marginBottom: 0, fontSize: "14px" }}>
                 <li><strong>Image Compressor:</strong> Runs via browser Web Workers; images are compressed locally.</li>
                 <li><strong>PDF Compressor:</strong> Processes and re-encodes PDF streams locally using client-side PDF rendering.</li>
-                <li><strong>AI Image Extender:</strong> Performs canvas bounding, feathering, and blur passes directly in your browser.</li>
+                <li><strong>Image Background Extender:</strong> Performs canvas bounding, edge mirroring, feathering, and blur passes directly in your browser.</li>
                 <li><strong>Image Quality Enhancer:</strong> Applies sharpening algorithms and unsharp mask filters locally on HTML5 Canvas.</li>
                 <li><strong>Bulk Image Converter:</strong> Converts PNG, JPG, and WebP images client-side.</li>
                 <li><strong>Text & Developer Tools:</strong> Word Counter, Text Case Converter, Text Sorter, Diff Checker, Markdown Converter, JSON Formatter, SQL Formatter, JWT Decoder, Base64 Converter, URL Converter, UUID Generator, Password Generator, Random Number Generator, and Lorem Ipsum Generator all execute purely in browser runtime.</li>

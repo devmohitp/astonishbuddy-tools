@@ -174,9 +174,9 @@ const tools = [
     tagText: "#fbbf24",
   },
   {
-    id: "ai-image-extender",
-    name: "AI Image Extender",
-    description: "Extend photo backgrounds to any aspect ratio using smart client-side outpainting. Uncrop, scale, reposition, and blend backgrounds seamlessly with zero uploads.",
+    id: "image-background-extender",
+    name: "Image Background Extender",
+    description: "Extend photo backgrounds to any aspect ratio using edge mirroring, blur extension, and color gradients. Uncrop, scale, reposition, and blend backgrounds seamlessly in your browser.",
     icon: "🌌",
     color: "#a855f7",
     glow: "rgba(168, 85, 247, 0.4)",

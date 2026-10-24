@@ -21,6 +21,10 @@ const toolBlogMap: Record<string, { title: string; href: string }> = {
     title: "Image Quality Enhancer: Improve Photo Clarity Without Artifacts",
     href: "/blog/image-quality-enhancer",
   },
+  "image-background-extender": {
+    title: "WebP vs PNG vs JPG: Which Image Format Should You Use?",
+    href: "/blog/webp-vs-png-vs-jpg",
+  },
   "ai-image-extender": {
     title: "WebP vs PNG vs JPG: Which Image Format Should You Use?",
     href: "/blog/webp-vs-png-vs-jpg",

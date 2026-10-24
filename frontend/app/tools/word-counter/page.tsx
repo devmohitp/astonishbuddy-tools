@@ -13,9 +13,9 @@ function analyze(text: string) {
   const charsNoSpaces = text.replace(/\s/g, "").length;
   const sentences = text.trim() ? (text.match(/[.!?]+/g) || []).length || 1 : 0;
   const paragraphs = text.trim() ? text.split(/\n\s*\n/).filter((p) => p.trim()).length : 0;
-  const lines = text.split("\n").length;
-  const readingTime = Math.max(1, Math.ceil(words / 200));
-  const speakingTime = Math.max(1, Math.ceil(words / 130));
+  const lines = text.length > 0 ? text.split("\n").length : 0;
+  const readingTime = words > 0 ? Math.ceil(words / 200) : 0;
+  const speakingTime = words > 0 ? Math.ceil(words / 130) : 0;
 
   // Top 5 most frequent words
   const wordFreq: Record<string, number> = {};

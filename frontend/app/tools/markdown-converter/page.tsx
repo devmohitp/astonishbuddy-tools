@@ -8,6 +8,32 @@ const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
 const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 const CopyButton = dynamic(() => import("../../components/CopyButton"));
 
+
+function sanitizeHtml(rawHtml: string): string {
+  if (typeof window === "undefined") return rawHtml;
+  try {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(rawHtml, "text/html");
+    const blockedTags = ["script", "iframe", "object", "embed", "base", "link", "meta", "style", "form", "input", "button"];
+    blockedTags.forEach((tag) => {
+      doc.querySelectorAll(tag).forEach((el) => el.remove());
+    });
+    doc.querySelectorAll("*").forEach((el) => {
+      const attrs = Array.from(el.attributes);
+      for (const attr of attrs) {
+        const name = attr.name.toLowerCase();
+        const val = attr.value.trim().toLowerCase();
+        if (name.startsWith("on") || val.startsWith("javascript:") || val.startsWith("data:text/html")) {
+          el.removeAttribute(attr.name);
+        }
+      }
+    });
+    return doc.body.innerHTML;
+  } catch {
+    return rawHtml;
+  }
+}
+
 // ─── Markdown → HTML ──────────────────────────────────────────────────────────
 
 function mdToHtml(md: string): string {
@@ -515,7 +541,7 @@ export default function MarkdownConverter() {
                   spellCheck={false}
                 />
                 <div style={{ marginTop: "6px", fontSize: "12px", color: "var(--text-muted)" }}>
-                  {input.length} chars \u00B7{input.split("\n").length} lines
+                  {input.length} chars · {input.split("\n").length} lines
                 </div>
               </div>
 
@@ -533,7 +559,7 @@ export default function MarkdownConverter() {
                 </div>
                 {output && (
                   <div style={{ marginTop: "6px", fontSize: "12px", color: "var(--text-muted)" }}>
-                    {output.length} chars \u00B7{output.split("\n").length} lines
+                    {output.length} chars · {output.split("\n").length} lines
                   </div>
                 )}
               </div>
@@ -559,7 +585,7 @@ export default function MarkdownConverter() {
                     minHeight: "200px",
                     overflowX: "auto",
                   }}
-                  dangerouslySetInnerHTML={{ __html: output }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(output) }}
                 />
               </div>
             )}

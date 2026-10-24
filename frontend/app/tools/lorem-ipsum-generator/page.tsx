@@ -8,7 +8,7 @@ import dynamic from "next/dynamic";
 const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
 const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 
-const LOREM_IPSUMS = [
+const LOREM_PARAGRAPHS = [
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi.",
   "Donec faucibus. Pellentesque amet, interdum dui. Morbi commodo, ipsum ac mattis mattis, urna sem pellentesque magna, euismod pulvinar risus wisi et quam. Phasellus purus. Nulla accumsan, elit sit amet varius semper, nulla mauris mollis quam, tempor suscipit diam nulla vel leo. Etiam commodo dui eget wisi. Aliquam id dolor. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante.",
@@ -16,16 +16,74 @@ const LOREM_IPSUMS = [
   "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy. Mauris aliquet nisl in urna. Nulla ut lacus at arcu posuere volutpat. Sed iaculis est vel dui. Morbi convallis, quam at fermentum congue, sem lorem interdum massa, eu cursus elit leo in sapien. Donec aliquet, nisl vitae dapibus consectetuer, magna erat commodo est, accumsan interdum pede odio non mauris.",
 ];
 
+const LOREM_WORDS = [
+  "lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit",
+  "sed", "do", "eiusmod", "tempor", "incididunt", "ut", "labore", "et", "dolore",
+  "magna", "aliqua", "ut", "enim", "ad", "minim", "veniam", "quis", "nostrud",
+  "exercitation", "ullamco", "laboris", "nisi", "ut", "aliquip", "ex", "ea",
+  "commodo", "consequat", "duis", "aute", "irure", "in", "reprehenderit", "in",
+  "voluptate", "velit", "esse", "cillum", "dolore", "eu", "fugiat", "nulla",
+  "pariatur", "excepteur", "sint", "occaecat", "cupidatat", "non", "proident",
+  "sunt", "in", "culpa", "qui", "officia", "deserunt", "mollit", "anim", "id",
+  "est", "laborum"
+];
+
+const LOREM_SENTENCES = [
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "Curabitur pretium tincidunt lacus, nulla gravida orci a odio.",
+  "Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.",
+  "Integer in mauris eu nibh euismod gravida duis ac tellus et risus vulputate vehicula.",
+  "Donec lobortis risus a elit etiam tempor ut ullamcorper ligula eu tempor congue.",
+  "Phasellus purus nulla accumsan elit sit amet varius semper nulla mauris mollis quam."
+];
+
 export default function LoremIpsumGenerator() {
-  const [paragraphs, setParagraphs] = useState(3);
-  const [output, setOutput] = useState("");
+  const [type, setType] = useState<"paragraphs" | "sentences" | "words">("paragraphs");
+  const [count, setCount] = useState<number>(3);
+  const [startWithLorem, setStartWithLorem] = useState<boolean>(true);
+  const [output, setOutput] = useState<string>("");
 
   const handleGenerate = () => {
-    let result = [];
-    for (let i = 0; i < paragraphs; i++) {
-      result.push(LOREM_IPSUMS[i % LOREM_IPSUMS.length]);
+    const qty = Math.max(1, Math.min(1000, count));
+
+    if (type === "paragraphs") {
+      const paras: string[] = [];
+      for (let i = 0; i < qty; i++) {
+        let p = LOREM_PARAGRAPHS[i % LOREM_PARAGRAPHS.length];
+        if (i === 0 && !startWithLorem) {
+          p = p.replace(/^Lorem ipsum dolor sit amet,\s*/i, "Consectetur ");
+        }
+        paras.push(p);
+      }
+      setOutput(paras.join("\n\n"));
+    } else if (type === "sentences") {
+      const sents: string[] = [];
+      for (let i = 0; i < qty; i++) {
+        let s = LOREM_SENTENCES[i % LOREM_SENTENCES.length];
+        if (i === 0 && !startWithLorem) {
+          s = s.replace(/^Lorem ipsum dolor sit amet,\s*/i, "Sed ");
+        }
+        sents.push(s);
+      }
+      setOutput(sents.join(" "));
+    } else {
+      // Words mode
+      const words: string[] = [];
+      for (let i = 0; i < qty; i++) {
+        words.push(LOREM_WORDS[i % LOREM_WORDS.length]);
+      }
+      if (startWithLorem && qty >= 2) {
+        words[0] = "lorem";
+        words[1] = "ipsum";
+      }
+      // Capitalize first letter
+      words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
+      setOutput(words.join(" "));
     }
-    setOutput(result.join("\n\n"));
   };
 
   return (
@@ -48,32 +106,79 @@ export default function LoremIpsumGenerator() {
                 Lorem Ipsum Generator - Generate Dummy Text Online Free
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
-                Generate dummy text for your designs and layouts
+                Generate placeholder text by words, sentences, or paragraphs for mockups and layouts
               </p>
             </div>
           </div>
         </div>
 
         <div className="tool-section" style={{ marginBottom: "24px" }}>
-          <div style={{ display: "flex", gap: "16px", alignItems: "flex-end", flexWrap: "wrap" }}>
-            <div style={{ flex: "1 1 auto", minWidth: "150px" }}>
-              <label className="label">Paragraphs</label>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "16px", alignItems: "flex-end" }}>
+            <div>
+              <label className="label">Type</label>
+              <div style={{ display: "flex", gap: "6px" }}>
+                {(["paragraphs", "sentences", "words"] as const).map((t) => (
+                  <button
+                    key={t}
+                    type="button"
+                    onClick={() => {
+                      setType(t);
+                      if (t === "words" && count < 10) setCount(25);
+                      if (t === "sentences" && count > 20) setCount(5);
+                      if (t === "paragraphs" && count > 20) setCount(3);
+                    }}
+                    style={{
+                      flex: 1,
+                      padding: "8px 10px",
+                      borderRadius: "8px",
+                      fontSize: "13px",
+                      fontWeight: 600,
+                      cursor: "pointer",
+                      textTransform: "capitalize",
+                      border: type === t ? "1px solid var(--accent-1)" : "1px solid var(--border)",
+                      background: type === t ? "rgba(108, 99, 255, 0.15)" : "var(--bg-secondary)",
+                      color: type === t ? "var(--text-primary)" : "var(--text-secondary)",
+                    }}
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="label">Quantity</label>
               <input
                 type="number"
                 min="1"
-                max="50"
-                value={paragraphs}
-                onChange={(e) => setParagraphs(Number(e.target.value) || 1)}
+                max={type === "words" ? 1000 : 50}
+                value={count}
+                onChange={(e) => setCount(Number(e.target.value) || 1)}
                 className="input-field"
               />
             </div>
-            <button
-              className="btn-primary"
-              style={{ flex: "1 1 auto", height: "45px", justifyContent: "center" }}
-              onClick={handleGenerate}
-            >
-              Generate Text
-            </button>
+
+            <div style={{ display: "flex", alignItems: "center", paddingBottom: "10px" }}>
+              <label style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer", color: "var(--text-primary)", fontSize: "14px", fontWeight: 500 }}>
+                <input
+                  type="checkbox"
+                  checked={startWithLorem}
+                  onChange={(e) => setStartWithLorem(e.target.checked)}
+                  style={{ accentColor: "var(--accent-1)" }}
+                />
+                Start with &quot;Lorem ipsum...&quot;
+              </label>
+            </div>
+
+            <div>
+              <button
+                className="btn-primary"
+                style={{ width: "100%", height: "45px", justifyContent: "center" }}
+                onClick={handleGenerate}
+              >
+                Generate Text
+              </button>
+            </div>
           </div>
         </div>
 
@@ -94,7 +199,7 @@ export default function LoremIpsumGenerator() {
         <ToolSEO toolId="lorem-ipsum-generator" />
         <RelatedTools tools={[
           { href: "/tools/word-counter", label: "Word Counter", icon: "📊", desc: "Count words, chars, reading time" },
-          { href: "/tools/text-sorter", label: "Text Sorter", icon: "\uD83D\uDCCB ", desc: "Sort and de-duplicate lines" },
+          { href: "/tools/text-sorter", label: "Text Sorter", icon: "📋", desc: "Sort and de-duplicate lines" },
           { href: "/tools/text-case-converter", label: "Text Case Converter", icon: "🔡", desc: "Convert to UPPER, lower, Title case" },
           { href: "/tools/password-generator", label: "Password Generator", icon: "🔐", desc: "Generate strong, secure passwords" },
         ]} />

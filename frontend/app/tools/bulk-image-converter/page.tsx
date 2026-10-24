@@ -690,11 +690,11 @@ export default function BulkImageConverter() {
             </p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "12px" }}>
               {[
-                { icon: "🖼️", title: "Convert Any Format", desc: "PNG, JPG, WebP, AVIF, BMP, GIF → any format" },
+                { icon: "🖼️", title: "Wide Input Support", desc: "Convert PNG, JPG, WebP, AVIF, BMP, GIF to JPG, PNG, or WebP" },
                 { icon: "📦", title: "Bulk ZIP Download", desc: "Convert dozens of files and get them in one ZIP" },
                 { icon: "📐", title: "Resize on Convert", desc: "Set max width/height while converting" },
                 { icon: "🔒", title: "100% Private", desc: "All processing happens in your browser. No uploads." },
-                { icon: "⚡", title: "Fast & Free", desc: "No signup, no watermark, no limits" },
+                { icon: "⚡", title: "Fast & Private", desc: "No signup or watermark; client-side browser processing" },
                 { icon: "🎨", title: "Quality Control", desc: "Adjust quality for JPG and WebP output" },
               ].map((f) => (
                 <div key={f.title} style={{

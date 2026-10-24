@@ -8,32 +8,85 @@ import dynamic from "next/dynamic";
 const RelatedTools = dynamic(() => import("../../components/RelatedTools"));
 const ToolSEO = dynamic(() => import("../../components/ToolSEO"));
 
+// Cryptographically secure integer generator using rejection sampling to eliminate modulo bias
+function secureRandomInt(min: number, max: number): number {
+  const range = max - min + 1;
+  if (range <= 1) return min;
+
+  // Max value divisible by range within 32-bit unsigned range (0 to 0xFFFFFFFF)
+  const maxSafe = Math.floor(0x100000000 / range) * range;
+  const buffer = new Uint32Array(1);
+
+  while (true) {
+    window.crypto.getRandomValues(buffer);
+    const val = buffer[0];
+    if (val < maxSafe) {
+      return min + (val % range);
+    }
+  }
+}
+
 export default function RandomNumberGenerator() {
   const [min, setMin] = useState(1);
   const [max, setMax] = useState(100);
   const [count, setCount] = useState(1);
   const [allowDuplicates, setAllowDuplicates] = useState(true);
   const [output, setOutput] = useState<number[]>([]);
+  const [error, setError] = useState<string>("");
 
   const handleGenerate = () => {
-    let result: number[] = [];
-    if (!allowDuplicates && count > (max - min + 1)) {
-      alert("Count cannot be greater than the range when duplicates are not allowed.");
+    setError("");
+
+    if (!Number.isSafeInteger(min) || !Number.isSafeInteger(max)) {
+      setError("Minimum and maximum must be safe integers (between -(2^53 - 1) and 2^53 - 1).");
       return;
     }
 
-    if (!allowDuplicates) {
-      let nums = new Set<number>();
-      while (nums.size < count) {
-        nums.add(Math.floor(Math.random() * (max - min + 1)) + min);
-      }
-      result = Array.from(nums);
-    } else {
-      for (let i = 0; i < count; i++) {
-        result.push(Math.floor(Math.random() * (max - min + 1)) + min);
-      }
+    if (min > max) {
+      setError("Minimum cannot be greater than maximum.");
+      return;
     }
-    setOutput(result);
+
+    const range = max - min + 1;
+    const qty = Math.max(1, Math.min(10000, count));
+
+    if (!allowDuplicates && qty > range) {
+      setError(`Cannot generate ${qty} unique numbers from a range of only ${range} values.`);
+      return;
+    }
+
+    try {
+      let result: number[] = [];
+
+      if (!allowDuplicates) {
+        if (range <= 20000 && qty > range / 2) {
+          // If selecting more than half of a reasonably sized range,
+          // create the pool and perform a cryptographically secure Fisher-Yates partial shuffle
+          const pool: number[] = [];
+          for (let i = min; i <= max; i++) pool.push(i);
+          for (let i = pool.length - 1; i > pool.length - 1 - qty; i--) {
+            const j = secureRandomInt(0, i);
+            [pool[i], pool[j]] = [pool[j], pool[i]];
+          }
+          result = pool.slice(pool.length - qty);
+        } else {
+          // Rejection-sampled Set for sparse selection
+          const set = new Set<number>();
+          while (set.size < qty) {
+            set.add(secureRandomInt(min, max));
+          }
+          result = Array.from(set);
+        }
+      } else {
+        for (let i = 0; i < qty; i++) {
+          result.push(secureRandomInt(min, max));
+        }
+      }
+
+      setOutput(result);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Random number generation failed.");
+    }
   };
 
   return (
@@ -50,13 +103,13 @@ export default function RandomNumberGenerator() {
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: "28px",
                 boxShadow: "0 8px 20px rgba(20, 184, 166, 0.2)",
               }}
-            ><Lucide.Dices size={24} style={{ color: "#14b8a6" }} /></div>
+            ><Lucide.Dices size={24} style={{ color: "white" }} /></div>
             <div>
               <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
                 Random Number Generator - Generate Numbers Online Free
               </h1>
               <p style={{ color: "var(--text-secondary)", fontSize: "14px" }}>
-                Generate random numbers with customizable ranges and quantities
+                Generate cryptographically secure random integers using crypto.getRandomValues with rejection sampling
               </p>
             </div>
           </div>
@@ -65,7 +118,7 @@ export default function RandomNumberGenerator() {
         <div className="tool-section" style={{ marginBottom: "24px" }}>
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", // Better for mobile
+            gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
             gap: "16px",
             marginBottom: "20px"
           }}>
@@ -104,12 +157,26 @@ export default function RandomNumberGenerator() {
                   type="checkbox"
                   checked={allowDuplicates}
                   onChange={(e) => setAllowDuplicates(e.target.checked)}
-                  className="checkbox-custom"
+                  style={{ accentColor: "#14b8a6" }}
                 />
                 Allow Duplicates
               </label>
             </div>
           </div>
+
+          {error && (
+            <div style={{
+              padding: "12px 16px",
+              marginBottom: "16px",
+              borderRadius: "10px",
+              background: "rgba(239, 68, 68, 0.1)",
+              border: "1px solid rgba(239, 68, 68, 0.25)",
+              color: "#f87171",
+              fontSize: "14px"
+            }}>
+              ⚠️ {error}
+            </div>
+          )}
 
           <button className="btn-primary" style={{ width: "100%", justifyContent: "center" }} onClick={handleGenerate}>
             🎯 Generate Numbers
@@ -119,7 +186,9 @@ export default function RandomNumberGenerator() {
         {output.length > 0 && (
           <div className="tool-section animate-fade-in" style={{ padding: "20px", background: "var(--bg-card)", borderRadius: "16px", border: "1px solid var(--border)" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-              <span className="label" style={{ margin: 0, fontWeight: 600, color: "var(--text-primary)" }}>Result</span>
+              <span className="label" style={{ margin: 0, fontWeight: 600, color: "var(--text-primary)" }}>
+                Result ({output.length} {output.length === 1 ? "number" : "numbers"})
+              </span>
               <CopyButton
                 textToCopy={output.join(", ")}
                 style={{ padding: "6px 12px", fontSize: "12px" }}
