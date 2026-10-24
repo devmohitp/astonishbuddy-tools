@@ -249,7 +249,7 @@ module.exports = {
     <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>One-Click Quick Presets:</strong> Instantly switch between common conversions including &quot;PNG → JPG&quot;, &quot;JPG → WebP&quot;, &quot;Any → PNG&quot;, and &quot;Any → WebP&quot;.</li>
     <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Batch Dimension Resizing:</strong> Enable max width and max height constraints with aspect ratio locking to resize graphics while converting.</li>
     <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Compression Quality Tuning:</strong> Adjust export quality from 10% to 100% for JPG and WebP formats to control output file sizes.</li>
-    <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Single ZIP Archive Download:</strong> Package your entire converted batch into a convenient `.zip` file using client-side JSZip.</li>
+    <li style={{ marginBottom: "8px" }}><strong style={{ color: "var(--text-primary)" }}>Single ZIP Archive Download:</strong> Package your entire converted batch into a convenient \`.zip\` file using client-side JSZip.</li>
   </ul>
 
   <h3 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-primary)", margin: "24px 0 12px" }}>
@@ -270,7 +270,7 @@ module.exports = {
   <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 1: Batch PNG to WebP Conversion for E-Commerce</strong></p>
   <p style={{ marginBottom: "8px" }}><em>Input:</em> 10 PNG product graphics totaling 18.2 MB (average 1.82 MB per image).</p>
   <p style={{ marginBottom: "8px" }}><em>Action:</em> Selected &quot;Any → WebP&quot; preset at 85% quality with resize disabled.</p>
-  <p style={{ marginBottom: "16px" }}><em>Output:</em> All 10 images converted to `.webp` files in 2.4 seconds locally. Total batch size dropped to 3.1 MB (~83% savings), preserving transparent product margins and packaged into a single ZIP archive.</p>
+  <p style={{ marginBottom: "16px" }}><em>Output:</em> All 10 images converted to \`.webp\` files in 2.4 seconds locally. Total batch size dropped to 3.1 MB (~83% savings), preserving transparent product margins and packaged into a single ZIP archive.</p>
 
   <p style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Example 2: Resizing and Converting High-Res Camera JPEGs to PNG</strong></p>
   <p style={{ marginBottom: "8px" }}><em>Input:</em> 6 camera photos (5000×3333 px JPEGs, totaling 28 MB).</p>
@@ -290,7 +290,7 @@ module.exports = {
     Client-Side Privacy Guarantee
   </h3>
   <p style={{ marginBottom: "16px" }}>
-    All conversions are executed 100% locally on your computer or mobile device using HTML5 Canvas and browser `toBlob` APIs. Your media assets are never uploaded to our servers, logged in databases, or shared with third parties.
+    All conversions are executed 100% locally on your computer or mobile device using HTML5 Canvas and browser \`toBlob\` APIs. Your media assets are never uploaded to our servers, logged in databases, or shared with third parties.
   </p>
 </div>
 `,
